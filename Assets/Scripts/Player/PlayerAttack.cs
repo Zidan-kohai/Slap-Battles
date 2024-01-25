@@ -13,8 +13,13 @@ public class PlayerAttack : MonoBehaviour
     [Header("Slap")]
     [SerializeField] private Transform slapHandlerTransform;
 
-    [Header("Animation")]
-    [SerializeField] private Animator animator;
+    [Header("Attack")]
+    [SerializeField] private LayerMask enemyLayer;
+    [SerializeField] private int attackDistanese;
+
+
+    [Header("Components")]
+    [SerializeField] private EventManager eventManager;
     private void Start()
     {
         slap = GetComponentInChildren<Slap>();
@@ -24,7 +29,13 @@ public class PlayerAttack : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0) && canAttack)
         {
-            animator.SetTrigger(ISATTACK);
+
+            if(Physics.Raycast(slapHandlerTransform.position, transform.forward, attackDistanese, enemyLayer))
+            {
+                Debug.Log(true);
+                Geekplay.Instance.PlayerData.money++;
+                eventManager.InvokeActionsOnChangeMoney(Geekplay.Instance.PlayerData.money);
+            }
             StartCoroutine(Attack());
         }
 
@@ -49,5 +60,11 @@ public class PlayerAttack : MonoBehaviour
         Instantiate(slap.gameObject, slapHandlerTransform);
 
         slap = newSlap;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawRay(slapHandlerTransform.position, transform.forward * attackDistanese);
     }
 }
