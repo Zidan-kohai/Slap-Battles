@@ -33,7 +33,7 @@ public class Spawner : MonoBehaviour
     {
         foreach (var enemy in enemies)
         {
-            Instantiate(enemy, EnemySpawnPoints[UnityEngine.Random.Range(0, PlayerSpawnPoints.Count)].position, Quaternion.identity);
+            Instantiate(enemy, EnemySpawnPoints[UnityEngine.Random.Range(0, EnemySpawnPoints.Count)].position, Quaternion.identity);
         }
     }
 
