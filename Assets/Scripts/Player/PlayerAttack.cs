@@ -1,11 +1,11 @@
 using System.Collections;
 using UnityEngine;
 
-public class PlayerAttack : MonoBehaviour
+public class PlayerAttack : Player
 {
     private const string ISATTACK = "IsAttack";
 
-    private Slap slap;
+    [SerializeField] private Slap slap;
 
     [SerializeField] private float timeToNextAttack;
     [SerializeField] private bool canAttack = true;
@@ -17,13 +17,19 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private int attackDistanese;
 
-
     [Header("Components")]
-    [SerializeField] private EventManager eventManager;
+    [SerializeField] protected EventManager eventManager;
+
+    private void OnEnable()
+    {
+        slap.gameObject.SetActive(true);
+    }
+
     private void Start()
     {
         slap = GetComponentInChildren<Slap>();
     }
+
 
     private void Update()
     {
@@ -44,6 +50,13 @@ public class PlayerAttack : MonoBehaviour
             slap.SuperAttack();
         }
     }
+
+    public void ChangeEventManager(EventManager eventManager)
+    {
+        this.eventManager = eventManager;
+        Debug.Log(eventManager);
+    }
+
 
     public IEnumerator Attack()
     {
@@ -66,5 +79,10 @@ public class PlayerAttack : MonoBehaviour
     {
         Gizmos.color = Color.green;
         Gizmos.DrawRay(slapHandlerTransform.position, transform.forward * attackDistanese);
+    }
+
+    private void OnDisable()
+    {
+        slap.gameObject.SetActive(false);
     }
 }

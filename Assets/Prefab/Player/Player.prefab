@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 1946795582873769700}
   - component: {fileID: 4453869347711854285}
   m_Layer: 0
-  m_Name: PlayrVIew
+  m_Name: PlayrView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -172,7 +172,7 @@ Animator:
   m_GameObject: {fileID: 1800080493748621392}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 2f9f14d13441ddd479fee199ccc88af3, type: 3}
-  m_Controller: {fileID: 9100000, guid: 568cf4cd0dc9cb848821933ae06d9566, type: 2}
+  m_Controller: {fileID: 9100000, guid: 34a6350b3d1799944ab7f57e7ba6f10b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -545,7 +545,7 @@ Transform:
   m_GameObject: {fileID: 2478140569369634767}
   serializedVersion: 2
   m_LocalRotation: {x: 0.39672747, y: -0.33906105, z: 0.46250218, w: 0.7167543}
-  m_LocalPosition: {x: -0.000007824972, y: 0.6057809, z: 0.0000016614795}
+  m_LocalPosition: {x: -0.028, y: 0.596, z: 0.115}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2077,6 +2077,8 @@ GameObject:
   - component: {fileID: 555158655974537279}
   - component: {fileID: 1114586146154094763}
   - component: {fileID: 8397394556129156853}
+  - component: {fileID: 3000336186378430045}
+  - component: {fileID: 6024721847429933305}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2255,6 +2257,40 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3efdd4c11a4bdc54a9087ab115c1de9e, type: 3}
   jumpClip: {fileID: 8300000, guid: 99ab8a4503de1f448ad764a5c4cdf9cc, type: 3}
   landClip: {fileID: 8300000, guid: c212aa2d646dfe248b7c96b4f0e4cb27, type: 3}
+--- !u!114 &3000336186378430045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7849365028612606464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eea74ea42415604b973b74bb868f5cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventManager: {fileID: 0}
+--- !u!114 &6024721847429933305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7849365028612606464}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9150abaf671fff44ba354ddf01ef928a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventManager: {fileID: 0}
+  slap: {fileID: 7586174132792455879}
+  timeToNextAttack: 2
+  canAttack: 1
+  slapHandlerTransform: {fileID: 2426521895534146483}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  attackDistanese: 2
 --- !u!1 &8033777700514058332
 GameObject:
   m_ObjectHideFlags: 0
@@ -2459,6 +2495,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slap
       objectReference: {fileID: 0}
+    - target: {fileID: 795360867373986701, guid: 989c8af93a8d07845a2fb38c311d75c7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5707404436804594900, guid: 989c8af93a8d07845a2fb38c311d75c7, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -2529,3 +2569,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8795841792720644799, guid: 989c8af93a8d07845a2fb38c311d75c7, type: 3}
   m_PrefabInstance: {fileID: 2721548948062557647}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7586174132792455879 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5513359733282744072, guid: 989c8af93a8d07845a2fb38c311d75c7, type: 3}
+  m_PrefabInstance: {fileID: 2721548948062557647}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 701db3a20859cb74ca800516380a6491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.AI;
 
-[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(NavMeshAgent))]
 public class Enemy : MonoBehaviour
 {
-    private CharacterController characterController;
+    private NavMeshAgent navMeshAgent;
     [SerializeField] private float speed;
     [SerializeField] private int attackPower;
 
@@ -12,7 +13,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        characterController = GetComponent<CharacterController>();
+        navMeshAgent = GetComponent<NavMeshAgent>();
         GetRandomTarget();
     }
 
@@ -25,13 +26,13 @@ public class Enemy : MonoBehaviour
 
         Vector3 direction = (target - transform.position).normalized;
         Move(direction);
-        transform.forward = new Vector3(direction.x, 0f, direction.z);
+        //transform.forward = new Vector3(direction.x, 0f, direction.z);
     }
 
 
     private void Move(Vector3 direction)
     {
-        characterController.Move(direction * speed * Time.deltaTime);
+        navMeshAgent.Move(direction * speed * Time.deltaTime);
     }
 
     private void GetRandomTarget()

@@ -1,13 +1,15 @@
 using UnityEngine;
 
-public class Portal : MonoBehaviour
+public partial class Portal : MonoBehaviour
 {
-    [SerializeField] public int sceneIndex;
-
+    public int SceneIndex;
+    public Modes Mode;
     private void OnTriggerEnter(Collider other)
     {
         SceneLoader sceneLoader = new SceneLoader();
 
-        sceneLoader.LoadSscene(sceneIndex, null);
+        sceneLoader.LoadSscene(SceneIndex, null);
     }
+
+
 }
