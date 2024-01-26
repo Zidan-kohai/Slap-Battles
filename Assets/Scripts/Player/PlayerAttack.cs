@@ -35,12 +35,15 @@ public class PlayerAttack : Player
     {
         if(Input.GetMouseButtonDown(0) && canAttack)
         {
-
-            if(Physics.Raycast(slapHandlerTransform.position, transform.forward, attackDistanese, enemyLayer))
+            RaycastHit hit;
+            Ray ray = new Ray(slapHandlerTransform.position, transform.forward);
+            if (Physics.Raycast(ray, out hit, attackDistanese, enemyLayer))
             {
                 Debug.Log(true);
                 Geekplay.Instance.PlayerData.money++;
                 eventManager.InvokeActionsOnChangeMoney(Geekplay.Instance.PlayerData.money);
+
+                hit.collider.gameObject.GetComponent<Enemy>().GetDamage(slap.AttackPower, ray.direction);
             }
             StartCoroutine(Attack());
         }

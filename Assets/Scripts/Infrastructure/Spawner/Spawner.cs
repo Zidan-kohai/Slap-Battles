@@ -41,7 +41,7 @@ public class Spawner : MonoBehaviour
     {
         foreach (var portalOptions in portalsOption)
         {
-            Portal portal = Instantiate(portalOptions.Portal, portalOptions.SpawnPosition.position, Quaternion.identity);
+            Portal portal = Instantiate(portalOptions.Portal, portalOptions.SpawnPosition.position, portalOptions.SpawnPosition.localRotation);
             portal.SceneIndex = portalOptions.SceneIndex;
         }
     }

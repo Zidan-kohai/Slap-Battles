@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4170224277999247746}
   - component: {fileID: 7472594798408088754}
   - component: {fileID: 7527236183007704848}
-  - component: {fileID: 1442452712076267271}
   m_Layer: 6
   m_Name: Capsule
   m_TagString: Untagged
@@ -85,29 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &1442452712076267271
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 758798549680809883}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2803175823117038184
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,6 +95,8 @@ GameObject:
   - component: {fileID: 5861266316685351335}
   - component: {fileID: 2790690277111267412}
   - component: {fileID: 1637332624956355817}
+  - component: {fileID: 5489976833279692965}
+  - component: {fileID: 1347846619119986224}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
@@ -155,8 +133,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46bae0f03b9414f4caf6aae0dc41a228, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  navMeshAgent: {fileID: 0}
+  rb: {fileID: 0}
+  healthbar: {fileID: 9210760160733686325}
   speed: 2
   attackPower: 0
+  maxHealth: 100
+  health: 100
   enemy: {fileID: 0}
   target: {x: 0, y: 0, z: 0}
 --- !u!195 &1637332624956355817
@@ -181,6 +164,56 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!54 &5489976833279692965
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2803175823117038184}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &1347846619119986224
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2803175823117038184}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4386272446430222256
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,7 +434,7 @@ GameObject:
   - component: {fileID: 9210760160733686325}
   - component: {fileID: 8255616388852125079}
   m_Layer: 5
-  m_Name: Image
+  m_Name: HealtBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
