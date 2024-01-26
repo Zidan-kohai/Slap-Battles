@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 1637332624956355817}
   - component: {fileID: 5489976833279692965}
   - component: {fileID: 1347846619119986224}
+  - component: {fileID: 2944762864646253055}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Untagged
@@ -137,11 +138,18 @@ MonoBehaviour:
   rb: {fileID: 0}
   healthbar: {fileID: 9210760160733686325}
   speed: 2
-  attackPower: 0
+  damagePower: 10
   maxHealth: 100
   health: 100
+  distanseToAttack: 2
+  CanWalk: 0
+  timeNextToAttack: 2
+  canAttack: 1
   enemy: {fileID: 0}
   target: {x: 0, y: 0, z: 0}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!195 &1637332624956355817
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -156,7 +164,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 0.5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -213,6 +221,27 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &2944762864646253055
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2803175823117038184}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5, y: 1, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2821532685128815787
 GameObject:

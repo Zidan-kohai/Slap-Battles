@@ -65,7 +65,7 @@ public class PlayerAttack : Player
     public IEnumerator Attack()
     {
         canAttack = false;
-        slap.Attack();
+        //slap.Attack();
         yield return new WaitForSeconds(timeToNextAttack);
         canAttack = true;
     }
