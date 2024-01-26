@@ -134,9 +134,9 @@ public class Enemy : IHealthObject
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer == 6)
+        if (other.gameObject.TryGetComponent<IHealthObject>(out IHealthObject healthObject))
         {
-            enemy = other.gameObject.GetComponent<IHealthObject>();
+            enemy = healthObject;
         }
     }
 }
