@@ -98,7 +98,7 @@ public class Enemy : IHealthObject
 
         if (health <= 0)
         {
-            Destroy(gameObject);
+            Death();
         }
         else
         {
@@ -125,6 +125,11 @@ public class Enemy : IHealthObject
         CanWalk = true;
 
         OnEndAnimations();
+    }
+
+    public override void Death()
+    {
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter(Collider other)

@@ -1,4 +1,5 @@
 using CMF;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,14 +28,19 @@ public class Player : IHealthObject
 
         if (health <= 0)
         {
-            Destroy(gameObject);
+            Death();
         }
         else
         {
             StartCoroutine(GetDamageAnimation(direction, damagePower));
         }
     }
+    public override void Death()
+    {
+        SceneLoader sceneLoader = new SceneLoader();
 
+        sceneLoader.LoadSscene(0, null);
+    }
     public IEnumerator GetDamageAnimation(Vector3 direction, float damagePower)
     {
         walkController.enabled = false;
