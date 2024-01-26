@@ -7,7 +7,6 @@ public class Player : IHealthObject
 {
     [Header("Components")]
     [SerializeField] private AdvancedWalkerController walkController;
-    [SerializeField] private Mover playerMover;
     [SerializeField] private Image healthbar;
     [SerializeField] private Rigidbody rb;
 
@@ -18,7 +17,6 @@ public class Player : IHealthObject
     {
         rb = GetComponent<Rigidbody>();
         walkController = GetComponent<AdvancedWalkerController>();
-        playerMover = GetComponent<Mover>();
     }
 
     public override void GetDamage(float damagePower, Vector3 direction)
@@ -39,17 +37,13 @@ public class Player : IHealthObject
 
     public IEnumerator GetDamageAnimation(Vector3 direction, float damagePower)
     {
-        //rb.isKinematic = false;
         walkController.enabled = false;
-        //playerMover.enabled = false;
-        direction.y = 0.8f;
-        rb.AddForce(direction * damagePower * 25);
+        direction.y = 0.2f;
+        rb.AddForce(direction * damagePower * 70);
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0.5f);
 
-        //rb.isKinematic = true;
         walkController.enabled = true;
-        //playerMover.enabled = true;
 
         OnEndAnimations();
     }
