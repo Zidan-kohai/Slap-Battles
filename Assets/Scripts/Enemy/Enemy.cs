@@ -1,5 +1,6 @@
 using JetBrains.Annotations;
 using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -27,8 +28,6 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.isKinematic = true;
 
-
-
         GetRandomTarget();
     }
 
@@ -38,16 +37,12 @@ public class Enemy : MonoBehaviour
         {
             GetRandomTarget();
         }
-
-        Vector3 direction = (target - transform.position).normalized;
-        Move(direction);
-        //transform.forward = new Vector3(direction.x, 0f, direction.z);
     }
 
 
-    private void Move(Vector3 direction)
+    private void Move(Vector3 targetPosition)
     {
-        navMeshAgent.Move(direction * speed * Time.deltaTime);
+        navMeshAgent.SetDestination(targetPosition);
     }
 
     private void GetRandomTarget()
@@ -55,6 +50,8 @@ public class Enemy : MonoBehaviour
         target = new Vector3(Random.Range(transform.position.x - 10, transform.position.x + 10),
             transform.position.y,
             Random.Range(transform.position.x - 10, transform.position.x + 10));
+
+        Move(target);
     }
 
     public void GetDamage(int damagePower, Vector3 direction)
@@ -62,26 +59,36 @@ public class Enemy : MonoBehaviour
         health -= damagePower;
         healthbar.fillAmount = (health / maxHealth);
 
+        if(navMeshAgent.hasPath)
+            navMeshAgent.ResetPath();
+
         if (health <= 0)
         {
             Destroy(gameObject);
         }
         else
         {
-            GetDamageAnimation(direction);
+            StartCoroutine(GetDamageAnimation(direction, damagePower));
         }
     }
 
-    
-    public IEnumerator GetDamageAnimation(Vector3 direction)
+    private void OnEndAnimations()
     {
-        rb.isKinematic = false;
+        GetRandomTarget();
+    }
+    
+    public IEnumerator GetDamageAnimation(Vector3 direction, int damagePower)
+    {
         navMeshAgent.enabled = false;
-        rb.AddForce(direction * 10);
+        rb.isKinematic = false;
+        direction.y = 0.8f;
+        rb.AddForce(direction * damagePower * 25);
 
         yield return new WaitForSeconds(2);
 
         rb.isKinematic = true;
         navMeshAgent.enabled = true;
+
+        OnEndAnimations();
     }
 }

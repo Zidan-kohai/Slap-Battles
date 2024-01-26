@@ -12,7 +12,8 @@ public class PlayerAttack : Player
 
     [Header("Slap")]
     [SerializeField] private Transform slapHandlerTransform;
-
+    [SerializeField] private Transform slapRaycaster;
+    
     [Header("Attack")]
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private int attackDistanese;
@@ -36,7 +37,7 @@ public class PlayerAttack : Player
         if(Input.GetMouseButtonDown(0) && canAttack)
         {
             RaycastHit hit;
-            Ray ray = new Ray(slapHandlerTransform.position, transform.forward);
+            Ray ray = new Ray(slapRaycaster.position, slapRaycaster.forward);
             if (Physics.Raycast(ray, out hit, attackDistanese, enemyLayer))
             {
                 Debug.Log(true);
@@ -81,7 +82,7 @@ public class PlayerAttack : Player
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawRay(slapHandlerTransform.position, transform.forward * attackDistanese);
+        Gizmos.DrawRay(slapRaycaster.position, slapRaycaster.forward * attackDistanese);
     }
 
     private void OnDisable()

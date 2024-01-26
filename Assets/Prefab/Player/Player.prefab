@@ -128,6 +128,37 @@ Transform:
   - {fileID: 4754471535064410719}
   m_Father: {fileID: 2161305568592734434}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1723441187902419944
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8289542683108442600}
+  m_Layer: 0
+  m_Name: SlapRaycast
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8289542683108442600
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1723441187902419944}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.07, z: 0.45}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6301958156794804284}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1800080493748621392
 GameObject:
   m_ObjectHideFlags: 0
@@ -1256,6 +1287,7 @@ Transform:
   m_Children:
   - {fileID: 6282160695855527632}
   - {fileID: 6580765181904177309}
+  - {fileID: 8289542683108442600}
   m_Father: {fileID: 7879961557622063905}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5308717926925028256
@@ -2285,6 +2317,7 @@ MonoBehaviour:
   timeToNextAttack: 0.3
   canAttack: 1
   slapHandlerTransform: {fileID: 2426521895534146483}
+  slapRaycaster: {fileID: 8289542683108442600}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
