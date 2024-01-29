@@ -63,70 +63,40 @@ public class SkineController : MonoBehaviour
             {
                 buyButton.onClick.AddListener(() =>
                 {
-                    switch (buyable.GetBodyType)
-                    {
-                        case BodyPart.Head:
-                            ChangeLastColor(headMaterial, buyable.GetColor);
-                            Geekplay.Instance.PlayerData.CurrentHeadColorIndex = buyable.indexOfColor;
-                            break;
-                        case BodyPart.Hear:
-                            ChangeLastColor(hearMaterial, buyable.GetColor);
-                            Geekplay.Instance.PlayerData.CurrentHearColorIndex = buyable.indexOfColor;
-                            break;
-                        case BodyPart.Body:
-                            ChangeLastColor(bodyMaterial, buyable.GetColor);
-                            Geekplay.Instance.PlayerData.CurrentBodyColorIndex = buyable.indexOfColor;
-                            break;
-                        case BodyPart.Arm:
-                            ChangeLastColor(armMaterial, buyable.GetColor);
-                            Geekplay.Instance.PlayerData.CurrentArmColorIndex = buyable.indexOfColor;
-                            break;
-                        case BodyPart.Leg:
-                            ChangeLastColor(legMaterial, buyable.GetColor);
-                            Geekplay.Instance.PlayerData.CurrentLegColorIndex = buyable.indexOfColor;
-                            break;
-                        case BodyPart.Foot:
-                            ChangeLastColor(footMaterial, buyable.GetColor);
-                            Geekplay.Instance.PlayerData.CurrentFootColorIndex = buyable.indexOfColor;
-                            break;
-                    }
+                    ChangeLastColor(headMaterial, buyable);
 
+                    buyText.text = "Надето";
                 });
 
-
                 bool isEquiped = false;
+
+                ChangeColorInShop(buyable);
 
                 switch (buyable.GetBodyType)
                 {
                     case BodyPart.Head:
                         if (Geekplay.Instance.PlayerData.CurrentHeadColorIndex == buyable.indexOfColor)
                             isEquiped = true;
-                        ChangeColorInShop(headMaterial, buyable.GetColor);
                         break;
                     case BodyPart.Hear:
                         if (Geekplay.Instance.PlayerData.CurrentHearColorIndex == buyable.indexOfColor)
                             isEquiped = true;
-                        ChangeColorInShop(hearMaterial, buyable.GetColor);
                         break;
                     case BodyPart.Body:
                         if (Geekplay.Instance.PlayerData.CurrentBodyColorIndex == buyable.indexOfColor)
                             isEquiped = true;
-                        ChangeColorInShop(bodyMaterial, buyable.GetColor);
                         break;
                     case BodyPart.Arm:
                         if (Geekplay.Instance.PlayerData.CurrentArmColorIndex == buyable.indexOfColor)
                             isEquiped = true;
-                        ChangeColorInShop(armMaterial, buyable.GetColor);
                         break;
                     case BodyPart.Leg:
                         if (Geekplay.Instance.PlayerData.CurrentLegColorIndex == buyable.indexOfColor)
                             isEquiped = true;
-                        ChangeColorInShop(legMaterial, buyable.GetColor);
                         break;
                     case BodyPart.Foot:
                         if (Geekplay.Instance.PlayerData.CurrentFootColorIndex == buyable.indexOfColor)
                             isEquiped = true;
-                        ChangeColorInShop(footMaterial, buyable.GetColor);
                         break;
                 }
 
@@ -145,85 +115,17 @@ public class SkineController : MonoBehaviour
                 {
                     buyButton.onClick.AddListener(() =>
                     {
-                        switch (buyable.GetBodyType)
-                        {
-                            case BodyPart.Head:
-                                BuyAndChangeLastColor(headMaterial, buyable); 
-                                Geekplay.Instance.PlayerData.CurrentHeadColorIndex = buyable.indexOfColor;
-                                break;
-                            case BodyPart.Hear:
-                                BuyAndChangeLastColor(hearMaterial, buyable);
-                                Geekplay.Instance.PlayerData.CurrentHearColorIndex = buyable.indexOfColor;
-                                break;
-                            case BodyPart.Body:
-                                BuyAndChangeLastColor(bodyMaterial, buyable);
-                                Geekplay.Instance.PlayerData.CurrentBodyColorIndex = buyable.indexOfColor;
-                                break;
-                            case BodyPart.Arm:
-                                BuyAndChangeLastColor(armMaterial, buyable);
-                                Geekplay.Instance.PlayerData.CurrentArmColorIndex = buyable.indexOfColor;
-                                break;
-                            case BodyPart.Leg:
-                                BuyAndChangeLastColor(legMaterial, buyable);
-                                Geekplay.Instance.PlayerData.CurrentLegColorIndex = buyable.indexOfColor;
-                                break;
-                            case BodyPart.Foot:
-                                BuyAndChangeLastColor(footMaterial, buyable);
-                                Geekplay.Instance.PlayerData.CurrentFootColorIndex = buyable.indexOfColor;
-                                break;
-                        }
-
-                        
+                        BuyAndChangeLastColor(headMaterial, buyable);
 
                         buyText.text = "Надето";
 
                     });
 
-                    switch (buyable.GetBodyType)
-                    {
-                        case BodyPart.Head:
-                            ChangeColorInShop(headMaterial, buyable.GetColor);
-                            break;
-                        case BodyPart.Hear:
-                            ChangeColorInShop(hearMaterial, buyable.GetColor);
-                            break;
-                        case BodyPart.Body:
-                            ChangeColorInShop(bodyMaterial, buyable.GetColor);
-                            break;
-                        case BodyPart.Arm:
-                            ChangeColorInShop(armMaterial, buyable.GetColor);
-                            break;
-                        case BodyPart.Leg:
-                            ChangeColorInShop(legMaterial, buyable.GetColor);
-                            break;
-                        case BodyPart.Foot:
-                            ChangeColorInShop(footMaterial, buyable.GetColor);
-                            break;
-                    }
+                    ChangeColorInShop(buyable);
                 }
                 else
                 {
-                    switch (buyable.GetBodyType)
-                    {
-                        case BodyPart.Head:
-                            ChangeColorInShop(headMaterial, buyable.GetColor);
-                            break;
-                        case BodyPart.Hear:
-                            ChangeColorInShop(hearMaterial, buyable.GetColor);
-                            break;
-                        case BodyPart.Body:
-                            ChangeColorInShop(bodyMaterial, buyable.GetColor);
-                            break;
-                        case BodyPart.Arm:
-                            ChangeColorInShop(armMaterial, buyable.GetColor);
-                            break;
-                        case BodyPart.Leg:
-                            ChangeColorInShop(legMaterial, buyable.GetColor);
-                            break;
-                        case BodyPart.Foot:
-                            ChangeColorInShop(footMaterial, buyable.GetColor);
-                            break;
-                    }
+                    ChangeColorInShop(buyable);
 
                     buyButton.onClick.AddListener(() =>
                     {
@@ -236,21 +138,91 @@ public class SkineController : MonoBehaviour
         });
     }
 
-    private void ChangeColorInShop(Material material, Color color)
+    private void ChangeColorInShop(BuyableColor buyable)
     {
-        material.color = color;
+        switch (buyable.GetBodyType)
+        {
+            case BodyPart.Head:
+                headMaterial.color = buyable.GetColor;
+                break;
+            case BodyPart.Hear:
+                hearMaterial.color = buyable.GetColor;
+                break;
+            case BodyPart.Body:
+                bodyMaterial.color = buyable.GetColor;
+                break;
+            case BodyPart.Arm:
+                armMaterial.color = buyable.GetColor;
+                break;
+            case BodyPart.Leg:
+                legMaterial.color = buyable.GetColor;
+                break;
+            case BodyPart.Foot:
+                footMaterial.color = buyable.GetColor;
+                break;
+        }
     }
 
-    private void ChangeLastColor(Material material, Color color)
+    private void ChangeLastColor(Material material, BuyableColor buyable)
     {
-        material.color = color;
+        switch (buyable.GetBodyType)
+        {
+            case BodyPart.Head:
+                Geekplay.Instance.PlayerData.CurrentHeadColorIndex = buyable.indexOfColor;
+                break;
+            case BodyPart.Hear:
+                Geekplay.Instance.PlayerData.CurrentHearColorIndex = buyable.indexOfColor;
+                break;
+            case BodyPart.Body:
+                Geekplay.Instance.PlayerData.CurrentBodyColorIndex = buyable.indexOfColor;
+                break;
+            case BodyPart.Arm:
+                Geekplay.Instance.PlayerData.CurrentArmColorIndex = buyable.indexOfColor;
+                break;
+            case BodyPart.Leg:
+                Geekplay.Instance.PlayerData.CurrentLegColorIndex = buyable.indexOfColor;
+                break;
+            case BodyPart.Foot:
+                Geekplay.Instance.PlayerData.CurrentFootColorIndex = buyable.indexOfColor;
+                break;
+        }
+
+
+        material.color = buyable.GetColor;
     }
 
     private void BuyAndChangeLastColor(Material material, BuyableColor buyable)
     {
-        buyable.Buy(Geekplay.Instance.PlayerData.money);
+        switch (buyable.GetBodyType)
+        {
+            case BodyPart.Head:
+                Geekplay.Instance.PlayerData.CurrentHeadColorIndex = buyable.indexOfColor;
+                Geekplay.Instance.PlayerData.BuyedHeadColors.Add(buyable.indexOfColor);
+                break;
+            case BodyPart.Hear:
+                Geekplay.Instance.PlayerData.CurrentHearColorIndex = buyable.indexOfColor;
+                Geekplay.Instance.PlayerData.BuyedHearColors.Add(buyable.indexOfColor);
+                break;
+            case BodyPart.Body:
+                Geekplay.Instance.PlayerData.CurrentBodyColorIndex = buyable.indexOfColor;
+                Geekplay.Instance.PlayerData.BuyedBodyColors.Add(buyable.indexOfColor);
+                break;
+            case BodyPart.Arm:
+                Geekplay.Instance.PlayerData.CurrentArmColorIndex = buyable.indexOfColor;
+                Geekplay.Instance.PlayerData.BuyedArmColors.Add(buyable.indexOfColor);
+                break;
+            case BodyPart.Leg:
+                Geekplay.Instance.PlayerData.CurrentLegColorIndex = buyable.indexOfColor;
+                Geekplay.Instance.PlayerData.BuyedLegColors.Add(buyable.indexOfColor);
+                break;
+            case BodyPart.Foot:
+                Geekplay.Instance.PlayerData.CurrentFootColorIndex = buyable.indexOfColor;
+                Geekplay.Instance.PlayerData.BuyedFootColors.Add(buyable.indexOfColor);
+                break;
+        }
 
-        ChangeLastColor(material, buyable.GetColor);
+        buyable.Buy(Geekplay.Instance.PlayerData.money);
+        ChangeLastColor(material, buyable);
     }
 
     private void CheckIsBuyed()
