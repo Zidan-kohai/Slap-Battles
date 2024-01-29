@@ -1,11 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
-using System;
 using UnityEngine.Events;
-using TMPro;
-using UnityEngine.UI;
 using CrazyGames;
 using GamePix;
 
