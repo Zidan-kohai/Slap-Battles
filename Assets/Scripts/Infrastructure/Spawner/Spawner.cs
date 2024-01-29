@@ -21,7 +21,7 @@ public class Spawner : MonoBehaviour
 
         EnemySpawn();
 
-        PlayerSpawn();
+        //PlayerSpawn();
     }
 
     protected virtual void PlayerSpawn()

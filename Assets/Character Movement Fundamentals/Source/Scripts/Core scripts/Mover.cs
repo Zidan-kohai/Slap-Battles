@@ -313,7 +313,10 @@ namespace CMF
 		{
 			rig.velocity = _velocity + currentGroundAdjustmentVelocity;	
 		}	
-
+		public void ResetVelocity()
+		{
+            rig.velocity = Vector3.zero;
+        }
 		//Returns 'true' if mover is touching ground and the angle between hte 'up' vector and ground normal is not too steep (e.g., angle < slope_limit);
 		public bool IsGrounded()
 		{
