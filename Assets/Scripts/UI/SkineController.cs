@@ -56,6 +56,7 @@ public class SkineController : MonoBehaviour
     }
     private void AddEventForBuyableColor(BuyableColor buyable)
     {
+        Debug.Log(buyable.gameObject.name + " " + buyable.GetBodyType);
         buyable.SubscribeOnClick(() =>
         {
             buyButton.onClick.RemoveAllListeners();
