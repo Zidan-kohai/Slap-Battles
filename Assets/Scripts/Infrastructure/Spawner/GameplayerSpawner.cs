@@ -13,7 +13,7 @@ public class GameplayerSpawner : Spawner
 
         EnemySpawn();
 
-        PlayerSpawn();
+        //PlayerSpawn();
     }
 
     protected override void PlayerSpawn()

@@ -11,6 +11,7 @@ public class Enemy : IHealthObject
     [SerializeField] private NavMeshAgent navMeshAgent;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Image healthbar;
+    [SerializeField] private Animator animator;
     
     [SerializeField] private float speed;
     [SerializeField] private int damagePower;
@@ -61,6 +62,8 @@ public class Enemy : IHealthObject
             GetRandomTarget();
             Move(target);
         }
+
+        animator.SetFloat("HorizontalSpeed", navMeshAgent.speed);
     }
 
     private void Attack()
