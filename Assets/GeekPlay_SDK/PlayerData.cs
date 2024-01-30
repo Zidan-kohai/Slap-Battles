@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 [Serializable]
 public class PlayerData
@@ -22,6 +23,12 @@ public class PlayerData
     public int CurrentArmColorIndex;
 
     public bool isGenderMan;
+
+    public List<GameObject> ManHairs = new List<GameObject>();
+    public List<GameObject> WomanHairs = new List<GameObject>();
+
+    public int currentManHair;
+    public int currentWomanHair;
 
     /////InApps//////
     public string lastBuy;
