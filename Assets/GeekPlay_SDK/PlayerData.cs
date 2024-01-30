@@ -20,6 +20,9 @@ public class PlayerData
     public int CurrentLegColorIndex;
     public int CurrentFootColorIndex;
     public int CurrentArmColorIndex;
+
+    public bool isGenderMan;
+
     /////InApps//////
     public string lastBuy;
 }
