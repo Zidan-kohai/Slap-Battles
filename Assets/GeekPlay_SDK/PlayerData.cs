@@ -30,6 +30,11 @@ public class PlayerData
     public int currentManHair;
     public int currentWomanHair;
 
+
+    public List<int> BuyedAccessory = new List<int>();
+
+    public int currentAccessory;
+
     /////InApps//////
     public string lastBuy;
 }

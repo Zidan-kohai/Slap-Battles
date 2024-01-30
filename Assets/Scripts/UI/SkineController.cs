@@ -25,16 +25,23 @@ public class SkineController : MonoBehaviour
     [SerializeField] private Button buyButton;
     [SerializeField] private TextMeshProUGUI buyText;
 
-    [Space(10), Header("Player")]
+    [Space(10), Header("Hair")]
     [SerializeField] HairSwitcher hairSwitcher;
 
     [SerializeField] private List<HairBuyable> manHairs;
     [SerializeField] private List<HairBuyable> womanHairs;
 
+
+    [Space(10), Header("Accessory")]
+    [SerializeField] AccessorySwitcher accessorySwitcher;
+    [SerializeField] private List<BuyableAccessory> accessory;
+
+
     private void Start()
     {
         CheckIsBuyedColor();
         CheckIsBuyedHair();
+        CheckIsBuyedAccessory();
 
         #region Subscribe On Color Buy Events
         foreach (var item in hearColors)
@@ -63,7 +70,7 @@ public class SkineController : MonoBehaviour
         }
         #endregion
 
-        #region
+        #region Hair
         foreach (var item in manHairs)
         {
             AddEventForBuyableHair(item);
@@ -71,6 +78,14 @@ public class SkineController : MonoBehaviour
         foreach (var item in womanHairs)
         {
             AddEventForBuyableHair(item);
+        }
+        #endregion
+
+        #region Accessory
+
+        foreach (var item in accessory)
+        {
+            AddEventForBuyableAccessory(item);
         }
         #endregion
     }
@@ -448,10 +463,78 @@ public class SkineController : MonoBehaviour
 
     #endregion
 
+    #region Accessory
+
+    private void AddEventForBuyableAccessory(BuyableAccessory buyable)
+    {
+        buyable.SubscribeOnClick(() =>
+        {
+            accessorySwitcher.SwitchAccessory(buyable.GetIndexOfAccessory);
+            buyButton.onClick.RemoveAllListeners();
+
+            if (buyable.GetIsBuyed)
+            {
+                if (Geekplay.Instance.PlayerData.currentAccessory == buyable.GetIndexOfAccessory)
+                {
+                    buyText.text = "Надето";
+                }
+                else
+                {
+                    buyText.text = "Надеть";
+
+                    buyButton.onClick.AddListener(() =>
+                    {
+                        accessorySwitcher.SaveAndSwitchAccessory(buyable.GetIndexOfAccessory);
+                        buyText.text = "Надето";
+                    });
+                }
+            }
+            else
+            {
+                buyText.text = $"купить {buyable.GetCost}";
+
+                if (buyable.TryBuy(Geekplay.Instance.PlayerData.money))
+                {
+                    buyButton.onClick.AddListener(() =>
+                    {
+                        accessorySwitcher.SwitchAndBuyAccessory(buyable.GetIndexOfAccessory);
+
+                        buyable.Buy(Geekplay.Instance.PlayerData.money);
+                        buyText.text = "Надето";
+                    });
+                }
+                else
+                {
+                    buyButton.onClick.AddListener(() =>
+                    {
+                        Debug.Log("You don`t Have money");
+                    });
+                }
+            }
+        });
+    }
+
+    private void CheckIsBuyedAccessory()
+    {
+        foreach (var buyable in accessory)
+        {
+            if (Geekplay.Instance.PlayerData.BuyedAccessory.Contains(buyable.GetIndexOfAccessory))
+            {
+                buyable.Buyed();
+            }
+        }
+    }
+
+    private void ChangePlayerAccessory()
+    {
+        accessorySwitcher.SwitchAccessory(Geekplay.Instance.PlayerData.currentAccessory);
+    }
+    #endregion
     private void OnDisable()
     {
         ChangePlayerMaterial();
         ChangePlayerHair();
+        ChangePlayerAccessory();
     }
 }
 public enum BodyPart
