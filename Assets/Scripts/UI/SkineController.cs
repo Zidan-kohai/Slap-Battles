@@ -25,10 +25,18 @@ public class SkineController : MonoBehaviour
     [SerializeField] private Button buyButton;
     [SerializeField] private TextMeshProUGUI buyText;
 
+    [Space(10), Header("Player")]
+    [SerializeField] HairSwitcher hairSwitcher;
+
+    [SerializeField] private List<HairBuyable> manHairs;
+    [SerializeField] private List<HairBuyable> womanHairs;
+
     private void Start()
     {
-        CheckIsBuyed();
+        CheckIsBuyedColor();
+        CheckIsBuyedHair();
 
+        #region Subscribe On Color Buy Events
         foreach (var item in hearColors)
         {
             AddEventForBuyableColor(item);
@@ -53,7 +61,21 @@ public class SkineController : MonoBehaviour
         {
             AddEventForBuyableColor(item);
         }
+        #endregion
+
+        #region
+        foreach (var item in manHairs)
+        {
+            AddEventForBuyableHair(item);
+        }
+        foreach (var item in womanHairs)
+        {
+            AddEventForBuyableHair(item);
+        }
+        #endregion
     }
+
+    #region ColorSwitching
     private void AddEventForBuyableColor(BuyableColor buyable)
     {
         Debug.Log(buyable.gameObject.name + " " + buyable.GetBodyType);
@@ -226,7 +248,7 @@ public class SkineController : MonoBehaviour
         ChangeLastColor(material, buyable);
     }
 
-    private void CheckIsBuyed()
+    private void CheckIsBuyedColor()
     {
         foreach(var buyable in headColors)
         {
@@ -325,9 +347,111 @@ public class SkineController : MonoBehaviour
         }
     }
 
+    #endregion
+
+    #region HairSwitching
+
+    private void AddEventForBuyableHair(HairBuyable buyable)
+    {
+        buyable.SubscribeOnClick(() =>
+        {
+            hairSwitcher.SwitchHair(buyable.GetIndexOfhair, Geekplay.Instance.PlayerData.isGenderMan);
+            buyButton.onClick.RemoveAllListeners();
+
+            if (buyable.GetIsBuyed)
+            {
+
+                if (Geekplay.Instance.PlayerData.isGenderMan)
+                {
+                    if (Geekplay.Instance.PlayerData.currentManHair == buyable.GetIndexOfhair)
+                    {
+                        buyText.text = "Надето";
+                    }
+                    else
+                    {
+                        buyText.text = "Надеть";
+
+                        buyButton.onClick.AddListener(() =>
+                        {
+                            hairSwitcher.ChangeHair(buyable.GetIndexOfhair, true);
+                            buyText.text = "Надето";
+                        });
+                    }
+                }
+                else
+                {
+                    if (Geekplay.Instance.PlayerData.currentWomanHair == buyable.GetIndexOfhair)
+                    {
+                        buyText.text = "Надето";
+                    }
+                    else
+                    {
+                        buyText.text = "Надеть";
+
+                        buyButton.onClick.AddListener(() =>
+                        {
+                            hairSwitcher.ChangeHair(buyable.GetIndexOfhair, false);
+                            buyText.text = "Надето";
+                        });
+                    }
+                }
+            }
+            else
+            {
+                buyText.text = $"купить {buyable.GetCost}";
+
+                if (buyable.TryBuy(Geekplay.Instance.PlayerData.money))
+                {
+                    buyButton.onClick.AddListener(() =>
+                    {
+                        hairSwitcher.SwitchAndBuyHair(buyable.GetIndexOfhair, Geekplay.Instance.PlayerData.isGenderMan);
+
+                        buyable.Buy(Geekplay.Instance.PlayerData.money);
+                        buyText.text = "Надето";
+                    });
+                }
+                else
+                {
+                    buyButton.onClick.AddListener(() =>
+                    {
+                        Debug.Log("You don`t Have money");
+                    });
+                }
+            }
+        });
+    }
+
+    private void CheckIsBuyedHair()
+    {
+        foreach (var buyable in manHairs)
+        {
+            if (Geekplay.Instance.PlayerData.BuyedManHairs.Contains(buyable.GetIndexOfhair))
+            {
+                buyable.Buyed();
+            }
+        }
+
+        foreach (var buyable in womanHairs)
+        {
+            if (Geekplay.Instance.PlayerData.BuyedWomanHairs.Contains(buyable.GetIndexOfhair))
+            {
+                buyable.Buyed();
+            }
+        }
+    }
+
+    private void ChangePlayerHair()
+    {
+        hairSwitcher.SwitchHair(Geekplay.Instance.PlayerData.currentWomanHair, false);
+        hairSwitcher.SwitchHair(Geekplay.Instance.PlayerData.currentManHair, true);
+    }
+
+    #endregion
+
     private void OnDisable()
     {
         ChangePlayerMaterial();
+        ChangePlayerHair();
     }
 }
 public enum BodyPart

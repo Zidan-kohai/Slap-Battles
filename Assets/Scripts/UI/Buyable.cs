@@ -5,9 +5,7 @@ public class Buyable : MonoBehaviour
 {
     [SerializeField] private int cost;
     [SerializeField] private bool isBuyed;
-    [SerializeField] private BodyPart bodyPart;
     public bool GetIsBuyed {  get { return isBuyed; } }
-    public BodyPart GetBodyType { get { return bodyPart; } }
     public int GetCost {  get { return cost; } }
 
     public bool TryBuy(int money)

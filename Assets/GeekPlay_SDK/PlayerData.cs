@@ -24,8 +24,8 @@ public class PlayerData
 
     public bool isGenderMan;
 
-    public List<GameObject> ManHairs = new List<GameObject>();
-    public List<GameObject> WomanHairs = new List<GameObject>();
+    public List<int> BuyedManHairs = new List<int>();
+    public List<int> BuyedWomanHairs = new List<int>();
 
     public int currentManHair;
     public int currentWomanHair;
