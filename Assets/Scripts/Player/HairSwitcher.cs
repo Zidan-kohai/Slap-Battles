@@ -6,6 +6,11 @@ public class HairSwitcher : MonoBehaviour
     [SerializeField] private List<GameObject> manHairs;
     [SerializeField] private List<GameObject> womanHairs;
 
+    private void Start()
+    {
+        SwitchHair(Geekplay.Instance.PlayerData.currentWomanHair, false);
+        SwitchHair(Geekplay.Instance.PlayerData.currentManHair, true);
+    }
 
     public void SwitchHair(int index)
     {
