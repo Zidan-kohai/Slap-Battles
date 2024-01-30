@@ -6,6 +6,7 @@ public class AccessorySwitcher : MonoBehaviour
     [SerializeField] private List<GameObject> manAccessories;
     [SerializeField] private List<GameObject> womanAccessories;
 
+
     private void Start()
     {
         SwitchAccessory(Geekplay.Instance.PlayerData.currentAccessory);

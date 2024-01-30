@@ -35,6 +35,11 @@ public class PlayerData
 
     public int currentAccessory;
 
+
+    public List<int> BuyedCaps = new List<int>();
+
+    public int currentCap;
+
     /////InApps//////
     public string lastBuy;
 }
