@@ -55,8 +55,8 @@ public class SkineController : MonoBehaviour
 
     private void Start()
     {
-        CheckIsBuyedAndEquippedColor();
-        CheckIsBuyedHair();
+        CheckIsBuyedOrEquippedColor();
+        CheckIsBuyedOrEquippedHair();
         CheckIsBuyedAccessory();
         CheckIsBuyedCap();
 
@@ -116,10 +116,28 @@ public class SkineController : MonoBehaviour
         manButton.onClick.AddListener(() =>
         {
             currentHealthText.text = healthBuffSystem.GetMaxHealthObject.ToString();
+            healthBuffSystem.OnSwitchGender();
+
+            foreach (var item in manHairs)
+            {
+                if(Geekplay.Instance.PlayerData.currentManHair == item.GetIndexOfhair)
+                {
+                    ChangeHealthBuff(HealtBuffSystem.HealtBuffType.hair,item.HealthBuff);
+                }
+            }
         });
         womanButton.onClick.AddListener(() =>
         {
             currentHealthText.text = healthBuffSystem.GetMaxHealthObject.ToString();
+            healthBuffSystem.OnSwitchGender();
+
+            foreach (var item in womanHairs)
+            {
+                if (Geekplay.Instance.PlayerData.currentWomanHair == item.GetIndexOfhair)
+                {
+                    ChangeHealthBuff(HealtBuffSystem.HealtBuffType.hair, item.HealthBuff);
+                }
+            }
         });
     }
 
@@ -353,7 +371,7 @@ public class SkineController : MonoBehaviour
         ChangeLastColor(material, buyable);
     }
 
-    private void CheckIsBuyedAndEquippedColor()
+    private void CheckIsBuyedOrEquippedColor()
     {
         foreach(var buyable in headColors)
         {
@@ -493,6 +511,8 @@ public class SkineController : MonoBehaviour
         buyable.SubscribeOnClick(() =>
         {
             hairSwitcher.SwitchHair(buyable.GetIndexOfhair, Geekplay.Instance.PlayerData.isGenderMan);
+            ChangeHealthBuffText(HealtBuffSystem.HealtBuffType.hair, buyable.HealthBuff);
+
             buyButton.onClick.RemoveAllListeners();
 
             if (buyable.GetIsBuyed)
@@ -512,6 +532,8 @@ public class SkineController : MonoBehaviour
                         {
                             hairSwitcher.ChangeHair(buyable.GetIndexOfhair, true);
                             buyText.text = "Надето";
+
+                            ChangeHealthBuff(HealtBuffSystem.HealtBuffType.hair, buyable.HealthBuff);
                         });
                     }
                 }
@@ -529,9 +551,12 @@ public class SkineController : MonoBehaviour
                         {
                             hairSwitcher.ChangeHair(buyable.GetIndexOfhair, false);
                             buyText.text = "Надето";
+
+                            ChangeHealthBuff(HealtBuffSystem.HealtBuffType.hair, buyable.HealthBuff);
                         });
                     }
                 }
+
             }
             else
             {
@@ -542,6 +567,7 @@ public class SkineController : MonoBehaviour
                     buyButton.onClick.AddListener(() =>
                     {
                         hairSwitcher.SwitchAndBuyHair(buyable.GetIndexOfhair, Geekplay.Instance.PlayerData.isGenderMan);
+                        ChangeHealthBuff(HealtBuffSystem.HealtBuffType.hair, buyable.HealthBuff);
 
                         buyable.Buy(Geekplay.Instance.PlayerData.money);
                         buyText.text = "Надето";
@@ -558,13 +584,17 @@ public class SkineController : MonoBehaviour
         });
     }
 
-    private void CheckIsBuyedHair()
+    private void CheckIsBuyedOrEquippedHair()
     {
         foreach (var buyable in manHairs)
         {
             if (Geekplay.Instance.PlayerData.BuyedManHairs.Contains(buyable.GetIndexOfhair))
             {
                 buyable.Buyed();
+            }
+            if(Geekplay.Instance.PlayerData.currentManHair ==  buyable.GetIndexOfhair)
+            {
+                ChangeHealthBuff(HealtBuffSystem.HealtBuffType.hair, buyable.HealthBuff);
             }
         }
 
@@ -573,6 +603,10 @@ public class SkineController : MonoBehaviour
             if (Geekplay.Instance.PlayerData.BuyedWomanHairs.Contains(buyable.GetIndexOfhair))
             {
                 buyable.Buyed();
+            }
+            if (Geekplay.Instance.PlayerData.currentWomanHair == buyable.GetIndexOfhair)
+            {
+                ChangeHealthBuff(HealtBuffSystem.HealtBuffType.hair, buyable.HealthBuff);
             }
         }
     }
@@ -733,6 +767,8 @@ public class SkineController : MonoBehaviour
     private void ChangeHealthBuff(HealtBuffSystem.HealtBuffType type, float buffPower)
     {
         healthBuffSystem.AddBuff(type, buffPower, currentHealthText);
+
+        ChangeHealthBuffText(type, buffPower);
     }
 
     private void OnDisable()

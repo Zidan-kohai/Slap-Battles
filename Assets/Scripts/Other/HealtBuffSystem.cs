@@ -16,10 +16,18 @@ public class HealtBuffSystem : MonoBehaviour
 
     private float capBuff;
     private float accessoryBuff;
-    private float hairBuff;
+    private float manHairBuff;
+    private float womanHairBuff;
 
     public float GetMaxHealthObject {  get => healthObject.MaxHealth; }
 
+
+    private bool manGenderFlag = false;
+
+    private void Start()
+    {
+        manGenderFlag = Geekplay.Instance.PlayerData.isGenderMan;
+    }
     public void AddBuff(HealtBuffType type, float buffPower, TextMeshProUGUI buffText)
     {
         switch(type)
@@ -49,7 +57,15 @@ public class HealtBuffSystem : MonoBehaviour
                 ChangeBuff(ref accessoryBuff, buffPower);
                 break;
             case HealtBuffType.hair:
-                ChangeBuff(ref hairBuff, buffPower);
+                if (Geekplay.Instance.PlayerData.isGenderMan)
+                {
+                    ChangeBuff(ref manHairBuff, buffPower);
+                }
+                else
+                {
+                    ChangeBuff(ref womanHairBuff, buffPower);
+                }
+
                 break;
         }
 
@@ -80,7 +96,14 @@ public class HealtBuffSystem : MonoBehaviour
             case HealtBuffType.accessory:
                 return buffPower - accessoryBuff;
             case HealtBuffType.hair:
-                return buffPower - hairBuff;
+                if (Geekplay.Instance.PlayerData.isGenderMan)
+                {
+                    return buffPower - manHairBuff;
+                }
+                else
+                {
+                    return buffPower - womanHairBuff;
+                }
         }
 
         return 0;
@@ -94,6 +117,23 @@ public class HealtBuffSystem : MonoBehaviour
         lastBuff = newBuff;
     }
 
+    public void OnSwitchGender()
+    {
+        if (manGenderFlag == Geekplay.Instance.PlayerData.isGenderMan) return;
+
+        if(!manGenderFlag)
+        {
+            healthObject.MaxHealth -= womanHairBuff;
+            healthObject.MaxHealth += manHairBuff;
+            manGenderFlag = true;
+        }
+        else
+        {
+            healthObject.MaxHealth -= manHairBuff;
+            healthObject.MaxHealth += womanHairBuff;
+            manGenderFlag = false;
+        }
+    }
 
 
     public enum HealtBuffType

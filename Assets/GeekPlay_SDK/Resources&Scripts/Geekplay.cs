@@ -58,6 +58,16 @@ public class Geekplay : MonoBehaviour
     string colorDebug = "yellow"; //Цвет Дебага
 
     //РЕКЛАМА
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            PlayerData = new PlayerData();
+            Save();
+        }
+    }
+
     public void OnRewarded() //ВОЗНАГРАЖДЕНИЕ ПОСЛЕ ПРОСМОТРА РЕКЛАМЫ
     {
         if (Platform == Platform.CrazyGames || Platform == Platform.GamePix)
