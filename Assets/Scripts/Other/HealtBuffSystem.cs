@@ -1,3 +1,4 @@
+using System;
 using System.Security.Permissions;
 using TMPro;
 using UnityEngine;
@@ -26,44 +27,72 @@ public class HealtBuffSystem : MonoBehaviour
 
     private void Start()
     {
-        manGenderFlag = Geekplay.Instance.PlayerData.isGenderMan;
+
+        GetSaved();
     }
+
+    private void GetSaved()
+    {
+        manGenderFlag = Geekplay.Instance.PlayerData.isGenderMan;
+        headColorBuff = Geekplay.Instance.PlayerData.HeadColorBuff;
+        hairColorBuff = Geekplay.Instance.PlayerData.HairColorBuff;
+        bodyColorBuff = Geekplay.Instance.PlayerData.BodyColorBuff;
+        armColorBuff = Geekplay.Instance.PlayerData.ArmColorBuff;
+        legColorBuff = Geekplay.Instance.PlayerData.LegColorBuff;
+        footColorBuff = Geekplay.Instance.PlayerData.FootColorBuff;
+        capBuff = Geekplay.Instance.PlayerData.CapBuff;
+        accessoryBuff = Geekplay.Instance.PlayerData.AccessoryBuff;
+        manHairBuff = Geekplay.Instance.PlayerData.ManHairBuff;
+        womanHairBuff = Geekplay.Instance.PlayerData.WomanHairBuff;
+
+        healthObject.MaxHealth += headColorBuff + hairColorBuff + bodyColorBuff + armColorBuff + legColorBuff + footColorBuff + capBuff + accessoryBuff;
+
+        if (manGenderFlag)
+        {
+            healthObject.MaxHealth += manHairBuff;
+        }
+        else
+        {
+            healthObject.MaxHealth += womanHairBuff;
+        }
+    }
+
     public void AddBuff(HealtBuffType type, float buffPower, TextMeshProUGUI buffText)
     {
         switch(type)
         {
             case HealtBuffType.HeadColor:
-                ChangeBuff(ref headColorBuff, buffPower);
+                ChangeBuff(ref headColorBuff, ref Geekplay.Instance.PlayerData.HeadColorBuff, buffPower);
                 break;
             case HealtBuffType.HairColor:
-                ChangeBuff(ref hairColorBuff, buffPower);
+                ChangeBuff(ref hairColorBuff, ref Geekplay.Instance.PlayerData.HairColorBuff, buffPower);
                 break;
             case HealtBuffType.BodyColor:  
-                ChangeBuff(ref bodyColorBuff, buffPower);
+                ChangeBuff(ref bodyColorBuff, ref Geekplay.Instance.PlayerData.BodyColorBuff, buffPower);
                 break;
             case HealtBuffType.armColor:
-                ChangeBuff(ref armColorBuff, buffPower);
+                ChangeBuff(ref armColorBuff, ref Geekplay.Instance.PlayerData.ArmColorBuff, buffPower);
                 break;
             case HealtBuffType.legColor:
-                ChangeBuff(ref legColorBuff, buffPower);
+                ChangeBuff(ref legColorBuff, ref Geekplay.Instance.PlayerData.LegColorBuff, buffPower);
                 break;
             case HealtBuffType.footColor:
-                ChangeBuff(ref footColorBuff, buffPower);
+                ChangeBuff(ref footColorBuff, ref Geekplay.Instance.PlayerData.FootColorBuff, buffPower);
                 break;
             case HealtBuffType.cap:
-                ChangeBuff(ref capBuff, buffPower);
+                ChangeBuff(ref capBuff, ref Geekplay.Instance.PlayerData.CapBuff, buffPower);
                 break;
             case HealtBuffType.accessory:
-                ChangeBuff(ref accessoryBuff, buffPower);
+                ChangeBuff(ref accessoryBuff, ref Geekplay.Instance.PlayerData.AccessoryBuff, buffPower);
                 break;
             case HealtBuffType.hair:
                 if (Geekplay.Instance.PlayerData.isGenderMan)
                 {
-                    ChangeBuff(ref manHairBuff, buffPower);
+                    ChangeBuff(ref manHairBuff, ref Geekplay.Instance.PlayerData.ManHairBuff, buffPower);
                 }
                 else
                 {
-                    ChangeBuff(ref womanHairBuff, buffPower);
+                    ChangeBuff(ref womanHairBuff, ref Geekplay.Instance.PlayerData.WomanHairBuff, buffPower);
                 }
 
                 break;
@@ -109,12 +138,14 @@ public class HealtBuffSystem : MonoBehaviour
         return 0;
     }
 
-    private void ChangeBuff(ref float lastBuff, float newBuff)
+    private void ChangeBuff(ref float lastBuff, ref float savedBuff, float newBuff)
     {
         healthObject.MaxHealth -= lastBuff;
         healthObject.MaxHealth += newBuff;
 
         lastBuff = newBuff;
+
+        savedBuff = newBuff;
     }
 
     public void OnSwitchGender()

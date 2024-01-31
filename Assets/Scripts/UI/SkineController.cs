@@ -592,7 +592,7 @@ public class SkineController : MonoBehaviour
             {
                 buyable.Buyed();
             }
-            if(Geekplay.Instance.PlayerData.currentManHair ==  buyable.GetIndexOfhair)
+            if(Geekplay.Instance.PlayerData.currentManHair ==  buyable.GetIndexOfhair && Geekplay.Instance.PlayerData.isGenderMan)
             {
                 ChangeHealthBuff(HealtBuffSystem.HealtBuffType.hair, buyable.HealthBuff);
             }
@@ -604,7 +604,7 @@ public class SkineController : MonoBehaviour
             {
                 buyable.Buyed();
             }
-            if (Geekplay.Instance.PlayerData.currentWomanHair == buyable.GetIndexOfhair)
+            if (Geekplay.Instance.PlayerData.currentWomanHair == buyable.GetIndexOfhair && !Geekplay.Instance.PlayerData.isGenderMan)
             {
                 ChangeHealthBuff(HealtBuffSystem.HealtBuffType.hair, buyable.HealthBuff);
             }

@@ -46,4 +46,18 @@ public class PlayerData
 
     /////InApps//////
     public string lastBuy;
+
+
+    public float HeadColorBuff;
+    public float HairColorBuff;
+    public float BodyColorBuff;
+    public float ArmColorBuff;
+    public float LegColorBuff;
+    public float FootColorBuff;
+
+    public float CapBuff;
+    public float AccessoryBuff;
+    public float ManHairBuff;
+    public float WomanHairBuff;
+
 }
