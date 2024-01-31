@@ -8412,6 +8412,16 @@ MonoBehaviour:
     BuyedSlaps: 
     currentSlap: 0
     lastBuy: 
+    HeadColorBuff: 0
+    HairColorBuff: 0
+    BodyColorBuff: 0
+    ArmColorBuff: 0
+    LegColorBuff: 0
+    FootColorBuff: 0
+    CapBuff: 0
+    AccessoryBuff: 0
+    ManHairBuff: 0
+    WomanHairBuff: 0
   rewardsList: []
   purchasesList: []
   Platform: 0
@@ -13156,6 +13166,18 @@ PrefabInstance:
       propertyPath: HealthBuff
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1590543648604748329, guid: 8bf1277ff16a8484a8279ede53bf4a67, type: 3}
+      propertyPath: HealthBuff
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1617409347440492594, guid: 8bf1277ff16a8484a8279ede53bf4a67, type: 3}
+      propertyPath: HealthBuff
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2142473292995359233, guid: 8bf1277ff16a8484a8279ede53bf4a67, type: 3}
+      propertyPath: HealthBuff
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2399457607615742969, guid: 8bf1277ff16a8484a8279ede53bf4a67, type: 3}
       propertyPath: HealthBuff
       value: 7
@@ -13164,6 +13186,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1767695982}
+    - target: {fileID: 3569283226486394826, guid: 8bf1277ff16a8484a8279ede53bf4a67, type: 3}
+      propertyPath: HealthBuff
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4434198302056779218, guid: 8bf1277ff16a8484a8279ede53bf4a67, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

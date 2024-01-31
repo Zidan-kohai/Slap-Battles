@@ -62,5 +62,5 @@ public class CapSwitcher : MonoBehaviour
         SwitchCap(index);
 
         Geekplay.Instance.PlayerData.currentCap = index;
-    }
+    }   
 }

@@ -7,6 +7,8 @@ public class BuyableAccessory : Buyable
     [SerializeField] private int indexOfAccessory;
     [SerializeField] private Button buttonSelf;
 
+    public float HealthBuff;
+
     public int GetIndexOfAccessory { get { return indexOfAccessory; } }
     public void SubscribeOnClick(UnityAction action)
     {

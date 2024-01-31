@@ -626,6 +626,8 @@ public class SkineController : MonoBehaviour
         buyable.SubscribeOnClick(() =>
         {
             accessorySwitcher.SwitchAccessory(buyable.GetIndexOfAccessory);
+            ChangeHealthBuffText(HealtBuffSystem.HealtBuffType.accessory, buyable.HealthBuff);
+
             buyButton.onClick.RemoveAllListeners();
 
             if (buyable.GetIsBuyed)
@@ -642,6 +644,8 @@ public class SkineController : MonoBehaviour
                     {
                         accessorySwitcher.SaveAndSwitchAccessory(buyable.GetIndexOfAccessory);
                         buyText.text = "Надето";
+
+                        ChangeHealthBuff(HealtBuffSystem.HealtBuffType.accessory, buyable.HealthBuff);
                     });
                 }
             }
@@ -654,6 +658,7 @@ public class SkineController : MonoBehaviour
                     buyButton.onClick.AddListener(() =>
                     {
                         accessorySwitcher.SwitchAndBuyAccessory(buyable.GetIndexOfAccessory);
+                        ChangeHealthBuff(HealtBuffSystem.HealtBuffType.accessory, buyable.HealthBuff);
 
                         buyable.Buy(Geekplay.Instance.PlayerData.money);
                         buyText.text = "Надето";
@@ -678,6 +683,10 @@ public class SkineController : MonoBehaviour
             {
                 buyable.Buyed();
             }
+            if (Geekplay.Instance.PlayerData.currentAccessory == buyable.GetIndexOfAccessory)
+            {
+                ChangeHealthBuff(HealtBuffSystem.HealtBuffType.accessory, buyable.HealthBuff);
+            }
         }
     }
 
@@ -692,6 +701,7 @@ public class SkineController : MonoBehaviour
     {
         buyable.SubscribeOnClick(() =>
         {
+            ChangeHealthBuffText(HealtBuffSystem.HealtBuffType.cap, buyable.HealthBuff);
             capSwitcher.SwitchCap(buyable.GetIndexOfCap);
             buyButton.onClick.RemoveAllListeners();
 
@@ -709,6 +719,8 @@ public class SkineController : MonoBehaviour
                     {
                         capSwitcher.SaveAndSwitchCap(buyable.GetIndexOfCap);
                         buyText.text = "Надето";
+
+                        ChangeHealthBuff(HealtBuffSystem.HealtBuffType.cap, buyable.HealthBuff);
                     });
                 }
             }
@@ -721,6 +733,7 @@ public class SkineController : MonoBehaviour
                     buyButton.onClick.AddListener(() =>
                     {
                         capSwitcher.SwitchAndBuyCap(buyable.GetIndexOfCap);
+                        ChangeHealthBuff(HealtBuffSystem.HealtBuffType.cap, buyable.HealthBuff);
 
                         buyable.Buy(Geekplay.Instance.PlayerData.money);
                         buyText.text = "Надето";
