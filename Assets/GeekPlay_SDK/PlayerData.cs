@@ -7,16 +7,16 @@ public class PlayerData
 {
 	public int money;
 
-    public List<int> BuyedHearColors = new List<int>();
     public List<int> BuyedHeadColors = new List<int>();
+    public List<int> BuyedHairColors = new List<int>();
     public List<int> BuyedBodyColors = new List<int>();
     public List<int> BuyedLegColors = new List<int>();
     public List<int> BuyedFootColors = new List<int>();
     public List<int> BuyedArmColors = new List<int>();
 
 
-    public int CurrentHearColorIndex;
     public int CurrentHeadColorIndex;
+    public int CurrentHairColorIndex;
     public int CurrentBodyColorIndex;
     public int CurrentLegColorIndex;
     public int CurrentFootColorIndex;

@@ -1,5 +1,4 @@
 using CMF;
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,9 +9,6 @@ public class Player : IHealthObject
     [SerializeField] private AdvancedWalkerController walkController;
     [SerializeField] private Image healthbar;
     [SerializeField] private Rigidbody rb;
-
-    [SerializeField] private float health;
-    [SerializeField] private float maxHealth;
 
     private void Start()
     {

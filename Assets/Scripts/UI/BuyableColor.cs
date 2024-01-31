@@ -10,6 +10,10 @@ public class BuyableColor : Buyable
     [SerializeField] private BodyPart bodyPart;
     public Color GetColor => image.color;
     public BodyPart GetBodyType { get { return bodyPart; } }
+
+
+    public float HealthBuff;
+
     private void Start()
     { 
         image = GetComponent<Image>();

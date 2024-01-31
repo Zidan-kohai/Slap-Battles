@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -8,13 +9,13 @@ public class SkineController : MonoBehaviour
     [Header("Material of Body Part"), Space(5)]
     [SerializeField] private Material bodyMaterial;
     [SerializeField] private Material headMaterial;
-    [SerializeField] private Material hearMaterial;
+    [SerializeField] private Material hairMaterial;
     [SerializeField] private Material armMaterial;
     [SerializeField] private Material legMaterial;
     [SerializeField] private Material footMaterial;
     [Space(10)]
 
-    [SerializeField] private List<BuyableColor> hearColors;
+    [SerializeField] private List<BuyableColor> hairColors;
     [SerializeField] private List<BuyableColor> headColors;
     [SerializeField] private List<BuyableColor> bodyColors;
     [SerializeField] private List<BuyableColor> armColors;
@@ -39,15 +40,23 @@ public class SkineController : MonoBehaviour
     [Space(10), Header("Caps")]
     [SerializeField] CapSwitcher capSwitcher;
     [SerializeField] private List<BuyableCap> buyableCaps;
+
+
+    [Space(10), Header("Buff")]
+    [SerializeField] private HealtBuffSystem healthBuffSystem;
+    [SerializeField] private TextMeshProUGUI currentHealthText;
+    [SerializeField] private TextMeshProUGUI healthBuffText;
+
+
     private void Start()
     {
-        CheckIsBuyedColor();
+        CheckIsBuyedAndEquippedColor();
         CheckIsBuyedHair();
         CheckIsBuyedAccessory();
         CheckIsBuyedCap();
 
         #region Subscribe On Color Buy Events
-        foreach (var item in hearColors)
+        foreach (var item in hairColors)
         {
             AddEventForBuyableColor(item);
         }
@@ -106,12 +115,35 @@ public class SkineController : MonoBehaviour
         Debug.Log(buyable.gameObject.name + " " + buyable.GetBodyType);
         buyable.SubscribeOnClick(() =>
         {
+            Material material = null;
+            switch (buyable.GetBodyType)
+            {
+                case BodyPart.Head:
+                    material = headMaterial;
+                    break;
+                case BodyPart.Hair:
+                    material = hairMaterial;
+                    break;
+                case BodyPart.Body:
+                    material = bodyMaterial;
+                    break;
+                case BodyPart.Arm:
+                    material = armMaterial;
+                    break;
+                case BodyPart.Leg:
+                    material = legMaterial;
+                    break;
+                case BodyPart.Foot:
+                    material = footMaterial;
+                    break;
+            }
+
             buyButton.onClick.RemoveAllListeners();
             if(buyable.GetIsBuyed)
             {
                 buyButton.onClick.AddListener(() =>
                 {
-                    ChangeLastColor(headMaterial, buyable);
+                    ChangeLastColor(material, buyable);
 
                     buyText.text = "Надето";
                 });
@@ -125,26 +157,32 @@ public class SkineController : MonoBehaviour
                     case BodyPart.Head:
                         if (Geekplay.Instance.PlayerData.CurrentHeadColorIndex == buyable.indexOfColor)
                             isEquiped = true;
+                        ChangeHealthBuffText(HealtBuffSystem.HealtBuffType.HeadColor, buyable.HealthBuff);
                         break;
-                    case BodyPart.Hear:
-                        if (Geekplay.Instance.PlayerData.CurrentHearColorIndex == buyable.indexOfColor)
+                    case BodyPart.Hair:
+                        if (Geekplay.Instance.PlayerData.CurrentHairColorIndex == buyable.indexOfColor)
                             isEquiped = true;
+                        ChangeHealthBuffText(HealtBuffSystem.HealtBuffType.HairColor, buyable.HealthBuff);
                         break;
                     case BodyPart.Body:
                         if (Geekplay.Instance.PlayerData.CurrentBodyColorIndex == buyable.indexOfColor)
                             isEquiped = true;
+                        ChangeHealthBuffText(HealtBuffSystem.HealtBuffType.BodyColor, buyable.HealthBuff);
                         break;
                     case BodyPart.Arm:
                         if (Geekplay.Instance.PlayerData.CurrentArmColorIndex == buyable.indexOfColor)
                             isEquiped = true;
+                        ChangeHealthBuffText(HealtBuffSystem.HealtBuffType.armColor, buyable.HealthBuff);
                         break;
                     case BodyPart.Leg:
                         if (Geekplay.Instance.PlayerData.CurrentLegColorIndex == buyable.indexOfColor)
                             isEquiped = true;
+                        ChangeHealthBuffText(HealtBuffSystem.HealtBuffType.legColor, buyable.HealthBuff);
                         break;
                     case BodyPart.Foot:
                         if (Geekplay.Instance.PlayerData.CurrentFootColorIndex == buyable.indexOfColor)
                             isEquiped = true;
+                        ChangeHealthBuffText(HealtBuffSystem.HealtBuffType.footColor, buyable.HealthBuff);
                         break;
                 }
 
@@ -159,11 +197,33 @@ public class SkineController : MonoBehaviour
             }
             else
             {
-                if(buyable.TryBuy(Geekplay.Instance.PlayerData.money))
+                switch (buyable.GetBodyType)
+                {
+                    case BodyPart.Head:
+                        ChangeHealthBuffText(HealtBuffSystem.HealtBuffType.HeadColor, buyable.HealthBuff);
+                        break;
+                    case BodyPart.Hair:
+                        ChangeHealthBuffText(HealtBuffSystem.HealtBuffType.HairColor, buyable.HealthBuff);
+                        break;
+                    case BodyPart.Body:
+                        ChangeHealthBuffText(HealtBuffSystem.HealtBuffType.BodyColor, buyable.HealthBuff);
+                        break;
+                    case BodyPart.Arm:
+                        ChangeHealthBuffText(HealtBuffSystem.HealtBuffType.armColor, buyable.HealthBuff);
+                        break;
+                    case BodyPart.Leg:
+                        ChangeHealthBuffText(HealtBuffSystem.HealtBuffType.legColor, buyable.HealthBuff);
+                        break;
+                    case BodyPart.Foot:
+                        ChangeHealthBuffText(HealtBuffSystem.HealtBuffType.footColor, buyable.HealthBuff);
+                        break;
+                }
+
+                if (buyable.TryBuy(Geekplay.Instance.PlayerData.money))
                 {
                     buyButton.onClick.AddListener(() =>
                     {
-                        BuyAndChangeLastColor(headMaterial, buyable);
+                        BuyAndChangeLastColor(material, buyable);
 
                         buyText.text = "Надето";
 
@@ -193,8 +253,8 @@ public class SkineController : MonoBehaviour
             case BodyPart.Head:
                 headMaterial.color = buyable.GetColor;
                 break;
-            case BodyPart.Hear:
-                hearMaterial.color = buyable.GetColor;
+            case BodyPart.Hair:
+                hairMaterial.color = buyable.GetColor;
                 break;
             case BodyPart.Body:
                 bodyMaterial.color = buyable.GetColor;
@@ -217,21 +277,27 @@ public class SkineController : MonoBehaviour
         {
             case BodyPart.Head:
                 Geekplay.Instance.PlayerData.CurrentHeadColorIndex = buyable.indexOfColor;
+                ChangeHealthBuff(HealtBuffSystem.HealtBuffType.HeadColor, buyable.HealthBuff);
                 break;
-            case BodyPart.Hear:
-                Geekplay.Instance.PlayerData.CurrentHearColorIndex = buyable.indexOfColor;
+            case BodyPart.Hair:
+                Geekplay.Instance.PlayerData.CurrentHairColorIndex = buyable.indexOfColor;
+                ChangeHealthBuff(HealtBuffSystem.HealtBuffType.HairColor, buyable.HealthBuff);
                 break;
             case BodyPart.Body:
                 Geekplay.Instance.PlayerData.CurrentBodyColorIndex = buyable.indexOfColor;
+                ChangeHealthBuff(HealtBuffSystem.HealtBuffType.BodyColor, buyable.HealthBuff);
                 break;
             case BodyPart.Arm:
                 Geekplay.Instance.PlayerData.CurrentArmColorIndex = buyable.indexOfColor;
+                ChangeHealthBuff(HealtBuffSystem.HealtBuffType.armColor, buyable.HealthBuff);
                 break;
             case BodyPart.Leg:
                 Geekplay.Instance.PlayerData.CurrentLegColorIndex = buyable.indexOfColor;
+                ChangeHealthBuff(HealtBuffSystem.HealtBuffType.legColor, buyable.HealthBuff);
                 break;
             case BodyPart.Foot:
                 Geekplay.Instance.PlayerData.CurrentFootColorIndex = buyable.indexOfColor;
+                ChangeHealthBuff(HealtBuffSystem.HealtBuffType.footColor, buyable.HealthBuff);
                 break;
         }
 
@@ -247,9 +313,9 @@ public class SkineController : MonoBehaviour
                 Geekplay.Instance.PlayerData.CurrentHeadColorIndex = buyable.indexOfColor;
                 Geekplay.Instance.PlayerData.BuyedHeadColors.Add(buyable.indexOfColor);
                 break;
-            case BodyPart.Hear:
-                Geekplay.Instance.PlayerData.CurrentHearColorIndex = buyable.indexOfColor;
-                Geekplay.Instance.PlayerData.BuyedHearColors.Add(buyable.indexOfColor);
+            case BodyPart.Hair:
+                Geekplay.Instance.PlayerData.CurrentHairColorIndex = buyable.indexOfColor;
+                Geekplay.Instance.PlayerData.BuyedHairColors.Add(buyable.indexOfColor);
                 break;
             case BodyPart.Body:
                 Geekplay.Instance.PlayerData.CurrentBodyColorIndex = buyable.indexOfColor;
@@ -273,21 +339,41 @@ public class SkineController : MonoBehaviour
         ChangeLastColor(material, buyable);
     }
 
-    private void CheckIsBuyedColor()
+    private void CheckIsBuyedAndEquippedColor()
     {
         foreach(var buyable in headColors)
         {
-            if(Geekplay.Instance.PlayerData.BuyedHearColors.Contains(buyable.indexOfColor))
+            if(Geekplay.Instance.PlayerData.BuyedHeadColors.Contains(buyable.indexOfColor))
             {
                 buyable.Buyed();
             }
+            if(Geekplay.Instance.PlayerData.CurrentHeadColorIndex == buyable.indexOfColor)
+            {
+                ChangeHealthBuff(HealtBuffSystem.HealtBuffType.HeadColor,buyable.HealthBuff);
+            }
         }
 
-        foreach (var buyable in headColors)
+        foreach (var buyable in hairColors)
         {
-            if (Geekplay.Instance.PlayerData.BuyedHeadColors.Contains(buyable.indexOfColor))
+            if (Geekplay.Instance.PlayerData.BuyedHairColors.Contains(buyable.indexOfColor))
             {
                 buyable.Buyed();
+            }
+            if (Geekplay.Instance.PlayerData.CurrentHairColorIndex == buyable.indexOfColor)
+            {
+                ChangeHealthBuff(HealtBuffSystem.HealtBuffType.HairColor, buyable.HealthBuff);
+            }
+        }
+
+        foreach (var buyable in armColors)
+        {
+            if (Geekplay.Instance.PlayerData.BuyedArmColors.Contains(buyable.indexOfColor))
+            {
+                buyable.Buyed();
+            }
+            if (Geekplay.Instance.PlayerData.CurrentArmColorIndex == buyable.indexOfColor)
+            {
+                ChangeHealthBuff(HealtBuffSystem.HealtBuffType.armColor, buyable.HealthBuff);
             }
         }
 
@@ -297,6 +383,10 @@ public class SkineController : MonoBehaviour
             {
                 buyable.Buyed();
             }
+            if (Geekplay.Instance.PlayerData.CurrentBodyColorIndex == buyable.indexOfColor)
+            {
+                ChangeHealthBuff(HealtBuffSystem.HealtBuffType.BodyColor, buyable.HealthBuff);
+            }
         }
 
         foreach (var buyable in legColors)
@@ -305,6 +395,10 @@ public class SkineController : MonoBehaviour
             {
                 buyable.Buyed();
             }
+            if (Geekplay.Instance.PlayerData.CurrentLegColorIndex == buyable.indexOfColor)
+            {
+                ChangeHealthBuff(HealtBuffSystem.HealtBuffType.legColor, buyable.HealthBuff);
+            }
         }
 
         foreach (var buyable in footColors)
@@ -312,6 +406,10 @@ public class SkineController : MonoBehaviour
             if (Geekplay.Instance.PlayerData.BuyedFootColors.Contains(buyable.indexOfColor))
             {
                 buyable.Buyed();
+            }
+            if (Geekplay.Instance.PlayerData.CurrentFootColorIndex == buyable.indexOfColor)
+            {
+                ChangeHealthBuff(HealtBuffSystem.HealtBuffType.footColor, buyable.HealthBuff);
             }
         }
     }
@@ -345,10 +443,10 @@ public class SkineController : MonoBehaviour
             if (item.indexOfColor == Geekplay.Instance.PlayerData.CurrentHeadColorIndex)
                 headMaterial.color = item.GetColor;
         }
-        foreach (var item in hearColors)
+        foreach (var item in hairColors)
         {
-            if (item.indexOfColor == Geekplay.Instance.PlayerData.CurrentHearColorIndex)
-                hearMaterial.color = item.GetColor;
+            if (item.indexOfColor == Geekplay.Instance.PlayerData.CurrentHairColorIndex)
+                hairMaterial.color = item.GetColor;
         }
         foreach (var item in bodyColors)
         {
@@ -608,6 +706,21 @@ public class SkineController : MonoBehaviour
     }
     #endregion
 
+    private void ChangeHealthBuffText(HealtBuffSystem.HealtBuffType type, float buffPower)
+    {
+        float difference = healthBuffSystem.CompareBuff(type, buffPower);
+        if (difference > 0)
+            healthBuffText.text = "+" + difference.ToString();
+        else if (difference < 0)
+            healthBuffText.text = difference.ToString();
+        else
+            healthBuffText.text = "";
+    }
+    private void ChangeHealthBuff(HealtBuffSystem.HealtBuffType type, float buffPower)
+    {
+        healthBuffSystem.AddBuff(type, buffPower, currentHealthText);
+    }
+
     private void OnDisable()
     {
         ChangePlayerMaterial();
@@ -620,7 +733,7 @@ public enum BodyPart
 {
     Body,
     Head,
-    Hear,
+    Hair,
     Arm,
     Leg,
     Foot

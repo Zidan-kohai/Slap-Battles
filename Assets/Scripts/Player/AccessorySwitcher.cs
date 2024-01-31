@@ -6,12 +6,10 @@ public class AccessorySwitcher : MonoBehaviour
     [SerializeField] private List<GameObject> manAccessories;
     [SerializeField] private List<GameObject> womanAccessories;
 
-
     private void Start()
     {
         SwitchAccessory(Geekplay.Instance.PlayerData.currentAccessory);
     }
-
     public void SwitchAccessory(int index)
     {
         for (int i = 0; i < manAccessories.Count; i++)
@@ -31,7 +29,6 @@ public class AccessorySwitcher : MonoBehaviour
             }
         }
     }
-
     public void SwitchAndBuyAccessory(int index)
     {
         for (int i = 0; i < manAccessories.Count; i++)
