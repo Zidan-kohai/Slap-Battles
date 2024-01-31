@@ -18,6 +18,8 @@ public class HealtBuffSystem : MonoBehaviour
     private float accessoryBuff;
     private float hairBuff;
 
+    public float GetMaxHealthObject {  get => healthObject.MaxHealth; }
+
     public void AddBuff(HealtBuffType type, float buffPower, TextMeshProUGUI buffText)
     {
         switch(type)

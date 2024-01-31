@@ -7088,6 +7088,7 @@ GameObject:
   - component: {fileID: 1651429004177170236}
   - component: {fileID: 3597528017718219194}
   - component: {fileID: 2688340593362432066}
+  - component: {fileID: 6021279216874758595}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -7279,11 +7280,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eea74ea42415604b973b74bb868f5cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
+  maxHealth: 100
   walkController: {fileID: 8361235376928088244}
   healthbar: {fileID: 8809760147162212228}
   rb: {fileID: 1162848911536679395}
-  health: 100
-  maxHealth: 100
 --- !u!114 &6024721847429933305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7296,11 +7297,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9150abaf671fff44ba354ddf01ef928a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 100
+  maxHealth: 100
   walkController: {fileID: 8361235376928088244}
   healthbar: {fileID: 8809760147162212228}
   rb: {fileID: 1162848911536679395}
-  health: 100
-  maxHealth: 100
   slap: {fileID: 6421301371780162270}
   timeToNextAttack: 0.3
   canAttack: 1
@@ -7410,6 +7411,19 @@ MonoBehaviour:
   - {fileID: 805022267742508679}
   - {fileID: 4859387169843076255}
   - {fileID: 151616172644958161}
+--- !u!114 &6021279216874758595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7849365028612606464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cea51c183cb826041902c8e8e529de14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthObject: {fileID: 3000336186378430045}
 --- !u!1 &7924974616577440144
 GameObject:
   m_ObjectHideFlags: 0

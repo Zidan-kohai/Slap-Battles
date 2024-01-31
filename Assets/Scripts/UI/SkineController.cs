@@ -22,6 +22,10 @@ public class SkineController : MonoBehaviour
     [SerializeField] private List<BuyableColor> legColors;
     [SerializeField] private List<BuyableColor> footColors;
 
+    [Space(10), Header("Gender")]
+    [SerializeField] private Button manButton;
+    [SerializeField] private Button womanButton;
+
     [Space(10), Header("Buy Button")]
     [SerializeField] private Button buyButton;
     [SerializeField] private TextMeshProUGUI buyText;
@@ -46,6 +50,7 @@ public class SkineController : MonoBehaviour
     [SerializeField] private HealtBuffSystem healthBuffSystem;
     [SerializeField] private TextMeshProUGUI currentHealthText;
     [SerializeField] private TextMeshProUGUI healthBuffText;
+
 
 
     private void Start()
@@ -107,6 +112,15 @@ public class SkineController : MonoBehaviour
             AddEventForBuyableCap(item);
         }
         #endregion
+
+        manButton.onClick.AddListener(() =>
+        {
+            currentHealthText.text = healthBuffSystem.GetMaxHealthObject.ToString();
+        });
+        womanButton.onClick.AddListener(() =>
+        {
+            currentHealthText.text = healthBuffSystem.GetMaxHealthObject.ToString();
+        });
     }
 
     #region ColorSwitching
