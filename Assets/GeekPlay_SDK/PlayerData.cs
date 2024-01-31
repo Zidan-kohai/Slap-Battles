@@ -40,6 +40,10 @@ public class PlayerData
 
     public int currentCap;
 
+    public List<int> BuyedSlaps = new List<int>();
+
+    public int currentSlap;
+
     /////InApps//////
     public string lastBuy;
 }
