@@ -38,6 +38,7 @@ public class Geekplay : MonoBehaviour
     public bool mobile; //Устройство игрока мобильное?
     public bool SoundOn = true; //Звук включен?
     public PlayerData PlayerData; //сохраняемые данные
+    public Modes currentMode = Modes.Hub; //поле для этого проекта чтобы не создавать лишный синглтон
     [SerializeField] private Rewards[] rewardsList; //список ревардов
     [SerializeField] private Purchases[] purchasesList; //список покупок
 

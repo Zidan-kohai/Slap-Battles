@@ -9,10 +9,10 @@ public class SceneLoader
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(index);
 
-        loading(operation, onLoad);
+        Loading(operation, onLoad);
     }
 
-    IEnumerator loading(AsyncOperation operation, UnityAction onLoad)
+    IEnumerator Loading(AsyncOperation operation, UnityAction onLoad)
     {
         while(!operation.isDone)
         {

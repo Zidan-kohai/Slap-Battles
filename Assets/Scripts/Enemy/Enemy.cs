@@ -130,9 +130,14 @@ public class Enemy : IHealthObject
         OnEndAnimations();
     }
 
+    public void Revive()
+    {
+        health = maxHealth;
+        healthbar.fillAmount = health /  maxHealth;
+    }
     public override void Death()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
