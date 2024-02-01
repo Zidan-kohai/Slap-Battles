@@ -1284,14 +1284,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46bae0f03b9414f4caf6aae0dc41a228, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 0}
-  rb: {fileID: 0}
+  health: 100
+  maxHealth: 100
+  navMeshAgent: {fileID: 1637332624956355817}
+  rb: {fileID: 5489976833279692965}
   healthbar: {fileID: 9210760160733686325}
   animator: {fileID: 4001809466258192970}
   speed: 2
   damagePower: 10
-  maxHealth: 100
-  health: 100
   distanseToAttack: 2
   CanWalk: 0
   timeNextToAttack: 2
@@ -1301,6 +1301,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
+  eventManager: {fileID: 0}
 --- !u!195 &1637332624956355817
 NavMeshAgent:
   m_ObjectHideFlags: 0

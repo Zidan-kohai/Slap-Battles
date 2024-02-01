@@ -10,10 +10,8 @@ public partial class Portal : MonoBehaviour
         if (other.gameObject.layer != 7) return;
         SceneLoader sceneLoader = new SceneLoader();
 
-        sceneLoader.LoadSscene(SceneIndex, () =>
-        {
-            Geekplay.Instance.currentMode = Mode;
-        });
+        Geekplay.Instance.currentMode = Mode;
+        sceneLoader.LoadScene(SceneIndex);
     }
 
 

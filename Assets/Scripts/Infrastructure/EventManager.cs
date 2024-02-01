@@ -1,3 +1,4 @@
+using CMF;
 using JetBrains.Annotations;
 using System;
 using UnityEngine;
@@ -5,9 +6,9 @@ using UnityEngine;
 public class EventManager : MonoBehaviour 
 {
     private Action<int> changeMoney;
+    private Action playerDeath;
+    private Action<Enemy> enemyDeath;
 
-    private Action PlayerDeath;
-    
     public void SubscribeOnChangeMoney(Action<int> action)
     {
         changeMoney += action;
@@ -20,22 +21,39 @@ public class EventManager : MonoBehaviour
 
     public void InvokeActionsOnChangeMoney(int money)
     {
-        changeMoney?.Invoke(money);
+        Geekplay.Instance.PlayerData.money += money;
+        changeMoney?.Invoke(Geekplay.Instance.PlayerData.money);
     }
 
 
     public void SubscribeOnPlayerDeath(Action action)
     {
-        PlayerDeath += action;
+        playerDeath += action;
     }
 
     public void UnsubscribeOnPlayerDeath(Action action)
     {
-        PlayerDeath -= action;
+        playerDeath -= action;
     }
 
     public void InvokeActionsOnPlayerDeath()
     {
-        PlayerDeath?.Invoke();
+        playerDeath?.Invoke();
+    }
+
+
+    public void SubscribeOnEnemyDeath(Action<Enemy> action)
+    {
+        enemyDeath += action;
+    }
+
+    public void UnsubscribeOnEnemyDeath(Action<Enemy> action)
+    {
+        enemyDeath -= action;
+    }
+
+    public void InvokeActionsOnEnemyDeath(Enemy enemyObject)
+    {
+        enemyDeath?.Invoke(enemyObject);
     }
 }

@@ -15,8 +15,6 @@ public class Enemy : IHealthObject
     
     [SerializeField] private float speed;
     [SerializeField] private int damagePower;
-    [SerializeField] private float maxHealth;
-    [SerializeField] private float health;
     [SerializeField] private float distanseToAttack;
     [SerializeField] private bool CanWalk;
     [SerializeField] private float timeNextToAttack;
@@ -26,11 +24,10 @@ public class Enemy : IHealthObject
     [SerializeField] private Vector3 target;
     [SerializeField] private LayerMask enemyLayer;
 
+    [SerializeField] private EventManager eventManager;
 
     private void Start()
     {
-        navMeshAgent = GetComponent<NavMeshAgent>();
-        rb = GetComponent<Rigidbody>();
         rb.isKinematic = true;
         CanWalk = true;
         canAttack = true;
@@ -94,7 +91,7 @@ public class Enemy : IHealthObject
     public override void GetDamage(float damagePower, Vector3 direction)
     {
         health -= damagePower;
-        healthbar.fillAmount = (health / maxHealth);
+        healthbar.fillAmount = (health / maxHealth) < 0 ? 0 : health;
 
         if(navMeshAgent.hasPath)
             navMeshAgent.ResetPath();
@@ -138,6 +135,7 @@ public class Enemy : IHealthObject
     public override void Death()
     {
         gameObject.SetActive(false);
+        eventManager.InvokeActionsOnEnemyDeath(this);
     }
 
     private void OnTriggerEnter(Collider other)

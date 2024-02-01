@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader
 {
-    public void LoadSscene(int index, UnityAction onLoad)
+    public void LoadScene(int index, UnityAction onLoad = null)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(index);
 

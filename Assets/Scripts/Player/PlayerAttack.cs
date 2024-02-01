@@ -21,6 +21,8 @@ public class PlayerAttack : Player
     [Header("Components")]
     [SerializeField] protected EventManager eventManager;
 
+    [SerializeField] private int moneyRewardOnSlap;
+
     private void OnEnable()
     {
         slap.gameObject.SetActive(true);
@@ -41,8 +43,7 @@ public class PlayerAttack : Player
             if (Physics.Raycast(ray, out hit, attackDistanese, enemyLayer))
             {
                 Debug.Log(true);
-                Geekplay.Instance.PlayerData.money++;
-                eventManager.InvokeActionsOnChangeMoney(Geekplay.Instance.PlayerData.money);
+                eventManager.InvokeActionsOnChangeMoney(moneyRewardOnSlap);
 
                 hit.collider.gameObject.GetComponent<Enemy>().GetDamage(slap.AttackPower, ray.direction);
             }

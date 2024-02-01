@@ -21,7 +21,6 @@ public class Player : IHealthObject
         health -= damagePower;
         healthbar.fillAmount = (health / maxHealth);
 
-
         if (health <= 0)
         {
             Death();
@@ -35,7 +34,7 @@ public class Player : IHealthObject
     {
         SceneLoader sceneLoader = new SceneLoader();
 
-        sceneLoader.LoadSscene(0, null);
+        sceneLoader.LoadScene(0, null);
     }
     public IEnumerator GetDamageAnimation(Vector3 direction, float damagePower)
     {
