@@ -11,6 +11,8 @@ public class BattleRoyalModeUIController : MonoBehaviour
 
     private void Start()
     {
+        enemyCountText.text = modeController.EnemyCount.ToString();
+
         eventManager.SubscribeOnEnemyDeath(OnEnemyDeath);
     }
 

@@ -12,7 +12,7 @@ public class BattleRoyalModeController : MonoBehaviour
 
 
     [SerializeField] private int LivedEnemyCount;
-    public int EnemyCount {  get => enemies.Count; }
+    public int EnemyCount {  get => enemies.Count + 1; }
 
     private void Start()
     {

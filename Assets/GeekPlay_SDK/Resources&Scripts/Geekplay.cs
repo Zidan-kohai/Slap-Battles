@@ -58,7 +58,11 @@ public class Geekplay : MonoBehaviour
     private bool canAd;
     string colorDebug = "yellow"; //Цвет Дебага
 
-    //РЕКЛАМА
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
 
     private void Update()
     {
@@ -69,6 +73,7 @@ public class Geekplay : MonoBehaviour
         }
     }
 
+    //РЕКЛАМА
     public void OnRewarded() //ВОЗНАГРАЖДЕНИЕ ПОСЛЕ ПРОСМОТРА РЕКЛАМЫ
     {
         if (Platform == Platform.CrazyGames || Platform == Platform.GamePix)
