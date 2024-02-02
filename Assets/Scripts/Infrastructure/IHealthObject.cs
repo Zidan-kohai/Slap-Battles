@@ -8,8 +8,9 @@ public class IHealthObject : MonoBehaviour
     public float CurrentHealth { get => health; set => health = value; }
     public float MaxHealth { get => maxHealth; set => maxHealth = value; }
 
-    public virtual void GetDamage(float damagePower, Vector3 direction, out bool isDeath)
+    public virtual void GetDamage(float damagePower, Vector3 direction, out bool isDeath, out int gettedSlap)
     {
+        gettedSlap = 1;
         isDeath = false;
     }
 

@@ -25,22 +25,23 @@ public class Enemy : IHealthObject
     [SerializeField] private LayerMask enemyLayer;
 
     [SerializeField] private EventManager eventManager;
-
-    private void Start()
+    [SerializeField] private int slapToGive;
+    [SerializeField] protected int stolenSlaps;
+    protected void Start()
     {
+        stolenSlaps = 1;
         rb.isKinematic = true;
         CanWalk = true;
         canAttack = true;
-
 
         GetRandomTarget();
         Move(target);
     }
 
-    private void Update()
+    protected void Update()
     {
         if (!CanWalk) return;
-        if (!navMeshAgent.isOnNavMesh) Destroy(gameObject);
+        if (!navMeshAgent.isOnNavMesh) Death();
 
         if(enemy != null)
         {
@@ -63,9 +64,9 @@ public class Enemy : IHealthObject
         animator.SetFloat("HorizontalSpeed", navMeshAgent.speed);
     }
 
-    private void Attack()
+    protected virtual void Attack()
     {
-        enemy.GetDamage(damagePower, (target - transform.position).normalized, out bool isDeath);
+        enemy.GetDamage(damagePower, (target - transform.position).normalized, out bool isDeath, out int gettedSlap);
         StartCoroutine(AttackAnimation());
 
         if(isDeath)
@@ -73,6 +74,7 @@ public class Enemy : IHealthObject
             enemy = null;
             GetRandomTarget();
         }
+        stolenSlaps += gettedSlap;
     }
 
     public IEnumerator AttackAnimation()
@@ -82,19 +84,19 @@ public class Enemy : IHealthObject
         canAttack = true;
     }
 
-    private void Move(Vector3 targetPosition)
+    protected void Move(Vector3 targetPosition)
     {
         navMeshAgent.SetDestination(targetPosition);
     }
 
-    private void GetRandomTarget()
+    protected void GetRandomTarget()
     {
         target = new Vector3(Random.Range(transform.position.x - 10, transform.position.x + 10),
             transform.position.y,
             Random.Range(transform.position.x - 10, transform.position.x + 10));
     }
 
-    public override void GetDamage(float damagePower, Vector3 direction, out bool isDeath)
+    public override void GetDamage(float damagePower, Vector3 direction, out bool isDeath, out int gettedSlap)
     {
         health -= damagePower;
         healthbar.fillAmount = (health / maxHealth) < 0 ? 0 : health / maxHealth;
@@ -110,10 +112,10 @@ public class Enemy : IHealthObject
         {
             StartCoroutine(GetDamageAnimation(direction, damagePower));
         }
-
+        gettedSlap = slapToGive;
         isDeath = health > 0;
     }
-    private void OnEndAnimations()
+    protected void OnEndAnimations()
     {
         GetRandomTarget();
     }
@@ -146,7 +148,7 @@ public class Enemy : IHealthObject
         eventManager.InvokeActionsOnEnemyDeath(this);
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.TryGetComponent<IHealthObject>(out IHealthObject healthObject))
         {

@@ -1,4 +1,5 @@
 using CMF;
+using JetBrains.Annotations;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,13 +11,19 @@ public class Player : IHealthObject
     [SerializeField] private Image healthbar;
     [SerializeField] private Rigidbody rb;
 
-    private void Start()
+    [Space(10), Header("Slap")]
+    [SerializeField] private int slapToGet;
+    [SerializeField] protected int stolenSlaps;
+
+    public int SetStolenSlaps { set => stolenSlaps += value; }
+    protected void Start()
     {
+        stolenSlaps = 1;
         rb = GetComponent<Rigidbody>();
         walkController = GetComponent<AdvancedWalkerController>();
     }
 
-    public override void GetDamage(float damagePower, Vector3 direction, out bool isDeath)
+    public override void GetDamage(float damagePower, Vector3 direction, out bool isDeath, out int stoledSlap)
     {
         health -= damagePower;
         healthbar.fillAmount = (health / maxHealth);
@@ -29,7 +36,7 @@ public class Player : IHealthObject
         {
             StartCoroutine(GetDamageAnimation(direction, damagePower));
         }
-
+        stoledSlap = slapToGet;
         isDeath =  health > 0;
     }
     public override void Death()

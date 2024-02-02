@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class PlayerAttack : Player
+public class PlayerAttack : MonoBehaviour
 {
     private const string ISATTACK = "IsAttack";
 
@@ -19,9 +19,8 @@ public class PlayerAttack : Player
     [SerializeField] private int attackDistanese;
 
     [Header("Components")]
+    [SerializeField] private Player player;
     [SerializeField] protected EventManager eventManager;
-
-    [SerializeField] private int moneyRewardOnSlap;
 
     private void OnEnable()
     {
@@ -38,16 +37,7 @@ public class PlayerAttack : Player
     {
         if(Input.GetMouseButtonDown(0) && canAttack)
         {
-            RaycastHit hit;
-            Ray ray = new Ray(slapRaycaster.position, slapRaycaster.forward);
-            if (Physics.Raycast(ray, out hit, attackDistanese, enemyLayer))
-            {
-                Debug.Log(true);
-                eventManager.InvokeActionsOnChangeMoney(moneyRewardOnSlap);
-
-                hit.collider.gameObject.GetComponent<Enemy>().GetDamage(slap.AttackPower, ray.direction, out bool isDeath);
-            }
-            StartCoroutine(Attack());
+            Attack();
         }
 
         else if (Input.GetKeyDown(KeyCode.E))
@@ -62,8 +52,21 @@ public class PlayerAttack : Player
         Debug.Log(eventManager);
     }
 
+    private void Attack()
+    {
+        RaycastHit hit;
+        Ray ray = new Ray(slapRaycaster.position, slapRaycaster.forward);
+        if (Physics.Raycast(ray, out hit, attackDistanese, enemyLayer))
+        {
+            hit.collider.gameObject.GetComponent<Enemy>().GetDamage(slap.AttackPower, ray.direction, out bool isDeath, out int GettedSlap);
 
-    public IEnumerator Attack()
+            eventManager.InvokeActionsOnChangeMoney(GettedSlap);
+            player.SetStolenSlaps = GettedSlap;
+        }
+        StartCoroutine(AttackAnimation());
+    }
+
+    public IEnumerator AttackAnimation()
     {
         canAttack = false;
         //slap.Attack();
