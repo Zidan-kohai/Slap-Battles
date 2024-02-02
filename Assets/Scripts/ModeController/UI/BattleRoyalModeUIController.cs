@@ -14,7 +14,7 @@ public class BattleRoyalModeUIController : MonoBehaviour
         eventManager.SubscribeOnEnemyDeath(OnEnemyDeath);
     }
 
-    private void OnEnemyDeath(Enemy enemyObj)
+    private void OnEnemyDeath(Enemy  enemyObj)
     {
         enemyCountText.text = modeController.EnemyCount.ToString();
     }

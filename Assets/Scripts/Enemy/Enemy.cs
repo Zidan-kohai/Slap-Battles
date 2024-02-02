@@ -91,7 +91,7 @@ public class Enemy : IHealthObject
     public override void GetDamage(float damagePower, Vector3 direction)
     {
         health -= damagePower;
-        healthbar.fillAmount = (health / maxHealth) < 0 ? 0 : health;
+        healthbar.fillAmount = (health / maxHealth) < 0 ? 0 : health / maxHealth;
 
         if(navMeshAgent.hasPath)
             navMeshAgent.ResetPath();
