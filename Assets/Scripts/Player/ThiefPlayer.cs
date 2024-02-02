@@ -8,6 +8,8 @@ public class ThiefPlayer : Player
     [SerializeField] private int minStoleChance;
     [SerializeField] private int maxStoleChance;
 
+    [Space(10)]
+    [SerializeField] private EventManager eventManager;
     private void Start()
     {
         base.Start();
@@ -20,12 +22,15 @@ public class ThiefPlayer : Player
         base.GetDamage(damagePower, direction, out isDeath, out stoledSlap);
 
         stoledSlap = StoleSlaps();
+
+        eventManager.InvokeActionsOnChangeMoney(-stoledSlap);
     }
     public override void SetStolenSlaps(int value)
     {
         base.SetStolenSlaps(value);
 
         slapCounterText.text = stolenSlaps.ToString();
+
     }
     public int StoleSlaps()
     {
