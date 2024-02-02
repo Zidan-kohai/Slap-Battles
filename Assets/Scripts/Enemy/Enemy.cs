@@ -123,6 +123,7 @@ public class Enemy : IHealthObject
         gettedSlap = slapToGive;
         isDeath = health > 0;
     }
+
     protected void OnEndAnimations()
     {
         GetRandomTarget();
@@ -150,13 +151,14 @@ public class Enemy : IHealthObject
         health = maxHealth;
         healthbar.fillAmount = health /  maxHealth;
     }
+
     public override void Death()
     {
         gameObject.SetActive(false);
         eventManager.InvokeActionsOnEnemyDeath(this);
     }
 
-    protected void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.TryGetComponent<IHealthObject>(out IHealthObject healthObject))
         {
