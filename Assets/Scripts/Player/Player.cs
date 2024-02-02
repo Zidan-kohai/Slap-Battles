@@ -15,6 +15,8 @@ public class Player : IHealthObject
     [SerializeField] private int slapToGive;
     [SerializeField] protected int stolenSlaps;
 
+    private bool isDead = false;
+
     protected void Start()
     {
         stolenSlaps = 1;
@@ -40,6 +42,9 @@ public class Player : IHealthObject
     }
     public override void Death()
     {
+        if (isDead) return;
+
+        isDead = true;
         SceneLoader sceneLoader = new SceneLoader();
 
         sceneLoader.LoadScene(0, null);
