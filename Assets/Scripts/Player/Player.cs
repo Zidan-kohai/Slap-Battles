@@ -16,7 +16,7 @@ public class Player : IHealthObject
         walkController = GetComponent<AdvancedWalkerController>();
     }
 
-    public override void GetDamage(float damagePower, Vector3 direction)
+    public override void GetDamage(float damagePower, Vector3 direction, out bool isDeath)
     {
         health -= damagePower;
         healthbar.fillAmount = (health / maxHealth);
@@ -29,6 +29,8 @@ public class Player : IHealthObject
         {
             StartCoroutine(GetDamageAnimation(direction, damagePower));
         }
+
+        isDeath =  health > 0;
     }
     public override void Death()
     {

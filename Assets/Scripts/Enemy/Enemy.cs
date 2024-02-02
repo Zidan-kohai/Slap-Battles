@@ -54,7 +54,7 @@ public class Enemy : IHealthObject
             }
         }
 
-        else if((target - transform.position).magnitude < 1f)
+        else if((target - transform.position).magnitude < 3f)
         {
             GetRandomTarget();
             Move(target);
@@ -65,8 +65,14 @@ public class Enemy : IHealthObject
 
     private void Attack()
     {
-        enemy.GetComponent<IHealthObject>().GetDamage(damagePower, (target - transform.position).normalized);
+        enemy.GetDamage(damagePower, (target - transform.position).normalized, out bool isDeath);
         StartCoroutine(AttackAnimation());
+
+        if(isDeath)
+        {
+            enemy = null;
+            GetRandomTarget();
+        }
     }
 
     public IEnumerator AttackAnimation()
@@ -88,7 +94,7 @@ public class Enemy : IHealthObject
             Random.Range(transform.position.x - 10, transform.position.x + 10));
     }
 
-    public override void GetDamage(float damagePower, Vector3 direction)
+    public override void GetDamage(float damagePower, Vector3 direction, out bool isDeath)
     {
         health -= damagePower;
         healthbar.fillAmount = (health / maxHealth) < 0 ? 0 : health / maxHealth;
@@ -104,6 +110,8 @@ public class Enemy : IHealthObject
         {
             StartCoroutine(GetDamageAnimation(direction, damagePower));
         }
+
+        isDeath = health > 0;
     }
     private void OnEndAnimations()
     {

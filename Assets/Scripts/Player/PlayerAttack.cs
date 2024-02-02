@@ -45,7 +45,7 @@ public class PlayerAttack : Player
                 Debug.Log(true);
                 eventManager.InvokeActionsOnChangeMoney(moneyRewardOnSlap);
 
-                hit.collider.gameObject.GetComponent<Enemy>().GetDamage(slap.AttackPower, ray.direction);
+                hit.collider.gameObject.GetComponent<Enemy>().GetDamage(slap.AttackPower, ray.direction, out bool isDeath);
             }
             StartCoroutine(Attack());
         }
