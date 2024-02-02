@@ -7285,6 +7285,8 @@ MonoBehaviour:
   walkController: {fileID: 8361235376928088244}
   healthbar: {fileID: 8809760147162212228}
   rb: {fileID: 1162848911536679395}
+  slapToGive: 1
+  stolenSlaps: 0
 --- !u!114 &6024721847429933305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7297,11 +7299,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9150abaf671fff44ba354ddf01ef928a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  maxHealth: 100
-  walkController: {fileID: 8361235376928088244}
-  healthbar: {fileID: 8809760147162212228}
-  rb: {fileID: 1162848911536679395}
   slap: {fileID: 6421301371780162270}
   timeToNextAttack: 0.3
   canAttack: 1
@@ -7311,6 +7308,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   attackDistanese: 2
+  player: {fileID: 3000336186378430045}
   eventManager: {fileID: 0}
 --- !u!114 &6156636138830900653
 MonoBehaviour:

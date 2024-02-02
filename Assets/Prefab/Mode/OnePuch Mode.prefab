@@ -1323,6 +1323,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2790690277111267412, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
+      propertyPath: slapToGive
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2790690277111267412, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
       propertyPath: eventManager
       value: 
       objectReference: {fileID: 3237182903930966125}
@@ -1419,6 +1423,10 @@ PrefabInstance:
     - target: {fileID: 2790690277111267412, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
       propertyPath: maxHealth
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2790690277111267412, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
+      propertyPath: slapToGive
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2790690277111267412, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
       propertyPath: eventManager
@@ -1519,6 +1527,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2790690277111267412, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
+      propertyPath: slapToGive
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2790690277111267412, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
       propertyPath: eventManager
       value: 
       objectReference: {fileID: 3237182903930966125}
@@ -1606,6 +1618,10 @@ PrefabInstance:
     - target: {fileID: 2790690277111267412, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
       propertyPath: maxHealth
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2790690277111267412, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
+      propertyPath: slapToGive
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2790690277111267412, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
       propertyPath: eventManager
@@ -1708,6 +1724,10 @@ PrefabInstance:
     - target: {fileID: 2790690277111267412, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
       propertyPath: maxHealth
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2790690277111267412, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
+      propertyPath: slapToGive
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2790690277111267412, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
       propertyPath: eventManager
@@ -1873,6 +1893,10 @@ PrefabInstance:
     - target: {fileID: 2790690277111267412, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
       propertyPath: maxHealth
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2790690277111267412, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
+      propertyPath: slapToGive
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2790690277111267412, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
       propertyPath: eventManager
@@ -2082,7 +2106,10 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 34a6350b3d1799944ab7f57e7ba6f10b, type: 2}
     - target: {fileID: 1946795582873769700, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
       propertyPath: m_WarningMessage
-      value: 
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'mixamorig:RightArm'\n\tTransform 'mixamorig:RightArm'\n\tFrom
+        animation clip 'IdleWithHand'"
       objectReference: {fileID: 0}
     - target: {fileID: 1979627145331737048, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2187,6 +2214,14 @@ PrefabInstance:
     - target: {fileID: 3000336186378430045, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
       propertyPath: maxHealth
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3000336186378430045, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
+      propertyPath: slapToGet
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3000336186378430045, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
+      propertyPath: slapToGive
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3257068081960610847, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2863,6 +2898,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2790690277111267412, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
+      propertyPath: slapToGive
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2790690277111267412, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
       propertyPath: eventManager
       value: 
       objectReference: {fileID: 3237182903930966125}
@@ -2966,6 +3005,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2790690277111267412, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
+      propertyPath: slapToGive
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2790690277111267412, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
       propertyPath: eventManager
       value: 
       objectReference: {fileID: 3237182903930966125}
@@ -3066,6 +3109,10 @@ PrefabInstance:
     - target: {fileID: 2790690277111267412, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
       propertyPath: maxHealth
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2790690277111267412, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
+      propertyPath: slapToGive
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2790690277111267412, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
       propertyPath: eventManager

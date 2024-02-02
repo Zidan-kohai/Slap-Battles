@@ -12,7 +12,7 @@ public class Player : IHealthObject
     [SerializeField] private Rigidbody rb;
 
     [Space(10), Header("Slap")]
-    [SerializeField] private int slapToGet;
+    [SerializeField] private int slapToGive;
     [SerializeField] protected int stolenSlaps;
 
     protected void Start()
@@ -35,7 +35,7 @@ public class Player : IHealthObject
         {
             StartCoroutine(GetDamageAnimation(direction, damagePower));
         }
-        stoledSlap = slapToGet;
+        stoledSlap = slapToGive;
         isDeath =  health > 0;
     }
     public override void Death()
