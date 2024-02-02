@@ -15,7 +15,6 @@ public class Player : IHealthObject
     [SerializeField] private int slapToGet;
     [SerializeField] protected int stolenSlaps;
 
-    public int SetStolenSlaps { set => stolenSlaps += value; }
     protected void Start()
     {
         stolenSlaps = 1;
@@ -58,6 +57,10 @@ public class Player : IHealthObject
         OnEndAnimations();
     }
 
+    public virtual void SetStolenSlaps(int value)
+    {
+        stolenSlaps += value;
+    }
     private void OnEndAnimations()
     {
 

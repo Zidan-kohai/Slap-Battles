@@ -21,7 +21,12 @@ public class ThiefPlayer : Player
 
         stoledSlap = StoleSlaps();
     }
+    public override void SetStolenSlaps(int value)
+    {
+        base.SetStolenSlaps(value);
 
+        slapCounterText.text = stolenSlaps.ToString();
+    }
     public int StoleSlaps()
     {
         int percent = UnityEngine.Random.Range(minStoleChance, maxStoleChance);
