@@ -19,7 +19,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private int attackDistanese;
 
     [Header("Components")]
-    [SerializeField] private Player player;
+    [SerializeField] protected Player player;
     [SerializeField] protected EventManager eventManager;
 
     private void OnEnable()
@@ -33,7 +33,7 @@ public class PlayerAttack : MonoBehaviour
     }
 
 
-    private void Update()
+    protected virtual void Update()
     {
         if(Input.GetMouseButtonDown(0) && canAttack)
         {
@@ -52,7 +52,7 @@ public class PlayerAttack : MonoBehaviour
         Debug.Log(eventManager);
     }
 
-    private void Attack()
+    protected virtual void Attack()
     {
         RaycastHit hit;
         Ray ray = new Ray(slapRaycaster.position, slapRaycaster.forward);
@@ -62,8 +62,14 @@ public class PlayerAttack : MonoBehaviour
 
             eventManager.InvokeActionsOnChangeMoney(GettedSlap);
             player.SetStolenSlaps(GettedSlap);
+            OnSuccesAttack();
         }
         StartCoroutine(AttackAnimation());
+    }
+
+    protected virtual void OnSuccesAttack()
+    {
+
     }
 
     public IEnumerator AttackAnimation()

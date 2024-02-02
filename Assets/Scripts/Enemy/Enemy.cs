@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -38,7 +39,7 @@ public class Enemy : IHealthObject
         Move(target);
     }
 
-    protected void Update()
+    protected virtual void Update()
     {
         if (!CanWalk) return;
         if (!navMeshAgent.isOnNavMesh) Death();
@@ -67,6 +68,8 @@ public class Enemy : IHealthObject
     protected virtual void Attack()
     {
         enemy.GetDamage(damagePower, (target - transform.position).normalized, out bool isDeath, out int gettedSlap);
+        OnSuccesAttack();
+
         StartCoroutine(AttackAnimation());
 
         if(isDeath)
@@ -75,6 +78,11 @@ public class Enemy : IHealthObject
             GetRandomTarget();
         }
         stolenSlaps += gettedSlap;
+    }
+
+    protected virtual void OnSuccesAttack()
+    {
+
     }
 
     public IEnumerator AttackAnimation()
