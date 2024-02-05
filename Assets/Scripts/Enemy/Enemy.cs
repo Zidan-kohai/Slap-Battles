@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Diagnostics.Tracing;
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.AI;
@@ -29,6 +30,9 @@ public class Enemy : IHealthObject
     [SerializeField] private int slapToGive;
     [SerializeField] protected int stolenSlaps;
 
+
+    [SerializeField] private Transform MaxPosition, MinPosition;
+
     protected void Start()
     {
         stolenSlaps = 1;
@@ -38,6 +42,8 @@ public class Enemy : IHealthObject
 
         GetRandomTarget();
         Move(target);
+
+        eventManager.SubscribeOnEnemyDeath(OnEnemyDeath);
     }
 
     protected virtual void Update()
@@ -100,9 +106,9 @@ public class Enemy : IHealthObject
 
     protected void GetRandomTarget()
     {
-        target = new Vector3(Random.Range(transform.position.x - 10, transform.position.x + 10),
-            transform.position.y,
-            Random.Range(transform.position.x - 10, transform.position.x + 10));
+        target = new Vector3(Random.Range(MinPosition.position.x, MaxPosition.position.x),
+            0,
+            Random.Range(MinPosition.position.z, MaxPosition.position.z));
     }
 
     public override void GetDamage(float damagePower, Vector3 direction, out bool isDeath, out int gettedSlap)
@@ -122,7 +128,7 @@ public class Enemy : IHealthObject
             StartCoroutine(GetDamageAnimation(direction, damagePower));
         }
         gettedSlap = slapToGive;
-        isDeath = health > 0;
+        isDeath = health <= 0;
     }
 
     protected void OnEndAnimations()
@@ -157,6 +163,19 @@ public class Enemy : IHealthObject
     {
         gameObject.SetActive(false);
         eventManager.InvokeActionsOnEnemyDeath(this);
+    }
+
+    private void OnEnemyDeath(Enemy enemy)
+    {
+        if(this.enemy != null && this.enemy.TryGetComponent(out Enemy myEnemy))
+        {
+            if (enemy == myEnemy)
+            {
+                this.enemy = null;
+                GetRandomTarget(); 
+                Move(target);
+            }
+        }
     }
 
     protected virtual void OnTriggerEnter(Collider other)

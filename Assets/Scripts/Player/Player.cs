@@ -38,7 +38,7 @@ public class Player : IHealthObject
             StartCoroutine(GetDamageAnimation(direction, damagePower));
         }
         stoledSlap = slapToGive;
-        isDeath =  health > 0;
+        isDeath =  health <= 0;
     }
     public override void Death()
     {
