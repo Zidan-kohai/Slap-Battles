@@ -6,8 +6,11 @@ public class CategoriesChoose : MonoBehaviour
     [SerializeField] private List<GameObject> categoriesGameObject;
     [SerializeField] private GameObject manHair;
     [SerializeField] private GameObject womanHair;
+    [SerializeField] private GameObject buyButton;
     public void TurnOn(int index)
     {
+        buyButton.SetActive(false);
+
         for(int i = 0; i < categoriesGameObject.Count; i++)
         {
             categoriesGameObject[i].SetActive(false);

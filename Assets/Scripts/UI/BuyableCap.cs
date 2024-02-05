@@ -7,11 +7,23 @@ public class BuyableCap : Buyable
     [SerializeField] private int indexOfCap;
     [SerializeField] private Button buttonSelf;
 
+    [SerializeField] private GameObject SelectedIcon;
+
     public float HealthBuff;
 
     public int GetIndexOfCap { get { return indexOfCap; } }
     public void SubscribeOnClick(UnityAction action)
     {
         buttonSelf.onClick.AddListener(action);
+    }
+
+    public void Select()
+    {
+        SelectedIcon.SetActive(true);
+    }
+
+    public void Unselect()
+    {
+        SelectedIcon.SetActive(false);
     }
 }

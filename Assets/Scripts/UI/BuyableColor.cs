@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 public class BuyableColor : Buyable
@@ -8,6 +7,9 @@ public class BuyableColor : Buyable
     [SerializeField] private Image image;
     [SerializeField] private Button buttonSelf;
     [SerializeField] private BodyPart bodyPart;
+
+    [SerializeField] private GameObject SelectedIcon;
+
     public Color GetColor => image.color;
     public BodyPart GetBodyType { get { return bodyPart; } }
 
@@ -26,6 +28,14 @@ public class BuyableColor : Buyable
         buttonSelf.onClick.AddListener(action);
     }
 
+    public void Select()
+    {
+        SelectedIcon.SetActive(true);
+    }
 
+    public void Unselect()
+    {
+        SelectedIcon.SetActive(false);
+    }
 
 }

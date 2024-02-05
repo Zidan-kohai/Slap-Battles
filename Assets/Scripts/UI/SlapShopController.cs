@@ -33,6 +33,7 @@ public class SlapShopController : MonoBehaviour
     {
         buyable.SubscribeOnClick(() =>
         {
+            buyButton.gameObject.SetActive(true);
             slapSwitcher.SwitchSlap(buyable.GetIndexOfSlap);
             buyButton.onClick.RemoveAllListeners();
 
