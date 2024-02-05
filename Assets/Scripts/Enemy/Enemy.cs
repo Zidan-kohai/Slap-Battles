@@ -9,17 +9,17 @@ using UnityEngine.UI;
 public class Enemy : IHealthObject
 {
     [Header("Components")]
-    [SerializeField] private NavMeshAgent navMeshAgent;
+    [SerializeField] protected NavMeshAgent navMeshAgent;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Image healthbar;
-    [SerializeField] private Animator animator;
+    [SerializeField] protected Animator animator;
     
     [SerializeField] private float speed;
     [SerializeField] private int damagePower;
-    [SerializeField] private float distanseToAttack;
-    [SerializeField] private bool CanWalk;
+    [SerializeField] protected float distanseToAttack;
+    [SerializeField] protected bool CanWalk;
     [SerializeField] private float timeNextToAttack;
-    [SerializeField] private bool canAttack;
+    [SerializeField] protected bool canAttack;
 
     [SerializeField] private IHealthObject enemy;
     [SerializeField] private Vector3 target;
@@ -28,6 +28,7 @@ public class Enemy : IHealthObject
     [SerializeField] private EventManager eventManager;
     [SerializeField] private int slapToGive;
     [SerializeField] protected int stolenSlaps;
+
     protected void Start()
     {
         stolenSlaps = 1;

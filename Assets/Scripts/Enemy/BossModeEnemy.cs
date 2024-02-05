@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BossModeEnemy : Enemy
 {
@@ -6,11 +7,24 @@ public class BossModeEnemy : Enemy
     [Range(0, 1000)]
     private int ChanceToAttackBoss;
 
+    [SerializeField] private Transform bossTransform;
+
     protected override void Update()
     {
-        base.Update();
+        if (!CanWalk) return;
+        if (!navMeshAgent.isOnNavMesh) Death();
+
+        if ((bossTransform.position - transform.position).magnitude < distanseToAttack && canAttack)
+        {
+            Attack();
+        }
+        else
+        {
+            navMeshAgent.SetDestination(bossTransform.position);
+        }
 
 
+        animator.SetFloat("HorizontalSpeed", navMeshAgent.speed);
     }
 
     protected override void OnTriggerEnter(Collider other)
