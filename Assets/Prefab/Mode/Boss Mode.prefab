@@ -517,6 +517,7 @@ Transform:
   - {fileID: 7319954887216121084}
   - {fileID: 4670585390952112343}
   - {fileID: 1321688782244773649}
+  - {fileID: 6657274193367674804}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3052530754654764818
@@ -588,6 +589,70 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4670585390952112343}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2985308164575190186
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6657274193367674804}
+  m_Layer: 0
+  m_Name: AI Walk Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6657274193367674804
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2985308164575190186}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 399899577804801542}
+  - {fileID: 7467189684070277616}
+  m_Father: {fileID: 1626376185768969731}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3074438581301044970
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 399899577804801542}
+  m_Layer: 0
+  m_Name: MinPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &399899577804801542
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3074438581301044970}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -44.5, y: 0, z: -10.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6657274193367674804}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3430263435796488547
 GameObject:
@@ -1231,6 +1296,37 @@ Transform:
   - {fileID: 3757879004380331589}
   m_Father: {fileID: 1626376185768969731}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7420369582442433489
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7467189684070277616}
+  m_Layer: 0
+  m_Name: MaxPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7467189684070277616
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7420369582442433489}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 46.7, y: 0, z: 82.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6657274193367674804}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7852139791275056561
 GameObject:
   m_ObjectHideFlags: 0
@@ -1392,6 +1488,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: MaxPosition
+      value: 
+      objectReference: {fileID: 7467189684070277616}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: MinPosition
+      value: 
+      objectReference: {fileID: 399899577804801542}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
       propertyPath: eventManager
       value: 
       objectReference: {fileID: 3237182903930966125}
@@ -1472,6 +1576,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: MaxPosition
+      value: 
+      objectReference: {fileID: 7467189684070277616}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: MinPosition
+      value: 
+      objectReference: {fileID: 399899577804801542}
     - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
       propertyPath: eventManager
       value: 
@@ -1554,6 +1666,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: MaxPosition
+      value: 
+      objectReference: {fileID: 7467189684070277616}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: MinPosition
+      value: 
+      objectReference: {fileID: 399899577804801542}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
       propertyPath: eventManager
       value: 
       objectReference: {fileID: 3237182903930966125}
@@ -1634,6 +1754,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: MaxPosition
+      value: 
+      objectReference: {fileID: 7467189684070277616}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: MinPosition
+      value: 
+      objectReference: {fileID: 399899577804801542}
     - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
       propertyPath: eventManager
       value: 
@@ -1716,6 +1844,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: MaxPosition
+      value: 
+      objectReference: {fileID: 7467189684070277616}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: MinPosition
+      value: 
+      objectReference: {fileID: 399899577804801542}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
       propertyPath: eventManager
       value: 
       objectReference: {fileID: 3237182903930966125}
@@ -1797,6 +1933,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: MaxPosition
+      value: 
+      objectReference: {fileID: 7467189684070277616}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: MinPosition
+      value: 
+      objectReference: {fileID: 399899577804801542}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
       propertyPath: eventManager
       value: 
       objectReference: {fileID: 3237182903930966125}
@@ -1877,6 +2021,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: MaxPosition
+      value: 
+      objectReference: {fileID: 7467189684070277616}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: MinPosition
+      value: 
+      objectReference: {fileID: 399899577804801542}
     - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
       propertyPath: eventManager
       value: 
@@ -2866,6 +3018,14 @@ PrefabInstance:
       value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 2790690277111267412, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
+      propertyPath: MaxPosition
+      value: 
+      objectReference: {fileID: 7467189684070277616}
+    - target: {fileID: 2790690277111267412, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
+      propertyPath: MinPosition
+      value: 
+      objectReference: {fileID: 399899577804801542}
+    - target: {fileID: 2790690277111267412, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
       propertyPath: damagePower
       value: 50
       objectReference: {fileID: 0}
@@ -3019,6 +3179,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: MaxPosition
+      value: 
+      objectReference: {fileID: 7467189684070277616}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: MinPosition
+      value: 
+      objectReference: {fileID: 399899577804801542}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
       propertyPath: eventManager
       value: 
       objectReference: {fileID: 3237182903930966125}
@@ -3099,6 +3267,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: MaxPosition
+      value: 
+      objectReference: {fileID: 7467189684070277616}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: MinPosition
+      value: 
+      objectReference: {fileID: 399899577804801542}
     - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
       propertyPath: eventManager
       value: 
