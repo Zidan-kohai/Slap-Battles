@@ -21,7 +21,6 @@ public class HubEnemy : MonoBehaviour
             GetRandomPosition();
             Move();
         }
-
         animator.SetFloat("HorizontalSpeed", navMeshAgent.speed);
     }
 
@@ -32,6 +31,6 @@ public class HubEnemy : MonoBehaviour
 
     private void GetRandomPosition()
     {
-        target = new Vector3(Random.Range(MinPosition.position.x, MaxPosition.position.x), 0, Random.Range(MinPosition.position.z, MaxPosition.position.z));
+        target = new Vector3(Random.Range(MinPosition.position.x, MaxPosition.position.x), 11, Random.Range(MinPosition.position.z, MaxPosition.position.z));
     }
 }
