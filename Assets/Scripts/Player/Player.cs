@@ -20,7 +20,7 @@ public class Player : IHealthObject
 
     protected void Start()
     {
-        stolenSlaps = 1;
+        stolenSlaps = 0;
         rb = GetComponent<Rigidbody>();
         walkController = GetComponent<AdvancedWalkerController>();
     }
@@ -49,6 +49,8 @@ public class Player : IHealthObject
         //SceneLoader sceneLoader = new SceneLoader();
 
         //sceneLoader.LoadScene(0, null);
+
+        walkController.enabled = false;
 
         eventManager.InvokeActionsOnPlayerDeath();
     }

@@ -15,6 +15,9 @@ public class GameplayUI : MonoBehaviour
 
     private void OnPlayerDeath()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         LosePanel.gameObject.SetActive(true);
         LosePanel.SetSlapCount(Convert.ToInt32(moneyText.text));
     }

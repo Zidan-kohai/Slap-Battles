@@ -2721,7 +2721,11 @@ MonoBehaviour:
     ManHairBuff: 0
     WomanHairBuff: 0
   currentMode: 0
-  rewardsList: []
+  rewardsList:
+  - rewardName: DoubleAward
+    rewardEvent:
+      m_PersistentCalls:
+        m_Calls: []
   purchasesList: []
   Platform: 0
   gameArterPrefab: {fileID: 0}

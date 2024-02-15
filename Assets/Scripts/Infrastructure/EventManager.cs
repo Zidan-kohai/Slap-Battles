@@ -21,7 +21,6 @@ public class EventManager : MonoBehaviour
 
     public void InvokeActionsOnChangeMoney(int money)
     {
-        //Geekplay.Instance.PlayerData.money += money;
         changeMoney?.Invoke(money);
     }
 
