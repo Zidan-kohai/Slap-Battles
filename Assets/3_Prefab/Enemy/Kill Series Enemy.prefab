@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0.29}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5289275443716730484
@@ -161,6 +161,10 @@ PrefabInstance:
         by Humanoid clips.\n\tTransform 'mixamorig:RightArm'\n\tTransform 'mixamorig:RightArm'\n\tFrom
         animation clip 'IdleWithHand'"
       objectReference: {fileID: 0}
+    - target: {fileID: 5401786042127191224, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.266
+      objectReference: {fileID: 0}
     - target: {fileID: 5861266316685351335, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -218,6 +222,17 @@ NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: 1637332624956355817, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
   m_PrefabInstance: {fileID: 125745632463943125}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2104310635573856019 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2056666887477342918, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
+  m_PrefabInstance: {fileID: 125745632463943125}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2835118716630026173 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2803175823117038184, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
@@ -241,6 +256,7 @@ MonoBehaviour:
   rb: {fileID: 5588663857977714032}
   healthbar: {fileID: 9110093117457440736}
   animator: {fileID: 3906860020616957855}
+  nameText: {fileID: 2104310635573856019}
   speed: 2
   damagePower: 10
   distanseToAttack: 2
@@ -255,6 +271,8 @@ MonoBehaviour:
   eventManager: {fileID: 0}
   slapToGive: 1
   stolenSlaps: 0
+  MaxPosition: {fileID: 0}
+  MinPosition: {fileID: 0}
   timeToNextSlap: 15
   timeRamainingToNextSlap: 15
   timeText: {fileID: 8382428392124815034}

@@ -42,15 +42,15 @@ public class Helper
     {
         if(Geekplay.Instance.language == "ru")
         {
-            return ruPlayerName[Random.Range(0, ruPlayerName.Count - 1)];
+            return ruPlayerName[Random.Range(0, ruPlayerName.Count)];
         }
         else if(Geekplay.Instance.language == "en")
         {
-            return enPlayerName[Random.Range(0, enPlayerName.Count - 1)];
+            return enPlayerName[Random.Range(0, enPlayerName.Count)];
         }
         else
         {
-            return trPlayerName[Random.Range(0, trPlayerName.Count - 1)];
+            return trPlayerName[Random.Range(0, trPlayerName.Count)];
         }
     }
 }
