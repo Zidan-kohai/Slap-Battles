@@ -1415,6 +1415,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3237182903930966125}
     - target: {fileID: 3101952683534774314, guid: 5636079f881abb44dbd4bdc5973de692, type: 3}
+      propertyPath: slapToGive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3101952683534774314, guid: 5636079f881abb44dbd4bdc5973de692, type: 3}
+      propertyPath: stolenSlaps
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3101952683534774314, guid: 5636079f881abb44dbd4bdc5973de692, type: 3}
       propertyPath: eventManager
       value: 
       objectReference: {fileID: 3237182903930966125}
@@ -1911,14 +1919,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7319954887216121084}
     m_Modifications:
-    - target: {fileID: 2273277159604617833, guid: d9ffa553ccc912c4e9551676c1cbd0a0, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 4278190080
-      objectReference: {fileID: 0}
-    - target: {fileID: 2763517903510383085, guid: d9ffa553ccc912c4e9551676c1cbd0a0, type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
-      objectReference: {fileID: 0}
     - target: {fileID: 3756513785567617740, guid: d9ffa553ccc912c4e9551676c1cbd0a0, type: 3}
       propertyPath: MaxPosition
       value: 
@@ -1931,10 +1931,6 @@ PrefabInstance:
       propertyPath: eventManager
       value: 
       objectReference: {fileID: 3237182903930966125}
-    - target: {fileID: 3913008666875506054, guid: d9ffa553ccc912c4e9551676c1cbd0a0, type: 3}
-      propertyPath: m_Name
-      value: Healthbar BackGround
-      objectReference: {fileID: 0}
     - target: {fileID: 4000098268502084421, guid: d9ffa553ccc912c4e9551676c1cbd0a0, type: 3}
       propertyPath: m_Name
       value: Enemy
