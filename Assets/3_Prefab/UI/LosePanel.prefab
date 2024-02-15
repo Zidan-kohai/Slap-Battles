@@ -1317,6 +1317,7 @@ GameObject:
   - component: {fileID: 3256553799174366514}
   - component: {fileID: 2138534668766732077}
   - component: {fileID: 1799501544639188173}
+  - component: {fileID: 4982467171307909284}
   m_Layer: 5
   m_Name: LosePanel
   m_TagString: Untagged
@@ -1382,6 +1383,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4982467171307909284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5901584095602363934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83a079c34d5ebd54aae82c115b7a4ee0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slapCountText: {fileID: 5369390022381880769}
+  lastedTimeToLoadHubText: {fileID: 5036658162565702694}
+  timeBeforeToLoadHub: 7
 --- !u!1 &7600139296598942484
 GameObject:
   m_ObjectHideFlags: 0
