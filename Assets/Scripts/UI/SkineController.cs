@@ -64,7 +64,7 @@ public class SkineController : MonoBehaviour
         CheckIsBuyedOrEquippedColor();
         CheckIsBuyedOrEquippedHair();
         CheckIsBuyedOrEquippedAccessory();
-        CheckIsOrEquippedBuyedCap();
+        CheckIsBuyedOrEquippedCap();
 
         #region Subscribe On Color Buy Events
         foreach (var item in hairColors)
@@ -797,7 +797,7 @@ public class SkineController : MonoBehaviour
         });
     }
 
-    private void CheckIsOrEquippedBuyedCap()
+    private void CheckIsBuyedOrEquippedCap()
     {
         foreach (var buyable in buyableCaps)
         {

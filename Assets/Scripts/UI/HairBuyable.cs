@@ -19,11 +19,15 @@ public class HairBuyable : Buyable
 
     public void Select()
     {
-        SelectedIcon.SetActive(true);
+        //SelectedIcon.SetActive(true);
+        SelectedIcon = Resources.Load<GameObject>("SelectedIcon");
+
+        SelectedIcon = Instantiate(SelectedIcon, transform);
     }
 
     public void Unselect()
     {
-        SelectedIcon.SetActive(false);
+        //SelectedIcon.SetActive(false);
+        Destroy(SelectedIcon);
     }
 }
