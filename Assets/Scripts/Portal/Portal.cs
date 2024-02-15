@@ -8,7 +8,7 @@ public partial class Portal : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer != 7) return;
-        SceneLoader sceneLoader = new SceneLoader();
+        SceneLoader sceneLoader = new SceneLoader(this);
 
         Geekplay.Instance.currentMode = Mode;
         sceneLoader.LoadScene(SceneIndex);

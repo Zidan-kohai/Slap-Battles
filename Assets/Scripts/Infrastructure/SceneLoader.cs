@@ -5,20 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader
 {
+    private MonoBehaviour mono;
+    public SceneLoader(MonoBehaviour monoBehaviour)
+    {
+        mono = monoBehaviour;
+    }
+
     public void LoadScene(int index, UnityAction onLoad = null)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(index);
 
-        Loading(operation, onLoad);
+        mono.StartCoroutine(Loading(operation, onLoad));
     }
 
     IEnumerator Loading(AsyncOperation operation, UnityAction onLoad)
     {
-        while(!operation.isDone)
+        Debug.Log("Operation none done");
+        while (!operation.isDone)
         {
             yield return new WaitForEndOfFrame(); 
         }
-
+        Debug.Log("Operation is done");
         onLoad?.Invoke();
     }
 }

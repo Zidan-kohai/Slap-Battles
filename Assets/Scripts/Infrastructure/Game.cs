@@ -4,8 +4,8 @@ public class Game
 {
     private SceneLoader sceneLoader;
 
-    public Game()
+    public Game(MonoBehaviour mono)
     {
-        sceneLoader  = new SceneLoader();
+        sceneLoader  = new SceneLoader(mono);
     }
 }

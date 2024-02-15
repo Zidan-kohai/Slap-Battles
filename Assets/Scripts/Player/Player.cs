@@ -10,6 +10,7 @@ public class Player : IHealthObject
     [SerializeField] private AdvancedWalkerController walkController;
     [SerializeField] private Image healthbar;
     [SerializeField] private Rigidbody rb;
+    [SerializeField] private EventManager eventManager;
 
     [Space(10), Header("Slap")]
     [SerializeField] private int slapToGive;
@@ -45,9 +46,11 @@ public class Player : IHealthObject
         if (isDead) return;
 
         isDead = true;
-        SceneLoader sceneLoader = new SceneLoader();
+        //SceneLoader sceneLoader = new SceneLoader();
 
-        sceneLoader.LoadScene(0, null);
+        //sceneLoader.LoadScene(0, null);
+
+        eventManager.InvokeActionsOnPlayerDeath();
     }
     public IEnumerator GetDamageAnimation(Vector3 direction, float damagePower)
     {
@@ -62,10 +65,9 @@ public class Player : IHealthObject
         OnEndAnimations();
     }
 
-    public virtual void SetStolenSlaps(int value)
-    {
-        stolenSlaps += value;
-    }
+    public virtual void SetStolenSlaps(int value) => stolenSlaps += value;
+    public virtual int GetStolenSlaps() => stolenSlaps;
+
     private void OnEndAnimations()
     {
 
