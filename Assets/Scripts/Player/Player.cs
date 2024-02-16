@@ -1,5 +1,4 @@
 using CMF;
-using JetBrains.Annotations;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,7 +24,9 @@ public class Player : IHealthObject
         stolenSlaps = 0;
         rb = GetComponent<Rigidbody>();
         walkController = GetComponent<AdvancedWalkerController>();
-        eventManager.SubscribeOnPlayerRevive(Revive);
+
+        if(Geekplay.Instance.currentMode != Modes.Hub)
+            eventManager.SubscribeOnPlayerRevive(Revive);
 
         healthbar.fillAmount = (health / maxHealth);
     }

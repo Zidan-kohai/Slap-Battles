@@ -14,7 +14,7 @@ public class BattleRoyalModeUIController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI placeSlapRewardText;
     [SerializeField] private TextMeshProUGUI placeDiamondRewardText;
 
-    //To Do Correct
+    //To Do Correct  
     [SerializeField] private LosePanel winPanel;
     [SerializeField] private TextMeshProUGUI winPanelHeaderText;
 
