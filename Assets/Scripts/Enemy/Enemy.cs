@@ -48,6 +48,15 @@ public class Enemy : IHealthObject
         eventManager.SubscribeOnEnemyDeath(OnEnemyDeath);
         
         nameText.text = Helper.GetRandomName();
+
+        StartCoroutine(WaitTimeBeforeAttackIntoStart());
+    }
+
+    private IEnumerator WaitTimeBeforeAttackIntoStart()
+    {
+        canAttack = false;
+        yield return new WaitForSeconds(timeNextToAttack);
+        canAttack = true;
     }
 
     protected virtual void Update()
@@ -81,7 +90,7 @@ public class Enemy : IHealthObject
         enemy.GetDamage(damagePower, (target - transform.position).normalized, out bool isDeath, out int gettedSlap);
         OnSuccesAttack();
 
-        StartCoroutine(AttackAnimation());
+        StartCoroutine(WaitTimeBeforeAttackIntoStart());
 
         if(isDeath)
         {
@@ -94,13 +103,6 @@ public class Enemy : IHealthObject
     protected virtual void OnSuccesAttack()
     {
 
-    }
-
-    public IEnumerator AttackAnimation()
-    {
-        canAttack = false;
-        yield return new WaitForSeconds(timeNextToAttack);
-        canAttack = true;
     }
 
     protected void Move(Vector3 targetPosition)
