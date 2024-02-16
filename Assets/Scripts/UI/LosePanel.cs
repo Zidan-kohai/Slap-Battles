@@ -7,41 +7,59 @@ using UnityEngine.UI;
 
 public class LosePanel : MonoBehaviour
 {
+    [SerializeField] private EventManager eventManager;
+
     [SerializeField] private TextMeshProUGUI slapCountText;
     [SerializeField] private TextMeshProUGUI lastedTimeToLoadHubText;
     [SerializeField] private Slider slider;
 
     [SerializeField] private float timeBeforeToLoadHub;
+
     private bool flagThatUseToLoadSceneOneTime = true;
-    void Start()
+    private float lastedTime;
+
+    private void Start()
     {
-        Geekplay.Instance.SubscribeOnReward("DoubleAward", DoubleAward);
+        Geekplay.Instance.SubscribeOnReward("DoubleAward", OnDoubleAward);
+        Geekplay.Instance.SubscribeOnReward("PlayerRevive", OnPlayerRevive);
+    }
+
+    private void OnEnable()
+    {
         slider.maxValue = timeBeforeToLoadHub;
+        lastedTime = timeBeforeToLoadHub;
     }
 
     void Update()
     {
-        timeBeforeToLoadHub -= Time.deltaTime;
+        lastedTime -= Time.deltaTime;
 
-        if (timeBeforeToLoadHub <= 0f && flagThatUseToLoadSceneOneTime)
+        if (lastedTime <= 0f && flagThatUseToLoadSceneOneTime)
         {
             flagThatUseToLoadSceneOneTime = false;
             SceneLoader sceneLoader = new SceneLoader(this);
             sceneLoader.LoadScene(0);
             AddEarnedMoney();
         }
-        else if(timeBeforeToLoadHub > 0)
+        else if(lastedTime > 0)
         {
-            lastedTimeToLoadHubText.text = string.Format("00:0{0:f1}", timeBeforeToLoadHub);
-            slider.value = timeBeforeToLoadHub;
+            lastedTimeToLoadHubText.text = string.Format("00:0{0:f1}", lastedTime);
+            slider.value = lastedTime;
         }
     }
 
-    public void ShowRewardedADV()
+    public void ShowRewardedADV(string tag)
     {
-        StartCoroutine(ShowADV());
+        StartCoroutine(ShowADV(tag));
     }
-    private void DoubleAward()
+    private IEnumerator ShowADV(string tag)
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        Geekplay.Instance.ShowRewardedAd(tag);
+    }
+
+    private void OnDoubleAward()
     {
         slapCountText.text = (Convert.ToInt32(slapCountText.text) * 2).ToString();
 
@@ -50,15 +68,19 @@ public class LosePanel : MonoBehaviour
         sceneLoader.LoadScene(0);
         AddEarnedMoney();
     }
-    private IEnumerator ShowADV()
+
+    private void OnPlayerRevive()
     {
-        yield return new WaitForSeconds(0.5f);
+        eventManager.InvokePlayerReviveEvents();
 
-        Geekplay.Instance.ShowRewardedAd("DoubleAward");
+        gameObject.SetActive(false);
     }
-
 
     private void AddEarnedMoney() => Geekplay.Instance.PlayerData.money += Convert.ToInt32(slapCountText.text);
 
-    public void SetSlapCount(int slapCount) => slapCountText.text = slapCount.ToString();
+    public void SetSlapCount(int slapCount) 
+    {
+        if(slapCountText != null)
+            slapCountText.text = slapCount.ToString();
+    }
 }

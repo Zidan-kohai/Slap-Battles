@@ -23,7 +23,7 @@ public class ThiefPlayer : Player
 
         stoledSlap = StoleSlaps();
 
-        eventManager.InvokeActionsOnChangeMoney(-stoledSlap);
+        eventManager.InvokeChangeMoneyEvents(-stoledSlap);
     }
     public override void SetStolenSlaps(int value)
     {

@@ -61,7 +61,7 @@ public class PlayerAttack : MonoBehaviour
             hit.collider.gameObject.GetComponent<Enemy>().GetDamage(slap.AttackPower, ray.direction, out bool isDeath, out int GettedSlap);
 
             player.SetStolenSlaps(GettedSlap);
-            eventManager.InvokeActionsOnChangeMoney(player.GetStolenSlaps());
+            eventManager.InvokeChangeMoneyEvents(player.GetStolenSlaps());
             OnSuccesAttack();
         }
         StartCoroutine(AttackAnimation());

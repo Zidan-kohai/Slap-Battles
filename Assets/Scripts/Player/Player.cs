@@ -18,14 +18,17 @@ public class Player : IHealthObject
     [SerializeField] protected int stolenSlaps;
 
     private bool isDead = false;
+    private int deadCounter;
 
     protected void Start()
     {
         stolenSlaps = 0;
         rb = GetComponent<Rigidbody>();
         walkController = GetComponent<AdvancedWalkerController>();
-    }
+        eventManager.SubscribeOnPlayerRevive(Revive);
 
+        healthbar.fillAmount = (health / maxHealth);
+    }
     public override void GetDamage(float damagePower, Vector3 direction, out bool isDeath, out int stoledSlap)
     {
         health -= damagePower;
@@ -46,13 +49,20 @@ public class Player : IHealthObject
     {
         if (isDead) return;
 
+        deadCounter++;
         isDead = true;
-        //SceneLoader sceneLoader = new SceneLoader();
-
-        //sceneLoader.LoadScene(0, null);
         walkController.enabled = false;
         animator.SetTrigger("Death");
-        eventManager.InvokeActionsOnPlayerDeath();
+        eventManager.InvokePlayerDeathEvents(deadCounter);
+    }
+    public void Revive()
+    {
+        isDead = false;
+        walkController.enabled = true;
+        animator.SetTrigger("Revive");
+        health = maxHealth;
+
+        healthbar.fillAmount = (health / maxHealth);
     }
     public IEnumerator GetDamageAnimation(Vector3 direction, float damagePower)
     {
@@ -66,7 +76,6 @@ public class Player : IHealthObject
 
         OnEndAnimations();
     }
-
     public virtual void SetStolenSlaps(int value) => stolenSlaps += value;
     public virtual int GetStolenSlaps() => stolenSlaps;
 

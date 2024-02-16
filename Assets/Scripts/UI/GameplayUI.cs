@@ -9,20 +9,35 @@ public class GameplayUI : MonoBehaviour
     [SerializeField] private LosePanel LosePanel;
     private void Start()
     {
-        eventManager.SubscribeOnChangeMoney(ChangeMoney);
+        eventManager.SubscribeOnChangeMoney(OnChangeMoney);
         eventManager.SubscribeOnPlayerDeath(OnPlayerDeath);
+        eventManager.SubscribeOnPlayerRevive(OnRevive);
     }
 
-    private void OnPlayerDeath()
+    private void OnRevive()
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-
-        LosePanel.gameObject.SetActive(true);
-        LosePanel.SetSlapCount(Convert.ToInt32(moneyText.text));
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
-    private void ChangeMoney(int money)
+    private void OnPlayerDeath(int deadCount)
+    {
+        if (deadCount < 2)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
+            LosePanel.gameObject.SetActive(true);
+            LosePanel.SetSlapCount(Convert.ToInt32(moneyText.text));
+
+        }else if(deadCount >= 2)
+        {
+            SceneLoader sceneLoader = new SceneLoader(this);
+            sceneLoader.LoadScene(0);
+        }
+    }
+
+    private void OnChangeMoney(int money)
     {
         moneyText.text = money.ToString();
     }
