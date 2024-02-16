@@ -9,28 +9,33 @@ public class BattleRoyalModeUIController : MonoBehaviour
     [SerializeField] private BattleRoyalModeController modeController;
 
     [SerializeField] private TextMeshProUGUI enemyCountText;
+    
     [SerializeField] private TextMeshProUGUI placeText;
     [SerializeField] private TextMeshProUGUI placeSlapRewardText;
     [SerializeField] private TextMeshProUGUI placeDiamondRewardText;
 
-    [SerializeField] private List<Reward> placeRewards;
+    //To Do Correct
+    [SerializeField] private LosePanel winPanel;
+    [SerializeField] private TextMeshProUGUI winPanelHeaderText;
+
 
     private void Start()
     {
         enemyCountText.text = modeController.EnemyCount.ToString();
         eventManager.SubscribeOnEnemyDeath(OnEnemyDeath);
         eventManager.SubscribeOnPlayerDeath(OnPlayerDeath);
+        modeController.Win += OnPlayerWin;
     }
 
     private void OnPlayerDeath(int deadCount)
     {
-        int place = Convert.ToInt32(enemyCountText.text);
+        int place = modeController.EnemyCount - 1;
 
         if (deadCount < 2)
         {
             placeText.text = enemyCountText.text;
-            placeSlapRewardText.text = placeRewards[place].SlapCount.ToString();
-            placeDiamondRewardText.text = placeRewards[place].DiamondCount.ToString();
+            placeSlapRewardText.text = modeController.placeRewards[place].SlapCount.ToString();
+            placeDiamondRewardText.text = modeController.placeRewards[place].DiamondCount.ToString();
         }
     }
 
@@ -38,11 +43,18 @@ public class BattleRoyalModeUIController : MonoBehaviour
     {
         enemyCountText.text = modeController.EnemyCount.ToString();
     }
-}
 
-[Serializable]
-public class Reward
-{
-    public int SlapCount;
-    public int DiamondCount;
+    private void OnPlayerWin()
+    {
+        int place = modeController.EnemyCount - 1;
+        winPanel.DisableRewardButton();
+        
+        winPanel.gameObject.SetActive(true);
+        
+        winPanelHeaderText.text = "Победа";
+
+        placeText.text = enemyCountText.text;
+        placeSlapRewardText.text = modeController.placeRewards[place].SlapCount.ToString();
+        placeDiamondRewardText.text = modeController.placeRewards[place].DiamondCount.ToString();
+    }
 }

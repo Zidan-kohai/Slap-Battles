@@ -518,6 +518,37 @@ MonoBehaviour:
   - {fileID: 2510120712722412837}
   - {fileID: 7053280247310501052}
   LivedEnemyCount: 0
+  placeRewards:
+  - SlapCount: 100
+    DiamondCount: 5
+  - SlapCount: 90
+    DiamondCount: 3
+  - SlapCount: 80
+    DiamondCount: 2
+  - SlapCount: 70
+    DiamondCount: 1
+  - SlapCount: 60
+    DiamondCount: 0
+  - SlapCount: 50
+    DiamondCount: 0
+  - SlapCount: 45
+    DiamondCount: 0
+  - SlapCount: 40
+    DiamondCount: 0
+  - SlapCount: 35
+    DiamondCount: 0
+  - SlapCount: 30
+    DiamondCount: 0
+  - SlapCount: 25
+    DiamondCount: 0
+  - SlapCount: 20
+    DiamondCount: 0
+  - SlapCount: 15
+    DiamondCount: 0
+  - SlapCount: 10
+    DiamondCount: 0
+  - SlapCount: 5
+    DiamondCount: 0
 --- !u!1 &2544429846973849473
 GameObject:
   m_ObjectHideFlags: 0
@@ -850,37 +881,8 @@ MonoBehaviour:
   placeText: {fileID: 190209393799812866}
   placeSlapRewardText: {fileID: 5218208595914254727}
   placeDiamondRewardText: {fileID: 3654815451002365864}
-  placeRewards:
-  - SlapCount: 100
-    DiamondCount: 5
-  - SlapCount: 90
-    DiamondCount: 3
-  - SlapCount: 80
-    DiamondCount: 2
-  - SlapCount: 70
-    DiamondCount: 1
-  - SlapCount: 60
-    DiamondCount: 0
-  - SlapCount: 50
-    DiamondCount: 0
-  - SlapCount: 45
-    DiamondCount: 0
-  - SlapCount: 40
-    DiamondCount: 0
-  - SlapCount: 35
-    DiamondCount: 0
-  - SlapCount: 30
-    DiamondCount: 0
-  - SlapCount: 25
-    DiamondCount: 0
-  - SlapCount: 20
-    DiamondCount: 0
-  - SlapCount: 15
-    DiamondCount: 0
-  - SlapCount: 10
-    DiamondCount: 0
-  - SlapCount: 5
-    DiamondCount: 0
+  winPanel: {fileID: 2896667822737882764}
+  winPanelHeaderText: {fileID: 242407512383093381}
 --- !u!1 &5684841920181948355
 GameObject:
   m_ObjectHideFlags: 0
@@ -2532,6 +2534,17 @@ PrefabInstance:
 --- !u!114 &190209393799812866 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5941545193488257721, guid: 839a55fd203e74641b4966959a491b9e, type: 3}
+  m_PrefabInstance: {fileID: 5825223256091477435}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &242407512383093381 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6019744699543699262, guid: 839a55fd203e74641b4966959a491b9e, type: 3}
   m_PrefabInstance: {fileID: 5825223256091477435}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}

@@ -1,4 +1,5 @@
 using JetBrains.Annotations;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,6 +15,12 @@ public class BattleRoyalModeController : MonoBehaviour
     [SerializeField] private int LivedEnemyCount;
     public int EnemyCount {  get => enemies.Count + 1; }
 
+
+    [SerializeField] public List<Reward> placeRewards;
+
+
+    public Action Win;
+    
     private void Start()
     {
         ArrangeTransforms();
@@ -25,6 +32,11 @@ public class BattleRoyalModeController : MonoBehaviour
     private void OnEnemyDeath(Enemy enemyObj)
     {
         enemies.Remove(enemyObj);
+
+        if(enemies.Count == 0)
+        {
+            Win?.Invoke();
+        }
     }
 
     private void ArrangeTransforms()
@@ -38,7 +50,7 @@ public class BattleRoyalModeController : MonoBehaviour
     }
     private Vector3 GetRandomPosition()
     {
-        return spawnPoints[Random.Range(0, spawnPoints.Count)].position;
+        return spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Count)].position;
     }
 
     private void TurnOnGameObjects()
@@ -50,4 +62,12 @@ public class BattleRoyalModeController : MonoBehaviour
             enemies[i].gameObject.SetActive(true);
         }
     }
+}
+
+
+[Serializable]
+public class Reward
+{
+    public int SlapCount;
+    public int DiamondCount;
 }
