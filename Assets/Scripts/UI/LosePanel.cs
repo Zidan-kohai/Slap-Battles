@@ -3,32 +3,38 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class LosePanel : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI slapCountText;
     [SerializeField] private TextMeshProUGUI lastedTimeToLoadHubText;
+    [SerializeField] private Slider slider;
 
     [SerializeField] private float timeBeforeToLoadHub;
-
     private bool flagThatUseToLoadSceneOneTime = true;
     void Start()
     {
         Geekplay.Instance.SubscribeOnReward("DoubleAward", DoubleAward);
+        slider.maxValue = timeBeforeToLoadHub;
     }
 
     void Update()
     {
         timeBeforeToLoadHub -= Time.deltaTime;
 
-        if(timeBeforeToLoadHub <= 0f && flagThatUseToLoadSceneOneTime)
+        if (timeBeforeToLoadHub <= 0f && flagThatUseToLoadSceneOneTime)
         {
             flagThatUseToLoadSceneOneTime = false;
             SceneLoader sceneLoader = new SceneLoader(this);
             sceneLoader.LoadScene(0);
             AddEarnedMoney();
         }
-        lastedTimeToLoadHubText.text = string.Format("{00:00}", timeBeforeToLoadHub.ToString());
+        else if(timeBeforeToLoadHub > 0)
+        {
+            lastedTimeToLoadHubText.text = string.Format("00:0{0:f1}", timeBeforeToLoadHub);
+            slider.value = timeBeforeToLoadHub;
+        }
     }
 
     public void ShowRewardedADV()

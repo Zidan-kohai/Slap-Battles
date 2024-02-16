@@ -648,7 +648,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -25, y: -30}
-  m_SizeDelta: {x: 110, y: 50}
+  m_SizeDelta: {x: 150, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1107890640674547123
 CanvasRenderer:
@@ -1409,6 +1409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slapCountText: {fileID: 5369390022381880769}
   lastedTimeToLoadHubText: {fileID: 5036658162565702694}
+  slider: {fileID: 524285630025200934}
   timeBeforeToLoadHub: 7
 --- !u!1 &7600139296598942484
 GameObject:
@@ -1704,9 +1705,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 7
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 7
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
