@@ -22,22 +22,20 @@ public class GameplayUI : MonoBehaviour
 
     private void OnPlayerDeath(int deadCount)
     {
+        LosePanel.SetSlapCount(Convert.ToInt32(moneyText.text));
+
         if (deadCount < 2)
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
 
-            LosePanel.gameObject.SetActive(true);
-            LosePanel.SetSlapCount(Convert.ToInt32(moneyText.text));
+            LosePanel.gameObject.SetActive(true);;
 
         }else if(deadCount >= 2)
         {
-            LosePanel.SetTimeBeforeLoadHub(2f);
-            LosePanel.DisableRewardButton();
-            LosePanel.gameObject.SetActive(true);
-            //Geekplay.Instance.PlayerData.money += Convert.ToInt32(moneyText.text);
-            //SceneLoader sceneLoader = new SceneLoader(this);
-            //sceneLoader.LoadScene(0);
+            LosePanel.AddEarnedMoney();
+            SceneLoader sceneLoader = new SceneLoader(this);
+            sceneLoader.LoadScene(0);
         }
     }
 

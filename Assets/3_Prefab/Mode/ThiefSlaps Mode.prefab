@@ -1415,13 +1415,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3237182903930966125}
     - target: {fileID: 3101952683534774314, guid: 5636079f881abb44dbd4bdc5973de692, type: 3}
-      propertyPath: slapToGive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3101952683534774314, guid: 5636079f881abb44dbd4bdc5973de692, type: 3}
-      propertyPath: stolenSlaps
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 8798305164293445221}
     - target: {fileID: 3101952683534774314, guid: 5636079f881abb44dbd4bdc5973de692, type: 3}
       propertyPath: eventManager
       value: 
@@ -1493,6 +1489,11 @@ MonoBehaviour:
 --- !u!4 &5800399146989897681 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6948616631178678736, guid: 5636079f881abb44dbd4bdc5973de692, type: 3}
+  m_PrefabInstance: {fileID: 3463648855487747585}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &8798305164293445221 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5334656309075312740, guid: 5636079f881abb44dbd4bdc5973de692, type: 3}
   m_PrefabInstance: {fileID: 3463648855487747585}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3675556096462963355

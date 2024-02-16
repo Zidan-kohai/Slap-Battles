@@ -940,7 +940,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7849365028612606464, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
       propertyPath: m_Name
-      value: Player Variant
+      value: Thies Player
       objectReference: {fileID: 0}
     - target: {fileID: 7849365028612606464, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
       propertyPath: m_IsActive
@@ -1060,11 +1060,14 @@ MonoBehaviour:
   walkController: {fileID: 2667813936828315188}
   healthbar: {fileID: 3120545734827028740}
   rb: {fileID: 4697163212176588643}
-  slapToGet: 1
-  stolenSlaps: 0
+  eventManager: {fileID: 0}
+  animator: {fileID: 0}
+  slapToGive: 1
+  stolenSlaps: 1
   slapCounterText: {fileID: 6608570419107312412}
   minStoleChance: 25
   maxStoleChance: 50
+  eventManager: {fileID: 0}
 --- !u!54 &4697163212176588643 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 1162848911536679395, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}

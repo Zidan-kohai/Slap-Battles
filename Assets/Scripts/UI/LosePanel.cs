@@ -21,6 +21,11 @@ public class LosePanel : MonoBehaviour
     private bool flagThatUseToLoadSceneOneTime = true;
     private float lastedTime;
 
+
+    private int earnedSlapCount;
+    private int placeSlapReward;
+    private int placeDiamondReward;
+
     private void Start()
     {
         Geekplay.Instance.SubscribeOnReward("DoubleAward", OnDoubleAward);
@@ -65,6 +70,9 @@ public class LosePanel : MonoBehaviour
     {
         slapCountText.text = (Convert.ToInt32(slapCountText.text) * 2).ToString();
 
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         flagThatUseToLoadSceneOneTime = false;
         SceneLoader sceneLoader = new SceneLoader(this);
         sceneLoader.LoadScene(0);
@@ -76,9 +84,9 @@ public class LosePanel : MonoBehaviour
 
         gameObject.SetActive(false);
     }
-    private void AddEarnedMoney() 
+    public void AddEarnedMoney() 
     {
-        Geekplay.Instance.PlayerData.money += Convert.ToInt32(slapCountText.text);
+        Geekplay.Instance.PlayerData.money += earnedSlapCount;
 
         if (placeSlapRewardText != null && placeDiamondRewardText != null)
         {
@@ -88,7 +96,9 @@ public class LosePanel : MonoBehaviour
     }
     public void SetSlapCount(int slapCount) 
     {
-        if(slapCountText != null)
+        earnedSlapCount = slapCount;
+
+        if (slapCountText != null)
             slapCountText.text = slapCount.ToString();
     }
 
