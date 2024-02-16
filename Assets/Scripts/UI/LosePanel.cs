@@ -10,6 +10,8 @@ public class LosePanel : MonoBehaviour
     [SerializeField] private EventManager eventManager;
 
     [SerializeField] private TextMeshProUGUI slapCountText;
+    [SerializeField] private TextMeshProUGUI placeSlapRewardText;
+    [SerializeField] private TextMeshProUGUI placeDiamondRewardText;
     [SerializeField] private TextMeshProUGUI lastedTimeToLoadHubText;
     [SerializeField] private Slider slider;
 
@@ -36,10 +38,10 @@ public class LosePanel : MonoBehaviour
 
         if (lastedTime <= 0f && flagThatUseToLoadSceneOneTime)
         {
+            AddEarnedMoney();
             flagThatUseToLoadSceneOneTime = false;
             SceneLoader sceneLoader = new SceneLoader(this);
             sceneLoader.LoadScene(0);
-            AddEarnedMoney();
         }
         else if(lastedTime > 0)
         {
@@ -73,7 +75,16 @@ public class LosePanel : MonoBehaviour
 
         gameObject.SetActive(false);
     }
-    private void AddEarnedMoney() => Geekplay.Instance.PlayerData.money += Convert.ToInt32(slapCountText.text);
+    private void AddEarnedMoney() 
+    {
+        Geekplay.Instance.PlayerData.money += Convert.ToInt32(slapCountText.text);
+
+        if (placeSlapRewardText != null && placeDiamondRewardText != null)
+        {
+            Geekplay.Instance.PlayerData.money += Convert.ToInt32(placeSlapRewardText.text);
+            Geekplay.Instance.PlayerData.DiamondMoney += Convert.ToInt32(placeDiamondRewardText.text);
+        }
+    }
     public void SetSlapCount(int slapCount) 
     {
         if(slapCountText != null)

@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerData
 {
 	public int money;
+	public int DiamondMoney;
 
     public List<int> BuyedLeatherColors = new List<int>();
     public List<int> BuyedHairColors = new List<int>();
