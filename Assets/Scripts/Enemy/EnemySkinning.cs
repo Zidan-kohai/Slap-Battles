@@ -96,11 +96,11 @@ public class EnemySkinning : MonoBehaviour
         Material torseMaterial = new Material(Shader.Find("Standard"));
         Material headMaterial = new Material(Shader.Find("Standard"));
 
+        headMaterial.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
         footMaterial.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
-        armsMaterial.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
         legsMaterial.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
         torseMaterial.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
-        headMaterial.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
+        armsMaterial.color = headMaterial.color;
 
 
         ChangeMaterail(foot, 0, footMaterial);
@@ -128,11 +128,11 @@ public class EnemySkinning : MonoBehaviour
         Material torseMaterial = new Material(Shader.Find("Standard"));
         Material headMaterial = new Material(Shader.Find("Standard"));
 
+        headMaterial.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
         footMaterial.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
-        armsMaterial.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
         legsMaterial.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
         torseMaterial.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
-        headMaterial.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
+        armsMaterial.color = headMaterial.color;
 
         ChangeMaterail(manMeshRenderer, 0, armsMaterial);
         ChangeMaterail(manMeshRenderer, 1, torseMaterial);
