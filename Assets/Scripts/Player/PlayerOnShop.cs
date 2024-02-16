@@ -9,7 +9,7 @@ public class PlayerOnShop : MonoBehaviour
 
     public Quaternion originRotation;
 
-    private void Start()
+    private void OnEnable()
     {
         originRotation = Object.transform.rotation;
     }
