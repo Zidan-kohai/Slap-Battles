@@ -37,7 +37,6 @@ public class HealtBuffSystem : MonoBehaviour
         headColorBuff = Geekplay.Instance.PlayerData.HeadColorBuff;
         hairColorBuff = Geekplay.Instance.PlayerData.HairColorBuff;
         bodyColorBuff = Geekplay.Instance.PlayerData.BodyColorBuff;
-        armColorBuff = Geekplay.Instance.PlayerData.ArmColorBuff;
         legColorBuff = Geekplay.Instance.PlayerData.LegColorBuff;
         footColorBuff = Geekplay.Instance.PlayerData.FootColorBuff;
         capBuff = Geekplay.Instance.PlayerData.CapBuff;
@@ -69,9 +68,6 @@ public class HealtBuffSystem : MonoBehaviour
                 break;
             case HealtBuffType.BodyColor:  
                 ChangeBuff(ref bodyColorBuff, ref Geekplay.Instance.PlayerData.BodyColorBuff, buffPower);
-                break;
-            case HealtBuffType.armColor:
-                ChangeBuff(ref armColorBuff, ref Geekplay.Instance.PlayerData.ArmColorBuff, buffPower);
                 break;
             case HealtBuffType.legColor:
                 ChangeBuff(ref legColorBuff, ref Geekplay.Instance.PlayerData.LegColorBuff, buffPower);
@@ -114,8 +110,6 @@ public class HealtBuffSystem : MonoBehaviour
                 return buffPower - hairColorBuff;
             case HealtBuffType.BodyColor:
                 return buffPower - bodyColorBuff;
-            case HealtBuffType.armColor:
-                return buffPower - armColorBuff;
             case HealtBuffType.legColor:
                 return buffPower - legColorBuff;
             case HealtBuffType.footColor:
@@ -171,8 +165,7 @@ public class HealtBuffSystem : MonoBehaviour
     {
         HeadColor,
         HairColor,
-        BodyColor, 
-        armColor, 
+        BodyColor,
         legColor, 
         footColor,
         cap,

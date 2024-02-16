@@ -8,17 +8,15 @@ public class SkineController : MonoBehaviour
 {
     [Header("Material of Body Part"), Space(5)]
     [SerializeField] private Material bodyMaterial;
-    [SerializeField] private Material headMaterial;
+    [SerializeField] private List<Material> LeatherMaterial;
     [SerializeField] private Material hairMaterial;
-    [SerializeField] private Material armMaterial;
     [SerializeField] private Material legMaterial;
     [SerializeField] private Material footMaterial;
     [Space(10)]
 
     [SerializeField] private List<BuyableColor> hairColors;
-    [SerializeField] private List<BuyableColor> headColors;
+    [SerializeField] private List<BuyableColor> LeatherColors;
     [SerializeField] private List<BuyableColor> bodyColors;
-    [SerializeField] private List<BuyableColor> armColors;
     [SerializeField] private List<BuyableColor> legColors;
     [SerializeField] private List<BuyableColor> footColors;
 
@@ -71,7 +69,7 @@ public class SkineController : MonoBehaviour
         {
             AddEventForBuyableColor(item);
         }
-        foreach (var item in headColors)
+        foreach (var item in LeatherColors)
         {
             AddEventForBuyableColor(item);
         }
@@ -84,10 +82,6 @@ public class SkineController : MonoBehaviour
             AddEventForBuyableColor(item);
         }
         foreach (var item in footColors)
-        {
-            AddEventForBuyableColor(item);
-        }
-        foreach (var item in armColors)
         {
             AddEventForBuyableColor(item);
         }
@@ -182,26 +176,23 @@ public class SkineController : MonoBehaviour
         buyable.SubscribeOnClick(() =>
         {
             buyButton.gameObject.SetActive(true);
-            Material material = null;
+            List<Material> material = null;
             switch (buyable.GetBodyType)
             {
-                case BodyPart.Head:
-                    material = headMaterial;
+                case BodyPart.Leather:
+                    material = LeatherMaterial;
                     break;
                 case BodyPart.Hair:
-                    material = hairMaterial;
+                    material.Add(hairMaterial);
                     break;
                 case BodyPart.Body:
-                    material = bodyMaterial;
-                    break;
-                case BodyPart.Arm:
-                    material = armMaterial;
+                    material.Add(bodyMaterial);
                     break;
                 case BodyPart.Leg:
-                    material = legMaterial;
+                    material.Add(legMaterial);
                     break;
                 case BodyPart.Foot:
-                    material = footMaterial;
+                    material.Add(footMaterial);
                     break;
             }
 
@@ -210,7 +201,8 @@ public class SkineController : MonoBehaviour
             {
                 buyButton.onClick.AddListener(() =>
                 {
-                    ChangeLastColor(material, buyable);
+                    foreach (Material m in material)
+                        ChangeLastColor(m, buyable);
 
                     buyText.text = "Надето";
                 });
@@ -221,8 +213,8 @@ public class SkineController : MonoBehaviour
 
                 switch (buyable.GetBodyType)
                 {
-                    case BodyPart.Head:
-                        if (Geekplay.Instance.PlayerData.CurrentHeadColorIndex == buyable.indexOfColor)
+                    case BodyPart.Leather:
+                        if (Geekplay.Instance.PlayerData.CurrentLeatherColorIndex == buyable.indexOfColor)
                             isEquiped = true;
                         ChangeHealthBuffText(HealtBuffSystem.HealtBuffType.HeadColor, buyable.HealthBuff);
                         break;
@@ -235,11 +227,6 @@ public class SkineController : MonoBehaviour
                         if (Geekplay.Instance.PlayerData.CurrentBodyColorIndex == buyable.indexOfColor)
                             isEquiped = true;
                         ChangeHealthBuffText(HealtBuffSystem.HealtBuffType.BodyColor, buyable.HealthBuff);
-                        break;
-                    case BodyPart.Arm:
-                        if (Geekplay.Instance.PlayerData.CurrentArmColorIndex == buyable.indexOfColor)
-                            isEquiped = true;
-                        ChangeHealthBuffText(HealtBuffSystem.HealtBuffType.armColor, buyable.HealthBuff);
                         break;
                     case BodyPart.Leg:
                         if (Geekplay.Instance.PlayerData.CurrentLegColorIndex == buyable.indexOfColor)
@@ -266,7 +253,7 @@ public class SkineController : MonoBehaviour
             {
                 switch (buyable.GetBodyType)
                 {
-                    case BodyPart.Head:
+                    case BodyPart.Leather:
                         ChangeHealthBuffText(HealtBuffSystem.HealtBuffType.HeadColor, buyable.HealthBuff);
                         break;
                     case BodyPart.Hair:
@@ -274,9 +261,6 @@ public class SkineController : MonoBehaviour
                         break;
                     case BodyPart.Body:
                         ChangeHealthBuffText(HealtBuffSystem.HealtBuffType.BodyColor, buyable.HealthBuff);
-                        break;
-                    case BodyPart.Arm:
-                        ChangeHealthBuffText(HealtBuffSystem.HealtBuffType.armColor, buyable.HealthBuff);
                         break;
                     case BodyPart.Leg:
                         ChangeHealthBuffText(HealtBuffSystem.HealtBuffType.legColor, buyable.HealthBuff);
@@ -290,7 +274,8 @@ public class SkineController : MonoBehaviour
                 {
                     buyButton.onClick.AddListener(() =>
                     {
-                        BuyAndChangeLastColor(material, buyable);
+                        foreach(var m in material)
+                            BuyAndChangeLastColor(m, buyable);
 
                         buyText.text = "Надето";
 
@@ -317,17 +302,15 @@ public class SkineController : MonoBehaviour
     {
         switch (buyable.GetBodyType)
         {
-            case BodyPart.Head:
-                headMaterial.color = buyable.GetColor;
+            case BodyPart.Leather:
+                foreach(var material in LeatherMaterial)
+                    material.color = buyable.GetColor;
                 break;
             case BodyPart.Hair:
                 hairMaterial.color = buyable.GetColor;
                 break;
             case BodyPart.Body:
                 bodyMaterial.color = buyable.GetColor;
-                break;
-            case BodyPart.Arm:
-                armMaterial.color = buyable.GetColor;
                 break;
             case BodyPart.Leg:
                 legMaterial.color = buyable.GetColor;
@@ -342,8 +325,8 @@ public class SkineController : MonoBehaviour
     {
         switch (buyable.GetBodyType)
         {
-            case BodyPart.Head:
-                Geekplay.Instance.PlayerData.CurrentHeadColorIndex = buyable.indexOfColor;
+            case BodyPart.Leather:
+                Geekplay.Instance.PlayerData.CurrentLeatherColorIndex = buyable.indexOfColor;
                 ChangeHealthBuff(HealtBuffSystem.HealtBuffType.HeadColor, buyable.HealthBuff);
                 break;
             case BodyPart.Hair:
@@ -353,10 +336,6 @@ public class SkineController : MonoBehaviour
             case BodyPart.Body:
                 Geekplay.Instance.PlayerData.CurrentBodyColorIndex = buyable.indexOfColor;
                 ChangeHealthBuff(HealtBuffSystem.HealtBuffType.BodyColor, buyable.HealthBuff);
-                break;
-            case BodyPart.Arm:
-                Geekplay.Instance.PlayerData.CurrentArmColorIndex = buyable.indexOfColor;
-                ChangeHealthBuff(HealtBuffSystem.HealtBuffType.armColor, buyable.HealthBuff);
                 break;
             case BodyPart.Leg:
                 Geekplay.Instance.PlayerData.CurrentLegColorIndex = buyable.indexOfColor;
@@ -376,9 +355,9 @@ public class SkineController : MonoBehaviour
     {
         switch (buyable.GetBodyType)
         {
-            case BodyPart.Head:
-                Geekplay.Instance.PlayerData.CurrentHeadColorIndex = buyable.indexOfColor;
-                Geekplay.Instance.PlayerData.BuyedHeadColors.Add(buyable.indexOfColor);
+            case BodyPart.Leather:
+                Geekplay.Instance.PlayerData.CurrentLeatherColorIndex = buyable.indexOfColor;
+                Geekplay.Instance.PlayerData.BuyedLeatherColors.Add(buyable.indexOfColor);
                 break;
             case BodyPart.Hair:
                 Geekplay.Instance.PlayerData.CurrentHairColorIndex = buyable.indexOfColor;
@@ -387,10 +366,6 @@ public class SkineController : MonoBehaviour
             case BodyPart.Body:
                 Geekplay.Instance.PlayerData.CurrentBodyColorIndex = buyable.indexOfColor;
                 Geekplay.Instance.PlayerData.BuyedBodyColors.Add(buyable.indexOfColor);
-                break;
-            case BodyPart.Arm:
-                Geekplay.Instance.PlayerData.CurrentArmColorIndex = buyable.indexOfColor;
-                Geekplay.Instance.PlayerData.BuyedArmColors.Add(buyable.indexOfColor);
                 break;
             case BodyPart.Leg:
                 Geekplay.Instance.PlayerData.CurrentLegColorIndex = buyable.indexOfColor;
@@ -408,13 +383,13 @@ public class SkineController : MonoBehaviour
 
     private void CheckIsBuyedOrEquippedColor()
     {
-        foreach(var buyable in headColors)
+        foreach(var buyable in LeatherColors)
         {
-            if(Geekplay.Instance.PlayerData.BuyedHeadColors.Contains(buyable.indexOfColor))
+            if(Geekplay.Instance.PlayerData.BuyedLeatherColors.Contains(buyable.indexOfColor))
             {
                 buyable.Buyed();
             }
-            if(Geekplay.Instance.PlayerData.CurrentHeadColorIndex == buyable.indexOfColor)
+            if(Geekplay.Instance.PlayerData.CurrentLeatherColorIndex == buyable.indexOfColor)
             {
                 ChangeHealthBuff(HealtBuffSystem.HealtBuffType.HeadColor,buyable.HealthBuff);
                 buyable.Select();
@@ -430,19 +405,6 @@ public class SkineController : MonoBehaviour
             if (Geekplay.Instance.PlayerData.CurrentHairColorIndex == buyable.indexOfColor)
             {
                 ChangeHealthBuff(HealtBuffSystem.HealtBuffType.HairColor, buyable.HealthBuff);
-                buyable.Select();
-            }
-        }
-
-        foreach (var buyable in armColors)
-        {
-            if (Geekplay.Instance.PlayerData.BuyedArmColors.Contains(buyable.indexOfColor))
-            {
-                buyable.Buyed();
-            }
-            if (Geekplay.Instance.PlayerData.CurrentArmColorIndex == buyable.indexOfColor)
-            {
-                ChangeHealthBuff(HealtBuffSystem.HealtBuffType.armColor, buyable.HealthBuff);
                 buyable.Select();
             }
         }
@@ -491,14 +453,12 @@ public class SkineController : MonoBehaviour
     {
         switch (bodyPart)
         {
-            case BodyPart.Head:
-                headMaterial.color = color;
+            case BodyPart.Leather:
+                foreach(var mat in LeatherMaterial)
+                    mat.color = color;
                 break;
             case BodyPart.Body:
                 bodyMaterial.color = color;
-                break;
-            case BodyPart.Arm:
-                armMaterial.color = color;
                 break;
             case BodyPart.Leg:
                 legMaterial.color = color;
@@ -511,10 +471,13 @@ public class SkineController : MonoBehaviour
 
     private void ChangePlayerMaterial()
     {
-        foreach(var item in headColors)
+        foreach(var item in LeatherColors)
         {
-            if (item.indexOfColor == Geekplay.Instance.PlayerData.CurrentHeadColorIndex)
-                headMaterial.color = item.GetColor;
+            if (item.indexOfColor == Geekplay.Instance.PlayerData.CurrentLeatherColorIndex)
+            {
+                foreach (var mat in LeatherMaterial)
+                    mat.color = item.GetColor;
+            }
         }
         foreach (var item in hairColors)
         {
@@ -525,11 +488,6 @@ public class SkineController : MonoBehaviour
         {
             if (item.indexOfColor == Geekplay.Instance.PlayerData.CurrentBodyColorIndex)
                 bodyMaterial.color = item.GetColor;
-        }
-        foreach (var item in armColors)
-        {
-            if (item.indexOfColor == Geekplay.Instance.PlayerData.CurrentArmColorIndex)
-                armMaterial.color = item.GetColor;
         }
         foreach (var item in legColors)
         {
@@ -847,7 +805,7 @@ public class SkineController : MonoBehaviour
 public enum BodyPart
 {
     Body,
-    Head,
+    Leather,
     Hair,
     Arm,
     Leg,
