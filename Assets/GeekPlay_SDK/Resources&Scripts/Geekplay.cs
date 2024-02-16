@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using CrazyGames;
 using GamePix;
+using UnityEditor;
 
 [System.Serializable]
 public class Rewards
@@ -57,6 +58,9 @@ public class Geekplay : MonoBehaviour
     private bool wasLoad; //Игра загружалась?
     private bool canAd;
     string colorDebug = "yellow"; //Цвет Дебага
+
+    public int MultipleSpeedBuff = 1;
+
 
     private void Start()
     {
