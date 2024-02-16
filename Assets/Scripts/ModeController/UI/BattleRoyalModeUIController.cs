@@ -24,7 +24,7 @@ public class BattleRoyalModeUIController : MonoBehaviour
 
     private void OnPlayerDeath(int deadCount)
     {
-        int place = Convert.ToInt32(enemyCountText.text) - 1;
+        int place = Convert.ToInt32(enemyCountText.text);
 
         if (deadCount < 2)
         {
