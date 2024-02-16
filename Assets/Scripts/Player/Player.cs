@@ -11,6 +11,7 @@ public class Player : IHealthObject
     [SerializeField] private Image healthbar;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private EventManager eventManager;
+    [SerializeField] private Animator animator;
 
     [Space(10), Header("Slap")]
     [SerializeField] private int slapToGive;
@@ -49,9 +50,8 @@ public class Player : IHealthObject
         //SceneLoader sceneLoader = new SceneLoader();
 
         //sceneLoader.LoadScene(0, null);
-
         walkController.enabled = false;
-
+        animator.SetTrigger("Death");
         eventManager.InvokeActionsOnPlayerDeath();
     }
     public IEnumerator GetDamageAnimation(Vector3 direction, float damagePower)
