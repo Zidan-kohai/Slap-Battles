@@ -8,6 +8,11 @@ public class KillSeriesPlayerAttack : PlayerAttack
     [SerializeField] private float timeRamainingToNextSlap;
     [SerializeField] private TextMeshProUGUI timeText;
 
+    private void Start()
+    {
+        eventManager.SubscribeOnPlayerRevive(OnRevive);
+    }
+
     protected override void Update()
     {
         base.Update();
@@ -24,6 +29,11 @@ public class KillSeriesPlayerAttack : PlayerAttack
     protected override void OnSuccesAttack()
     {
         base.OnSuccesAttack();
+        timeRamainingToNextSlap = timeToNextSlap;
+    }
+
+    private void OnRevive()
+    {
         timeRamainingToNextSlap = timeToNextSlap;
     }
 }

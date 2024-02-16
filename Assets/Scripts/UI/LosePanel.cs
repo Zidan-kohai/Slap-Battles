@@ -58,7 +58,6 @@ public class LosePanel : MonoBehaviour
 
         Geekplay.Instance.ShowRewardedAd(tag);
     }
-
     private void OnDoubleAward()
     {
         slapCountText.text = (Convert.ToInt32(slapCountText.text) * 2).ToString();
@@ -68,16 +67,13 @@ public class LosePanel : MonoBehaviour
         sceneLoader.LoadScene(0);
         AddEarnedMoney();
     }
-
     private void OnPlayerRevive()
     {
         eventManager.InvokePlayerReviveEvents();
 
         gameObject.SetActive(false);
     }
-
     private void AddEarnedMoney() => Geekplay.Instance.PlayerData.money += Convert.ToInt32(slapCountText.text);
-
     public void SetSlapCount(int slapCount) 
     {
         if(slapCountText != null)
