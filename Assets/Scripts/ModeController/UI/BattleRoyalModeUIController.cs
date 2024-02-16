@@ -32,11 +32,11 @@ public class BattleRoyalModeUIController : MonoBehaviour
             placeSlapRewardText.text = placeRewards[place].SlapCount.ToString();
             placeDiamondRewardText.text = placeRewards[place].DiamondCount.ToString();
         }
-        else if(deadCount >= 2)
-        {
-            Geekplay.Instance.PlayerData.money += placeRewards[place].SlapCount;
-            Geekplay.Instance.PlayerData.DiamondMoney += placeRewards[place].DiamondCount;
-        }
+        //else if(deadCount >= 2)
+        //{
+        //    Geekplay.Instance.PlayerData.money += placeRewards[place].SlapCount;
+        //    Geekplay.Instance.PlayerData.DiamondMoney += placeRewards[place].DiamondCount;
+        //}
     }
 
     private void OnEnemyDeath(Enemy  enemyObj)

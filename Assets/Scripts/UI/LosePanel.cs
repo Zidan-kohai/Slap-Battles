@@ -14,6 +14,7 @@ public class LosePanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI placeDiamondRewardText;
     [SerializeField] private TextMeshProUGUI lastedTimeToLoadHubText;
     [SerializeField] private Slider slider;
+    [SerializeField] private GameObject rewardButton;
 
     [SerializeField] private float timeBeforeToLoadHub;
 
@@ -89,5 +90,15 @@ public class LosePanel : MonoBehaviour
     {
         if(slapCountText != null)
             slapCountText.text = slapCount.ToString();
+    }
+
+    public void SetTimeBeforeLoadHub(float timeInSeconds)
+    {
+        timeBeforeToLoadHub = timeInSeconds;
+    }
+
+    public void DisableRewardButton()
+    {
+        rewardButton.SetActive(false);
     }
 }

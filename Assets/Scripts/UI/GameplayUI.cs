@@ -32,9 +32,12 @@ public class GameplayUI : MonoBehaviour
 
         }else if(deadCount >= 2)
         {
-            Geekplay.Instance.PlayerData.money += Convert.ToInt32(moneyText.text);
-            SceneLoader sceneLoader = new SceneLoader(this);
-            sceneLoader.LoadScene(0);
+            LosePanel.SetTimeBeforeLoadHub(2f);
+            LosePanel.DisableRewardButton();
+            LosePanel.gameObject.SetActive(true);
+            //Geekplay.Instance.PlayerData.money += Convert.ToInt32(moneyText.text);
+            //SceneLoader sceneLoader = new SceneLoader(this);
+            //sceneLoader.LoadScene(0);
         }
     }
 
