@@ -69,20 +69,14 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 7045719724983217356}
   m_SourcePrefab: {fileID: 100100000, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
---- !u!114 &1318099283657571481 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2056666887477342918, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
-  m_PrefabInstance: {fileID: 1062968206374604383}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!195 &1763320518826556086 stripped
 NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: 1637332624956355817, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
+  m_PrefabInstance: {fileID: 1062968206374604383}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &2050519539890104431 stripped
+CapsuleCollider:
+  m_CorrespondingSourceObject: {fileID: 1347846619119986224, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
   m_PrefabInstance: {fileID: 1062968206374604383}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2893152078088420407 stripped
@@ -105,10 +99,10 @@ MonoBehaviour:
   health: 100
   maxHealth: 100
   navMeshAgent: {fileID: 1763320518826556086}
+  collider: {fileID: 2050519539890104431}
   rb: {fileID: 4823420226999459578}
   healthbar: {fileID: 8147955533964895338}
   animator: {fileID: 4127869507662476309}
-  nameText: {fileID: 1318099283657571481}
   speed: 2
   damagePower: 10
   distanseToAttack: 2

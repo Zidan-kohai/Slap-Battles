@@ -12,6 +12,7 @@ public class Enemy : IHealthObject
 {
     [Header("Components")]
     [SerializeField] protected NavMeshAgent navMeshAgent;
+    [SerializeField] protected Collider collider;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Image healthbar;
     [SerializeField] protected Animator animator;
@@ -33,13 +34,14 @@ public class Enemy : IHealthObject
 
 
     [SerializeField] private Transform MaxPosition, MinPosition;
-
+    protected bool isDead = false;
     protected void Start()
     {
         stolenSlaps = 1;
         rb.isKinematic = true;
         CanWalk = true;
         canAttack = true;
+        isDead = false;
 
         GetRandomTarget();
         Move(target);
@@ -57,7 +59,7 @@ public class Enemy : IHealthObject
 
     protected virtual void Update()
     {
-        if (!CanWalk) return;
+        if (!CanWalk || isDead) return;
         if (!navMeshAgent.isOnNavMesh) Death();
 
         if(enemy != null)
@@ -115,6 +117,13 @@ public class Enemy : IHealthObject
 
     public override void GetDamage(float damagePower, Vector3 direction, out bool isDeath, out int gettedSlap)
     {
+        if (isDead)
+        {
+            isDeath = true;
+            gettedSlap = 0;
+            return;
+        }
+
         health -= damagePower;
         healthbar.fillAmount = (health / maxHealth) < 0 ? 0 : health / maxHealth;
 
@@ -148,23 +157,43 @@ public class Enemy : IHealthObject
 
         yield return new WaitForSeconds(2);
 
-        rb.isKinematic = true;
-        navMeshAgent.enabled = true;
-        CanWalk = true;
+        if (!isDead)
+        {
+            rb.isKinematic = true;
+            navMeshAgent.enabled = true;
+            CanWalk = true;
 
-        OnEndAnimations();
+            OnEndAnimations();
+        }
     }
 
-    public void Revive()
+    public virtual void Revive()
     {
+        animator.SetTrigger("Revive");
         health = maxHealth;
         healthbar.fillAmount = health /  maxHealth;
+        gameObject.SetActive(true);
+        navMeshAgent.enabled = true;
+        //collider.enabled = true;
+        isDead = false;
     }
 
     public override void Death()
     {
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        animator.SetTrigger("Death");
+        navMeshAgent.enabled = false;
+        //collider.enabled = false;
+        isDead = true;
         eventManager.InvokeActionsOnEnemyDeath(this);
+        StartCoroutine(DisableGameObject(7));
+
+    }
+
+    private IEnumerator DisableGameObject(float time)
+    {
+        yield return new WaitForSeconds(time);
+        gameObject.SetActive(false);
     }
 
     private void OnEnemyDeath(Enemy enemy)

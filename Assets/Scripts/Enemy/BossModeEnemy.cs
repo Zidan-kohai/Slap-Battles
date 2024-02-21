@@ -11,7 +11,7 @@ public class BossModeEnemy : Enemy
 
     protected override void Update()
     {
-        if (!CanWalk) return;
+        if (!CanWalk || isDead) return;
         if (!navMeshAgent.isOnNavMesh) Death();
 
         if ((bossTransform.position - transform.position).magnitude < distanseToAttack && canAttack)

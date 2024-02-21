@@ -10,6 +10,7 @@ public class KillSeriesEnemy : Enemy
 
     protected override void Update()
     {
+        if (isDead) return;
         base.Update();
 
         timeRamainingToNextSlap -= Time.deltaTime;
@@ -24,6 +25,12 @@ public class KillSeriesEnemy : Enemy
     protected override void OnSuccesAttack()
     {
         base.OnSuccesAttack();
+        timeRamainingToNextSlap = timeToNextSlap;
+    }
+
+    public override void Revive()
+    {
+        base.Revive();
         timeRamainingToNextSlap = timeToNextSlap;
     }
 }

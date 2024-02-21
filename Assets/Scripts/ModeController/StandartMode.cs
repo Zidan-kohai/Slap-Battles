@@ -51,7 +51,6 @@ public class StandartMode : MonoBehaviour
             {
                 enemies[i].transform.position = GetRandomPositionForEnemy();
                 enemies[i].Revive();
-                enemies[i].gameObject.SetActive(true);
                 return;
             }
         }
