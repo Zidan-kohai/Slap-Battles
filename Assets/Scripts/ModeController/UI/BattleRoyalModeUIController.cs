@@ -15,7 +15,7 @@ public class BattleRoyalModeUIController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI placeDiamondRewardText;
 
     //To Do Correct  
-    [SerializeField] private LosePanel winPanel;
+    [SerializeField] private BattleModeLosePanel winPanel;
     [SerializeField] private TextMeshProUGUI winPanelHeaderText;
 
 
@@ -34,8 +34,8 @@ public class BattleRoyalModeUIController : MonoBehaviour
         if (deadCount < 2)
         {
             placeText.text = enemyCountText.text;
-            placeSlapRewardText.text = modeController.placeRewards[place].SlapCount.ToString();
-            placeDiamondRewardText.text = modeController.placeRewards[place].DiamondCount.ToString();
+            placeSlapRewardText.text = (Convert.ToInt32(placeSlapRewardText.text) + modeController.placeRewards[place].SlapCount).ToString();
+            placeDiamondRewardText.text = (Convert.ToInt32(placeDiamondRewardText.text) + modeController.placeRewards[place].DiamondCount).ToString();
         }
     }
 

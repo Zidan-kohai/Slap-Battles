@@ -7,11 +7,9 @@ using UnityEngine.UI;
 
 public class LosePanel : MonoBehaviour
 {
-    [SerializeField] private EventManager eventManager;
+    [SerializeField] protected EventManager eventManager;
 
     [SerializeField] private TextMeshProUGUI slapCountText;
-    [SerializeField] private TextMeshProUGUI placeSlapRewardText;
-    [SerializeField] private TextMeshProUGUI placeDiamondRewardText;
     [SerializeField] private TextMeshProUGUI lastedTimeToLoadHubText;
     [SerializeField] private Slider slider;
     [SerializeField] private GameObject rewardButton;
@@ -21,15 +19,11 @@ public class LosePanel : MonoBehaviour
     private bool flagThatUseToLoadSceneOneTime = true;
     private float lastedTime;
 
-
-    private int earnedSlapCount;
-    private int placeSlapReward;
-    private int placeDiamondReward;
+    protected int earnedSlapCount;
 
     private void Start()
     {
         Geekplay.Instance.SubscribeOnReward("DoubleAward", OnDoubleAward);
-        Geekplay.Instance.SubscribeOnReward("PlayerRevive", OnPlayerRevive);
     }
 
     private void OnEnable()
@@ -38,7 +32,7 @@ public class LosePanel : MonoBehaviour
         lastedTime = timeBeforeToLoadHub;
     }
 
-    void Update()
+    protected void Update()
     {
         lastedTime -= Time.deltaTime;
 
@@ -51,7 +45,7 @@ public class LosePanel : MonoBehaviour
         }
         else if(lastedTime > 0)
         {
-            lastedTimeToLoadHubText.text = string.Format("00:0{0:f1}", lastedTime);
+            lastedTimeToLoadHubText.text = string.Format("00:0{0:f0}", lastedTime);
             slider.value = lastedTime;
         }
     }
@@ -78,23 +72,11 @@ public class LosePanel : MonoBehaviour
         sceneLoader.LoadScene(0);
         AddEarnedMoney();
     }
-    private void OnPlayerRevive()
-    {
-        eventManager.InvokePlayerReviveEvents();
-
-        gameObject.SetActive(false);
-    }
-    public void AddEarnedMoney() 
+    public virtual void AddEarnedMoney() 
     {
         Geekplay.Instance.PlayerData.money += earnedSlapCount;
-
-        if (placeSlapRewardText != null && placeDiamondRewardText != null)
-        {
-            Geekplay.Instance.PlayerData.money += Convert.ToInt32(placeSlapRewardText.text);
-            Geekplay.Instance.PlayerData.DiamondMoney += Convert.ToInt32(placeDiamondRewardText.text);
-        }
     }
-    public void SetSlapCount(int slapCount) 
+    public virtual void SetSlapCount(int slapCount) 
     {
         earnedSlapCount = slapCount;
 
