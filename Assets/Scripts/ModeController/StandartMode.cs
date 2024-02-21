@@ -7,7 +7,9 @@ public class StandartMode : MonoBehaviour
     [SerializeField] private Player player;
     [SerializeField] private List<Enemy> enemies;
 
-    [SerializeField] private List<Transform> spawnPoints;
+    [SerializeField] private List<Transform> enemySpawnPoints;
+    [SerializeField] private List<Transform> playerSpawnPoints;
+
     [SerializeField] private EventManager eventManager;
 
     public bool flag;
@@ -21,11 +23,11 @@ public class StandartMode : MonoBehaviour
 
     private void ArrangeTransforms()
     {
-        player.transform.position = GetRandomPosition();
+        player.transform.position = GetRandomPositionForPlayer();
 
         for (int i = 0; i < enemies.Count; i++)
         {
-            enemies[i].transform.position = GetRandomPosition();
+            enemies[i].transform.position = GetRandomPositionForEnemy();
         }
     }
 
@@ -47,7 +49,7 @@ public class StandartMode : MonoBehaviour
         {
             if (!enemies[i].gameObject.activeSelf)
             {
-                enemies[i].transform.position = GetRandomPosition();
+                enemies[i].transform.position = GetRandomPositionForEnemy();
                 enemies[i].Revive();
                 enemies[i].gameObject.SetActive(true);
                 return;
@@ -55,11 +57,15 @@ public class StandartMode : MonoBehaviour
         }
     }
 
-    private Vector3 GetRandomPosition()
+    private Vector3 GetRandomPositionForEnemy()
     {
-        return spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Count)].position;
+        return enemySpawnPoints[UnityEngine.Random.Range(0, enemySpawnPoints.Count)].position;
     }
 
+    private Vector3 GetRandomPositionForPlayer()
+    {
+        return playerSpawnPoints[UnityEngine.Random.Range(0, playerSpawnPoints.Count)].position;
+    }
     private void TurnOnGameObjects()
     {
         player.gameObject.SetActive(true);

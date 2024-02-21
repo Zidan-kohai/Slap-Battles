@@ -9,7 +9,8 @@ public class BattleRoyalModeController : MonoBehaviour
 
     [SerializeField] private Player player;
     [SerializeField] private List<Enemy> enemies;
-    [SerializeField] private List<Transform> spawnPoints;
+    [SerializeField] private List<Transform> enemySpawnPoints;
+    [SerializeField] private List<Transform> playerSpawnPoints;
 
 
     [SerializeField] private int LivedEnemyCount;
@@ -41,16 +42,21 @@ public class BattleRoyalModeController : MonoBehaviour
 
     private void ArrangeTransforms()
     {
-        player.transform.position = GetRandomPosition();
+        player.transform.position = GetRandomPositionForPlayer();
 
         for (int i = 0; i < enemies.Count; i++)
         {
-            enemies[i].transform.position = GetRandomPosition();
+            enemies[i].transform.position = GetRandomPositionForEnemy();
         }
     }
-    private Vector3 GetRandomPosition()
+    private Vector3 GetRandomPositionForEnemy()
     {
-        return spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Count)].position;
+        return enemySpawnPoints[UnityEngine.Random.Range(0, enemySpawnPoints.Count)].position;
+    }
+
+    private Vector3 GetRandomPositionForPlayer()
+    {
+        return playerSpawnPoints[UnityEngine.Random.Range(0, playerSpawnPoints.Count)].position;
     }
 
     private void TurnOnGameObjects()
