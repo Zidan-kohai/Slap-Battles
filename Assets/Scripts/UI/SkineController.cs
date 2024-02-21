@@ -33,6 +33,8 @@ public class SkineController : MonoBehaviour
     [Space(10), Header("Buy Button")]
     [SerializeField] private Button buyButton;
     [SerializeField] private TextMeshProUGUI buyText;
+    [SerializeField] private GameObject buySlapIcon;
+    [SerializeField] private GameObject buyDiamondIcon;
 
     [Space(10), Header("Hair")]
     [SerializeField] HairSwitcher hairSwitcher;
@@ -199,6 +201,9 @@ public class SkineController : MonoBehaviour
             buyButton.onClick.RemoveAllListeners();
             if(buyable.GetIsBuyed)
             {
+                buySlapIcon.SetActive(false);
+                buyDiamondIcon.SetActive(false);
+
                 buyButton.onClick.AddListener(() =>
                 {
                     foreach (Material m in material)
@@ -270,7 +275,7 @@ public class SkineController : MonoBehaviour
                         break;
                 }
 
-                if (buyable.TryBuy(Geekplay.Instance.PlayerData.money))
+                if (buyable.TryBuy())
                 {
                     buyButton.onClick.AddListener(() =>
                     {
@@ -294,6 +299,16 @@ public class SkineController : MonoBehaviour
                 }
 
                 buyText.text = $"купить за {buyable.GetCost}";
+                if(buyable.costType == Buyable.TypeOfCost.money)
+                {
+                    buySlapIcon.SetActive(true);
+                    buyDiamondIcon.SetActive(false);
+                }
+                else if(buyable.costType == Buyable.TypeOfCost.diamond)
+                {
+                    buyDiamondIcon.SetActive(true);
+                    buySlapIcon.SetActive(false);
+                }
             }
         });
     }
@@ -377,7 +392,7 @@ public class SkineController : MonoBehaviour
                 break;
         }
 
-        buyable.Buy(Geekplay.Instance.PlayerData.money);
+        buyable.Buy();
         ChangeLastColor(material, buyable);
     }
 
@@ -517,6 +532,8 @@ public class SkineController : MonoBehaviour
 
             if (buyable.GetIsBuyed)
             {
+                buySlapIcon.SetActive(false);
+                buyDiamondIcon.SetActive(false);
 
                 if (Geekplay.Instance.PlayerData.isGenderMan)
                 {
@@ -562,14 +579,25 @@ public class SkineController : MonoBehaviour
             {
                 buyText.text = $"купить {buyable.GetCost}";
 
-                if (buyable.TryBuy(Geekplay.Instance.PlayerData.money))
+                if (buyable.costType == Buyable.TypeOfCost.money)
+                {
+                    buySlapIcon.SetActive(true);
+                    buyDiamondIcon.SetActive(false);
+                }
+                else if (buyable.costType == Buyable.TypeOfCost.diamond)
+                {
+                    buyDiamondIcon.SetActive(true);
+                    buySlapIcon.SetActive(false);
+                }
+
+                if (buyable.TryBuy())
                 {
                     buyButton.onClick.AddListener(() =>
                     {
                         hairSwitcher.SwitchAndBuyHair(buyable.GetIndexOfhair, Geekplay.Instance.PlayerData.isGenderMan);
                         ChangeHealthBuff(HealtBuffSystem.HealtBuffType.hair, buyable.HealthBuff);
 
-                        buyable.Buy(Geekplay.Instance.PlayerData.money);
+                        buyable.Buy();
                         buyText.text = "Надето";
                         eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
                     });
@@ -636,6 +664,9 @@ public class SkineController : MonoBehaviour
 
             if (buyable.GetIsBuyed)
             {
+                buySlapIcon.SetActive(false);
+                buyDiamondIcon.SetActive(false);
+
                 if (Geekplay.Instance.PlayerData.currentAccessory == buyable.GetIndexOfAccessory)
                 {
                     buyText.text = "Надето";
@@ -657,14 +688,25 @@ public class SkineController : MonoBehaviour
             {
                 buyText.text = $"купить {buyable.GetCost}";
 
-                if (buyable.TryBuy(Geekplay.Instance.PlayerData.money))
+                if (buyable.costType == Buyable.TypeOfCost.money)
+                {
+                    buySlapIcon.SetActive(true);
+                    buyDiamondIcon.SetActive(false);
+                }
+                else if (buyable.costType == Buyable.TypeOfCost.diamond)
+                {
+                    buyDiamondIcon.SetActive(true);
+                    buySlapIcon.SetActive(false);
+                }
+
+                if (buyable.TryBuy())
                 {
                     buyButton.onClick.AddListener(() =>
                     {
                         accessorySwitcher.SwitchAndBuyAccessory(buyable.GetIndexOfAccessory);
                         ChangeHealthBuff(HealtBuffSystem.HealtBuffType.accessory, buyable.HealthBuff);
 
-                        buyable.Buy(Geekplay.Instance.PlayerData.money);
+                        buyable.Buy();
                         buyText.text = "Надето";
                         eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
                     });
@@ -714,6 +756,9 @@ public class SkineController : MonoBehaviour
 
             if (buyable.GetIsBuyed)
             {
+                buySlapIcon.SetActive(false);
+                buyDiamondIcon.SetActive(false);
+
                 if (Geekplay.Instance.PlayerData.currentCap == buyable.GetIndexOfCap)
                 {
                     buyText.text = "Надето";
@@ -735,14 +780,25 @@ public class SkineController : MonoBehaviour
             {
                 buyText.text = $"купить {buyable.GetCost}";
 
-                if (buyable.TryBuy(Geekplay.Instance.PlayerData.money))
+                if (buyable.costType == Buyable.TypeOfCost.money)
+                {
+                    buySlapIcon.SetActive(true);
+                    buyDiamondIcon.SetActive(false);
+                }
+                else if (buyable.costType == Buyable.TypeOfCost.diamond)
+                {
+                    buyDiamondIcon.SetActive(true);
+                    buySlapIcon.SetActive(false);
+                }
+
+                if (buyable.TryBuy())
                 {
                     buyButton.onClick.AddListener(() =>
                     {
                         capSwitcher.SwitchAndBuyCap(buyable.GetIndexOfCap);
                         ChangeHealthBuff(HealtBuffSystem.HealtBuffType.cap, buyable.HealthBuff);
 
-                        buyable.Buy(Geekplay.Instance.PlayerData.money);
+                        buyable.Buy();
                         buyText.text = "Надето";
                         eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
                     });

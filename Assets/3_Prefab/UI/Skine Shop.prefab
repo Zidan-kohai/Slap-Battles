@@ -269,6 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 10
   image: {fileID: 7485812945768169682}
   buttonSelf: {fileID: 8303102597366569307}
@@ -482,6 +483,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 1
   image: {fileID: 1519480974867431913}
   buttonSelf: {fileID: 4541295071290122282}
@@ -758,6 +760,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 18
   buttonSelf: {fileID: 8527256638634421521}
   SelectedIcon: {fileID: 0}
@@ -897,6 +900,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 1
+  costType: 0
   indexOfColor: 0
   image: {fileID: 416621194728616331}
   buttonSelf: {fileID: 1998496244856289879}
@@ -1039,6 +1043,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 10
   buttonSelf: {fileID: 3698631157214914568}
   SelectedIcon: {fileID: 0}
@@ -1179,6 +1184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 6
   buttonSelf: {fileID: 1522117936863972033}
   SelectedIcon: {fileID: 0}
@@ -1319,6 +1325,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 2
   isBuyed: 1
+  costType: 0
   indexOfCap: 0
   buttonSelf: {fileID: 463184391392001117}
   SelectedIcon: {fileID: 0}
@@ -1458,6 +1465,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 17
   image: {fileID: 6759610483953857405}
   buttonSelf: {fileID: 4785837352048746072}
@@ -1600,6 +1608,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 3
   buttonSelf: {fileID: 7385821033832962862}
   SelectedIcon: {fileID: 0}
@@ -1815,6 +1824,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 20
   buttonSelf: {fileID: 3067366884654210307}
   SelectedIcon: {fileID: 0}
@@ -2086,6 +2096,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 16
   image: {fileID: 8790390913020287656}
   buttonSelf: {fileID: 3228941535407314046}
@@ -2571,6 +2582,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 2
   isBuyed: 0
+  costType: 0
   indexOfCap: 3
   buttonSelf: {fileID: 8676821179830682233}
   SelectedIcon: {fileID: 0}
@@ -2711,6 +2723,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 1
   buttonSelf: {fileID: 4457012889390996131}
   SelectedIcon: {fileID: 0}
@@ -2850,6 +2863,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 4
   image: {fileID: 2028501736518225242}
   buttonSelf: {fileID: 290401566809894953}
@@ -2991,6 +3005,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 14
   image: {fileID: 6142862896308823339}
   buttonSelf: {fileID: 3686401132715724741}
@@ -3133,10 +3148,86 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 10
   buttonSelf: {fileID: 7163479446532407164}
   SelectedIcon: {fileID: 0}
   HealthBuff: 0
+--- !u!1 &492525788693398201
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5964456462740672472}
+  - component: {fileID: 7737592299265944364}
+  - component: {fileID: 4369550577666381146}
+  m_Layer: 5
+  m_Name: SlapIcon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5964456462740672472
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492525788693398201}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 975377101547606624}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 80, y: 80}
+  m_Pivot: {x: 0, y: 1}
+--- !u!222 &7737592299265944364
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492525788693398201}
+  m_CullTransparentMesh: 1
+--- !u!114 &4369550577666381146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492525788693398201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 1018360880, guid: db4a1c6aa7f27444a933b76df2326d7c, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &495672004709645446
 GameObject:
   m_ObjectHideFlags: 0
@@ -3406,6 +3497,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 17
   image: {fileID: 8108054485460342905}
   buttonSelf: {fileID: 8589359415129431593}
@@ -3547,6 +3639,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 5
   image: {fileID: 3134947932186507443}
   buttonSelf: {fileID: 1483525611704069146}
@@ -3688,6 +3781,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 2
   isBuyed: 0
+  costType: 0
   indexOfCap: 17
   buttonSelf: {fileID: 2325134627197382710}
   SelectedIcon: {fileID: 0}
@@ -3828,6 +3922,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 15
   buttonSelf: {fileID: 1460040834777974811}
   SelectedIcon: {fileID: 0}
@@ -4523,6 +4618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 16
   buttonSelf: {fileID: 1779230589003618596}
   SelectedIcon: {fileID: 0}
@@ -5119,6 +5215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 9
   image: {fileID: 5032782885642256458}
   buttonSelf: {fileID: 9151550937274196373}
@@ -5395,6 +5492,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 4
   buttonSelf: {fileID: 1193801907137574477}
   SelectedIcon: {fileID: 0}
@@ -5666,6 +5764,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 10
   image: {fileID: 6847161516122639899}
   buttonSelf: {fileID: 465100240115057314}
@@ -5808,6 +5907,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 20
   buttonSelf: {fileID: 1412716614364923616}
   SelectedIcon: {fileID: 0}
@@ -5947,6 +6047,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 2
   isBuyed: 0
+  costType: 0
   indexOfCap: 23
   buttonSelf: {fileID: 3298460095505103442}
   SelectedIcon: {fileID: 0}
@@ -6087,6 +6188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 19
   buttonSelf: {fileID: 5989039628329055757}
   SelectedIcon: {fileID: 0}
@@ -6226,6 +6328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 18
   image: {fileID: 7663396148494900643}
   buttonSelf: {fileID: 3686674435524099028}
@@ -6368,6 +6471,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 2
   isBuyed: 0
+  costType: 0
   indexOfCap: 6
   buttonSelf: {fileID: 6053258618086561935}
   SelectedIcon: {fileID: 0}
@@ -6508,6 +6612,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 22
   buttonSelf: {fileID: 754302712425507519}
   SelectedIcon: {fileID: 0}
@@ -6647,6 +6752,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 2
   image: {fileID: 5277665460930912567}
   buttonSelf: {fileID: 75935659210994681}
@@ -6867,6 +6973,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 17
   buttonSelf: {fileID: 1346758784234695634}
   SelectedIcon: {fileID: 0}
@@ -7081,6 +7188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 7
   image: {fileID: 7712708291710224242}
   buttonSelf: {fileID: 3017913840850388349}
@@ -7222,6 +7330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 23
   image: {fileID: 958945792467005911}
   buttonSelf: {fileID: 559894643747487907}
@@ -7498,6 +7607,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 23
   buttonSelf: {fileID: 2625074335854246857}
   SelectedIcon: {fileID: 0}
@@ -7772,6 +7882,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 1
   buttonSelf: {fileID: 2833278914977426843}
   SelectedIcon: {fileID: 0}
@@ -7912,6 +8023,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 14
   buttonSelf: {fileID: 3251687656505961996}
   SelectedIcon: {fileID: 0}
@@ -8051,6 +8163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 1
   image: {fileID: 2986339472178241315}
   buttonSelf: {fileID: 8369882302247322828}
@@ -8192,6 +8305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 12
   image: {fileID: 4096712597222937410}
   buttonSelf: {fileID: 2496655303749041155}
@@ -8334,6 +8448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 11
   buttonSelf: {fileID: 6948599294778649697}
   SelectedIcon: {fileID: 0}
@@ -8608,6 +8723,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 10
   buttonSelf: {fileID: 7356944970017336830}
   SelectedIcon: {fileID: 0}
@@ -8957,6 +9073,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 4
   buttonSelf: {fileID: 4248923040983702040}
   SelectedIcon: {fileID: 0}
@@ -9307,6 +9424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 21
   image: {fileID: 2623186382153551282}
   buttonSelf: {fileID: 7807804914441157760}
@@ -9448,6 +9566,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 18
   image: {fileID: 3076091984842124133}
   buttonSelf: {fileID: 1335421943059313571}
@@ -9589,6 +9708,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 2
   isBuyed: 0
+  costType: 0
   indexOfCap: 15
   buttonSelf: {fileID: 3682410967977371795}
   SelectedIcon: {fileID: 0}
@@ -9729,6 +9849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 6
   buttonSelf: {fileID: 1192109562617473217}
   SelectedIcon: {fileID: 0}
@@ -9762,7 +9883,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5964456462740672472}
+  - {fileID: 4521086468701548600}
   m_Father: {fileID: 4802431202098609824}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -10136,12 +10259,88 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 4
   image: {fileID: 6374833961902661483}
   buttonSelf: {fileID: 8288086595079725953}
   bodyPart: 2
   SelectedIcon: {fileID: 0}
   HealthBuff: 0
+--- !u!1 &1833046133508117430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4521086468701548600}
+  - component: {fileID: 2189150252068206295}
+  - component: {fileID: 8181754681856825009}
+  m_Layer: 5
+  m_Name: DiamondIcon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &4521086468701548600
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833046133508117430}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 975377101547606624}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 80, y: 80}
+  m_Pivot: {x: 0, y: 1}
+--- !u!222 &2189150252068206295
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833046133508117430}
+  m_CullTransparentMesh: 1
+--- !u!114 &8181754681856825009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833046133508117430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -1902038936, guid: db4a1c6aa7f27444a933b76df2326d7c, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &1876643151589086002
 GameObject:
   m_ObjectHideFlags: 0
@@ -10278,6 +10477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 4
   buttonSelf: {fileID: 956333752765707779}
   SelectedIcon: {fileID: 0}
@@ -10953,6 +11153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 9
   image: {fileID: 1848557659035770145}
   buttonSelf: {fileID: 3553518481345143687}
@@ -11094,6 +11295,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 8
   image: {fileID: 3977047860875510830}
   buttonSelf: {fileID: 3282874062913831469}
@@ -11772,6 +11974,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 9
   buttonSelf: {fileID: 3071035442681204355}
   SelectedIcon: {fileID: 0}
@@ -11911,6 +12114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 11
   image: {fileID: 5325203439982254411}
   buttonSelf: {fileID: 6857982823604226501}
@@ -12186,6 +12390,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 20
   image: {fileID: 1290268515626097763}
   buttonSelf: {fileID: 8672068234638141868}
@@ -12461,6 +12666,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 2
   isBuyed: 0
+  costType: 0
   indexOfCap: 21
   buttonSelf: {fileID: 8215722957148668840}
   SelectedIcon: {fileID: 0}
@@ -12815,6 +13021,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 8
   buttonSelf: {fileID: 8977095184881604072}
   SelectedIcon: {fileID: 0}
@@ -13029,6 +13236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 18
   image: {fileID: 5523667475503543870}
   buttonSelf: {fileID: 8562165920872864146}
@@ -13304,6 +13512,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 8
   image: {fileID: 7922465416269159464}
   buttonSelf: {fileID: 5503087853548080106}
@@ -13445,6 +13654,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 17
   image: {fileID: 8918487206116535070}
   buttonSelf: {fileID: 3947538561797134505}
@@ -13587,6 +13797,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 12
   buttonSelf: {fileID: 8706341449933566083}
   SelectedIcon: {fileID: 0}
@@ -13727,6 +13938,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 21
   buttonSelf: {fileID: 4401638440492965159}
   SelectedIcon: {fileID: 0}
@@ -14079,6 +14291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 12
   image: {fileID: 2058874713543512186}
   buttonSelf: {fileID: 8210801367452383812}
@@ -14772,6 +14985,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 4
   buttonSelf: {fileID: 7433189416026796738}
   SelectedIcon: {fileID: 0}
@@ -14911,6 +15125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 16
   image: {fileID: 1455129497611932705}
   buttonSelf: {fileID: 5509233874399277840}
@@ -15053,6 +15268,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 12
   buttonSelf: {fileID: 3891079320815035338}
   SelectedIcon: {fileID: 0}
@@ -15624,6 +15840,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 3
   image: {fileID: 8572951904900171681}
   buttonSelf: {fileID: 7861017429805434541}
@@ -15766,6 +15983,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 9
   buttonSelf: {fileID: 1317082707274232156}
   SelectedIcon: {fileID: 0}
@@ -16246,6 +16464,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 21
   buttonSelf: {fileID: 4903579679416002670}
   SelectedIcon: {fileID: 0}
@@ -16463,6 +16682,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 5
   image: {fileID: 6522589964890175612}
   buttonSelf: {fileID: 1515830530274422345}
@@ -16604,6 +16824,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 2
   isBuyed: 0
+  costType: 0
   indexOfCap: 19
   buttonSelf: {fileID: 8945178578786644260}
   SelectedIcon: {fileID: 0}
@@ -16887,6 +17108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 19
   image: {fileID: 3815806883135668263}
   buttonSelf: {fileID: 2597631552648714778}
@@ -17103,6 +17325,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 6
   image: {fileID: 5731213540813321730}
   buttonSelf: {fileID: 8313197905860389130}
@@ -17379,6 +17602,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 5
   buttonSelf: {fileID: 6679726585044288637}
   SelectedIcon: {fileID: 0}
@@ -17992,6 +18216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 6
   image: {fileID: 7484231566906848916}
   buttonSelf: {fileID: 2493926256834015993}
@@ -18134,6 +18359,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 1
+  costType: 0
   indexOfAccessory: 0
   buttonSelf: {fileID: 3949001285116495307}
   SelectedIcon: {fileID: 0}
@@ -18408,6 +18634,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 23
   buttonSelf: {fileID: 7153709574333277028}
   SelectedIcon: {fileID: 0}
@@ -18547,6 +18774,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 1
+  costType: 0
   indexOfColor: 0
   image: {fileID: 3319544835593388075}
   buttonSelf: {fileID: 1153410149773442318}
@@ -18688,6 +18916,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 1
   image: {fileID: 2128864787411205104}
   buttonSelf: {fileID: 6437575433019733863}
@@ -19184,6 +19413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 7
   buttonSelf: {fileID: 8862526155477355929}
   SelectedIcon: {fileID: 0}
@@ -19324,6 +19554,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 2
   isBuyed: 0
+  costType: 0
   indexOfCap: 7
   buttonSelf: {fileID: 2821609448287656799}
   SelectedIcon: {fileID: 0}
@@ -19464,6 +19695,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 11
   buttonSelf: {fileID: 3350032294167977611}
   SelectedIcon: {fileID: 0}
@@ -19603,6 +19835,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 11
   image: {fileID: 2041800315300015096}
   buttonSelf: {fileID: 62063145812305975}
@@ -19820,6 +20053,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 20
   image: {fileID: 3728538647325186986}
   buttonSelf: {fileID: 4782322272672979812}
@@ -20047,6 +20281,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 2
   isBuyed: 0
+  costType: 0
   indexOfCap: 11
   buttonSelf: {fileID: 1945595423397045300}
   SelectedIcon: {fileID: 0}
@@ -20186,6 +20421,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 13
   image: {fileID: 1708526788698635099}
   buttonSelf: {fileID: 8406663042215627607}
@@ -20400,6 +20636,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 2
   buttonSelf: {fileID: 1977773527775914436}
   SelectedIcon: {fileID: 0}
@@ -20539,6 +20776,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 23
   image: {fileID: 3892325730984571295}
   buttonSelf: {fileID: 4193769069194256940}
@@ -20814,6 +21052,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 7
   image: {fileID: 2857381177285568712}
   buttonSelf: {fileID: 7325366323182283854}
@@ -21089,6 +21328,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 11
   image: {fileID: 8269217511600692795}
   buttonSelf: {fileID: 9097474117804853696}
@@ -21365,6 +21605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 8
   buttonSelf: {fileID: 6867419170065297246}
   SelectedIcon: {fileID: 0}
@@ -21504,6 +21745,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 20
   image: {fileID: 7148240326200719945}
   buttonSelf: {fileID: 2793802355128378579}
@@ -21986,6 +22228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 2
   isBuyed: 0
+  costType: 0
   indexOfCap: 12
   buttonSelf: {fileID: 2804200837481951836}
   SelectedIcon: {fileID: 0}
@@ -22262,6 +22505,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 19
   buttonSelf: {fileID: 1357625541436385851}
   SelectedIcon: {fileID: 0}
@@ -22401,6 +22645,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 5
   image: {fileID: 5361362983248202633}
   buttonSelf: {fileID: 8277321853175087013}
@@ -22676,6 +22921,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 4
   image: {fileID: 7744113028120051396}
   buttonSelf: {fileID: 998605692719240413}
@@ -22892,6 +23138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 4
   image: {fileID: 4144936734014176331}
   buttonSelf: {fileID: 8811591815461261512}
@@ -23569,6 +23816,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 2
   image: {fileID: 7784903652139414578}
   buttonSelf: {fileID: 1876180632510691996}
@@ -23845,6 +24093,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 8
   image: {fileID: 5177262160168943869}
   buttonSelf: {fileID: 456777770521510882}
@@ -23986,6 +24235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 13
   image: {fileID: 2624914159430752606}
   buttonSelf: {fileID: 8538227888422707379}
@@ -24530,6 +24780,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 15
   buttonSelf: {fileID: 7721755919399474687}
   SelectedIcon: {fileID: 0}
@@ -25277,6 +25528,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 8
   buttonSelf: {fileID: 27642117281091112}
   SelectedIcon: {fileID: 0}
@@ -25682,6 +25934,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 21
   image: {fileID: 8710390241795430403}
   buttonSelf: {fileID: 2204007042171544398}
@@ -25823,6 +26076,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 2
   isBuyed: 0
+  costType: 0
   indexOfCap: 16
   buttonSelf: {fileID: 9198864929736614553}
   SelectedIcon: {fileID: 0}
@@ -26096,6 +26350,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 10
   image: {fileID: 7319283475349671666}
   buttonSelf: {fileID: 8101470067741262683}
@@ -26751,6 +27006,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 2
   isBuyed: 0
+  costType: 0
   indexOfCap: 22
   buttonSelf: {fileID: 8803143324005764278}
   SelectedIcon: {fileID: 0}
@@ -26891,6 +27147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 7
   buttonSelf: {fileID: 8814443809953675377}
   SelectedIcon: {fileID: 0}
@@ -27030,6 +27287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 15
   image: {fileID: 5318400917673581823}
   buttonSelf: {fileID: 763454305541345752}
@@ -27171,6 +27429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 3
   image: {fileID: 119089438731885559}
   buttonSelf: {fileID: 3165462240772718606}
@@ -27447,6 +27706,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 2
   buttonSelf: {fileID: 3601269475599940090}
   SelectedIcon: {fileID: 0}
@@ -28256,6 +28516,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 22
   image: {fileID: 6224423790634021023}
   buttonSelf: {fileID: 5578862400563010250}
@@ -28397,6 +28658,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 6
   image: {fileID: 1384254624694031657}
   buttonSelf: {fileID: 3802603792444625886}
@@ -28538,6 +28800,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 1
+  costType: 0
   indexOfColor: 0
   image: {fileID: 6138599908792424990}
   buttonSelf: {fileID: 6840023058777749461}
@@ -28813,6 +29076,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 2
   image: {fileID: 6112858888555836433}
   buttonSelf: {fileID: 1161936935138105376}
@@ -29222,6 +29486,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 9
   image: {fileID: 4834466310899180857}
   buttonSelf: {fileID: 8809944254940769027}
@@ -29498,6 +29763,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 6
   buttonSelf: {fileID: 5719313200859898315}
   SelectedIcon: {fileID: 0}
@@ -29637,6 +29903,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 23
   image: {fileID: 4407060400721890561}
   buttonSelf: {fileID: 1532185301607231977}
@@ -29913,6 +30180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 2
   isBuyed: 0
+  costType: 0
   indexOfCap: 2
   buttonSelf: {fileID: 8446861721392296792}
   SelectedIcon: {fileID: 0}
@@ -30053,6 +30321,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 2
   isBuyed: 0
+  costType: 0
   indexOfCap: 5
   buttonSelf: {fileID: 7649015758908735692}
   SelectedIcon: {fileID: 0}
@@ -30326,6 +30595,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 17
   image: {fileID: 8454707330475193580}
   buttonSelf: {fileID: 1370658758193890197}
@@ -30468,6 +30738,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 2
   buttonSelf: {fileID: 3222098184185971154}
   SelectedIcon: {fileID: 0}
@@ -30608,6 +30879,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 2
   isBuyed: 0
+  costType: 0
   indexOfCap: 8
   buttonSelf: {fileID: 7097387872293313474}
   SelectedIcon: {fileID: 0}
@@ -30881,6 +31153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 1
+  costType: 0
   indexOfColor: 0
   image: {fileID: 1350789301573205936}
   buttonSelf: {fileID: 4011445356068702367}
@@ -31157,6 +31430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 3
   buttonSelf: {fileID: 3635031403992451712}
   SelectedIcon: {fileID: 0}
@@ -31487,6 +31761,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 2
   isBuyed: 0
+  costType: 0
   indexOfCap: 13
   buttonSelf: {fileID: 4805618828020338419}
   SelectedIcon: {fileID: 0}
@@ -32556,6 +32831,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 5
   image: {fileID: 4390221466828133926}
   buttonSelf: {fileID: 7754356041085637173}
@@ -32869,6 +33145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 22
   image: {fileID: 4278235973414921668}
   buttonSelf: {fileID: 7478225367092308760}
@@ -33010,6 +33287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 1
+  costType: 0
   indexOfColor: 0
   image: {fileID: 3584751595919403375}
   buttonSelf: {fileID: 1620071733769967012}
@@ -33415,6 +33693,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 2
   isBuyed: 0
+  costType: 0
   indexOfCap: 1
   buttonSelf: {fileID: 4526375844189445133}
   SelectedIcon: {fileID: 0}
@@ -33689,6 +33968,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 2
   isBuyed: 0
+  costType: 0
   indexOfCap: 9
   buttonSelf: {fileID: 5214334497440539731}
   SelectedIcon: {fileID: 0}
@@ -33900,6 +34180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 2
   image: {fileID: 1304286857095656190}
   buttonSelf: {fileID: 3811418904996389157}
@@ -34042,6 +34323,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 13
   buttonSelf: {fileID: 6035403189231093321}
   SelectedIcon: {fileID: 0}
@@ -34181,6 +34463,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 7
   image: {fileID: 5720419546025826004}
   buttonSelf: {fileID: 823759173064949906}
@@ -34322,6 +34605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 4
   image: {fileID: 8810589671349597094}
   buttonSelf: {fileID: 8030946377637645201}
@@ -34463,6 +34747,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 16
   image: {fileID: 762168234374433136}
   buttonSelf: {fileID: 5674612204297511803}
@@ -34868,6 +35153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 1
+  costType: 0
   indexOfAccessory: 0
   buttonSelf: {fileID: 498694547123752934}
   SelectedIcon: {fileID: 0}
@@ -35007,6 +35293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 21
   image: {fileID: 5518654894022755622}
   buttonSelf: {fileID: 1272477496583106760}
@@ -35148,6 +35435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 5
   image: {fileID: 1553158393881564044}
   buttonSelf: {fileID: 4416523967979152186}
@@ -35289,6 +35577,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 14
   image: {fileID: 3110434601051120314}
   buttonSelf: {fileID: 132580713392128734}
@@ -35640,6 +35929,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 13
   buttonSelf: {fileID: 9109100753469516909}
   SelectedIcon: {fileID: 0}
@@ -35779,6 +36069,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 13
   image: {fileID: 1230612540598561681}
   buttonSelf: {fileID: 8880154563644838117}
@@ -35920,6 +36211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 2
   isBuyed: 0
+  costType: 0
   indexOfCap: 20
   buttonSelf: {fileID: 2380777779636329696}
   SelectedIcon: {fileID: 0}
@@ -36060,6 +36352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 8
   buttonSelf: {fileID: 7987754659365460915}
   SelectedIcon: {fileID: 0}
@@ -36334,6 +36627,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 5
   buttonSelf: {fileID: 2034996022655073951}
   SelectedIcon: {fileID: 0}
@@ -36607,6 +36901,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 19
   image: {fileID: 3434728102468951400}
   buttonSelf: {fileID: 7197202853050187276}
@@ -36748,6 +37043,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 20
   image: {fileID: 152882296697273352}
   buttonSelf: {fileID: 1624584388714582191}
@@ -37011,6 +37307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 11
   buttonSelf: {fileID: 658897137990042664}
   SelectedIcon: {fileID: 0}
@@ -37285,6 +37582,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 1
+  costType: 0
   indexOfHair: 0
   buttonSelf: {fileID: 1758684950231107582}
   SelectedIcon: {fileID: 0}
@@ -37424,6 +37722,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 15
   image: {fileID: 115891381058367622}
   buttonSelf: {fileID: 7593946073738620197}
@@ -37566,6 +37865,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 1
   buttonSelf: {fileID: 2369063012415020161}
   SelectedIcon: {fileID: 0}
@@ -37705,6 +38005,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 2
   image: {fileID: 700886438171083125}
   buttonSelf: {fileID: 4234952978723322455}
@@ -37846,6 +38147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 23
   image: {fileID: 6502875508471399190}
   buttonSelf: {fileID: 3781143241464826887}
@@ -37988,6 +38290,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 7
   buttonSelf: {fileID: 4673819627132157127}
   SelectedIcon: {fileID: 0}
@@ -38127,6 +38430,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 12
   image: {fileID: 4020752243980633738}
   buttonSelf: {fileID: 4709444267730129835}
@@ -39204,6 +39508,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 15
   image: {fileID: 6714141662919040195}
   buttonSelf: {fileID: 3428980398425348087}
@@ -39345,6 +39650,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 8
   image: {fileID: 2518694941827297978}
   buttonSelf: {fileID: 5769609790833917281}
@@ -39486,6 +39792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 10
   image: {fileID: 1566744601650673759}
   buttonSelf: {fileID: 2449721098566771908}
@@ -39627,6 +39934,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 1
   image: {fileID: 2271199736006778431}
   buttonSelf: {fileID: 2001046610616134935}
@@ -39769,6 +40077,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 3
   buttonSelf: {fileID: 3353482560140720662}
   SelectedIcon: {fileID: 0}
@@ -39908,6 +40217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 14
   image: {fileID: 3806092180275893337}
   buttonSelf: {fileID: 6502792335668871009}
@@ -40050,6 +40360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 11
   buttonSelf: {fileID: 7027512186100773258}
   SelectedIcon: {fileID: 0}
@@ -40327,6 +40638,8 @@ MonoBehaviour:
   womanSelectIcon: {fileID: 2633068887296229863}
   buyButton: {fileID: 5428603060014910388}
   buyText: {fileID: 4570818772041011819}
+  buySlapIcon: {fileID: 492525788693398201}
+  buyDiamondIcon: {fileID: 1833046133508117430}
   hairSwitcher: {fileID: 0}
   manHairs:
   - {fileID: 3126488715068618620}
@@ -40433,6 +40746,7 @@ MonoBehaviour:
   healthBuffSystem: {fileID: 0}
   currentHealthText: {fileID: 5963810064255390590}
   healthBuffText: {fileID: 4576548227080980754}
+  eventManager: {fileID: 0}
 --- !u!1 &7084746951481138971
 GameObject:
   m_ObjectHideFlags: 0
@@ -40569,6 +40883,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 2
   buttonSelf: {fileID: 1555297598023036907}
   SelectedIcon: {fileID: 0}
@@ -40708,6 +41023,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 14
   image: {fileID: 2054138553014439517}
   buttonSelf: {fileID: 4436426518550928490}
@@ -40849,6 +41165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 15
   image: {fileID: 6800360799706899646}
   buttonSelf: {fileID: 8072465435655698657}
@@ -41125,6 +41442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 5
   buttonSelf: {fileID: 6407034057248851494}
   SelectedIcon: {fileID: 0}
@@ -41264,6 +41582,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 4
   image: {fileID: 1011265629638700261}
   buttonSelf: {fileID: 3437447675682893213}
@@ -41405,6 +41724,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 11
   image: {fileID: 1911816223721630402}
   buttonSelf: {fileID: 4034297715163668134}
@@ -41546,6 +41866,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 8
   image: {fileID: 4371801929553722875}
   buttonSelf: {fileID: 7500114930869816723}
@@ -42089,6 +42410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 19
   image: {fileID: 4815933953304070800}
   buttonSelf: {fileID: 5609253154630162785}
@@ -42287,6 +42609,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 1
   image: {fileID: 2180305035906733852}
   buttonSelf: {fileID: 687825927450482098}
@@ -42485,6 +42808,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 10
   image: {fileID: 6974777185596358758}
   buttonSelf: {fileID: 8115663850013406582}
@@ -42974,6 +43298,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 5
   image: {fileID: 2302034514716137405}
   buttonSelf: {fileID: 2487051465866590643}
@@ -43116,6 +43441,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 6
   buttonSelf: {fileID: 8160381323122096606}
   SelectedIcon: {fileID: 0}
@@ -43405,6 +43731,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 1
   image: {fileID: 483461544164603521}
   buttonSelf: {fileID: 5787496360619770999}
@@ -43679,6 +44006,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 18
   buttonSelf: {fileID: 4915341386303966509}
   SelectedIcon: {fileID: 0}
@@ -43819,6 +44147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 3
   buttonSelf: {fileID: 1301383169285506827}
   SelectedIcon: {fileID: 0}
@@ -43958,6 +44287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 22
   image: {fileID: 1339014871260280694}
   buttonSelf: {fileID: 1705508255035664359}
@@ -44498,6 +44828,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 3
   image: {fileID: 8570944284516911681}
   buttonSelf: {fileID: 3263320386129107722}
@@ -44775,6 +45106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 9
   image: {fileID: 6868840892021595035}
   buttonSelf: {fileID: 3725737648689216858}
@@ -45086,6 +45418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 7
   image: {fileID: 6846614559714567142}
   buttonSelf: {fileID: 4535696298157097569}
@@ -45570,6 +45903,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 2
   isBuyed: 0
+  costType: 0
   indexOfCap: 14
   buttonSelf: {fileID: 2683638042828697326}
   SelectedIcon: {fileID: 0}
@@ -45709,6 +46043,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 2
   image: {fileID: 7925390769214561070}
   buttonSelf: {fileID: 337369240270209186}
@@ -45851,6 +46186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 10
   buttonSelf: {fileID: 1016884471388380655}
   SelectedIcon: {fileID: 0}
@@ -45990,6 +46326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 11
   image: {fileID: 645271266172960942}
   buttonSelf: {fileID: 3545292063549749938}
@@ -46131,6 +46468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 22
   image: {fileID: 8872380498363667856}
   buttonSelf: {fileID: 5497513074371696244}
@@ -46272,6 +46610,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 18
   image: {fileID: 5259182811340015058}
   buttonSelf: {fileID: 5731179499955238858}
@@ -46558,6 +46897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 17
   buttonSelf: {fileID: 5461511650083979977}
   SelectedIcon: {fileID: 0}
@@ -46698,6 +47038,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 9
   buttonSelf: {fileID: 9198652022570999816}
   SelectedIcon: {fileID: 0}
@@ -46909,6 +47250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 7
   image: {fileID: 2545878611881690421}
   buttonSelf: {fileID: 8030445173532686851}
@@ -47184,6 +47526,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 6
   image: {fileID: 334512493923342033}
   buttonSelf: {fileID: 5787926560533122071}
@@ -47593,6 +47936,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 21
   image: {fileID: 8403118014597677565}
   buttonSelf: {fileID: 8776092659896953153}
@@ -47869,6 +48213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 9
   buttonSelf: {fileID: 6385655325705296432}
   SelectedIcon: {fileID: 0}
@@ -48009,6 +48354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 1
+  costType: 0
   indexOfHair: 0
   buttonSelf: {fileID: 4614334597694801339}
   SelectedIcon: {fileID: 0}
@@ -48149,6 +48495,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 7
   buttonSelf: {fileID: 3661769627450653977}
   SelectedIcon: {fileID: 0}
@@ -48360,6 +48707,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 1
+  costType: 0
   indexOfColor: 0
   image: {fileID: 4575248691530612898}
   buttonSelf: {fileID: 5629086477273635897}
@@ -48501,6 +48849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 10
   image: {fileID: 1604073168434642948}
   buttonSelf: {fileID: 6892674689190780048}
@@ -49101,6 +49450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 9
   image: {fileID: 6828637951753042816}
   buttonSelf: {fileID: 5946859279414783214}
@@ -49377,6 +49727,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 2
   isBuyed: 0
+  costType: 0
   indexOfCap: 10
   buttonSelf: {fileID: 6216254238920395786}
   SelectedIcon: {fileID: 0}
@@ -49516,6 +49867,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 8
   image: {fileID: 7619399007858588370}
   buttonSelf: {fileID: 7426881218308707091}
@@ -49791,6 +50143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 7
   image: {fileID: 2590846650565335121}
   buttonSelf: {fileID: 2137684408189705241}
@@ -50064,6 +50417,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 11
   image: {fileID: 8323415826872741823}
   buttonSelf: {fileID: 6892674689190780048}
@@ -50337,6 +50691,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 3
   image: {fileID: 57887632674665262}
   buttonSelf: {fileID: 6663964165966358047}
@@ -50479,6 +50834,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 22
   buttonSelf: {fileID: 5162954491460844718}
   SelectedIcon: {fileID: 0}
@@ -50618,6 +50974,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 12
   image: {fileID: 7158072101124687091}
   buttonSelf: {fileID: 5120966503416829688}
@@ -50759,6 +51116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 3
   image: {fileID: 2411275608897484585}
   buttonSelf: {fileID: 6831168408856240777}
@@ -51034,6 +51392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 2
   isBuyed: 0
+  costType: 0
   indexOfCap: 18
   buttonSelf: {fileID: 4633740614664963719}
   SelectedIcon: {fileID: 0}
@@ -51173,6 +51532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 6
   image: {fileID: 6598867454695335779}
   buttonSelf: {fileID: 2195396574760503189}
@@ -51794,6 +52154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 6
   image: {fileID: 3454853905470733266}
   buttonSelf: {fileID: 3840774527596445727}
@@ -51935,6 +52296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 19
   image: {fileID: 2224729574447565314}
   buttonSelf: {fileID: 7018182591506859991}
@@ -52345,6 +52707,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 1
   buttonSelf: {fileID: 5696664106678980415}
   SelectedIcon: {fileID: 0}
@@ -52484,6 +52847,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 13
   image: {fileID: 2828257102414792301}
   buttonSelf: {fileID: 2798768420436438620}
@@ -52626,6 +52990,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 2
   isBuyed: 0
+  costType: 0
   indexOfCap: 4
   buttonSelf: {fileID: 3182233318176451390}
   SelectedIcon: {fileID: 0}
@@ -53036,6 +53401,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 14
   buttonSelf: {fileID: 3162307540602171452}
   SelectedIcon: {fileID: 0}
@@ -53517,6 +53883,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 9
   image: {fileID: 2114159831131320547}
   buttonSelf: {fileID: 3202495883952337503}
@@ -53792,6 +54159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 16
   image: {fileID: 4539995087473219911}
   buttonSelf: {fileID: 8170571259361657996}
@@ -54068,6 +54436,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 16
   buttonSelf: {fileID: 6768734391007440873}
   SelectedIcon: {fileID: 0}
@@ -54208,6 +54577,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 4
   isBuyed: 0
+  costType: 0
   indexOfHair: 5
   buttonSelf: {fileID: 4258092371027007758}
   SelectedIcon: {fileID: 0}
@@ -54616,6 +54986,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 1
   isBuyed: 0
+  costType: 0
   indexOfColor: 3
   image: {fileID: 1404001552790743192}
   buttonSelf: {fileID: 7477839757329360177}

@@ -13,6 +13,8 @@ public class SlapShopController : MonoBehaviour
     [Space(10), Header("Buy Button")]
     [SerializeField] private Button buyButton;
     [SerializeField] private TextMeshProUGUI buyText;
+    [SerializeField] private GameObject buySlapIcon;
+    [SerializeField] private GameObject buyDiamondIcon;
 
 
     [SerializeField] private HubEventManager eventManager;
@@ -40,6 +42,9 @@ public class SlapShopController : MonoBehaviour
 
             if (buyable.GetIsBuyed)
             {
+                buySlapIcon.SetActive(false);
+                buyDiamondIcon.SetActive(false);
+
                 if (Geekplay.Instance.PlayerData.currentSlap == buyable.GetIndexOfSlap)
                 {
                     buyText.text = "Надето";
@@ -59,13 +64,24 @@ public class SlapShopController : MonoBehaviour
             {
                 buyText.text = $"купить {buyable.GetCost}";
 
-                if (buyable.TryBuy(Geekplay.Instance.PlayerData.money))
+                if (buyable.costType == Buyable.TypeOfCost.money)
+                {
+                    buySlapIcon.SetActive(true);
+                    buyDiamondIcon.SetActive(false);
+                }
+                else if (buyable.costType == Buyable.TypeOfCost.diamond)
+                {
+                    buyDiamondIcon.SetActive(true);
+                    buySlapIcon.SetActive(false);
+                }
+
+                if (buyable.TryBuy())
                 {
                     buyButton.onClick.AddListener(() =>
                     {
                         slapSwitcher.SwitchAndBuySlap(buyable.GetIndexOfSlap);
 
-                        buyable.Buy(Geekplay.Instance.PlayerData.money);
+                        buyable.Buy();
                         buyText.text = "Надето";
                         eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
                     });

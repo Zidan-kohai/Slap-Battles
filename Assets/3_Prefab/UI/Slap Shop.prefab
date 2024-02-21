@@ -136,6 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 8
   buttonSelf: {fileID: 3707639610042280498}
 --- !u!1 &414156527097744452
@@ -542,6 +543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 15
   buttonSelf: {fileID: 8920075603834972120}
 --- !u!1 &1130773022105582412
@@ -680,6 +682,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 18
   buttonSelf: {fileID: 3624532737839692139}
 --- !u!1 &1563323089728117158
@@ -952,6 +955,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 23
   buttonSelf: {fileID: 1959428720369858130}
 --- !u!1 &2252451154124198787
@@ -1492,6 +1496,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 14
   buttonSelf: {fileID: 3045974082492594616}
 --- !u!1 &2912062501100866754
@@ -1898,6 +1903,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 20
   buttonSelf: {fileID: 6964511163806944333}
 --- !u!1 &3054068786482668105
@@ -2036,6 +2042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 22
   buttonSelf: {fileID: 4915225435505094637}
 --- !u!1 &3172889939255344117
@@ -2586,6 +2593,9 @@ MonoBehaviour:
   - {fileID: 8560958150997182214}
   buyButton: {fileID: 7145641087559360936}
   buyText: {fileID: 4377900575736289361}
+  buySlapIcon: {fileID: 6802430283129753240}
+  buyDiamondIcon: {fileID: 8902768287701151883}
+  eventManager: {fileID: 0}
 --- !u!1 &3464328463603653931
 GameObject:
   m_ObjectHideFlags: 0
@@ -2856,6 +2866,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 3
   buttonSelf: {fileID: 6946245128757852948}
 --- !u!1 &3634190391127746964
@@ -2994,6 +3005,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 6
   buttonSelf: {fileID: 7689374977983227350}
 --- !u!1 &3682512569255180105
@@ -3934,6 +3946,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 5
   buttonSelf: {fileID: 2610545220996624289}
 --- !u!1 &4639868044346977376
@@ -4072,6 +4085,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 10
   buttonSelf: {fileID: 2143178221828743071}
 --- !u!1 &5148972361601954480
@@ -4612,6 +4626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 16
   buttonSelf: {fileID: 4647846467558637314}
 --- !u!1 &5619105766312268414
@@ -4750,6 +4765,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 19
   buttonSelf: {fileID: 3291868870876524595}
 --- !u!1 &6000786635449842477
@@ -4888,6 +4904,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 4
   buttonSelf: {fileID: 3019901504669288060}
 --- !u!1 &6012237363295540055
@@ -5158,6 +5175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 7
   buttonSelf: {fileID: 9057795765678748734}
 --- !u!1 &6172156239130449864
@@ -5296,6 +5314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 11
   buttonSelf: {fileID: 2179108073548894554}
 --- !u!1 &6199218035229607632
@@ -5434,6 +5453,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 1
   buttonSelf: {fileID: 3164688842771403196}
 --- !u!1 &6498284578285088298
@@ -5785,6 +5805,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 17
   buttonSelf: {fileID: 5360075465374580703}
 --- !u!1 &6656584021986362004
@@ -5923,6 +5944,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 0
   isBuyed: 1
+  costType: 0
   indexOfAccessory: 0
   buttonSelf: {fileID: 6993509311735052741}
 --- !u!1 &6798741751515837938
@@ -6061,8 +6083,84 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 2
   buttonSelf: {fileID: 5182862024801198330}
+--- !u!1 &6802430283129753240
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1268564114878989899}
+  - component: {fileID: 295022324814497000}
+  - component: {fileID: 72027027810034617}
+  m_Layer: 5
+  m_Name: SlapIcon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1268564114878989899
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6802430283129753240}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1645005111309073469}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &295022324814497000
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6802430283129753240}
+  m_CullTransparentMesh: 1
+--- !u!114 &72027027810034617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6802430283129753240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &6971429867097107544
 GameObject:
   m_ObjectHideFlags: 0
@@ -6199,6 +6297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 12
   buttonSelf: {fileID: 4493571750006834613}
 --- !u!1 &7264518030343017893
@@ -6415,6 +6514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 13
   buttonSelf: {fileID: 6175689135793136916}
 --- !u!1 &7675571559744953033
@@ -6518,7 +6618,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1268564114878989899}
+  - {fileID: 4984224222014448498}
   m_Father: {fileID: 5091056593533069615}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -7367,6 +7469,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 9
   buttonSelf: {fileID: 3942699220349155827}
 --- !u!1 &8741932031038634711
@@ -7694,6 +7797,81 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &8902768287701151883
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4984224222014448498}
+  - component: {fileID: 2766776882077655749}
+  - component: {fileID: 6061494686607209103}
+  m_Layer: 5
+  m_Name: DiamondIcon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &4984224222014448498
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8902768287701151883}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.0000018838991}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1645005111309073469}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 80, y: 80}
+  m_Pivot: {x: 0, y: 0.5}
+--- !u!222 &2766776882077655749
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8902768287701151883}
+  m_CullTransparentMesh: 1
+--- !u!114 &6061494686607209103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8902768287701151883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 1018360880, guid: db4a1c6aa7f27444a933b76df2326d7c, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &9076405155309193411
 GameObject:
   m_ObjectHideFlags: 0
@@ -8232,5 +8410,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 3
   isBuyed: 0
+  costType: 0
   indexOfAccessory: 21
   buttonSelf: {fileID: 3327584008792456037}
