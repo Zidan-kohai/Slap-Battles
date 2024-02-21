@@ -10,6 +10,8 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Rigidbody))]
 public class Enemy : IHealthObject
 {
+    public NavMeshAgent GetNavMeshAgent => navMeshAgent;
+
     [Header("Components")]
     [SerializeField] protected NavMeshAgent navMeshAgent;
     [SerializeField] protected Collider collider;
@@ -111,7 +113,7 @@ public class Enemy : IHealthObject
     protected void GetRandomTarget()
     {
         target = new Vector3(Random.Range(MinPosition.position.x, MaxPosition.position.x),
-            0,
+            transform.position.y,
             Random.Range(MinPosition.position.z, MaxPosition.position.z));
     }
 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class StandartMode : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class StandartMode : MonoBehaviour
         for (int i = 0; i < enemies.Count; i++)
         {
             enemies[i].transform.position = GetRandomPositionForEnemy();
+            enemies[i].Revive();
         }
     }
 
