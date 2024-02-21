@@ -56,7 +56,7 @@ public class SkineController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI healthBuffText;
 
 
-
+    [SerializeField] private HubEventManager eventManager;
     private void Start()
     {
         CheckIsBuyedOrEquippedColor();
@@ -278,7 +278,7 @@ public class SkineController : MonoBehaviour
                             BuyAndChangeLastColor(m, buyable);
 
                         buyText.text = "Надето";
-
+                        eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
                     });
 
                     ChangeColorInShop(buyable);
@@ -571,6 +571,7 @@ public class SkineController : MonoBehaviour
 
                         buyable.Buy(Geekplay.Instance.PlayerData.money);
                         buyText.text = "Надето";
+                        eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
                     });
                 }
                 else
@@ -665,6 +666,7 @@ public class SkineController : MonoBehaviour
 
                         buyable.Buy(Geekplay.Instance.PlayerData.money);
                         buyText.text = "Надето";
+                        eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
                     });
                 }
                 else
@@ -742,6 +744,7 @@ public class SkineController : MonoBehaviour
 
                         buyable.Buy(Geekplay.Instance.PlayerData.money);
                         buyText.text = "Надето";
+                        eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
                     });
                 }
                 else

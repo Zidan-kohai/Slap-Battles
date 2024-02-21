@@ -15,6 +15,7 @@ public class SlapShopController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI buyText;
 
 
+    [SerializeField] private HubEventManager eventManager;
     private void OnEnable()
     {
         slapSwitcher.ShowSlaps();
@@ -66,6 +67,7 @@ public class SlapShopController : MonoBehaviour
 
                         buyable.Buy(Geekplay.Instance.PlayerData.money);
                         buyText.text = "Надето";
+                        eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
                     });
                 }
                 else
