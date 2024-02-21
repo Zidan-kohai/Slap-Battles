@@ -3263,7 +3263,7 @@ MonoBehaviour:
     purchaseEvent:
       m_PersistentCalls:
         m_Calls: []
-  Platform: 0
+  Platform: 1
   gameArterPrefab: {fileID: 0}
   leaderboardBtn: {fileID: 0}
   MultipleSpeedBuff: 0
@@ -3860,6 +3860,10 @@ PrefabInstance:
     - target: {fileID: 6027215254209450877, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6421301371780162270, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
+      propertyPath: attackPower
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6696402358990475763, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
       propertyPath: m_IsActive

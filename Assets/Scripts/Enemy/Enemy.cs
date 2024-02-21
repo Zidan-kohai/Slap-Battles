@@ -155,7 +155,7 @@ public class Enemy : IHealthObject
         rb.isKinematic = false;
         CanWalk = false;
         direction.y = 0.8f;
-        rb.AddForce(direction * damagePower * 25);
+        rb.AddForce(direction * damagePower * 2500);
 
         yield return new WaitForSeconds(2);
 
