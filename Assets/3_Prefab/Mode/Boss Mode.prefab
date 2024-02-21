@@ -1235,6 +1235,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7319954887216121084}
     m_Modifications:
+    - target: {fileID: 1763320518826556086, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2746507248694880160, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: m_Size.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2746507248694880160, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: m_Size.z
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2893152078088420407, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
       propertyPath: m_Name
       value: Enemy (6)
@@ -1280,6 +1292,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 4885081401618622390}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
       propertyPath: MaxPosition
       value: 
       objectReference: {fileID: 7467189684070277616}
@@ -1295,6 +1311,14 @@ PrefabInstance:
       propertyPath: bossTransform
       value: 
       objectReference: {fileID: 3757879004380331589}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: distanseToAttack
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: enemyLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1324,6 +1348,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7319954887216121084}
     m_Modifications:
+    - target: {fileID: 1763320518826556086, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2746507248694880160, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: m_Size.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2746507248694880160, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: m_Size.z
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2893152078088420407, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
       propertyPath: m_Name
       value: Enemy (3)
@@ -1369,6 +1405,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 4885081401618622390}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
       propertyPath: MaxPosition
       value: 
       objectReference: {fileID: 7467189684070277616}
@@ -1384,6 +1424,14 @@ PrefabInstance:
       propertyPath: bossTransform
       value: 
       objectReference: {fileID: 3757879004380331589}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: distanseToAttack
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: enemyLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1542,6 +1590,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7319954887216121084}
     m_Modifications:
+    - target: {fileID: 1763320518826556086, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2746507248694880160, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: m_Size.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2746507248694880160, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: m_Size.z
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2893152078088420407, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
       propertyPath: m_Name
       value: Enemy (5)
@@ -1587,6 +1647,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 4885081401618622390}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
       propertyPath: MaxPosition
       value: 
       objectReference: {fileID: 7467189684070277616}
@@ -1602,6 +1666,14 @@ PrefabInstance:
       propertyPath: bossTransform
       value: 
       objectReference: {fileID: 3757879004380331589}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: distanseToAttack
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: enemyLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1631,6 +1703,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7319954887216121084}
     m_Modifications:
+    - target: {fileID: 1763320518826556086, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2746507248694880160, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: m_Size.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2746507248694880160, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: m_Size.z
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2893152078088420407, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
       propertyPath: m_Name
       value: Enemy (1)
@@ -1676,6 +1760,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 4885081401618622390}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
       propertyPath: MaxPosition
       value: 
       objectReference: {fileID: 7467189684070277616}
@@ -1691,6 +1779,14 @@ PrefabInstance:
       propertyPath: bossTransform
       value: 
       objectReference: {fileID: 3757879004380331589}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: distanseToAttack
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: enemyLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1720,6 +1816,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7319954887216121084}
     m_Modifications:
+    - target: {fileID: 1763320518826556086, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2746507248694880160, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: m_Size.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2746507248694880160, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: m_Size.z
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2893152078088420407, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
       propertyPath: m_Name
       value: Enemy (4)
@@ -1765,6 +1873,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 4885081401618622390}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
       propertyPath: MaxPosition
       value: 
       objectReference: {fileID: 7467189684070277616}
@@ -1780,6 +1892,14 @@ PrefabInstance:
       propertyPath: bossTransform
       value: 
       objectReference: {fileID: 3757879004380331589}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: distanseToAttack
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: enemyLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1809,6 +1929,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7319954887216121084}
     m_Modifications:
+    - target: {fileID: 1763320518826556086, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2746507248694880160, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: m_Size.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2746507248694880160, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: m_Size.z
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2893152078088420407, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -1854,6 +1986,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 4885081401618622390}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
       propertyPath: MaxPosition
       value: 
       objectReference: {fileID: 7467189684070277616}
@@ -1869,6 +2005,14 @@ PrefabInstance:
       propertyPath: bossTransform
       value: 
       objectReference: {fileID: 3757879004380331589}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: distanseToAttack
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: enemyLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1898,6 +2042,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7319954887216121084}
     m_Modifications:
+    - target: {fileID: 1763320518826556086, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2746507248694880160, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: m_Size.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2746507248694880160, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: m_Size.z
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2893152078088420407, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
       propertyPath: m_Name
       value: Enemy (2)
@@ -1943,6 +2099,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 4885081401618622390}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
       propertyPath: MaxPosition
       value: 
       objectReference: {fileID: 7467189684070277616}
@@ -1958,6 +2118,14 @@ PrefabInstance:
       propertyPath: bossTransform
       value: 
       objectReference: {fileID: 3757879004380331589}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: distanseToAttack
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: enemyLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2934,6 +3102,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4968685597216177571}
     m_Modifications:
+    - target: {fileID: 1347846619119986224, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: e22c35a45fac28e4eb8a295407e775b7, type: 2}
+    - target: {fileID: 1637332624956355817, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
+      propertyPath: m_Speed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637332624956355817, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
+      propertyPath: m_Radius
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637332624956355817, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
+      propertyPath: m_Acceleration
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637332624956355817, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637332624956355817, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
+      propertyPath: m_WalkableMask
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1637332624956355817, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2790690277111267412, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
+      propertyPath: speed
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2790690277111267412, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
       propertyPath: health
       value: 1000
@@ -2960,7 +3160,7 @@ PrefabInstance:
       objectReference: {fileID: 3237182903930966125}
     - target: {fileID: 2790690277111267412, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
       propertyPath: distanseToAttack
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2790690277111267412, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
       propertyPath: timeNextToAttack
@@ -2988,6 +3188,14 @@ PrefabInstance:
         already bound by a Humanoid avatar. These transforms can only be changed
         by Humanoid clips.\n\tTransform 'mixamorig:RightArm'\n\tTransform 'mixamorig:RightArm'\n\tFrom
         animation clip 'IdleWithHand'"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5489976833279692965, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
+      propertyPath: m_Mass
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5489976833279692965, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5861266316685351335, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
       propertyPath: m_LocalScale.x
@@ -3051,6 +3259,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5861266316685351335, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
   m_PrefabInstance: {fileID: 7309849767998318562}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4885081401618622390 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2790690277111267412, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
+  m_PrefabInstance: {fileID: 7309849767998318562}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46bae0f03b9414f4caf6aae0dc41a228, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7642779193531843315
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3059,6 +3278,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7319954887216121084}
     m_Modifications:
+    - target: {fileID: 1763320518826556086, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2746507248694880160, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: m_Size.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2746507248694880160, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: m_Size.z
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2893152078088420407, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
       propertyPath: m_Name
       value: Enemy (7)
@@ -3104,6 +3335,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 4885081401618622390}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
       propertyPath: MaxPosition
       value: 
       objectReference: {fileID: 7467189684070277616}
@@ -3119,6 +3354,14 @@ PrefabInstance:
       propertyPath: bossTransform
       value: 
       objectReference: {fileID: 3757879004380331589}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: distanseToAttack
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: enemyLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3261,6 +3504,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7319954887216121084}
     m_Modifications:
+    - target: {fileID: 1763320518826556086, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2746507248694880160, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: m_Size.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2746507248694880160, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: m_Size.z
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2893152078088420407, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
       propertyPath: m_Name
       value: Enemy (8)
@@ -3306,6 +3561,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 4885081401618622390}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
       propertyPath: MaxPosition
       value: 
       objectReference: {fileID: 7467189684070277616}
@@ -3321,6 +3580,14 @@ PrefabInstance:
       propertyPath: bossTransform
       value: 
       objectReference: {fileID: 3757879004380331589}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: distanseToAttack
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7045719724983217356, guid: 4a25f2927ce145640a38744acbe22448, type: 3}
+      propertyPath: enemyLayer.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
