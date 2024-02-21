@@ -8,8 +8,6 @@ public class ThiefPlayer : Player
     [SerializeField] private int minStoleChance;
     [SerializeField] private int maxStoleChance;
 
-    [Space(10)]
-    [SerializeField] private EventManager eventManager;
     private void Start()
     {
         base.Start();

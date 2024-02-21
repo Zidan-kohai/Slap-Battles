@@ -68,7 +68,7 @@ public class LosePanel : MonoBehaviour
     }
     private void OnDoubleAward()
     {
-        slapCountText.text = (Convert.ToInt32(slapCountText.text) * 2).ToString();
+        slapCountText.text = (earnedSlapCount * 2).ToString();
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

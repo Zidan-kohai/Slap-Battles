@@ -6,7 +6,7 @@ using UnityEngine;
 public class EventManager : MonoBehaviour 
 {
     private Action<int> changeMoney;
-    private Action<int> playerDeath;
+    private Action<int,int> playerDeath;
     private Action playerRevive;
     private Action<Enemy> enemyDeath;
 
@@ -29,17 +29,17 @@ public class EventManager : MonoBehaviour
 
     #region PlayerDeath
 
-    public void SubscribeOnPlayerDeath(Action<int> action)
+    public void SubscribeOnPlayerDeath(Action<int, int> action)
     {
         playerDeath += action;
     }
-    public void UnsubscribeOnPlayerDeath(Action<int> action)
+    public void UnsubscribeOnPlayerDeath(Action<int, int> action)
     {
         playerDeath -= action;
     }
-    public void InvokePlayerDeathEvents(int deadCount)
+    public void InvokePlayerDeathEvents(int deadCount, int stolen)
     {
-        playerDeath?.Invoke(deadCount);
+        playerDeath?.Invoke(deadCount, stolen);
     }
 
     #endregion

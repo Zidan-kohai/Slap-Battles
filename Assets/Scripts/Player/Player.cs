@@ -9,7 +9,7 @@ public class Player : IHealthObject
     [SerializeField] private AdvancedWalkerController walkController;
     [SerializeField] private Image healthbar;
     [SerializeField] private Rigidbody rb;
-    [SerializeField] private EventManager eventManager;
+    [SerializeField] protected EventManager eventManager;
     [SerializeField] private Animator animator;
 
     [Space(10), Header("Slap")]
@@ -54,7 +54,7 @@ public class Player : IHealthObject
         isDead = true;
         walkController.enabled = false;
         animator.SetTrigger("Death");
-        eventManager.InvokePlayerDeathEvents(deadCounter);
+        eventManager.InvokePlayerDeathEvents(deadCounter, stolenSlaps);
     }
     public void Revive()
     {

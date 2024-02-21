@@ -12,6 +12,8 @@ public class GameplayUI : MonoBehaviour
         eventManager.SubscribeOnChangeMoney(OnChangeMoney);
         eventManager.SubscribeOnPlayerDeath(OnPlayerDeath);
         eventManager.SubscribeOnPlayerRevive(OnRevive);
+
+        moneyText.text = Geekplay.Instance.PlayerData.money.ToString();
     }
 
     private void OnRevive()
@@ -20,9 +22,9 @@ public class GameplayUI : MonoBehaviour
         Cursor.visible = false;
     }
 
-    private void OnPlayerDeath(int deadCount)
+    private void OnPlayerDeath(int deadCount, int stolenSlaps)
     {
-        LosePanel.SetSlapCount(Convert.ToInt32(moneyText.text));
+        LosePanel.SetSlapCount(stolenSlaps);
 
         if (deadCount < 2)
         {
@@ -41,7 +43,8 @@ public class GameplayUI : MonoBehaviour
 
     private void OnChangeMoney(int money)
     {
-        moneyText.text = money.ToString();
+        Geekplay.Instance.PlayerData.money += money;
+        moneyText.text = Geekplay.Instance.PlayerData.money.ToString();
     }
 
 

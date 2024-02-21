@@ -27,7 +27,7 @@ public class BattleRoyalModeUIController : MonoBehaviour
         modeController.Win += OnPlayerWin;
     }
 
-    private void OnPlayerDeath(int deadCount)
+    private void OnPlayerDeath(int deadCount, int stolenSlaps)
     {
         int place = modeController.EnemyCount - 1;
 
