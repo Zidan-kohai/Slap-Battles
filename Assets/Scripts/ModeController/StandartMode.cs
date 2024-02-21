@@ -8,12 +8,15 @@ public class StandartMode : MonoBehaviour
     [SerializeField] private List<Enemy> enemies;
 
     [SerializeField] private List<Transform> spawnPoints;
+    [SerializeField] private EventManager eventManager;
 
     public bool flag;
     protected void Start()
     {
         ArrangeTransforms();
         TurnOnGameObjects();
+
+        eventManager.SubscribeOnBossDeath(OnBossDead);
     }
 
     private void ArrangeTransforms()
@@ -65,5 +68,11 @@ public class StandartMode : MonoBehaviour
         {
             enemies[i].gameObject.SetActive(true);
         }
+    }
+
+    private void OnBossDead()
+    {
+        SceneLoader sceneLoader = new SceneLoader(this);
+        sceneLoader.LoadScene(0);
     }
 }

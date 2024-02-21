@@ -27,7 +27,7 @@ public class Enemy : IHealthObject
     [SerializeField] private Vector3 target;
     [SerializeField] private LayerMask enemyLayer;
 
-    [SerializeField] private EventManager eventManager;
+    [SerializeField] protected EventManager eventManager;
     [SerializeField] private int slapToGive;
     [SerializeField] protected int stolenSlaps;
 

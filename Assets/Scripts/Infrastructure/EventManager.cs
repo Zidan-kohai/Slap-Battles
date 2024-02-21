@@ -9,6 +9,7 @@ public class EventManager : MonoBehaviour
     private Action<int,int> playerDeath;
     private Action playerRevive;
     private Action<Enemy> enemyDeath;
+    private Action bossDeath;
 
     #region ChangeMoney
 
@@ -57,6 +58,22 @@ public class EventManager : MonoBehaviour
     public void InvokeActionsOnEnemyDeath(Enemy enemyObject)
     {
         enemyDeath?.Invoke(enemyObject);
+    }
+
+    #endregion
+
+    #region bossDeath
+    public void SubscribeOnBossDeath(Action action)
+    {
+        bossDeath += action;
+    }
+    public void UnsubscribeOnBossDeath(Action action)
+    {
+        bossDeath -= action;
+    }
+    public void InvokeActionsOnBossDeath()
+    {
+        bossDeath?.Invoke();
     }
 
     #endregion
