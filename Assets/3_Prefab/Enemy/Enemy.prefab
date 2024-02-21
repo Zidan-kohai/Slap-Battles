@@ -2326,7 +2326,6 @@ MonoBehaviour:
   rb: {fileID: 5489976833279692965}
   healthbar: {fileID: 9210760160733686325}
   animator: {fileID: 4001809466258192970}
-  nameText: {fileID: 2056666887477342918}
   speed: 2
   damagePower: 10
   distanseToAttack: 2
@@ -2373,8 +2372,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2803175823117038184}
   serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
+  m_Mass: 100
+  m_Drag: 5
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -2492,6 +2491,9 @@ MonoBehaviour:
   torse: {fileID: 7817079868658416611}
   head: {fileID: 2774091895826285583}
   manMeshRenderer: {fileID: 3137777766190234185}
+  uiHandler: {fileID: 6026610877244280773}
+  nameText: {fileID: 2056666887477342918}
+  targetToRotate: {fileID: 0}
 --- !u!1 &2821532685128815787
 GameObject:
   m_ObjectHideFlags: 0
@@ -2517,7 +2519,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2821532685128815787}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2821,7 +2823,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3390517694957746555}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class EnemySkinning : MonoBehaviour
@@ -33,13 +34,25 @@ public class EnemySkinning : MonoBehaviour
 
     [Header("Man Materials")]
     [SerializeField] private SkinnedMeshRenderer manMeshRenderer;
+
+    [Header("UI")]
+    [SerializeField] private GameObject uiHandler;
+    [SerializeField] private TextMeshProUGUI nameText;
+    [SerializeField] private Transform targetToRotate;
+
     private void Start()
     {
         ChangeGender();
         ChangeClother();
         ChangeMaterial();
-    }
 
+        nameText.text = Helper.GetRandomName();
+        targetToRotate = GameObject.FindGameObjectWithTag("MainCamera").transform;
+    }
+    private void Update()
+    {
+        RotateUI();
+    }
     private void ChangeClother()
     {
         if (isMan)
@@ -148,5 +161,12 @@ public class EnemySkinning : MonoBehaviour
         materials[matIndex] = mat;
         
         renderer.materials = materials;
+    }
+
+    private void RotateUI()
+    {
+        Vector3 forward = (targetToRotate.position - uiHandler.transform.position).normalized;
+
+        uiHandler.transform.forward = forward;
     }
 }

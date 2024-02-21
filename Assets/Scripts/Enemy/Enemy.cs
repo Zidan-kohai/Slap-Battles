@@ -15,7 +15,6 @@ public class Enemy : IHealthObject
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Image healthbar;
     [SerializeField] protected Animator animator;
-    [SerializeField] private TextMeshProUGUI nameText;
     
     [SerializeField] private float speed;
     [SerializeField] private int damagePower;
@@ -46,9 +45,6 @@ public class Enemy : IHealthObject
         Move(target);
 
         eventManager.SubscribeOnEnemyDeath(OnEnemyDeath);
-        
-        nameText.text = Helper.GetRandomName();
-
         StartCoroutine(WaitTimeBeforeAttackIntoStart());
     }
 
