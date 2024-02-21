@@ -36,6 +36,7 @@ public class EnemySkinning : MonoBehaviour
     [SerializeField] private SkinnedMeshRenderer manMeshRenderer;
 
     [Header("UI")]
+    public bool isNeedName = true;
     [SerializeField] private GameObject uiHandler;
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private Transform targetToRotate;
@@ -46,7 +47,15 @@ public class EnemySkinning : MonoBehaviour
         ChangeClother();
         ChangeMaterial();
 
-        nameText.text = Helper.GetRandomName();
+        if (isNeedName)
+        {
+            nameText.text = Helper.GetRandomName();
+        }
+        else
+        {
+            nameText.gameObject.SetActive(false);
+        }
+
         targetToRotate = GameObject.FindGameObjectWithTag("MainCamera").transform;
     }
     private void Update()
@@ -167,6 +176,8 @@ public class EnemySkinning : MonoBehaviour
     {
         Vector3 forward = (targetToRotate.position - uiHandler.transform.position).normalized;
 
-        uiHandler.transform.forward = forward;
+        Quaternion rotation = Quaternion.LookRotation(forward, Vector3.up);
+        rotation = Quaternion.Euler(0, rotation.y, 0);
+        uiHandler.transform.rotation = rotation;
     }
 }
