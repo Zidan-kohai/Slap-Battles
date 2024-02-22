@@ -5,4 +5,5 @@ public enum SlapPowerType
     Wall,
     Sleepy,
     Lego,
+    Snowy,
 }

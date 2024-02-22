@@ -1,4 +1,5 @@
 using CMF;
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ public class SlapPower : MonoBehaviour
     [SerializeField] private EventManager eventManager;
     [SerializeField] private Player player;
     [SerializeField] private Slap slap;
+    [SerializeField] private LayerMask enemyLayer;
     public void ChangeSlap(Slap slap) => this.slap = slap;
 
     private bool isPowerActivated;
@@ -23,8 +25,7 @@ public class SlapPower : MonoBehaviour
 
     [Header("Sleeply Power")]
     [SerializeField] private float timeToEnemySleep;
-    [SerializeField] private float sphereRadius;
-    [SerializeField] private LayerMask enemyLayer;
+    [SerializeField] private float sleeplyPowerSphereRadius;
 
 
     [Header("Lego")]
@@ -32,8 +33,11 @@ public class SlapPower : MonoBehaviour
     [SerializeField] private GameObject legoSphere;
     [SerializeField] private Transform legoSpherePosition;
 
-
-
+    [Header("Snowy")]
+    [SerializeField] private float timeToDisactivateSnowyPower;
+    [SerializeField] private float snowyPowerSphereRadius;
+    [SerializeField] private float freezingFactor;
+    private Collider[] freezedEnemies;
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.E) && !isPowerActivated)
@@ -44,11 +48,14 @@ public class SlapPower : MonoBehaviour
                     WallPowerActivate();
                         break;
                 case SlapPowerType.Sleepy:
-                    SleepLyPowerActivated();
+                    SleepLyPowerActivate();
                         break;
                 case SlapPowerType.Lego:
-                    LegoPowerActivated();
-                    break;
+                    LegoPowerActivate();
+                        break;
+                case SlapPowerType.Snowy:
+                    SnowyPowerActivate();
+                        break;
             }
         }
     }
@@ -89,9 +96,9 @@ public class SlapPower : MonoBehaviour
 
     #region sleeply
 
-    private void SleepLyPowerActivated()
+    private void SleepLyPowerActivate()
     {
-        Collider[] coll = Physics.OverlapSphere(player.transform.position, sphereRadius, enemyLayer);
+        Collider[] coll = Physics.OverlapSphere(player.transform.position, sleeplyPowerSphereRadius, enemyLayer);
 
         foreach (var item in coll)
         {
@@ -108,7 +115,7 @@ public class SlapPower : MonoBehaviour
 
     #region Lego
 
-    private void LegoPowerActivated()
+    private void LegoPowerActivate()
     {
         isPowerActivated = true;
 
@@ -125,6 +132,36 @@ public class SlapPower : MonoBehaviour
         isPowerActivated = false;
         legoSphere.SetActive(false);
     }
+    #endregion
+
+    #region Snowy
+
+    private void SnowyPowerActivate()
+    {
+        freezedEnemies = Physics.OverlapSphere(player.transform.position, snowyPowerSphereRadius, enemyLayer);
+
+        foreach (var item in freezedEnemies)
+        {
+            Enemy enemy = item.GetComponent<Enemy>();
+            enemy.GetNavMeshAgent.speed /= freezingFactor; 
+
+            enemy.Sleep(timeToEnemySleep);
+        }
+
+        StartCoroutine(DisactivatePower(timeToDisactivateSnowyPower, SnowyPowerDisactivate));
+    }
+
+    private void SnowyPowerDisactivate()
+    {
+        foreach (var item in freezedEnemies)
+        {
+            Enemy enemy = item.GetComponent<Enemy>();
+            enemy.GetNavMeshAgent.speed *= freezingFactor;
+
+            enemy.Sleep(timeToEnemySleep);
+        }
+    }
+
     #endregion
     private IEnumerator DisactivatePower(float waitTime, Action action)
     {
