@@ -18,8 +18,43 @@ public class StandartMode : MonoBehaviour
     {
         ArrangeTransforms();
         TurnOnGameObjects();
-
+        ArrangeTargetForEnemy();
         eventManager.SubscribeOnBossDeath(OnBossDead);
+    }
+
+    private void ArrangeTargetForEnemy()
+    {
+        for(int i = 0; i < enemies.Count; i++)
+        {
+            float minDistance = Mathf.Infinity;
+            IHealthObject target = null;
+            float distance = 0;
+
+            distance = (enemies[i].transform.position - player.transform.position).magnitude;
+
+            if (minDistance > distance)
+            {
+                minDistance = distance;
+                target = player;
+            }
+
+            for (int j = 0; j < enemies.Count; j++)
+            {
+                if (i == j) continue;
+
+                distance = (enemies[i].transform.position - enemies[j].transform.position).magnitude;
+
+                if (minDistance > distance)
+                {
+                    minDistance = distance;
+                    target = enemies[j];
+                }
+
+            }
+
+
+            enemies[i].ChangeEnemy(target);
+        }
     }
 
     private void ArrangeTransforms()

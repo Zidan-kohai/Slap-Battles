@@ -37,6 +37,8 @@ public class Enemy : IHealthObject
 
     [SerializeField] private Transform MaxPosition, MinPosition;
     protected bool isDead = false;
+
+    public void ChangeEnemy(IHealthObject target) =>  enemy = target;
     protected void Start()
     {
         stolenSlaps = 1;
