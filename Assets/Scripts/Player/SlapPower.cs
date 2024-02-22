@@ -1,9 +1,9 @@
 using CMF;
-using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class SlapPower : MonoBehaviour
 {
@@ -38,6 +38,7 @@ public class SlapPower : MonoBehaviour
     [SerializeField] private float snowyPowerSphereRadius;
     [SerializeField] private float freezingFactor;
     private Collider[] freezedEnemies;
+
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.E) && !isPowerActivated)
@@ -55,6 +56,9 @@ public class SlapPower : MonoBehaviour
                         break;
                 case SlapPowerType.Snowy:
                     SnowyPowerActivate();
+                        break;
+                case SlapPowerType.Teleport:
+                    TeleportPowerActivate();    
                         break;
             }
         }
@@ -160,6 +164,50 @@ public class SlapPower : MonoBehaviour
 
             enemy.Sleep(timeToEnemySleep);
         }
+    }
+
+    #endregion
+
+    #region Teleport 
+    private void TeleportPowerActivate()
+    {
+        NavMeshTriangulation navMeshData = NavMesh.CalculateTriangulation();
+
+        if (navMeshData.vertices.Length == 0)
+        {
+            Debug.LogError("NavMesh not baked");
+            return;
+        }
+
+        SpawnRandomPoint(navMeshData);
+    }
+    private void SpawnRandomPoint(NavMeshTriangulation navMeshData)
+    {
+        // Передаем случайные индексы из массива треугольников навмеша
+        int randomTriangleIndex = UnityEngine.Random.Range(0, navMeshData.indices.Length / 3);
+        Vector3 randomPoint = GetRandomPointInTriangle(randomTriangleIndex, navMeshData);
+        player.transform.position = randomPoint;
+    }
+    private Vector3 GetRandomPointInTriangle(int triangleIndex, NavMeshTriangulation navMeshData)
+    {
+        // Выбираем три вершины для заданного треугольника
+        Vector3 v1 = navMeshData.vertices[navMeshData.indices[triangleIndex * 3 + 0]];
+        Vector3 v2 = navMeshData.vertices[navMeshData.indices[triangleIndex * 3 + 1]];
+        Vector3 v3 = navMeshData.vertices[navMeshData.indices[triangleIndex * 3 + 2]];
+
+        // Генерируем случайные веса для нахождения случайной точки внутри треугольника
+        float r1 = UnityEngine.Random.Range(0f, 1f);
+        float r2 = UnityEngine.Random.Range(0f, 1f);
+
+        // Учитываем, что сумма весов не должна превышать 1
+        if (r1 + r2 > 1)
+        {
+            r1 = 1 - r1;
+            r2 = 1 - r2;
+        }
+
+        // Рассчитываем случайную точку внутри треугольника
+        return v1 + r1 * (v2 - v1) + r2 * (v3 - v1);
     }
 
     #endregion

@@ -6,4 +6,5 @@ public enum SlapPowerType
     Sleepy,
     Lego,
     Snowy,
+    Teleport,
 }
