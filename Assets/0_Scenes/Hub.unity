@@ -3745,14 +3745,6 @@ PrefabInstance:
       propertyPath: attackPower
       value: 25
       objectReference: {fileID: 0}
-    - target: {fileID: 805022267742508679, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
-      propertyPath: m_Name
-      value: Slap_0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1034749567205534658, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1355690584722805398, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -3761,14 +3753,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 50a16084cf1722746a3b94834b253787, type: 2}
-    - target: {fileID: 2204468701409801819, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
-      propertyPath: m_Name
-      value: Slap_0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2204468701409801819, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2811166674468911052, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -4465,6 +4449,10 @@ PrefabInstance:
       propertyPath: jumpSpeed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 8361235376928088244, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
+      propertyPath: movementSpeed
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8805848440780541877, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.06
@@ -4505,10 +4493,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -28.156
       objectReference: {fileID: 0}
-    - target: {fileID: 8882469360228495084, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 2294599361831111750, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
@@ -4516,6 +4500,10 @@ PrefabInstance:
     - {fileID: 4003850938830825778, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
     - {fileID: 8794135610702075121, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
     - {fileID: 1086491568618148319, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
+    - {fileID: 2216282054796327498, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
+    - {fileID: 6876033946603514135, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
+    - {fileID: 5740183141654734930, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
+    - {fileID: 7465879254009190797, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}

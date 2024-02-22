@@ -3,10 +3,10 @@ using UnityEngine.UIElements;
 
 public class Slap : MonoBehaviour
 {
-    private Animator animator;
-
+    [SerializeField] private SlapPowerType type;
     [SerializeField] private int attackPower;
 
+    public SlapPowerType GetSlapPowerType() { return type; }
     public int AttackPower { get { return attackPower; } }
 
 

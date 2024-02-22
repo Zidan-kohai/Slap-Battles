@@ -11,6 +11,8 @@ public class Player : IHealthObject
     [SerializeField] private Rigidbody rb;
     [SerializeField] protected EventManager eventManager;
     [SerializeField] private Animator animator;
+    [SerializeField] private GameObject modelHandler;
+    [SerializeField] private SlapPower slapPower;
 
     [Space(10), Header("Slap")]
     [SerializeField] private int slapToGive;
@@ -18,9 +20,13 @@ public class Player : IHealthObject
 
     private bool isDead = false;
     private int deadCounter;
+    [SerializeField] private bool isImmortall;
+
+    public bool SetImmortall { get => isImmortall;  set => isImmortall = value;  }
 
     protected void Start()
     {
+        isImmortall = false;
         stolenSlaps = 0;
         rb = GetComponent<Rigidbody>();
         walkController = GetComponent<AdvancedWalkerController>();
@@ -32,6 +38,13 @@ public class Player : IHealthObject
     }
     public override void GetDamage(float damagePower, Vector3 direction, out bool isDeath, out int stoledSlap)
     {
+        if(isImmortall)
+        {
+            isDeath = false;
+            stoledSlap = 0;
+
+            return;
+        }
         health -= damagePower;
         healthbar.fillAmount = (health / maxHealth);
 
@@ -50,6 +63,7 @@ public class Player : IHealthObject
     {
         if (isDead) return;
 
+        slapPower.enabled = false;
         deadCounter++;
         isDead = true;
         walkController.enabled = false;
@@ -59,6 +73,7 @@ public class Player : IHealthObject
     public void Revive()
     {
         isDead = false;
+        slapPower.enabled = true;
         walkController.enabled = true;
         animator.SetTrigger("Revive");
         health = maxHealth;
@@ -79,9 +94,22 @@ public class Player : IHealthObject
     }
     public virtual void SetStolenSlaps(int value) => stolenSlaps += value;
     public virtual int GetStolenSlaps() => stolenSlaps;
-
     private void OnEndAnimations()
     {
 
     }
+
+    //public void Disable()
+    //{
+    //    isImmortall = true;
+    //    walkController.enabled = false;
+    //    modelHandler.SetActive(false);
+    //}
+
+    //internal void Show()
+    //{
+    //    isImmortall = false;
+    //    walkController.enabled = true;
+    //    modelHandler.SetActive(true);
+    //}
 }

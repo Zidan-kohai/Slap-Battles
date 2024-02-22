@@ -56,9 +56,15 @@ public class PlayerAttack : MonoBehaviour
     {
         RaycastHit hit;
         Ray ray = new Ray(slapRaycaster.position, slapRaycaster.forward);
+
         if (Physics.Raycast(ray, out hit, attackDistanese, enemyLayer))
         {
             hit.collider.gameObject.GetComponent<Enemy>().GetDamage(slap.AttackPower, ray.direction, out bool isDeath, out int GettedSlap);
+
+            if(slap.GetSlapPowerType() == SlapPowerType.doubleSlap)
+            {
+                GettedSlap *= 2;
+            }
 
             player.SetStolenSlaps(GettedSlap);
             eventManager.InvokeChangeMoneyEvents(GettedSlap);
@@ -82,10 +88,6 @@ public class PlayerAttack : MonoBehaviour
 
     public void ChangeSlap(Slap newSlap)
     {
-        Destroy(slapHandlerTransform.GetChild(0));
-
-        Instantiate(slap.gameObject, slapHandlerTransform);
-
         slap = newSlap;
     }
 
