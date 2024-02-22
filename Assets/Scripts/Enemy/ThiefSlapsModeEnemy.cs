@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 
@@ -11,6 +10,8 @@ public class ThiefSlapsModeEnemy : Enemy
     private void Start()
     {
         base.Start();
+
+        stolenSlaps = Random.Range(1, 15);
 
         slapCounterText.text = stolenSlaps.ToString();
     }
@@ -31,7 +32,7 @@ public class ThiefSlapsModeEnemy : Enemy
 
     public int StoleSlaps()
     {
-        int percent = UnityEngine.Random.Range(minStoleChance, maxStoleChance);
+        int percent = Random.Range(minStoleChance, maxStoleChance);
 
         float flag = (percent * stolenSlaps) / 100f;
         int stoleSlapCount = Mathf.CeilToInt(flag);

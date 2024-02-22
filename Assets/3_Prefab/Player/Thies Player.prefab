@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.65}
+  m_AnchoredPosition: {x: 0, y: 0.75}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &313128124232570063
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_fontSizeMin: 0.2
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1067,7 +1067,6 @@ MonoBehaviour:
   slapCounterText: {fileID: 6608570419107312412}
   minStoleChance: 25
   maxStoleChance: 50
-  eventManager: {fileID: 0}
 --- !u!54 &4697163212176588643 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 1162848911536679395, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
