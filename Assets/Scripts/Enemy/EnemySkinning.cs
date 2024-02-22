@@ -175,9 +175,8 @@ public class EnemySkinning : MonoBehaviour
     private void RotateUI()
     {
         Vector3 forward = (targetToRotate.position - uiHandler.transform.position).normalized;
-
         Quaternion rotation = Quaternion.LookRotation(forward, Vector3.up);
-        rotation = Quaternion.Euler(0, rotation.y, 0);
-        uiHandler.transform.rotation = rotation;
+        Vector3 euler = rotation.eulerAngles;
+        uiHandler.transform.rotation = Quaternion.Euler(0, euler.y, 0);
     }
 }
