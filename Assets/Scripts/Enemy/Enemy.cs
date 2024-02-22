@@ -34,7 +34,6 @@ public class Enemy : IHealthObject
     [SerializeField] private int slapToGive;
     [SerializeField] protected int stolenSlaps;
 
-
     [SerializeField] private Transform MaxPosition, MinPosition;
     protected bool isDead = false;
 
@@ -213,6 +212,26 @@ public class Enemy : IHealthObject
             }
         }
     }
+
+    public void Sleep(float timeToWakeUp)
+    {
+        //Enable sleep animation
+        navMeshAgent.enabled = true;
+
+        StartCoroutine(WakeUp(timeToWakeUp));
+    }
+
+
+    private IEnumerator WakeUp(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+
+
+        //Disable sleep animation
+
+        navMeshAgent.enabled = true;
+    }
+
 
     protected virtual void OnTriggerEnter(Collider other)
     {

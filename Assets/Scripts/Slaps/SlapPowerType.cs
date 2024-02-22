@@ -1,6 +1,8 @@
 public enum SlapPowerType
 {
-    standart,
-    doubleSlap,
-    wall,
+    Standart,
+    DoubleSlap,
+    Wall,
+    Sleepy,
+    Lego,
 }

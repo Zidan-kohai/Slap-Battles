@@ -6,12 +6,14 @@ using UnityEngine;
 
 public class SlapPower : MonoBehaviour
 {
-    [SerializeField] private Slap slap;
     [SerializeField] private AdvancedWalkerController playerWalkController;
-    [SerializeField] private Player player;
     [SerializeField] private SmoothPosition cameraSmoothPosition;
+    [SerializeField] private EventManager eventManager;
+    [SerializeField] private Player player;
+    [SerializeField] private Slap slap;
     public void ChangeSlap(Slap slap) => this.slap = slap;
 
+    private bool isPowerActivated;
 
     [Header("Wall Power")]
     [SerializeField] private GameObject wallGameobject;
@@ -19,7 +21,18 @@ public class SlapPower : MonoBehaviour
     [SerializeField] private List<Collider> playerCollider;
     [SerializeField] private float timeToDisactivateWallPower;
 
-    private bool isPowerActivated;
+    [Header("Sleeply Power")]
+    [SerializeField] private float timeToEnemySleep;
+    [SerializeField] private float sphereRadius;
+    [SerializeField] private LayerMask enemyLayer;
+
+
+    [Header("Lego")]
+    [SerializeField] private float timeToDisactivateLegoPower;
+    [SerializeField] private GameObject legoSphere;
+    [SerializeField] private Transform legoSpherePosition;
+
+
 
     private void Update()
     {
@@ -27,13 +40,20 @@ public class SlapPower : MonoBehaviour
         {
             switch(slap.GetSlapPowerType())
             {
-                case SlapPowerType.wall:
+                case SlapPowerType.Wall:
                     WallPowerActivate();
                         break;
+                case SlapPowerType.Sleepy:
+                    SleepLyPowerActivated();
+                        break;
+                case SlapPowerType.Lego:
+                    LegoPowerActivated();
+                    break;
             }
         }
     }
 
+    #region Wall
     private void WallPowerActivate()
     {
         isPowerActivated = true;
@@ -65,7 +85,47 @@ public class SlapPower : MonoBehaviour
         player.transform.position = wallGameobject.transform.position;
     }
 
+    #endregion
 
+    #region sleeply
+
+    private void SleepLyPowerActivated()
+    {
+        Collider[] coll = Physics.OverlapSphere(player.transform.position, sphereRadius, enemyLayer);
+
+        foreach (var item in coll)
+        {
+            Enemy enemy = item.GetComponent<Enemy>();
+            enemy.GetDamage(slap.AttackPower, (item.transform.position - player.transform.position).normalized, out bool isDeath, out int gettedSlap);
+            player.SetStolenSlaps(gettedSlap);
+            eventManager.InvokeChangeMoneyEvents(gettedSlap);
+
+            enemy.Sleep(timeToEnemySleep);
+        }
+    }
+
+    #endregion
+
+    #region Lego
+
+    private void LegoPowerActivated()
+    {
+        isPowerActivated = true;
+
+        legoSphere.SetActive(true);
+
+        legoSphere.transform.position = legoSpherePosition.transform.position;
+        legoSphere.transform.parent = null;
+
+        StartCoroutine(DisactivatePower(timeToDisactivateLegoPower, LegoPowerDisactivate));
+    }
+
+    private void LegoPowerDisactivate()
+    {
+        isPowerActivated = false;
+        legoSphere.SetActive(false);
+    }
+    #endregion
     private IEnumerator DisactivatePower(float waitTime, Action action)
     {
         yield return new WaitForSeconds(waitTime);

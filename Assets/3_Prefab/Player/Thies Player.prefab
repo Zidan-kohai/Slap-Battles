@@ -574,6 +574,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.00786331
       objectReference: {fileID: 0}
+    - target: {fileID: 4543991973930755511, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 3101952683534774314}
     - target: {fileID: 4569112160009479151, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.00000046379887
@@ -1062,8 +1066,11 @@ MonoBehaviour:
   rb: {fileID: 4697163212176588643}
   eventManager: {fileID: 0}
   animator: {fileID: 0}
+  modelHandler: {fileID: 0}
+  slapPower: {fileID: 0}
   slapToGive: 1
   stolenSlaps: 1
+  isImmortall: 0
   slapCounterText: {fileID: 6608570419107312412}
   minStoleChance: 25
   maxStoleChance: 50
