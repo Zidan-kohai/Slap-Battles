@@ -175,7 +175,7 @@ public class Enemy : IHealthObject
     {
         animator.SetTrigger("Revive");
         health = maxHealth;
-        healthbar.fillAmount = health /  maxHealth;
+        healthbar.fillAmount = health / maxHealth;
         gameObject.SetActive(true);
         navMeshAgent.enabled = true;
         //collider.enabled = true;
@@ -184,6 +184,7 @@ public class Enemy : IHealthObject
 
     public override void Death()
     {
+        if (isDead) return;
         //gameObject.SetActive(false);
         animator.SetTrigger("Death");
         navMeshAgent.enabled = false;

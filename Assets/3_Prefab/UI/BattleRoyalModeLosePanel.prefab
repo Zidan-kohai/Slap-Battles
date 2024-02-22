@@ -534,7 +534,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -25, y: -32}
-  m_SizeDelta: {x: 150, y: 50}
+  m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3648217433439579680
 CanvasRenderer:
@@ -564,7 +564,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 00:25
+  m_text: 5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aad3dddc308a416419383804b5d022c6, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: ecf58df50fa7dec47828040b62e45a15, type: 2}
@@ -1884,8 +1884,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventManager: {fileID: 0}
   slapCountText: {fileID: 0}
-  placeSlapRewardText: {fileID: 1782744452087327804}
-  placeDiamondRewardText: {fileID: 7093128704338403859}
   lastedTimeToLoadHubText: {fileID: 8657285374766460853}
   slider: {fileID: 4217539444280999605}
   rewardButton: {fileID: 3450662729474288731}

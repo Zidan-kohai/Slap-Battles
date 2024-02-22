@@ -24,6 +24,17 @@ public class LosePanel : MonoBehaviour
     private void Start()
     {
         Geekplay.Instance.SubscribeOnReward("DoubleAward", OnDoubleAward);
+        Geekplay.Instance.SubscribeOnReward("PlayerRevive", OnPlayerRevive);
+    }
+
+    private void OnPlayerRevive()
+    {
+        eventManager.InvokePlayerReviveEvents();
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        gameObject.SetActive(false);
     }
 
     private void OnEnable()
@@ -45,7 +56,7 @@ public class LosePanel : MonoBehaviour
         }
         else if(lastedTime > 0)
         {
-            lastedTimeToLoadHubText.text = string.Format("00:0{0:f0}", lastedTime);
+            lastedTimeToLoadHubText.text = string.Format("{0:f0}", lastedTime);
             slider.value = lastedTime;
         }
     }

@@ -18,7 +18,10 @@ public class StandartMode : MonoBehaviour
     {
         ArrangeTransforms();
         TurnOnGameObjects();
-        ArrangeTargetForEnemy();
+
+        if(Geekplay.Instance.currentMode != Modes.Boss)
+            ArrangeTargetForEnemy();
+
         eventManager.SubscribeOnBossDeath(OnBossDead);
     }
 
@@ -88,6 +91,36 @@ public class StandartMode : MonoBehaviour
             {
                 enemies[i].transform.position = GetRandomPositionForEnemy();
                 enemies[i].Revive();
+
+                float minDistance = Mathf.Infinity;
+                IHealthObject target = null;
+                float distance = 0;
+
+                distance = (enemies[i].transform.position - player.transform.position).magnitude;
+
+                if (minDistance > distance)
+                {
+                    minDistance = distance;
+                    target = player;
+                }
+
+                for (int j = 0; j < enemies.Count; j++)
+                {
+                    if (i == j) continue;
+
+                    distance = (enemies[i].transform.position - enemies[j].transform.position).magnitude;
+
+                    if (minDistance > distance)
+                    {
+                        minDistance = distance;
+                        target = enemies[j];
+                    }
+
+                }
+
+
+                enemies[i].ChangeEnemy(target);
+
                 return;
             }
         }
