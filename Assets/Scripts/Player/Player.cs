@@ -13,6 +13,7 @@ public class Player : IHealthObject
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject modelHandler;
     [SerializeField] private SlapPower slapPower;
+    [SerializeField] private GameObject playerCanvas;
 
     [Space(10), Header("Slap")]
     [SerializeField] private int slapToGive;
@@ -20,6 +21,8 @@ public class Player : IHealthObject
 
     private bool isDead = false;
     private int deadCounter;
+    private float movementSpeed;
+    private float jumpSpeed;
     [SerializeField] private bool isImmortall;
 
     public bool SetImmortall { get => isImmortall;  set => isImmortall = value;  }
@@ -30,8 +33,9 @@ public class Player : IHealthObject
         stolenSlaps = 0;
         rb = GetComponent<Rigidbody>();
         walkController = GetComponent<AdvancedWalkerController>();
-
-        if(Geekplay.Instance.currentMode != Modes.Hub)
+        movementSpeed = walkController.movementSpeed;
+        jumpSpeed = walkController.jumpSpeed;
+        if (Geekplay.Instance.currentMode != Modes.Hub)
             eventManager.SubscribeOnPlayerRevive(Revive);
 
         healthbar.fillAmount = (health / maxHealth);
@@ -66,11 +70,12 @@ public class Player : IHealthObject
         slapPower.enabled = false;
         deadCounter++;
         isDead = true;
-
+        walkController.movementSpeed = 0;
+        walkController.jumpSpeed = 0;
         if (playDeathAnimation)
         {
             animator.SetTrigger("Death");
-            walkController.enabled = false;
+            playerCanvas.SetActive(false);
         }
 
 
@@ -80,7 +85,8 @@ public class Player : IHealthObject
     {
         isDead = false;
         slapPower.enabled = true;
-        walkController.enabled = true;
+        walkController.movementSpeed = movementSpeed;
+        walkController.jumpSpeed = jumpSpeed;
         animator.SetTrigger("Revive");
         health = maxHealth;
 
