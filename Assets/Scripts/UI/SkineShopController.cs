@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 //TO DO Refactoring
-public class SkineController : MonoBehaviour
+public class SkineShopController : MonoBehaviour
 {
     [Header("Material of Body Part"), Space(5)]
     [SerializeField] private Material bodyMaterial;
