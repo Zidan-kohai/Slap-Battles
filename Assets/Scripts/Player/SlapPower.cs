@@ -1,4 +1,4 @@
-using CMF;
+using CMF;  
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,13 +13,15 @@ public class SlapPower : MonoBehaviour
     [SerializeField] private Player player;
     [SerializeField] private Slap slap;
     [SerializeField] private LayerMask enemyLayer;
+    [SerializeField] private GameObject playerModelHandler;
+    private float startSpeed;
+    private float startPower;
     public void ChangeSlap(Slap slap) => this.slap = slap;
 
     private bool isPowerActivated;
 
     [Header("Wall Power")]
     [SerializeField] private GameObject wallGameobject;
-    [SerializeField] private GameObject playerModelHandler;
     [SerializeField] private List<Collider> playerCollider;
     [SerializeField] private float timeToDisactivateWallPower;
 
@@ -39,6 +41,28 @@ public class SlapPower : MonoBehaviour
     [SerializeField] private float freezingFactor;
     private Collider[] freezedEnemies;
 
+    [Header("Time")]
+    [SerializeField] private Vector3 activatePosition;
+    [SerializeField] private float timeToDiactivateTimePower;
+
+    [Header("Shooker")]
+    [SerializeField] private float radiusSphereOfShookerPower;
+    [SerializeField] private float timeToDiactivateShookerPower;
+
+    [Header("Pusher")]
+    [SerializeField] private Transform wallPusherStartPosition;
+    [SerializeField] private GameObject wallPusher;
+    [SerializeField] private float timeToDiactivatePusherPower;
+
+    [Header("Magnet")]
+    [SerializeField] private float timeToDiactivateMagnetPower;
+
+
+    [Header("Accelerator")]
+    [SerializeField] private float timeToDiactivateAcceleratorPower;
+
+    [Header("Gold")]
+    [SerializeField] private float timeToDiactivateGoldPower;
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.E) && !isPowerActivated)
@@ -47,19 +71,37 @@ public class SlapPower : MonoBehaviour
             {
                 case SlapPowerType.Wall:
                     WallPowerActivate();
-                        break;
+                     break;
                 case SlapPowerType.Sleepy:
                     SleepLyPowerActivate();
-                        break;
+                     break;
                 case SlapPowerType.Lego:
                     LegoPowerActivate();
-                        break;
+                     break;
                 case SlapPowerType.Snowy:
                     SnowyPowerActivate();
-                        break;
+                     break;
                 case SlapPowerType.Teleport:
                     TeleportPowerActivate();    
-                        break;
+                     break;
+                case SlapPowerType.Time:
+                    ActivateTimePower();
+                     break;
+                case SlapPowerType.Shocker:
+                    ActivateShookerPower();
+                     break;
+                case SlapPowerType.Pusher:
+                    PusherPowerActivate();
+                     break;
+                case SlapPowerType.Magnet:
+                    ActivateMagnetPower();
+                     break;
+                case SlapPowerType.Accelerator:
+                    AcceleratorPowerActive();
+                    break;
+                case SlapPowerType.Gold:
+                    GoldPowerActivate();
+                    break;
             }
         }
     }
@@ -78,7 +120,7 @@ public class SlapPower : MonoBehaviour
 
         wallGameobject.transform.position = player.transform.position;
 
-        StartCoroutine(DisactivatePower(timeToDisactivateWallPower, WallPowerDisactivate));
+        StartCoroutine(DiactivatePower(timeToDisactivateWallPower, WallPowerDisactivate));
     }
 
     private void WallPowerDisactivate()
@@ -102,9 +144,9 @@ public class SlapPower : MonoBehaviour
 
     private void SleepLyPowerActivate()
     {
-        Collider[] coll = Physics.OverlapSphere(player.transform.position, sleeplyPowerSphereRadius, enemyLayer);
+        Collider[] colls = Physics.OverlapSphere(player.transform.position, sleeplyPowerSphereRadius, enemyLayer);
 
-        foreach (var item in coll)
+        foreach (var item in colls)
         {
             Enemy enemy = item.GetComponent<Enemy>();
             enemy.GetDamage(slap.AttackPower, (item.transform.position - player.transform.position).normalized, out bool isDeath, out int gettedSlap);
@@ -128,7 +170,7 @@ public class SlapPower : MonoBehaviour
         legoSphere.transform.position = legoSpherePosition.transform.position;
         legoSphere.transform.parent = null;
 
-        StartCoroutine(DisactivatePower(timeToDisactivateLegoPower, LegoPowerDisactivate));
+        StartCoroutine(DiactivatePower(timeToDisactivateLegoPower, LegoPowerDisactivate));
     }
 
     private void LegoPowerDisactivate()
@@ -152,7 +194,7 @@ public class SlapPower : MonoBehaviour
             enemy.Sleep(timeToEnemySleep);
         }
 
-        StartCoroutine(DisactivatePower(timeToDisactivateSnowyPower, SnowyPowerDisactivate));
+        StartCoroutine(DiactivatePower(timeToDisactivateSnowyPower, SnowyPowerDisactivate));
     }
 
     private void SnowyPowerDisactivate()
@@ -211,7 +253,150 @@ public class SlapPower : MonoBehaviour
     }
 
     #endregion
-    private IEnumerator DisactivatePower(float waitTime, Action action)
+
+    #region Time
+    private void ActivateTimePower()
+    {
+        activatePosition = player.transform.position;
+        isPowerActivated = true;
+        StartCoroutine(DiactivatePower(timeToDiactivateTimePower, DiactivateTimePower));
+        Debug.Log($"time power {activatePosition}");
+    }
+
+    private void DiactivateTimePower()
+    {
+        isPowerActivated = false;
+        player.transform.position = activatePosition;
+        Debug.Log($"time power {activatePosition}");
+    }
+    #endregion
+
+    #region Shooker
+
+    private void ActivateShookerPower()
+    {
+        isPowerActivated = true;
+        Collider[] colls = Physics.OverlapSphere(player.transform.position, radiusSphereOfShookerPower, enemyLayer);
+
+        foreach (var item in colls)
+        {
+            Enemy enemy = item.GetComponent<Enemy>();
+            enemy.GetDamage(slap.AttackPower, (item.transform.position - player.transform.position).normalized, out bool isDeath, out int gettedSlap);
+            player.SetStolenSlaps(gettedSlap);
+            eventManager.InvokeChangeMoneyEvents(gettedSlap);
+
+            enemy.Sleep(timeToEnemySleep);
+        }
+        Debug.Log(colls.Length);
+        StartCoroutine(DiactivatePower(timeToDiactivateShookerPower, DiactivateShookerPower));
+    }
+
+    private void DiactivateShookerPower()
+    {
+        isPowerActivated = false;
+        Debug.Log("DiactvatePower");
+    }
+
+    #endregion
+
+    #region Pusher
+
+    private void PusherPowerActivate()
+    {
+        isPowerActivated = true;
+
+        wallPusher.transform.position = wallPusherStartPosition.position;
+        wallPusher.transform.parent = null;
+        wallPusher.transform.forward = playerModelHandler.transform.forward;
+        wallPusher.SetActive(true);
+        StartCoroutine(DiactivatePower(timeToDiactivatePusherPower, PusherPowerDiactivate));
+    }
+
+    private void PusherPowerDiactivate()
+    {
+        isPowerActivated = false;
+        wallPusher.SetActive(false);
+    }
+
+    #endregion
+
+    #region Magnet
+
+    private void ActivateMagnetPower()
+    {
+        isPowerActivated = true;
+
+        Collider[] colls = Physics.OverlapSphere(player.transform.position, 1000f, enemyLayer);
+
+        float distance = Mathf.Infinity;
+        Vector3 TeleportPosition = Vector3.zero;
+
+        foreach (var item in colls)
+        {
+            float dis = (player.transform.position - item.transform.position).magnitude;
+
+            if(dis < distance)
+            {
+                TeleportPosition = item.transform.position + new Vector3(2, 0, 3);
+                distance = dis;
+            }
+        }
+
+        player.transform.position = TeleportPosition;
+
+        StartCoroutine(DiactivatePower(timeToDiactivateMagnetPower, DiactivateMagnetPower));
+    }
+
+    private void DiactivateMagnetPower()
+    {
+        isPowerActivated = false;
+    }
+
+    #endregion
+
+    #region Accelerator
+
+    private void AcceleratorPowerActive()
+    {
+        isPowerActivated = true;
+        startSpeed = playerWalkController.movementSpeed;
+
+        playerWalkController.movementSpeed = startSpeed * 2;
+
+        StartCoroutine(DiactivatePower(timeToDiactivateAcceleratorPower, DiactivaetAcceleratorPower));
+    }
+
+    private void DiactivaetAcceleratorPower()
+    {
+        isPowerActivated = false;
+        playerWalkController.movementSpeed = startSpeed;
+    }
+
+    #endregion
+
+    #region Gold
+
+    private void GoldPowerActivate()
+    {
+        isPowerActivated = true;
+        startPower = slap.AttackPower;
+        startSpeed = playerWalkController.movementSpeed;
+
+        slap.AttackPower *= 1.5f;
+        playerWalkController.movementSpeed = startSpeed * 2;
+
+        StartCoroutine(DiactivatePower(timeToDiactivateGoldPower, DiactivateGoldPower));
+    }
+
+    private void DiactivateGoldPower()
+    {
+        isPowerActivated = false;
+        playerWalkController.movementSpeed = startSpeed;
+        slap.AttackPower = startPower;
+    }
+
+    #endregion
+    private IEnumerator DiactivatePower(float waitTime, Action action)
     {
         yield return new WaitForSeconds(waitTime);
 

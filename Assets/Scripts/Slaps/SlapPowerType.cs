@@ -7,4 +7,10 @@ public enum SlapPowerType
     Lego,
     Snowy,
     Teleport,
+    Time,
+    Shocker,
+    Pusher,
+    Magnet,
+    Accelerator,
+    Gold,
 }
