@@ -7791,10 +7791,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.08399999
-  m_Height: 0.16799998
+  m_Radius: 0.32
+  m_Height: 1.425
   m_Direction: 1
-  m_Center: {x: 0, y: 1.416, z: 0}
+  m_Center: {x: 0, y: 0.7875, z: 0}
 --- !u!114 &4681459780742580052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7807,7 +7807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d98ace8715c2a184ca85247b18eb0853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepHeightRatio: 0.888
+  stepHeightRatio: 0.05
   colliderHeight: 1.5
   colliderThickness: 0.64
   colliderOffset: {x: 0, y: 0.5, z: 0}
