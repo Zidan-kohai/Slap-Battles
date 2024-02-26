@@ -59,6 +59,8 @@ public class SkineShopController : MonoBehaviour
 
 
     [SerializeField] private HubEventManager eventManager;
+    [SerializeField] private GameObject inAppShop;
+
     private void Start()
     {
         CheckIsBuyedOrEquippedColor();
@@ -295,6 +297,8 @@ public class SkineShopController : MonoBehaviour
                     buyButton.onClick.AddListener(() =>
                     {
                         Debug.Log("Don`t have money");
+                        inAppShop.SetActive(true);
+                        gameObject.SetActive(false);
                     });
                 }
 
@@ -606,7 +610,9 @@ public class SkineShopController : MonoBehaviour
                 {
                     buyButton.onClick.AddListener(() =>
                     {
-                        Debug.Log("You don`t Have money");
+                        Debug.Log("You don`t Have money"); 
+                        inAppShop.SetActive(true);
+                        gameObject.SetActive(false);
                     });
                 }
             }
@@ -716,6 +722,8 @@ public class SkineShopController : MonoBehaviour
                     buyButton.onClick.AddListener(() =>
                     {
                         Debug.Log("You don`t Have money");
+                        inAppShop.SetActive(true);
+                        gameObject.SetActive(false);
                     });
                 }
             }
@@ -808,6 +816,8 @@ public class SkineShopController : MonoBehaviour
                     buyButton.onClick.AddListener(() =>
                     {
                         Debug.Log("You don`t Have money");
+                        inAppShop.SetActive(true);
+                        gameObject.SetActive(false);
                     });
                 }
             }

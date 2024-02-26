@@ -18,6 +18,7 @@ public class SlapShopController : MonoBehaviour
 
 
     [SerializeField] private HubEventManager eventManager;
+    [SerializeField] private GameObject inAppShop;
     private void OnEnable()
     {
         slapSwitcher.ShowSlaps();
@@ -91,6 +92,8 @@ public class SlapShopController : MonoBehaviour
                     buyButton.onClick.AddListener(() =>
                     {
                         Debug.Log("You don`t Have money");
+                        inAppShop.SetActive(true);
+                        gameObject.SetActive(false);
                     });
                 }
             }
