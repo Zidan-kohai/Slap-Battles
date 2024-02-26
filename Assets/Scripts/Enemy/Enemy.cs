@@ -181,14 +181,15 @@ public class Enemy : IHealthObject
         isDead = false;
     }
 
-    public override void Death()
+    public override void Death(bool playDeathAnimation = true)
     {
         if (isDead) return;
-        //gameObject.SetActive(false);
-        animator.SetTrigger("Death");
         navMeshAgent.enabled = false;
-        //collider.enabled = false;
         isDead = true;
+
+        if (playDeathAnimation)
+            animator.SetTrigger("Death");
+
         eventManager.InvokeActionsOnEnemyDeath(this);
         StartCoroutine(DisableGameObject(7));
 

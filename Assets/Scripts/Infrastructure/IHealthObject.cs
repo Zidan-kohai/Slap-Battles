@@ -14,7 +14,7 @@ public class IHealthObject : MonoBehaviour
         isDeath = false;
     }
 
-    public virtual void Death()
+    public virtual void Death(bool PlayDeathAnimation)
     {
     }
 

@@ -6,7 +6,7 @@ public class DeathCollider : MonoBehaviour
     {
         if(other.gameObject.TryGetComponent<IHealthObject>(out IHealthObject healthObject))
         {
-            healthObject.Death();
+            healthObject.Death(false);
         }
     }
 }

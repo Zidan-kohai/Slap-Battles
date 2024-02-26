@@ -59,15 +59,21 @@ public class Player : IHealthObject
         stoledSlap = slapToGive;
         isDeath =  health <= 0;
     }
-    public override void Death()
+    public override void Death(bool playDeathAnimation = true)
     {
         if (isDead) return;
 
         slapPower.enabled = false;
         deadCounter++;
         isDead = true;
-        walkController.enabled = false;
-        animator.SetTrigger("Death");
+
+        if (playDeathAnimation)
+        {
+            animator.SetTrigger("Death");
+            walkController.enabled = false;
+        }
+
+
         eventManager.InvokePlayerDeathEvents(deadCounter, stolenSlaps);
     }
     public void Revive()
