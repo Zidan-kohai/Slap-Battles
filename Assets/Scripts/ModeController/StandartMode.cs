@@ -76,7 +76,7 @@ public class StandartMode : MonoBehaviour
         int rand = UnityEngine.Random.Range(0, 1000);
 
 
-        if (rand == 1 || flag)
+        if (rand > 1 && rand < 50 || flag)
         {
             SpawnEnemy();
         }
