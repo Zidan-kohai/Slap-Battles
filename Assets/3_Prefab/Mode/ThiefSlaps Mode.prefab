@@ -932,6 +932,10 @@ PrefabInstance:
       propertyPath: eventManager
       value: 
       objectReference: {fileID: 3237182903930966125}
+    - target: {fileID: 3101952683534774314, guid: 5636079f881abb44dbd4bdc5973de692, type: 3}
+      propertyPath: modelHandler
+      value: 
+      objectReference: {fileID: 6109834057567908854}
     - target: {fileID: 4459234356284791936, guid: 5636079f881abb44dbd4bdc5973de692, type: 3}
       propertyPath: m_Name
       value: Player
@@ -952,12 +956,16 @@ PrefabInstance:
       value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6608570419107312412, guid: 5636079f881abb44dbd4bdc5973de692, type: 3}
+      propertyPath: m_margin.w
+      value: 0.25624776
+      objectReference: {fileID: 0}
+    - target: {fileID: 6608570419107312412, guid: 5636079f881abb44dbd4bdc5973de692, type: 3}
       propertyPath: m_margin.x
       value: -0.00055265427
       objectReference: {fileID: 0}
     - target: {fileID: 6608570419107312412, guid: 5636079f881abb44dbd4bdc5973de692, type: 3}
       propertyPath: m_margin.y
-      value: 0.7480774
+      value: 0.25052953
       objectReference: {fileID: 0}
     - target: {fileID: 6608570419107312412, guid: 5636079f881abb44dbd4bdc5973de692, type: 3}
       propertyPath: m_margin.z
@@ -1026,6 +1034,11 @@ MonoBehaviour:
 --- !u!4 &5800399146989897681 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6948616631178678736, guid: 5636079f881abb44dbd4bdc5973de692, type: 3}
+  m_PrefabInstance: {fileID: 3463648855487747585}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6109834057567908854 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7267446388452107767, guid: 5636079f881abb44dbd4bdc5973de692, type: 3}
   m_PrefabInstance: {fileID: 3463648855487747585}
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &8798305164293445221 stripped
