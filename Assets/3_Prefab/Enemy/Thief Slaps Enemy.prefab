@@ -174,7 +174,7 @@ MonoBehaviour:
   m_fontSizeMin: 0.3
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -377,9 +377,15 @@ MonoBehaviour:
   stolenSlaps: 0
   MaxPosition: {fileID: 0}
   MinPosition: {fileID: 0}
+  slapAudio: {fileID: 5382746756449599206}
   slapCounterText: {fileID: 2273277159604617833}
   minStoleChance: 25
   maxStoleChance: 50
+--- !u!82 &5382746756449599206 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6617632860187789259, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
+  m_PrefabInstance: {fileID: 1253642961500141869}
+  m_PrefabAsset: {fileID: 0}
 --- !u!54 &6725428360930978184 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 5489976833279692965, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}

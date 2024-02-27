@@ -177,7 +177,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10000
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aad3dddc308a416419383804b5d022c6, type: 2}
   m_sharedMaterial: {fileID: 2626026305286634327, guid: aad3dddc308a416419383804b5d022c6, type: 2}
@@ -211,7 +211,7 @@ MonoBehaviour:
   m_fontSizeMin: 0.2
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1134,6 +1134,16 @@ PrefabInstance:
       insertIndex: 8
       addedObject: {fileID: 3101952683534774314}
   m_SourcePrefab: {fileID: 100100000, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
+--- !u!82 &92786083410596819 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5784114581719696723, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
+  m_PrefabInstance: {fileID: 5840299975850235520}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1975519153522631221 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5361145951345243317, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
+  m_PrefabInstance: {fileID: 5840299975850235520}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2667813936828315188 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8361235376928088244, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
@@ -1187,6 +1197,9 @@ MonoBehaviour:
   animator: {fileID: 0}
   modelHandler: {fileID: 0}
   slapPower: {fileID: 7927295503674962743}
+  playerCanvas: {fileID: 0}
+  deathAudio: {fileID: 1975519153522631221}
+  fallingAudio: {fileID: 92786083410596819}
   slapToGive: 1
   stolenSlaps: 1
   isImmortall: 0

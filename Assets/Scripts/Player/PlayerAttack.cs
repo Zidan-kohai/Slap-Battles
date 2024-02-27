@@ -57,12 +57,11 @@ public class PlayerAttack : MonoBehaviour
     protected virtual void Attack()
     {
         RaycastHit hit;
-        Ray ray = new Ray(slapRaycaster.position, slapRaycaster.forward);
 
-        if (Physics.Raycast(ray, out hit, attackDistanese, enemyLayer))
+        if (Physics.SphereCast(slapRaycaster.position, 0.7f, slapRaycaster.forward, out hit, attackDistanese, enemyLayer))
         {
             slapAudio.Play();
-            hit.collider.gameObject.GetComponent<Enemy>().GetDamage(slap.AttackPower, ray.direction, out bool isDeath, out int GettedSlap);
+            hit.collider.gameObject.GetComponent<Enemy>().GetDamage(slap.AttackPower, slapRaycaster.forward, out bool isDeath, out int GettedSlap);
 
             if(slap.GetSlapPowerType() == SlapPowerType.DoubleSlap)
             {
@@ -98,6 +97,7 @@ public class PlayerAttack : MonoBehaviour
     {
         Gizmos.color = Color.green;
         Gizmos.DrawRay(slapRaycaster.position, slapRaycaster.forward * attackDistanese);
+        Gizmos.DrawSphere(slapRaycaster.position, 0.7f);
     }
 
     private void OnDisable()

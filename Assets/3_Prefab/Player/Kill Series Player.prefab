@@ -1056,12 +1056,18 @@ MonoBehaviour:
   attackDistanese: 2
   player: {fileID: 2440136822054201525}
   eventManager: {fileID: 0}
+  slapAudio: {fileID: 7748454704992993553}
   timeToNextSlap: 15
   timeRamainingToNextSlap: 15
   timeText: {fileID: 5158141190476019785}
 --- !u!224 &7537960140237515696 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6981274935936886104, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
+  m_PrefabInstance: {fileID: 612012771750579944}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &7748454704992993553 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7203020382276538361, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
   m_PrefabInstance: {fileID: 612012771750579944}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &8895754375673941760 stripped

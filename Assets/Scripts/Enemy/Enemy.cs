@@ -36,6 +36,7 @@ public class Enemy : IHealthObject
 
     [SerializeField] private Transform MaxPosition, MinPosition;
     protected bool isDead = false;
+    protected bool canGetDamage = false;
 
 
     [Header("Audio")]
@@ -66,7 +67,7 @@ public class Enemy : IHealthObject
     protected virtual void Update()
     {
         if (!CanWalk || isDead) return;
-        if (!navMeshAgent.isOnNavMesh) Death();
+        if (!navMeshAgent.isOnNavMesh) Derath();
 
         if(enemy != null)
         {
@@ -132,7 +133,13 @@ public class Enemy : IHealthObject
             gettedSlap = 0;
             return;
         }
-
+        if (!canGetDamage)
+        {
+            isDeath = false;
+            gettedSlap = 0;
+            return;
+        }
+        canGetDamage = false;
         health -= damagePower;
         healthbar.fillAmount = (health / maxHealth) < 0 ? 0 : health / maxHealth;
 
@@ -154,6 +161,7 @@ public class Enemy : IHealthObject
     protected void OnEndAnimations()
     {
         GetRandomTarget();
+        canGetDamage = true;
     }
     
     public IEnumerator GetDamageAnimation(Vector3 direction, float damagePower)
@@ -185,6 +193,7 @@ public class Enemy : IHealthObject
         navMeshAgent.enabled = true;
         //collider.enabled = true;
         isDead = false;
+        canGetDamage = true;
     }
 
     public override void Death(bool playDeathAnimation = true)
