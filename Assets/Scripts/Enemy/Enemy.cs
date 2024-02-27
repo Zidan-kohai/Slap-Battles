@@ -67,7 +67,7 @@ public class Enemy : IHealthObject
     protected virtual void Update()
     {
         if (!CanWalk || isDead) return;
-        if (!navMeshAgent.isOnNavMesh) Derath();
+        if (!navMeshAgent.isOnNavMesh) Death();
 
         if(enemy != null)
         {
