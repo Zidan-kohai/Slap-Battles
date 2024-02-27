@@ -35,7 +35,10 @@ public class GameplayUI : MonoBehaviour
 
         }else if(deadCount >= 2)
         {
-            LosePanel.AddEarnedMoney();
+            //TO Do Refactoring
+            if (Geekplay.Instance.currentMode == Modes.ClashRoyal)
+                LosePanel.AddEarnedMoney();
+
             SceneLoader sceneLoader = new SceneLoader(this);
             sceneLoader.LoadScene(0);
         }

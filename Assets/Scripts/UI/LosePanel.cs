@@ -10,14 +10,14 @@ public class LosePanel : MonoBehaviour
     [SerializeField] protected EventManager eventManager;
 
     [SerializeField] private TextMeshProUGUI slapCountText;
-    [SerializeField] private TextMeshProUGUI lastedTimeToLoadHubText;
-    [SerializeField] private Slider slider;
+    [SerializeField] protected TextMeshProUGUI lastedTimeToLoadHubText;
+    [SerializeField] protected Slider slider;
     [SerializeField] private GameObject rewardButton;
 
-    [SerializeField] private float timeBeforeToLoadHub;
+    [SerializeField] protected float timeBeforeToLoadHub;
 
-    private bool flagThatUseToLoadSceneOneTime = true;
-    private float lastedTime;
+    protected bool flagThatUseToLoadSceneOneTime = true;
+    protected float lastedTime;
 
     protected int earnedSlapCount;
 
@@ -49,7 +49,6 @@ public class LosePanel : MonoBehaviour
 
         if (lastedTime <= 0f && flagThatUseToLoadSceneOneTime)
         {
-            AddEarnedMoney();
             flagThatUseToLoadSceneOneTime = false;
             SceneLoader sceneLoader = new SceneLoader(this);
             sceneLoader.LoadScene(0);

@@ -35,7 +35,7 @@ public partial class Portal : MonoBehaviour
         {
             Debug.Log("Already Buyed");
         }
-        else if(Geekplay.Instance.PlayerData.money > cost)
+        else if(Geekplay.Instance.PlayerData.money >= cost)
         {
             Geekplay.Instance.PlayerData.money -= cost;
             eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);

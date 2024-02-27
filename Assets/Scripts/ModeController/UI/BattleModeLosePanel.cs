@@ -10,6 +10,25 @@ public class BattleModeLosePanel : LosePanel
     {
         Geekplay.Instance.SubscribeOnReward("PlayerRevive", OnPlayerRevive);
     }
+
+    protected void Update()
+    {
+        lastedTime -= Time.deltaTime;
+
+        if (lastedTime <= 0f && flagThatUseToLoadSceneOneTime)
+        {
+            AddEarnedMoney();
+            flagThatUseToLoadSceneOneTime = false;
+            SceneLoader sceneLoader = new SceneLoader(this);
+            sceneLoader.LoadScene(0);
+        }
+        else if (lastedTime > 0)
+        {
+            lastedTimeToLoadHubText.text = string.Format("{0:f0}", lastedTime);
+            slider.value = lastedTime;
+        }
+    }
+
     private void OnPlayerRevive()
     {
         eventManager.InvokePlayerReviveEvents();
@@ -19,8 +38,7 @@ public class BattleModeLosePanel : LosePanel
 
     public override void AddEarnedMoney()
     {
-        Geekplay.Instance.PlayerData.money += earnedSlapCount;
-        Geekplay.Instance.PlayerData.money += Convert.ToInt32(placeSlapRewardText.text);
+        Geekplay.Instance.PlayerData.money += Convert.ToInt32(placeSlapRewardText.text) - earnedSlapCount;
         Geekplay.Instance.PlayerData.DiamondMoney += Convert.ToInt32(placeDiamondRewardText.text);
     }
 
@@ -28,6 +46,6 @@ public class BattleModeLosePanel : LosePanel
     {
         earnedSlapCount = slapCount;
 
-        placeSlapRewardText.text += (Convert.ToInt32(placeSlapRewardText.text) + slapCount).ToString();
+        placeSlapRewardText.text = (Convert.ToInt32(placeSlapRewardText.text) + slapCount).ToString();
     }
 }
