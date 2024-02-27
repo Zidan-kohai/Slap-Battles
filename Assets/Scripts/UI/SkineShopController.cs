@@ -63,6 +63,15 @@ public class SkineShopController : MonoBehaviour
     [SerializeField] private HubEventManager eventManager;
     [SerializeField] private GameObject inAppShop;
 
+    private GameObject leatherSelectedIcon;
+    private GameObject hairColorSelectedIcon;
+    private GameObject bodySelectedIcon;
+    private GameObject legSelectedIcon;
+    private GameObject footSelectedIcon;
+    private GameObject hairManSelectedIcon;
+    private GameObject hairWomanSelectedIcon;
+    private GameObject accessorySelectedIcon;
+    private GameObject capSelectedIcon;
     private void Start()
     {
         CheckIsBuyedOrEquippedColor();
@@ -181,24 +190,30 @@ public class SkineShopController : MonoBehaviour
         Debug.Log(buyable.gameObject.name + " " + buyable.GetBodyType);
         buyable.SubscribeOnClick(() =>
         {
+
             buyButton.gameObject.SetActive(true);
             List<Material> material = new List<Material>();
             switch (buyable.GetBodyType)
             {
                 case BodyPart.Leather:
                     material = LeatherMaterial;
+                    ReplaceSelectedIcon(buyable, ref leatherSelectedIcon);
                     break;
                 case BodyPart.Hair:
                     material.Add(hairMaterial);
+                    ReplaceSelectedIcon(buyable, ref hairColorSelectedIcon);
                     break;
                 case BodyPart.Body:
                     material.Add(bodyMaterial);
+                    ReplaceSelectedIcon(buyable, ref bodySelectedIcon);
                     break;
                 case BodyPart.Leg:
                     material.Add(legMaterial);
+                    ReplaceSelectedIcon(buyable, ref legSelectedIcon);
                     break;
                 case BodyPart.Foot:
                     material.Add(footMaterial);
+                    ReplaceSelectedIcon(buyable, ref footSelectedIcon);
                     break;
             }
 
@@ -413,7 +428,7 @@ public class SkineShopController : MonoBehaviour
             if(Geekplay.Instance.PlayerData.CurrentLeatherColorIndex == buyable.indexOfColor)
             {
                 ChangeHealthBuff(HealtBuffSystem.HealtBuffType.HeadColor,buyable.HealthBuff);
-                buyable.Select();
+                ReplaceSelectedIcon(buyable, ref leatherSelectedIcon);
             }
         }
 
@@ -426,7 +441,7 @@ public class SkineShopController : MonoBehaviour
             if (Geekplay.Instance.PlayerData.CurrentHairColorIndex == buyable.indexOfColor)
             {
                 ChangeHealthBuff(HealtBuffSystem.HealtBuffType.HairColor, buyable.HealthBuff);
-                buyable.Select();
+                ReplaceSelectedIcon(buyable, ref hairColorSelectedIcon);
             }
         }
 
@@ -439,7 +454,7 @@ public class SkineShopController : MonoBehaviour
             if (Geekplay.Instance.PlayerData.CurrentBodyColorIndex == buyable.indexOfColor)
             {
                 ChangeHealthBuff(HealtBuffSystem.HealtBuffType.BodyColor, buyable.HealthBuff);
-                buyable.Select();
+                ReplaceSelectedIcon(buyable, ref bodySelectedIcon);
             }
         }
 
@@ -452,7 +467,7 @@ public class SkineShopController : MonoBehaviour
             if (Geekplay.Instance.PlayerData.CurrentLegColorIndex == buyable.indexOfColor)
             {
                 ChangeHealthBuff(HealtBuffSystem.HealtBuffType.legColor, buyable.HealthBuff);
-                buyable.Select();
+                ReplaceSelectedIcon(buyable, ref legSelectedIcon);
             }
         }
 
@@ -465,7 +480,7 @@ public class SkineShopController : MonoBehaviour
             if (Geekplay.Instance.PlayerData.CurrentFootColorIndex == buyable.indexOfColor)
             {
                 ChangeHealthBuff(HealtBuffSystem.HealtBuffType.footColor, buyable.HealthBuff);
-                buyable.Select();
+                ReplaceSelectedIcon(buyable, ref footSelectedIcon);
             }
         }
     }
@@ -530,6 +545,15 @@ public class SkineShopController : MonoBehaviour
     {
         buyable.SubscribeOnClick(() =>
         {
+            if (Geekplay.Instance.PlayerData.isGenderMan)
+            {
+                ReplaceSelectedIcon(buyable, ref hairManSelectedIcon);
+            }
+            else
+            {
+                ReplaceSelectedIcon(buyable, ref hairWomanSelectedIcon);
+            }
+
             buyButton.gameObject.SetActive(true);
             hairSwitcher.SwitchHair(buyable.GetIndexOfhair, Geekplay.Instance.PlayerData.isGenderMan);
             ChangeHealthBuffText(HealtBuffSystem.HealtBuffType.hair, buyable.HealthBuff);
@@ -632,7 +656,7 @@ public class SkineShopController : MonoBehaviour
             if(Geekplay.Instance.PlayerData.currentManHair ==  buyable.GetIndexOfhair && Geekplay.Instance.PlayerData.isGenderMan)
             {
                 ChangeHealthBuff(HealtBuffSystem.HealtBuffType.hair, buyable.HealthBuff);
-                buyable.Select();
+                ReplaceSelectedIcon(buyable, ref hairManSelectedIcon);
             }
         }
 
@@ -645,7 +669,7 @@ public class SkineShopController : MonoBehaviour
             if (Geekplay.Instance.PlayerData.currentWomanHair == buyable.GetIndexOfhair && !Geekplay.Instance.PlayerData.isGenderMan)
             {
                 ChangeHealthBuff(HealtBuffSystem.HealtBuffType.hair, buyable.HealthBuff);
-                buyable.Select();
+                ReplaceSelectedIcon(buyable, ref hairWomanSelectedIcon);
             }
         }
     }
@@ -664,6 +688,8 @@ public class SkineShopController : MonoBehaviour
     {
         buyable.SubscribeOnClick(() =>
         {
+            ReplaceSelectedIcon(buyable, ref accessorySelectedIcon);
+
             buyButton.gameObject.SetActive(true);
             accessorySwitcher.SwitchAccessory(buyable.GetIndexOfAccessory);
             ChangeHealthBuffText(HealtBuffSystem.HealtBuffType.accessory, buyable.HealthBuff);
@@ -742,8 +768,9 @@ public class SkineShopController : MonoBehaviour
             }
             if (Geekplay.Instance.PlayerData.currentAccessory == buyable.GetIndexOfAccessory)
             {
-                ChangeHealthBuff(HealtBuffSystem.HealtBuffType.accessory, buyable.HealthBuff); 
-                buyable.Select();
+                ChangeHealthBuff(HealtBuffSystem.HealtBuffType.accessory, buyable.HealthBuff);
+
+                ReplaceSelectedIcon(buyable, ref accessorySelectedIcon);
             }
         }
     }
@@ -759,6 +786,8 @@ public class SkineShopController : MonoBehaviour
     {
         buyable.SubscribeOnClick(() =>
         {
+            ReplaceSelectedIcon(buyable, ref capSelectedIcon);
+
             buyButton.gameObject.SetActive(true);
             ChangeHealthBuffText(HealtBuffSystem.HealtBuffType.cap, buyable.HealthBuff);
             capSwitcher.SwitchCap(buyable.GetIndexOfCap);
@@ -837,7 +866,8 @@ public class SkineShopController : MonoBehaviour
             if (Geekplay.Instance.PlayerData.currentCap == buyable.GetIndexOfCap)
             {
                 ChangeHealthBuff(HealtBuffSystem.HealtBuffType.accessory, buyable.HealthBuff);
-                buyable.Select();
+
+                ReplaceSelectedIcon(buyable, ref capSelectedIcon);
             }
         }
     }
@@ -863,6 +893,13 @@ public class SkineShopController : MonoBehaviour
         healthBuffSystem.AddBuff(type, buffPower, currentHealthText);
 
         ChangeHealthBuffText(type, buffPower);
+    }
+    private void ReplaceSelectedIcon(Buyable buyable, ref GameObject selectedIcon)
+    {
+        RectTransform rect = buyable.GetComponent<RectTransform>();
+        if (selectedIcon != null) Destroy(selectedIcon);
+
+        selectedIcon = Instantiate(Resources.Load<GameObject>("SelectedIcon"), rect);
     }
 
     private void OnDisable()

@@ -16,18 +16,4 @@ public class HairBuyable : Buyable
     {
         buttonSelf.onClick.AddListener(action);
     }
-
-    public void Select()
-    {
-        //SelectedIcon.SetActive(true);
-        SelectedIcon = Resources.Load<GameObject>("SelectedIcon");
-
-        SelectedIcon = Instantiate(SelectedIcon, transform);
-    }
-
-    public void Unselect()
-    {
-        //SelectedIcon.SetActive(false);
-        Destroy(SelectedIcon);
-    }
 }
