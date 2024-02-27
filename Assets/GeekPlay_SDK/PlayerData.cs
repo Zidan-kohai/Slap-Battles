@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 [Serializable]
 public class PlayerData
@@ -39,6 +38,8 @@ public class PlayerData
 
     public List<int> BuyedSlaps = new List<int>();
     public int currentSlap;
+
+    public List<Modes> BuyedModes = new List<Modes>() { Modes.Hub, Modes.Standart};
 
     /////InApps//////
     public string lastBuy;
