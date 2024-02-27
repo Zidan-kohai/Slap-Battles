@@ -319,7 +319,7 @@ public class SkineShopController : MonoBehaviour
                     });
                 }
 
-                buyText.text = $"купить - {buyable.GetCost}";
+                buyText.text = $"купить {buyable.GetCost}";
                 if(buyable.costType == Buyable.TypeOfCost.money)
                 {
                     buySlapIcon.SetActive(true);
@@ -607,7 +607,7 @@ public class SkineShopController : MonoBehaviour
             }
             else
             {
-                buyText.text = $"купить - {buyable.GetCost}";
+                buyText.text = $"купить {buyable.GetCost}";
 
                 if (buyable.costType == Buyable.TypeOfCost.money)
                 {
@@ -720,7 +720,7 @@ public class SkineShopController : MonoBehaviour
             }
             else
             {
-                buyText.text = $"купить - {buyable.GetCost}";
+                buyText.text = $"купить {buyable.GetCost}";
 
                 if (buyable.costType == Buyable.TypeOfCost.money)
                 {
@@ -817,7 +817,7 @@ public class SkineShopController : MonoBehaviour
             }
             else
             {
-                buyText.text = $"купить - {buyable.GetCost}";
+                buyText.text = $"купить {buyable.GetCost}";
 
                 if (buyable.costType == Buyable.TypeOfCost.money)
                 {

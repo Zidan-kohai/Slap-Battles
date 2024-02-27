@@ -79,6 +79,7 @@ public class PlayerAttack : MonoBehaviour
             if(slapCount % 3 == 0)
             {
                 UIDiamond.Run();
+                eventManager.InvokeChangeDiamondEvents(1);
             }
         }
         StartCoroutine(AttackAnimation());

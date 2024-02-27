@@ -1,10 +1,12 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DiamondUIGettedShow : MonoBehaviour
 {
     public float animationDuration;
     public Vector3 startLocalPosition;
+    [SerializeField] private Transform targetToRotate;
 
     private void Start()
     {
@@ -23,6 +25,12 @@ public class DiamondUIGettedShow : MonoBehaviour
         {
             lastedTime += Time.deltaTime;
             gameObject.transform.position += new Vector3(0, 0.01f, 0);
+
+            Vector3 forward = (targetToRotate.position - transform.position).normalized;
+            Quaternion rotation = Quaternion.LookRotation(forward, Vector3.up);
+            Vector3 euler = rotation.eulerAngles;
+            transform.rotation = Quaternion.Euler(0, euler.y, 0);
+
             yield return null;
         }
 

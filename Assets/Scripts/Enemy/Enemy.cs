@@ -16,7 +16,7 @@ public class Enemy : IHealthObject
     [SerializeField] protected NavMeshAgent navMeshAgent;
     [SerializeField] protected Collider collider;
     [SerializeField] private Rigidbody rb;
-    [SerializeField] private Image healthbar;
+    [SerializeField] protected Image healthbar;
     [SerializeField] protected Animator animator;
     
     [SerializeField] private float speed;
@@ -31,7 +31,7 @@ public class Enemy : IHealthObject
     [SerializeField] private LayerMask enemyLayer;
 
     [SerializeField] protected EventManager eventManager;
-    [SerializeField] private int slapToGive;
+    [SerializeField] protected int slapToGive;
     [SerializeField] protected int stolenSlaps;
 
     [SerializeField] private Transform MaxPosition, MinPosition;
@@ -159,7 +159,7 @@ public class Enemy : IHealthObject
         }
         else
         {
-            StartCoroutine(GetDamageAnimation(direction, damagePower));
+            StartCoroutine(GetDamageAnimation(direction));
         }
         gettedSlap = slapToGive;
         isDeath = health <= 0;
@@ -171,13 +171,13 @@ public class Enemy : IHealthObject
         canGetDamage = true;
     }
     
-    public IEnumerator GetDamageAnimation(Vector3 direction, float damagePower)
+    public IEnumerator GetDamageAnimation(Vector3 direction)
     {
         navMeshAgent.enabled = false;
         rb.isKinematic = false;
         CanWalk = false;
-        direction.y = 0.8f;
-        rb.AddForce(direction * damagePower * 2500);
+        direction.y = 1f;
+        rb.AddForce(direction * 30000);
 
         yield return new WaitForSeconds(2);
 

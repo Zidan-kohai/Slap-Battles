@@ -6,6 +6,7 @@ using UnityEngine;
 public class EventManager : MonoBehaviour 
 {
     private Action<int> changeMoney;
+    private Action<int> changeDiamond;
     private Action<int,int> playerDeath;
     private Action playerRevive;
     private Action<Enemy> enemyDeath;
@@ -24,6 +25,22 @@ public class EventManager : MonoBehaviour
     public void InvokeChangeMoneyEvents(int money)
     {
         changeMoney?.Invoke(money);
+    }
+
+    #endregion
+
+    #region ChangeDiamond
+    public void SubscribeOnChangeDiamond(Action<int> action)
+    {
+        changeDiamond += action;
+    }
+    public void UnsubscribeOnChangeDiamond(Action<int> action)
+    {
+        changeDiamond -= action;
+    }
+    public void InvokeChangeDiamondEvents(int money)
+    {
+        changeDiamond?.Invoke(money);
     }
 
     #endregion
