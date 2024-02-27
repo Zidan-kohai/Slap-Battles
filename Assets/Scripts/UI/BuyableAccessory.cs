@@ -7,8 +7,6 @@ public class BuyableAccessory : Buyable
     [SerializeField] private int indexOfAccessory;
     [SerializeField] private Button buttonSelf;
 
-    [SerializeField] private GameObject SelectedIcon;
-
     public float HealthBuff;
 
     public int GetIndexOfAccessory { get { return indexOfAccessory; } }
