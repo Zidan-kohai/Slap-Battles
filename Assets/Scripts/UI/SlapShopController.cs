@@ -43,7 +43,7 @@ public class SlapShopController : MonoBehaviour
             slapSwitcher.SwitchSlap(buyable.GetIndexOfSlap);
             buyButton.onClick.RemoveAllListeners();
 
-            ReplaceSelectedIcon(buyable.GetComponent<RectTransform>());
+            ReplaceSelectedIcon(buyable);
 
             if (buyable.GetIsBuyed)
             {
@@ -118,18 +118,17 @@ public class SlapShopController : MonoBehaviour
             if(Geekplay.Instance.PlayerData.currentSlap == buyable.GetIndexOfSlap)
             {
                 //Put on
-                ReplaceSelectedIcon(buyable.GetComponent<RectTransform>());
+                ReplaceSelectedIcon(buyable);
             }
         }
     }
 
-    private void ReplaceSelectedIcon(RectTransform rect)
+    private void ReplaceSelectedIcon(Buyable buyable)
     {
+        RectTransform rect = buyable.GetComponent<RectTransform>();
         if (selectedIcons != null) Destroy(selectedIcons);
 
         selectedIcons = Instantiate(Resources.Load<GameObject>("SelectedIcon"), rect);
-
-
     }
     private void ChangePlayerSlap()
     {
