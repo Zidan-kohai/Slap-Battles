@@ -1130,7 +1130,8 @@ GameObject:
   - component: {fileID: 705205320}
   - component: {fileID: 705205324}
   - component: {fileID: 705205325}
-  m_Layer: 0
+  - component: {fileID: 705205326}
+  m_Layer: 9
   m_Name: Skine Shop Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1265,6 +1266,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!208 &705205326
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705205319}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 1, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1936,7 +1953,8 @@ GameObject:
   - component: {fileID: 963895551}
   - component: {fileID: 963895550}
   - component: {fileID: 963895549}
-  m_Layer: 0
+  - component: {fileID: 963895555}
+  m_Layer: 9
   m_Name: Slap Shop Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2072,6 +2090,22 @@ Transform:
   - {fileID: 2044602944}
   m_Father: {fileID: 972119013}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!208 &963895555
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963895548}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 1, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &972119012
 GameObject:
   m_ObjectHideFlags: 0
@@ -4977,7 +5011,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 511
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_GenerateLinks: 0
@@ -5297,7 +5331,8 @@ GameObject:
   - component: {fileID: 2145842198}
   - component: {fileID: 2145842196}
   - component: {fileID: 2145842197}
-  m_Layer: 0
+  - component: {fileID: 2145842201}
+  m_Layer: 9
   m_Name: In app Magazine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5433,6 +5468,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2145842194}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!208 &2145842201
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145842194}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 1, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &35223723849807034
 PrefabInstance:
   m_ObjectHideFlags: 0
