@@ -49,6 +49,7 @@ public class Enemy : IHealthObject
         CanWalk = true;
         canAttack = true;
         isDead = false;
+        canGetDamage = true;
 
         GetRandomTarget();
         Move(target);
@@ -67,7 +68,13 @@ public class Enemy : IHealthObject
     protected virtual void Update()
     {
         if (!CanWalk || isDead) return;
-        if (!navMeshAgent.isOnNavMesh) Death();
+        if (!navMeshAgent.isOnNavMesh) 
+        {
+            rb.isKinematic = false;
+            return;
+        }
+
+        rb.isKinematic = true;
 
         if(enemy != null)
         {

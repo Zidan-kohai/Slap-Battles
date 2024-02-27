@@ -119,6 +119,7 @@ MonoBehaviour:
   stolenSlaps: 0
   MaxPosition: {fileID: 0}
   MinPosition: {fileID: 0}
+  slapAudio: {fileID: 6131340786916919700}
   bossTransform: {fileID: 0}
 --- !u!95 &4127869507662476309 stripped
 Animator:
@@ -128,6 +129,11 @@ Animator:
 --- !u!54 &4823420226999459578 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 5489976833279692965, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
+  m_PrefabInstance: {fileID: 1062968206374604383}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &6131340786916919700 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6617632860187789259, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
   m_PrefabInstance: {fileID: 1062968206374604383}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &8147955533964895338 stripped
