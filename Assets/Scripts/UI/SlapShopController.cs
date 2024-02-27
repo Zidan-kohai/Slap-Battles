@@ -19,6 +19,8 @@ public class SlapShopController : MonoBehaviour
 
     [SerializeField] private HubEventManager eventManager;
     [SerializeField] private GameObject inAppShop;
+
+    private GameObject selectedIcons;
     private void OnEnable()
     {
         slapSwitcher.ShowSlaps();
@@ -40,6 +42,8 @@ public class SlapShopController : MonoBehaviour
             buyButton.gameObject.SetActive(true);
             slapSwitcher.SwitchSlap(buyable.GetIndexOfSlap);
             buyButton.onClick.RemoveAllListeners();
+
+            ReplaceSelectedIcon(buyable.GetComponent<RectTransform>());
 
             if (buyable.GetIsBuyed)
             {
@@ -85,6 +89,9 @@ public class SlapShopController : MonoBehaviour
                         buyable.Buy();
                         buyText.text = "Надето";
                         eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
+
+                        buySlapIcon.SetActive(false);
+                        buyDiamondIcon.SetActive(false);
                     });
                 }
                 else
@@ -108,9 +115,22 @@ public class SlapShopController : MonoBehaviour
             {
                 buyable.Buyed();
             }
+            if(Geekplay.Instance.PlayerData.currentSlap == buyable.GetIndexOfSlap)
+            {
+                //Put on
+                ReplaceSelectedIcon(buyable.GetComponent<RectTransform>());
+            }
         }
     }
 
+    private void ReplaceSelectedIcon(RectTransform rect)
+    {
+        if (selectedIcons != null) Destroy(selectedIcons);
+
+        selectedIcons = Instantiate(Resources.Load<GameObject>("SelectedIcon"), rect);
+
+
+    }
     private void ChangePlayerSlap()
     {
         slapSwitcher.SwitchSlap(Geekplay.Instance.PlayerData.currentSlap);
