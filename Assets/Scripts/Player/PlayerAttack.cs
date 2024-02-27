@@ -22,6 +22,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] protected Player player;
     [SerializeField] protected EventManager eventManager;
 
+    [Header("Audio")]
+    [SerializeField] protected AudioSource slapAudio;
     private void OnEnable()
     {
         slap.gameObject.SetActive(true);
@@ -59,6 +61,7 @@ public class PlayerAttack : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, attackDistanese, enemyLayer))
         {
+            slapAudio.Play();
             hit.collider.gameObject.GetComponent<Enemy>().GetDamage(slap.AttackPower, ray.direction, out bool isDeath, out int GettedSlap);
 
             if(slap.GetSlapPowerType() == SlapPowerType.DoubleSlap)

@@ -15,6 +15,11 @@ public class Player : IHealthObject
     [SerializeField] private SlapPower slapPower;
     [SerializeField] private GameObject playerCanvas;
 
+    [Header("Audio")]
+    [SerializeField] protected AudioSource deathAudio;
+    [SerializeField] protected AudioSource fallingAudio;
+
+
     [Space(10), Header("Slap")]
     [SerializeField] private int slapToGive;
     [SerializeField] protected int stolenSlaps;
@@ -76,6 +81,11 @@ public class Player : IHealthObject
         {
             animator.SetTrigger("Death");
             playerCanvas.SetActive(false);
+            deathAudio.Play();
+        }
+        else
+        {
+            fallingAudio.Play();
         }
 
 

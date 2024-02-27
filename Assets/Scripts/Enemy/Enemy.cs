@@ -37,6 +37,9 @@ public class Enemy : IHealthObject
     [SerializeField] private Transform MaxPosition, MinPosition;
     protected bool isDead = false;
 
+
+    [Header("Audio")]
+    [SerializeField] private AudioSource slapAudio;
     public void ChangeEnemy(IHealthObject target) =>  enemy = target;
     protected void Start()
     {
@@ -99,6 +102,9 @@ public class Enemy : IHealthObject
             GetRandomTarget();
         }
         stolenSlaps += gettedSlap;
+
+
+        slapAudio.Play();
     }
 
     protected virtual void OnSuccesAttack()
