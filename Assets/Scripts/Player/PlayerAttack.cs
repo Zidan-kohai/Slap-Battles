@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    [SerializeField] private DiamondUIGettedShow UIDiamond;
+
     private const string ISATTACK = "IsAttack";
 
     [SerializeField] private Slap slap;
@@ -13,6 +15,7 @@ public class PlayerAttack : MonoBehaviour
     [Header("Slap")]
     [SerializeField] private Transform slapHandlerTransform;
     [SerializeField] private Transform slapRaycaster;
+    [SerializeField] private int slapCount;
     
     [Header("Attack")]
     [SerializeField] private LayerMask enemyLayer;
@@ -60,6 +63,7 @@ public class PlayerAttack : MonoBehaviour
 
         if (Physics.SphereCast(slapRaycaster.position, 0.7f, slapRaycaster.forward, out hit, attackDistanese, enemyLayer))
         {
+            slapCount++;
             slapAudio.Play();
             hit.collider.gameObject.GetComponent<Enemy>().GetDamage(slap.AttackPower, slapRaycaster.forward, out bool isDeath, out int GettedSlap);
 
@@ -71,6 +75,11 @@ public class PlayerAttack : MonoBehaviour
             player.SetStolenSlaps(GettedSlap);
             eventManager.InvokeChangeMoneyEvents(GettedSlap);
             OnSuccesAttack();
+
+            if(slapCount % 3 == 0)
+            {
+                UIDiamond.Run();
+            }
         }
         StartCoroutine(AttackAnimation());
     }

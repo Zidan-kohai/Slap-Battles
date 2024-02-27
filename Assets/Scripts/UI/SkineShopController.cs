@@ -6,6 +6,13 @@ using UnityEngine.UI;
 //TO DO Refactoring
 public class SkineShopController : MonoBehaviour
 {
+    [Space(10), Header("Buy Button")]
+    [SerializeField] private Button buyButton;
+    [SerializeField] private TextMeshProUGUI buyText;
+    [SerializeField] private GameObject buySlapIcon;
+    [SerializeField] private GameObject buyDiamondIcon;
+
+
     [Header("Material of Body Part"), Space(5)]
     [SerializeField] private Material bodyMaterial;
     [SerializeField] private List<Material> LeatherMaterial;
@@ -30,11 +37,6 @@ public class SkineShopController : MonoBehaviour
     [SerializeField] private GameObject womanHairColorIcon;
     [SerializeField] private GameObject womanSelectIcon;
 
-    [Space(10), Header("Buy Button")]
-    [SerializeField] private Button buyButton;
-    [SerializeField] private TextMeshProUGUI buyText;
-    [SerializeField] private GameObject buySlapIcon;
-    [SerializeField] private GameObject buyDiamondIcon;
 
     [Space(10), Header("Hair")]
     [SerializeField] HairSwitcher hairSwitcher;
@@ -180,7 +182,7 @@ public class SkineShopController : MonoBehaviour
         buyable.SubscribeOnClick(() =>
         {
             buyButton.gameObject.SetActive(true);
-            List<Material> material = null;
+            List<Material> material = new List<Material>();
             switch (buyable.GetBodyType)
             {
                 case BodyPart.Leather:
@@ -302,7 +304,7 @@ public class SkineShopController : MonoBehaviour
                     });
                 }
 
-                buyText.text = $"купить за {buyable.GetCost}";
+                buyText.text = $"купить - {buyable.GetCost}";
                 if(buyable.costType == Buyable.TypeOfCost.money)
                 {
                     buySlapIcon.SetActive(true);
@@ -581,7 +583,7 @@ public class SkineShopController : MonoBehaviour
             }
             else
             {
-                buyText.text = $"купить {buyable.GetCost}";
+                buyText.text = $"купить - {buyable.GetCost}";
 
                 if (buyable.costType == Buyable.TypeOfCost.money)
                 {
@@ -692,7 +694,7 @@ public class SkineShopController : MonoBehaviour
             }
             else
             {
-                buyText.text = $"купить {buyable.GetCost}";
+                buyText.text = $"купить - {buyable.GetCost}";
 
                 if (buyable.costType == Buyable.TypeOfCost.money)
                 {
@@ -786,7 +788,7 @@ public class SkineShopController : MonoBehaviour
             }
             else
             {
-                buyText.text = $"купить {buyable.GetCost}";
+                buyText.text = $"купить - {buyable.GetCost}";
 
                 if (buyable.costType == Buyable.TypeOfCost.money)
                 {

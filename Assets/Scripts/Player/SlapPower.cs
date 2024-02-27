@@ -7,6 +7,8 @@ using UnityEngine.AI;
 
 public class SlapPower : MonoBehaviour
 {
+    [SerializeField] private Timer timer;
+
     [SerializeField] private AdvancedWalkerController playerWalkController;
     [SerializeField] private SmoothPosition cameraSmoothPosition;
     [SerializeField] private EventManager eventManager;
@@ -23,7 +25,6 @@ public class SlapPower : MonoBehaviour
     [Header("Wall Power")]
     [SerializeField] private GameObject wallGameobject;
     [SerializeField] private List<Collider> playerCollider;
-    [SerializeField] private float timeToDisactivateWallPower;
 
     [Header("Sleeply Power")]
     [SerializeField] private float timeToEnemySleep;
@@ -31,38 +32,24 @@ public class SlapPower : MonoBehaviour
 
 
     [Header("Lego")]
-    [SerializeField] private float timeToDisactivateLegoPower;
     [SerializeField] private GameObject legoSphere;
     [SerializeField] private Transform legoSpherePosition;
 
     [Header("Snowy")]
-    [SerializeField] private float timeToDisactivateSnowyPower;
     [SerializeField] private float snowyPowerSphereRadius;
     [SerializeField] private float freezingFactor;
     private Collider[] freezedEnemies;
 
     [Header("Time")]
     [SerializeField] private Vector3 activatePosition;
-    [SerializeField] private float timeToDiactivateTimePower;
 
     [Header("Shooker")]
     [SerializeField] private float radiusSphereOfShookerPower;
-    [SerializeField] private float timeToDiactivateShookerPower;
 
     [Header("Pusher")]
     [SerializeField] private Transform wallPusherStartPosition;
     [SerializeField] private GameObject wallPusher;
-    [SerializeField] private float timeToDiactivatePusherPower;
 
-    [Header("Magnet")]
-    [SerializeField] private float timeToDiactivateMagnetPower;
-
-
-    [Header("Accelerator")]
-    [SerializeField] private float timeToDiactivateAcceleratorPower;
-
-    [Header("Gold")]
-    [SerializeField] private float timeToDiactivateGoldPower;
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.E) && !isPowerActivated)
@@ -120,7 +107,7 @@ public class SlapPower : MonoBehaviour
 
         wallGameobject.transform.position = player.transform.position;
 
-        StartCoroutine(DiactivatePower(timeToDisactivateWallPower, WallPowerDisactivate));
+        StartCoroutine(DiactivatePower(slap.rollBackTime, WallPowerDisactivate));
     }
 
     private void WallPowerDisactivate()
@@ -170,7 +157,7 @@ public class SlapPower : MonoBehaviour
         legoSphere.transform.position = legoSpherePosition.transform.position;
         legoSphere.transform.parent = null;
 
-        StartCoroutine(DiactivatePower(timeToDisactivateLegoPower, LegoPowerDisactivate));
+        StartCoroutine(DiactivatePower(slap.rollBackTime, LegoPowerDisactivate));
     }
 
     private void LegoPowerDisactivate()
@@ -194,7 +181,7 @@ public class SlapPower : MonoBehaviour
             enemy.Sleep(timeToEnemySleep);
         }
 
-        StartCoroutine(DiactivatePower(timeToDisactivateSnowyPower, SnowyPowerDisactivate));
+        StartCoroutine(DiactivatePower(slap.rollBackTime, SnowyPowerDisactivate));
     }
 
     private void SnowyPowerDisactivate()
@@ -259,7 +246,7 @@ public class SlapPower : MonoBehaviour
     {
         activatePosition = player.transform.position;
         isPowerActivated = true;
-        StartCoroutine(DiactivatePower(timeToDiactivateTimePower, DiactivateTimePower));
+        StartCoroutine(DiactivatePower(slap.rollBackTime, DiactivateTimePower));
         Debug.Log($"time power {activatePosition}");
     }
 
@@ -288,7 +275,7 @@ public class SlapPower : MonoBehaviour
             enemy.Sleep(timeToEnemySleep);
         }
         Debug.Log(colls.Length);
-        StartCoroutine(DiactivatePower(timeToDiactivateShookerPower, DiactivateShookerPower));
+        StartCoroutine(DiactivatePower(slap.rollBackTime, DiactivateShookerPower));
     }
 
     private void DiactivateShookerPower()
@@ -309,7 +296,7 @@ public class SlapPower : MonoBehaviour
         wallPusher.transform.parent = null;
         wallPusher.transform.forward = playerModelHandler.transform.forward;
         wallPusher.SetActive(true);
-        StartCoroutine(DiactivatePower(timeToDiactivatePusherPower, PusherPowerDiactivate));
+        StartCoroutine(DiactivatePower(slap.rollBackTime, PusherPowerDiactivate));
     }
 
     private void PusherPowerDiactivate()
@@ -344,7 +331,7 @@ public class SlapPower : MonoBehaviour
 
         player.transform.position = TeleportPosition;
 
-        StartCoroutine(DiactivatePower(timeToDiactivateMagnetPower, DiactivateMagnetPower));
+        StartCoroutine(DiactivatePower(slap.rollBackTime, DiactivateMagnetPower));
     }
 
     private void DiactivateMagnetPower()
@@ -363,7 +350,7 @@ public class SlapPower : MonoBehaviour
 
         playerWalkController.movementSpeed = startSpeed * 2;
 
-        StartCoroutine(DiactivatePower(timeToDiactivateAcceleratorPower, DiactivaetAcceleratorPower));
+        StartCoroutine(DiactivatePower(slap.rollBackTime, DiactivaetAcceleratorPower));
     }
 
     private void DiactivaetAcceleratorPower()
@@ -385,7 +372,7 @@ public class SlapPower : MonoBehaviour
         slap.AttackPower *= 1.5f;
         playerWalkController.movementSpeed = startSpeed * 2;
 
-        StartCoroutine(DiactivatePower(timeToDiactivateGoldPower, DiactivateGoldPower));
+        StartCoroutine(DiactivatePower(slap.rollBackTime, DiactivateGoldPower));
     }
 
     private void DiactivateGoldPower()
@@ -398,6 +385,7 @@ public class SlapPower : MonoBehaviour
     #endregion
     private IEnumerator DiactivatePower(float waitTime, Action action)
     {
+        timer?.Run(slap.rollBackTime);
         yield return new WaitForSeconds(waitTime);
 
         action?.Invoke();

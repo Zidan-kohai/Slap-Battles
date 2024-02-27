@@ -41,6 +41,8 @@ public class PlayerData
 
     public List<Modes> BuyedModes = new List<Modes>() { Modes.Hub, Modes.Standart};
 
+    public List<int> codes = new List<int>();
+
     /////InApps//////
     public string lastBuy;
 

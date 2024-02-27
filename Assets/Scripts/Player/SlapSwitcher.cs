@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SlapSwitcher : MonoBehaviour
 {
@@ -13,6 +15,8 @@ public class SlapSwitcher : MonoBehaviour
     [Header("Links")]
     [SerializeField] private PlayerAttack playerAttack;
     [SerializeField] private SlapPower power;
+    [SerializeField] private TextMeshProUGUI powerDescription;
+    //[SerializeField] private Image powerRollbackTime;
 
     private void Start()
     {
@@ -42,6 +46,9 @@ public class SlapSwitcher : MonoBehaviour
                 chosedSlap = womanSlaps[i].GetComponent<Slap>();
             }
         }
+
+        powerDescription.text = chosedSlap.descriptionOfSuperPower;
+
         return chosedSlap;
     }
 

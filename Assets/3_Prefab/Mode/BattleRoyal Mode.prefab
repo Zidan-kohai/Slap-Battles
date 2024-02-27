@@ -2573,6 +2573,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.0050391383
       objectReference: {fileID: 0}
+    - target: {fileID: 2688340593362432066, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
+      propertyPath: powerDescription
+      value: 
+      objectReference: {fileID: 3861062203304147711}
     - target: {fileID: 3000336186378430045, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
       propertyPath: health
       value: 40
@@ -2797,6 +2801,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.00786331
       objectReference: {fileID: 0}
+    - target: {fileID: 4543991973930755511, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
+      propertyPath: timer
+      value: 
+      objectReference: {fileID: 8838641227906698311}
     - target: {fileID: 4543991973930755511, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
       propertyPath: eventManager
       value: 
@@ -3669,6 +3677,34 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 600
       objectReference: {fileID: 0}
+    - target: {fileID: 6690871362965918650, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6690871362965918650, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6690871362965918650, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6690871362965918650, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6690871362965918650, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6690871362965918650, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6690871362965918650, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6999826403597791280, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
       propertyPath: m_Name
       value: BattleRoyalMainPanel
@@ -3681,6 +3717,17 @@ PrefabInstance:
 --- !u!114 &3624081482458772508 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6641267352138865022, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
+  m_PrefabInstance: {fileID: 7953875432294870370}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3861062203304147711 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6626176096616650653, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
   m_PrefabInstance: {fileID: 7953875432294870370}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -3705,6 +3752,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1470355044865784180, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
   m_PrefabInstance: {fileID: 7953875432294870370}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8838641227906698311 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1497727038682046757, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
+  m_PrefabInstance: {fileID: 7953875432294870370}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d91820f81943d7458e378b7679f38db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7959993289277092046
 PrefabInstance:
   m_ObjectHideFlags: 0

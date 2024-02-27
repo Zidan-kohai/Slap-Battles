@@ -648,6 +648,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40823b84a4f484f46b10d460682122e1, type: 3}
+--- !u!114 &2276201230656047830 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 802734976616453879, guid: 40823b84a4f484f46b10d460682122e1, type: 3}
+  m_PrefabInstance: {fileID: 1492190939208145953}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d91820f81943d7458e378b7679f38db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3000751415975672554 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4400470124456584907, guid: 40823b84a4f484f46b10d460682122e1, type: 3}
+  m_PrefabInstance: {fileID: 1492190939208145953}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &4654408247863414627 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6062571209789461314, guid: 40823b84a4f484f46b10d460682122e1, type: 3}
@@ -1680,6 +1702,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.0050391383
       objectReference: {fileID: 0}
+    - target: {fileID: 2688340593362432066, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
+      propertyPath: powerDescription
+      value: 
+      objectReference: {fileID: 3000751415975672554}
     - target: {fileID: 3000336186378430045, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
       propertyPath: health
       value: 1
@@ -1912,6 +1938,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.00786331
       objectReference: {fileID: 0}
+    - target: {fileID: 4543991973930755511, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
+      propertyPath: timer
+      value: 
+      objectReference: {fileID: 2276201230656047830}
     - target: {fileID: 4543991973930755511, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
       propertyPath: eventManager
       value: 
@@ -2283,6 +2313,10 @@ PrefabInstance:
     - target: {fileID: 7849365028612606464, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7849365028612606464, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8266699916439624963, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
       propertyPath: m_LocalPosition.x
