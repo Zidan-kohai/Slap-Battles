@@ -1,3 +1,4 @@
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class OneTimeBuff : MonoBehaviour
@@ -31,6 +32,8 @@ public class OneTimeBuff : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.layer != 7) return;
+
         switch(buffType)
         {
             case BuffType.DoubleSlaps:

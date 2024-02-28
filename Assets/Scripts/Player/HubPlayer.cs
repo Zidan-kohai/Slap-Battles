@@ -9,6 +9,11 @@ public class HubPlayer : MonoBehaviour
         Geekplay.Instance.BuffAcceleration = false;
         Geekplay.Instance.BuffDoubleSlap = false;
         Geekplay.Instance.BuffIncreaseHP = false;
+
+
+        Debug.Log("BuffAcceleration - " + Geekplay.Instance.BuffAcceleration);
+        Debug.Log("BuffDoubleSlap - " + Geekplay.Instance.BuffDoubleSlap);
+        Debug.Log("BuffIncreaseHP - " + Geekplay.Instance.BuffIncreaseHP);
     }
     void Update()
     {
