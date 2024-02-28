@@ -7,6 +7,11 @@ public class CategoriesChoose : MonoBehaviour
     [SerializeField] private GameObject manHair;
     [SerializeField] private GameObject womanHair;
     [SerializeField] private GameObject buyButton;
+
+    private void OnEnable()
+    {
+        TurnOn(0);   
+    }
     public void TurnOn(int index)
     {
         buyButton.SetActive(false);
