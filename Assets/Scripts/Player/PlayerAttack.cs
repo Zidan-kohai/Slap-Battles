@@ -57,7 +57,7 @@ public class PlayerAttack : MonoBehaviour
         Debug.Log(eventManager);
     }
 
-    protected virtual void Attack()
+    public virtual void Attack()
     {
         RaycastHit hit;
 

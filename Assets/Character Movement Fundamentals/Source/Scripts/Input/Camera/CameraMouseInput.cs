@@ -20,11 +20,18 @@ namespace CMF
         //All mouse input will be multiplied by this value;
         public float mouseInputMultiplier = 0.01f;
 
+
+        public SwipeDetector mobileSwipeDetector;
 	    public override float GetHorizontalCameraInput()
         {
             //Get raw mouse input;
-            float _input = Input.GetAxisRaw(mouseHorizontalAxis);
+            float _input = 0;// Input.GetAxisRaw(mouseHorizontalAxis);
             
+            if(Geekplay.Instance.mobile)
+            {
+                _input = mobileSwipeDetector.swipeDelta.x;
+            }
+
             //Since raw mouse input is already time-based, we need to correct for this before passing the input to the camera controller;
             if(Time.timeScale > 0f && Time.deltaTime > 0f)
             {
@@ -46,9 +53,14 @@ namespace CMF
 
         public override float GetVerticalCameraInput()
         {
-           //Get raw mouse input;
-            float _input = -Input.GetAxisRaw(mouseVerticalAxis);
+            //Get raw mouse input;
+            float _input = 0;// -Input.GetAxisRaw(mouseVerticalAxis);
             
+            if(Geekplay.Instance.mobile)
+            {
+                _input = -mobileSwipeDetector.swipeDelta.y;
+            }
+
             //Since raw mouse input is already time-based, we need to correct for this before passing the input to the camera controller;
             if(Time.timeScale > 0f && Time.deltaTime > 0f)
             {

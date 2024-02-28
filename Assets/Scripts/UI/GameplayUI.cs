@@ -8,6 +8,8 @@ public class GameplayUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI DiamondText;
     [SerializeField] private EventManager eventManager;
     [SerializeField] private LosePanel LosePanel;
+
+    [SerializeField] private GameObject mobilePanel;
     private void Start()
     {
         eventManager.SubscribeOnChangeMoney(OnChangeMoney);
@@ -17,6 +19,15 @@ public class GameplayUI : MonoBehaviour
 
         moneyText.text = Geekplay.Instance.PlayerData.money.ToString();
         DiamondText.text = Geekplay.Instance.PlayerData.DiamondMoney.ToString();
+
+        if(Geekplay.Instance.mobile)
+        {
+            mobilePanel.SetActive(true);
+        }
+        else
+        {
+            mobilePanel.SetActive(false);
+        }
     }
 
     private void OnRevive()

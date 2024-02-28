@@ -459,6 +459,14 @@ namespace CMF
 		//Events;
 
 		//This function is called when the player has initiated a jump;
+
+		public void Jump()
+        {
+            OnGroundContactLost();
+            OnJumpStart();
+
+            currentControllerState = ControllerState.Jumping;
+        }
 		void OnJumpStart()
 		{
 			//If local momentum is used, transform momentum into world coordinates first;

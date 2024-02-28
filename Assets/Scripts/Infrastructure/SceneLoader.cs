@@ -13,8 +13,11 @@ public class SceneLoader
 
     public void LoadScene(int index, UnityAction onLoad = null)
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        if (!Geekplay.Instance.mobile)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
 
         AsyncOperation operation = SceneManager.LoadSceneAsync(index);
         mono.StartCoroutine(Loading(operation, onLoad));

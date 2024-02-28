@@ -9,8 +9,12 @@ public class BtnLock : Button, IPointerDownHandler
     public override void OnPointerDown (PointerEventData eventData) 
 	{
 		base.OnPointerDown(eventData);
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
         onClick.Invoke();
+
+        if (!Geekplay.Instance.mobile)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
 	}
 }

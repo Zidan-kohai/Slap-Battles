@@ -54,42 +54,47 @@ public class SlapPower : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E) && !isPowerActivated)
         {
-            switch(slap.GetSlapPowerType())
-            {
-                case SlapPowerType.Wall:
-                    WallPowerActivate();
-                     break;
-                case SlapPowerType.Sleepy:
-                    SleepLyPowerActivate();
-                     break;
-                case SlapPowerType.Lego:
-                    LegoPowerActivate();
-                     break;
-                case SlapPowerType.Snowy:
-                    SnowyPowerActivate();
-                     break;
-                case SlapPowerType.Teleport:
-                    TeleportPowerActivate();    
-                     break;
-                case SlapPowerType.Time:
-                    ActivateTimePower();
-                     break;
-                case SlapPowerType.Shocker:
-                    ActivateShookerPower();
-                     break;
-                case SlapPowerType.Pusher:
-                    PusherPowerActivate();
-                     break;
-                case SlapPowerType.Magnet:
-                    ActivateMagnetPower();
-                     break;
-                case SlapPowerType.Accelerator:
-                    AcceleratorPowerActive();
-                    break;
-                case SlapPowerType.Gold:
-                    GoldPowerActivate();
-                    break;
-            }
+            UsePower();
+        }
+    }
+
+    public void UsePower()
+    {
+        switch (slap.GetSlapPowerType())
+        {
+            case SlapPowerType.Wall:
+                WallPowerActivate();
+                break;
+            case SlapPowerType.Sleepy:
+                SleepLyPowerActivate();
+                break;
+            case SlapPowerType.Lego:
+                LegoPowerActivate();
+                break;
+            case SlapPowerType.Snowy:
+                SnowyPowerActivate();
+                break;
+            case SlapPowerType.Teleport:
+                TeleportPowerActivate();
+                break;
+            case SlapPowerType.Time:
+                ActivateTimePower();
+                break;
+            case SlapPowerType.Shocker:
+                ActivateShookerPower();
+                break;
+            case SlapPowerType.Pusher:
+                PusherPowerActivate();
+                break;
+            case SlapPowerType.Magnet:
+                ActivateMagnetPower();
+                break;
+            case SlapPowerType.Accelerator:
+                AcceleratorPowerActive();
+                break;
+            case SlapPowerType.Gold:
+                GoldPowerActivate();
+                break;
         }
     }
 

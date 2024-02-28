@@ -11,6 +11,7 @@ public partial class Portal : MonoBehaviour
     public GameObject lockPanel;
     public BoxCollider collider;
     public HubEventManager eventManager;
+    public BuyPortalPanel buyPortal;
     private void Start()
     {
         if(Geekplay.Instance.PlayerData.BuyedModes.Contains(Mode))
@@ -22,6 +23,12 @@ public partial class Portal : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer != 7) return;
+        else if (!isBuyed)
+        {
+            buyPortal.InitializePanel(cost, TryBuy);
+            return;
+        }
+
         SceneLoader sceneLoader = new SceneLoader(this);
 
         Geekplay.Instance.currentMode = Mode;

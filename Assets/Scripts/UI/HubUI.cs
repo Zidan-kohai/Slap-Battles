@@ -8,6 +8,7 @@ public class HubUI : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI slapCountText;
     [SerializeField] private TextMeshProUGUI diamondCountText;
+    [SerializeField] private GameObject mobilePanel;
 
     private void Start()
     {
@@ -15,6 +16,15 @@ public class HubUI : MonoBehaviour
         diamondCountText.text = Geekplay.Instance.PlayerData.DiamondMoney.ToString();
 
         eventManager.SubscribeOnChangeMoney(ChangeMoney);
+
+        if(Geekplay.Instance.mobile)
+        {
+            mobilePanel.SetActive(true);
+        }
+        else
+        {
+            mobilePanel.SetActive(false);
+        }
     }
 
     private void ChangeMoney(int slapCount, int diamondCount)

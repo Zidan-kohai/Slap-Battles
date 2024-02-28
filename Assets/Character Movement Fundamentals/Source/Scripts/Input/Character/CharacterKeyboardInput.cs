@@ -10,21 +10,25 @@ namespace CMF
 		public string horizontalInputAxis = "Horizontal";
 		public string verticalInputAxis = "Vertical";
 		public KeyCode jumpKey = KeyCode.Space;
-
+		public Joystick joystick;
 		//If this is enabled, Unity's internal input smoothing is bypassed;
 		public bool useRawInput = true;
 
         public override float GetHorizontalMovementInput()
 		{
-			if(useRawInput)
+            if (Geekplay.Instance.mobile)
+				return joystick.Horizontal;
+			else if (useRawInput)
 				return Input.GetAxisRaw(horizontalInputAxis);
 			else
 				return Input.GetAxis(horizontalInputAxis);
 		}
 
 		public override float GetVerticalMovementInput()
-		{
-			if(useRawInput)
+        {
+            if (Geekplay.Instance.mobile)
+                return joystick.Vertical;
+            else if (useRawInput)
 				return Input.GetAxisRaw(verticalInputAxis);
 			else
 				return Input.GetAxis(verticalInputAxis);
