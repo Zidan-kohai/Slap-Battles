@@ -3,6 +3,13 @@ using UnityEngine;
 public class HubPlayer : MonoBehaviour
 {
     public Transform raycastPoint;
+
+    private void Start()
+    {
+        Geekplay.Instance.BuffAcceleration = false;
+        Geekplay.Instance.BuffDoubleSlap = false;
+        Geekplay.Instance.BuffIncreaseHP = false;
+    }
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.E))

@@ -38,11 +38,22 @@ public class Player : IHealthObject
         stolenSlaps = 0;
         rb = GetComponent<Rigidbody>();
         walkController = GetComponent<AdvancedWalkerController>();
-        movementSpeed = walkController.movementSpeed;
         jumpSpeed = walkController.jumpSpeed;
         if (Geekplay.Instance.currentMode != Modes.Hub)
             eventManager.SubscribeOnPlayerRevive(Revive);
 
+
+        if(Geekplay.Instance.BuffAcceleration)
+        {
+            walkController.movementSpeed *= 2;
+        }
+        movementSpeed = walkController.movementSpeed;
+
+        if(Geekplay.Instance.BuffIncreaseHP)
+        {
+            maxHealth *= 2;
+            health = maxHealth;
+        }
         healthbar.fillAmount = (health / maxHealth);
     }
     public override void GetDamage(float damagePower, Vector3 direction, out bool isDeath, out int stoledSlap)
