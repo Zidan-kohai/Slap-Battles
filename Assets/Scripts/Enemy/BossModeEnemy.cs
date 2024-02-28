@@ -36,6 +36,6 @@ public class BossModeEnemy : Enemy
     {
         base.OnSuccesAttack();
 
-        GetRandomTarget();
+        GetNearnestEnemyAsTarget();
     }
 }

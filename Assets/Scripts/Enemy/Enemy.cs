@@ -35,14 +35,13 @@ public class Enemy : IHealthObject
     [SerializeField] protected int stolenSlaps;
 
     [SerializeField] private Transform MaxPosition, MinPosition;
-    protected bool isDead = false;
     protected bool canGetDamage = false;
 
 
     [Header("Audio")]
     [SerializeField] private AudioSource slapAudio;
     public void ChangeEnemy(IHealthObject target) =>  enemy = target;
-    protected void Start()
+    protected void OnEnable()
     {
         stolenSlaps = 1;
         rb.isKinematic = true;
@@ -51,7 +50,7 @@ public class Enemy : IHealthObject
         isDead = false;
         canGetDamage = true;
 
-        GetRandomTarget();
+        GetNearnestEnemyAsTarget();
         Move(target);
 
         eventManager.SubscribeOnEnemyDeath(OnEnemyDeath);
@@ -76,7 +75,7 @@ public class Enemy : IHealthObject
 
         rb.isKinematic = true;
 
-        if(enemy != null)
+        if(enemy != null && !enemy.IsDead)
         {
             target = enemy.transform.position;
             Move(target);
@@ -88,9 +87,9 @@ public class Enemy : IHealthObject
             }
         }
 
-        else if((target - transform.position).magnitude < 3f)
+        else
         {
-            GetRandomTarget();
+            GetNearnestEnemyAsTarget();
             Move(target);
         }
 
@@ -107,7 +106,7 @@ public class Enemy : IHealthObject
         if(isDeath)
         {
             enemy = null;
-            GetRandomTarget();
+            GetNearnestEnemyAsTarget();
         }
         stolenSlaps += gettedSlap;
 
@@ -125,8 +124,28 @@ public class Enemy : IHealthObject
         navMeshAgent.SetDestination(targetPosition);
     }
 
-    protected void GetRandomTarget()
+    protected void GetNearnestEnemyAsTarget()
     {
+        Collider[] colls = Physics.OverlapSphere(transform.position, 1000f, enemyLayer);
+
+        float minDistanse = Mathf.Infinity;
+        enemy = null;
+
+        foreach(Collider coll in colls)
+        {
+            float distanse = Vector3.Distance(transform.position, coll.transform.position);
+            if(distanse < minDistanse)
+            {
+                IHealthObject healthObject = coll.GetComponent<IHealthObject>();
+                if (healthObject != this)
+                {
+                    minDistanse = distanse;
+                    enemy = healthObject;
+                    target = enemy.transform.position;
+                }
+            }
+        }
+
         target = new Vector3(Random.Range(MinPosition.position.x, MaxPosition.position.x),
             transform.position.y,
             Random.Range(MinPosition.position.z, MaxPosition.position.z));
@@ -167,7 +186,7 @@ public class Enemy : IHealthObject
 
     protected void OnEndAnimations()
     {
-        GetRandomTarget();
+        GetNearnestEnemyAsTarget();
         canGetDamage = true;
     }
     
@@ -230,7 +249,7 @@ public class Enemy : IHealthObject
             if (enemy == myEnemy)
             {
                 this.enemy = null;
-                GetRandomTarget(); 
+                GetNearnestEnemyAsTarget(); 
                 Move(target);
             }
         }

@@ -4,7 +4,10 @@ public class IHealthObject : MonoBehaviour
 {
     [SerializeField] protected float health;
     [SerializeField] protected float maxHealth;
+    protected bool isDead = false;
 
+
+    public bool IsDead => isDead;
     public float CurrentHealth { get => health; set => health = value; }
     public float MaxHealth { get => maxHealth; set => maxHealth = value; }
 

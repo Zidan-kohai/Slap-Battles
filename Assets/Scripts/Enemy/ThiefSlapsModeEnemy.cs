@@ -7,9 +7,9 @@ public class ThiefSlapsModeEnemy : Enemy
     [SerializeField] private int minStoleChance;
     [SerializeField] private int maxStoleChance;
 
-    private void Start()
+    private void OnEnable()
     {
-        base.Start();
+        base.OnEnable();
 
         stolenSlaps = Random.Range(1, 15);
 

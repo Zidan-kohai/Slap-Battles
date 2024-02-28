@@ -51,7 +51,7 @@ MonoBehaviour:
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_UseGeometry: 0
+  m_UseGeometry: 1
   m_DefaultArea: 0
   m_GenerateLinks: 0
   m_IgnoreNavMeshAgent: 1
@@ -3836,6 +3836,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1626376185768969731}
     m_Modifications:
+    - target: {fileID: 733471598116558398, guid: e5cf8b43aaeabff4980bf40bb30fb074, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 1618366001696278624, guid: e5cf8b43aaeabff4980bf40bb30fb074, type: 3}
       propertyPath: m_Name
       value: Enviroment
@@ -3879,6 +3883,18 @@ PrefabInstance:
     - target: {fileID: 3488021477524869859, guid: e5cf8b43aaeabff4980bf40bb30fb074, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3966754168981576589, guid: e5cf8b43aaeabff4980bf40bb30fb074, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6454682009087610844, guid: e5cf8b43aaeabff4980bf40bb30fb074, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7477581523384130014, guid: e5cf8b43aaeabff4980bf40bb30fb074, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
