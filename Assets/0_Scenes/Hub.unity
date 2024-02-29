@@ -80054,6 +80054,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1811705962107685689, guid: 574c39a94975aba4684e3449266794a5, type: 3}
+      propertyPath: m_Name
+      value: Hair_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1811705962107685689, guid: 574c39a94975aba4684e3449266794a5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1855753726734666695, guid: 574c39a94975aba4684e3449266794a5, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -80066,9 +80074,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3504180834119819846, guid: 574c39a94975aba4684e3449266794a5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3903454394475287027, guid: 574c39a94975aba4684e3449266794a5, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4448633467496371431, guid: 574c39a94975aba4684e3449266794a5, type: 3}
+      propertyPath: m_Name
+      value: Hair_00
+      objectReference: {fileID: 0}
+    - target: {fileID: 4630091899859309037, guid: 574c39a94975aba4684e3449266794a5, type: 3}
+      propertyPath: m_Name
+      value: Hair_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4630091899859309037, guid: 574c39a94975aba4684e3449266794a5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4755829841857850374, guid: 574c39a94975aba4684e3449266794a5, type: 3}
+      propertyPath: m_Name
+      value: Hair_00
       objectReference: {fileID: 0}
     - target: {fileID: 5613943008205495041, guid: 574c39a94975aba4684e3449266794a5, type: 3}
       propertyPath: joystick
@@ -80076,7 +80104,11 @@ PrefabInstance:
       objectReference: {fileID: 260296069}
     - target: {fileID: 6380628498981499304, guid: 574c39a94975aba4684e3449266794a5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6927515050371418128, guid: 574c39a94975aba4684e3449266794a5, type: 3}
+      propertyPath: womanHairs.Array.data[2]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6986546481412565470, guid: 574c39a94975aba4684e3449266794a5, type: 3}
       propertyPath: mobileSwipeDetector
@@ -80128,10 +80160,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9172135154248580016, guid: 574c39a94975aba4684e3449266794a5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3504180834119819846, guid: 574c39a94975aba4684e3449266794a5, type: 3}
+    - {fileID: 2792011672013622755, guid: 574c39a94975aba4684e3449266794a5, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 574c39a94975aba4684e3449266794a5, type: 3}
