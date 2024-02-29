@@ -48,7 +48,7 @@ public class GameplayUI : MonoBehaviour
 
     private void OnPlayerDeath(int deadCount, int stolenSlaps)
     {
-        LosePanel.SetSlapCount(stolenSlaps);
+         LosePanel.SetSlapCount(stolenSlaps);
 
         if (deadCount < 2)
         {

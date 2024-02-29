@@ -27,7 +27,6 @@ public class SlapPower : MonoBehaviour
     [SerializeField] private List<Collider> playerCollider;
 
     [Header("Sleeply Power")]
-    [SerializeField] private float timeToEnemySleep;
     [SerializeField] private float sleeplyPowerSphereRadius;
 
 
@@ -66,7 +65,7 @@ public class SlapPower : MonoBehaviour
                 WallPowerActivate();
                 break;
             case SlapPowerType.Sleepy:
-                SleepLyPowerActivate();
+                SleeplyPowerActivate();
                 break;
             case SlapPowerType.Lego:
                 LegoPowerActivate();
@@ -134,7 +133,7 @@ public class SlapPower : MonoBehaviour
 
     #region sleeply
 
-    private void SleepLyPowerActivate()
+    private void SleeplyPowerActivate()
     {
         Collider[] colls = Physics.OverlapSphere(player.transform.position, sleeplyPowerSphereRadius, enemyLayer);
 
@@ -145,8 +144,17 @@ public class SlapPower : MonoBehaviour
             player.SetStolenSlaps(gettedSlap);
             eventManager.InvokeChangeMoneyEvents(gettedSlap);
 
-            enemy.Sleep(timeToEnemySleep);
+            enemy.Sleep(slap.rollBackTime);
         }
+
+        isPowerActivated = true;
+
+        StartCoroutine(DiactivatePower(slap.rollBackTime, SleeplyPowerDiactivate));
+    }
+
+    private void SleeplyPowerDiactivate()
+    {
+        isPowerActivated = false;
     }
 
     #endregion
@@ -183,7 +191,7 @@ public class SlapPower : MonoBehaviour
             Enemy enemy = item.GetComponent<Enemy>();
             enemy.GetNavMeshAgent.speed /= freezingFactor; 
 
-            enemy.Sleep(timeToEnemySleep);
+            enemy.Sleep(slap.rollBackTime);
         }
 
         StartCoroutine(DiactivatePower(slap.rollBackTime, SnowyPowerDisactivate));
@@ -196,7 +204,7 @@ public class SlapPower : MonoBehaviour
             Enemy enemy = item.GetComponent<Enemy>();
             enemy.GetNavMeshAgent.speed *= freezingFactor;
 
-            enemy.Sleep(timeToEnemySleep);
+            enemy.Sleep(slap.rollBackTime);
         }
     }
 
@@ -205,6 +213,8 @@ public class SlapPower : MonoBehaviour
     #region Teleport 
     private void TeleportPowerActivate()
     {
+        isPowerActivated = true;
+
         NavMeshTriangulation navMeshData = NavMesh.CalculateTriangulation();
 
         if (navMeshData.vertices.Length == 0)
@@ -214,7 +224,9 @@ public class SlapPower : MonoBehaviour
         }
 
         SpawnRandomPoint(navMeshData);
+        StartCoroutine(DiactivatePower(slap.rollBackTime, TeleportDiactivate));
     }
+
     private void SpawnRandomPoint(NavMeshTriangulation navMeshData)
     {
         // Передаем случайные индексы из массива треугольников навмеша
@@ -222,6 +234,7 @@ public class SlapPower : MonoBehaviour
         Vector3 randomPoint = GetRandomPointInTriangle(randomTriangleIndex, navMeshData);
         player.transform.position = randomPoint;
     }
+
     private Vector3 GetRandomPointInTriangle(int triangleIndex, NavMeshTriangulation navMeshData)
     {
         // Выбираем три вершины для заданного треугольника
@@ -243,6 +256,12 @@ public class SlapPower : MonoBehaviour
         // Рассчитываем случайную точку внутри треугольника
         return v1 + r1 * (v2 - v1) + r2 * (v3 - v1);
     }
+
+    private void TeleportDiactivate()
+    {
+        isPowerActivated = false;
+    }
+
 
     #endregion
 
@@ -277,7 +296,7 @@ public class SlapPower : MonoBehaviour
             player.SetStolenSlaps(gettedSlap);
             eventManager.InvokeChangeMoneyEvents(gettedSlap);
 
-            enemy.Sleep(timeToEnemySleep);
+            enemy.Sleep(slap.rollBackTime);
         }
         Debug.Log(colls.Length);
         StartCoroutine(DiactivatePower(slap.rollBackTime, DiactivateShookerPower));
@@ -388,6 +407,7 @@ public class SlapPower : MonoBehaviour
     }
 
     #endregion
+
     private IEnumerator DiactivatePower(float waitTime, Action action)
     {
         timer?.Run(slap.rollBackTime);

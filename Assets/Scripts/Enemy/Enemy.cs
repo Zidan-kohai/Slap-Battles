@@ -23,6 +23,7 @@ public class Enemy : IHealthObject
     [SerializeField] private int damagePower;
     [SerializeField] protected float distanseToAttack;
     [SerializeField] protected bool CanWalk;
+    [SerializeField] protected bool isSleeping;
     [SerializeField] private float timeNextToAttack;
     [SerializeField] protected bool canAttack;
 
@@ -49,6 +50,7 @@ public class Enemy : IHealthObject
         canAttack = true;
         isDead = false;
         canGetDamage = true;
+        speed = navMeshAgent.speed;
 
         GetNearnestEnemyAsTarget();
         Move(target);
@@ -66,7 +68,7 @@ public class Enemy : IHealthObject
 
     protected virtual void Update()
     {
-        if (!CanWalk || isDead) return;
+        if (!CanWalk || isDead || isSleeping) return;
         if (!navMeshAgent.isOnNavMesh) 
         {
             rb.isKinematic = false;
@@ -184,6 +186,38 @@ public class Enemy : IHealthObject
         isDeath = health <= 0;
     }
 
+    public override void GetDamageWithoutRebound(float damagePower, out bool isDeath, out int gettedSlap)
+    {
+        if (isDead)
+        {
+            isDeath = true;
+            gettedSlap = 0;
+            return;
+        }
+        if (!canGetDamage)
+        {
+            isDeath = false;
+            gettedSlap = 0;
+            return;
+        }
+        canGetDamage = false;
+        health -= damagePower;
+        healthbar.fillAmount = (health / maxHealth) < 0 ? 0 : health / maxHealth;
+
+        if (navMeshAgent.hasPath)
+            navMeshAgent.ResetPath();
+
+        if (health <= 0)
+        {
+            Death();
+        }
+        else
+        {
+            OnEndAnimations();
+        }
+        gettedSlap = slapToGive;
+        isDeath = health <= 0;
+    }
     protected void OnEndAnimations()
     {
         GetNearnestEnemyAsTarget();
@@ -220,6 +254,8 @@ public class Enemy : IHealthObject
         //collider.enabled = true;
         isDead = false;
         canGetDamage = true;
+        isSleeping = false;
+        navMeshAgent.speed = speed;
     }
 
     public override void Death(bool playDeathAnimation = true)
@@ -233,7 +269,6 @@ public class Enemy : IHealthObject
 
         eventManager.InvokeActionsOnEnemyDeath(this);
         StartCoroutine(DisableGameObject(7));
-
     }
 
     private IEnumerator DisableGameObject(float time)
@@ -257,8 +292,14 @@ public class Enemy : IHealthObject
 
     public void Sleep(float timeToWakeUp)
     {
-        //Enable sleep animation
-        navMeshAgent.enabled = true;
+        if (isSleeping) return;
+        animator.SetTrigger("Sleep");
+        navMeshAgent.enabled = false;
+        //speed = navMeshAgent.speed;
+        //navMeshAgent.speed = 0;
+        isSleeping = true;
+        rb.isKinematic = true;
+        rb.velocity = Vector3.zero;
 
         StartCoroutine(WakeUp(timeToWakeUp));
     }
@@ -267,17 +308,19 @@ public class Enemy : IHealthObject
     private IEnumerator WakeUp(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
-
-
-        //Disable sleep animation
-
-        navMeshAgent.enabled = true;
+        if (!isDead)
+        {
+            animator.SetTrigger("Revive");
+            navMeshAgent.enabled = true;
+        }
+            //navMeshAgent.speed = speed;
+            isSleeping = false;
     }
 
 
     protected virtual void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.TryGetComponent<IHealthObject>(out IHealthObject healthObject))
+        if (other.gameObject.TryGetComponent(out IHealthObject healthObject))
         {
             enemy = healthObject;
         }

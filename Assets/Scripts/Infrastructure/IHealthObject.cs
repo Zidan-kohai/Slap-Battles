@@ -20,5 +20,9 @@ public class IHealthObject : MonoBehaviour
     public virtual void Death(bool PlayDeathAnimation)
     {
     }
-
+    public virtual void GetDamageWithoutRebound(float damagePower, out bool isDeath, out int gettedSlap) 
+    {
+        isDeath = false;
+        gettedSlap = 1;
+    }
 }
