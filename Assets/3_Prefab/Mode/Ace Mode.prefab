@@ -61,7 +61,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: ae71b7d0b9794874aad2bdd19762293f, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 06f2e1495164e4a4c87d6a13762fdd7c, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1 &427350997411902301
 GameObject:
@@ -221,8 +221,6 @@ MonoBehaviour:
   - {fileID: 4038895971075561076}
   playerSpawnPoints:
   - {fileID: 5919907909063165526}
-  - {fileID: 8702060040249270592}
-  - {fileID: 5741071252245293591}
   eventManager: {fileID: 3237182903930966125}
   flag: 0
 --- !u!1 &3023253353806803280
@@ -866,7 +864,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: b27ae19b35d71fb44a03015176b4f636, type: 2}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6725516025745058566, guid: e5cf8b43aaeabff4980bf40bb30fb074, type: 3}
+    - {fileID: 9080135458960477737, guid: e5cf8b43aaeabff4980bf40bb30fb074, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5cf8b43aaeabff4980bf40bb30fb074, type: 3}
@@ -930,11 +930,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7993958968350027148, guid: e5cf8b43aaeabff4980bf40bb30fb074, type: 3}
   m_PrefabInstance: {fileID: 3160961031678646767}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &5741071252245293591 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7237738345122984952, guid: e5cf8b43aaeabff4980bf40bb30fb074, type: 3}
-  m_PrefabInstance: {fileID: 3160961031678646767}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5919907909063165526 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8789409843794583481, guid: e5cf8b43aaeabff4980bf40bb30fb074, type: 3}
@@ -963,11 +958,6 @@ Transform:
 --- !u!4 &8592485969861973471 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6693291574180727856, guid: e5cf8b43aaeabff4980bf40bb30fb074, type: 3}
-  m_PrefabInstance: {fileID: 3160961031678646767}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &8702060040249270592 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5989243039370131631, guid: e5cf8b43aaeabff4980bf40bb30fb074, type: 3}
   m_PrefabInstance: {fileID: 3160961031678646767}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3586343572046541164

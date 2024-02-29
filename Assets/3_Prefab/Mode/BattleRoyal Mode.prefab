@@ -61,7 +61,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: c46ac99fc46c64a4d9b2ce19d5c50c85, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: ae71b7d0b9794874aad2bdd19762293f, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1 &935154675300163054
 GameObject:
@@ -226,8 +226,7 @@ MonoBehaviour:
   - {fileID: 5405357179669524540}
   playerSpawnPoints:
   - {fileID: 2389468750245290014}
-  - {fileID: 850415393814464264}
-  - {fileID: 4369270269524675679}
+  - {fileID: 0}
   LivedEnemyCount: 0
   placeRewards:
   - SlapCount: 100
@@ -2090,11 +2089,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6693291574180727856, guid: e5cf8b43aaeabff4980bf40bb30fb074, type: 3}
   m_PrefabInstance: {fileID: 6400556820875116455}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &850415393814464264 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5989243039370131631, guid: e5cf8b43aaeabff4980bf40bb30fb074, type: 3}
-  m_PrefabInstance: {fileID: 6400556820875116455}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1305647794534986328 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5390192221002747391, guid: e5cf8b43aaeabff4980bf40bb30fb074, type: 3}
@@ -2138,11 +2132,6 @@ Transform:
 --- !u!4 &3901075878192075307 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7993958968350027148, guid: e5cf8b43aaeabff4980bf40bb30fb074, type: 3}
-  m_PrefabInstance: {fileID: 6400556820875116455}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &4369270269524675679 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7237738345122984952, guid: e5cf8b43aaeabff4980bf40bb30fb074, type: 3}
   m_PrefabInstance: {fileID: 6400556820875116455}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &5405357179669524540 stripped
