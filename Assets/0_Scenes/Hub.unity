@@ -18819,7 +18819,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   language: 
-  mobile: 1
+  mobile: 0
   SoundOn: 1
   PlayerData:
     money: 0
@@ -18924,7 +18924,7 @@ MonoBehaviour:
     purchaseEvent:
       m_PersistentCalls:
         m_Calls: []
-  Platform: 1
+  Platform: 0
   gameArterPrefab: {fileID: 0}
   leaderboardBtn: {fileID: 0}
   MultipleSpeedBuff: 0
@@ -80066,6 +80066,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2888273235979637895, guid: 574c39a94975aba4684e3449266794a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2888273235979637895, guid: 574c39a94975aba4684e3449266794a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2888273235979637895, guid: 574c39a94975aba4684e3449266794a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2888273235979637895, guid: 574c39a94975aba4684e3449266794a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2888273235979637895, guid: 574c39a94975aba4684e3449266794a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2888273235979637895, guid: 574c39a94975aba4684e3449266794a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2888273235979637895, guid: 574c39a94975aba4684e3449266794a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2888273235979637895, guid: 574c39a94975aba4684e3449266794a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2888273235979637895, guid: 574c39a94975aba4684e3449266794a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2888273235979637895, guid: 574c39a94975aba4684e3449266794a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3903454394475287027, guid: 574c39a94975aba4684e3449266794a5, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -80074,6 +80114,10 @@ PrefabInstance:
       propertyPath: joystick
       value: 
       objectReference: {fileID: 260296069}
+    - target: {fileID: 6416959626832580021, guid: 574c39a94975aba4684e3449266794a5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6986546481412565470, guid: 574c39a94975aba4684e3449266794a5, type: 3}
       propertyPath: mobileSwipeDetector
       value: 
@@ -80253,6 +80297,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1689149131}
+    - target: {fileID: 3132357677490712655, guid: e4d2edd17f07ee948b143b6d82366084, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3154954722977349053, guid: e4d2edd17f07ee948b143b6d82366084, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

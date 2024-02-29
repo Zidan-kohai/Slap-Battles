@@ -1070,6 +1070,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4743231530495693012, guid: e4d2edd17f07ee948b143b6d82366084, type: 3}
   m_PrefabInstance: {fileID: 2906064912410904672}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7786363306140333802 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4925480625195712138, guid: e4d2edd17f07ee948b143b6d82366084, type: 3}
+  m_PrefabInstance: {fileID: 2906064912410904672}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45674be35f4370742a8e6d43dc5ef7f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3875903330383421526
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1871,6 +1882,10 @@ PrefabInstance:
       propertyPath: eventManager
       value: 
       objectReference: {fileID: 3237182903930966125}
+    - target: {fileID: 3074227592428112608, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
+      propertyPath: mobileSwipeDetector
+      value: 
+      objectReference: {fileID: 7786363306140333802}
     - target: {fileID: 3257068081960610847, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.33123463

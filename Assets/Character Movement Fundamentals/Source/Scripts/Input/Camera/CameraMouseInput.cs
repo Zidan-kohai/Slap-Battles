@@ -25,7 +25,7 @@ namespace CMF
 	    public override float GetHorizontalCameraInput()
         {
             //Get raw mouse input;
-            float _input = 0;// Input.GetAxisRaw(mouseHorizontalAxis);
+            float _input = Input.GetAxisRaw(mouseHorizontalAxis);
             
             if(Geekplay.Instance.mobile)
             {
@@ -54,7 +54,7 @@ namespace CMF
         public override float GetVerticalCameraInput()
         {
             //Get raw mouse input;
-            float _input = 0;// -Input.GetAxisRaw(mouseVerticalAxis);
+            float _input = -Input.GetAxisRaw(mouseVerticalAxis);
             
             if(Geekplay.Instance.mobile)
             {

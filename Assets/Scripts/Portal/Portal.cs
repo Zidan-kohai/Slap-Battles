@@ -14,7 +14,7 @@ public partial class Portal : MonoBehaviour
     public BuyPortalPanel buyPortal;
     private void Start()
     {
-        if(Geekplay.Instance.PlayerData.BuyedModes.Contains(Mode))
+        if(Geekplay.Instance.PlayerData.BuyedModes.Contains(Mode) || isBuyed)
         {
             OpenPortal();
         }
