@@ -103,12 +103,12 @@ public class PlayerAttack : MonoBehaviour
         slap = newSlap;
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawRay(slapRaycaster.position, slapRaycaster.forward * attackDistanese);
-        Gizmos.DrawSphere(slapRaycaster.position, 0.7f);
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.green;
+    //    Gizmos.DrawRay(slapRaycaster.position, slapRaycaster.forward * attackDistanese);
+    //    Gizmos.DrawSphere(slapRaycaster.position, 0.7f);
+    //}
 
     private void OnDisable()
     {
