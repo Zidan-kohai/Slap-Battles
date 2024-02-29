@@ -25217,7 +25217,43 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1896857647}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 726217590}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1689149131}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1623463295}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!4 &1909363969 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b1927b37379c3493cbe89f46c347903e, type: 3}
@@ -36456,12 +36492,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5999123834406311439, guid: ab65e042f0cb4664d8117327fd3cab74, type: 3}
-      propertyPath: Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5999123834406311439, guid: ab65e042f0cb4664d8117327fd3cab74, type: 3}
       propertyPath: isBuyed
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5999123834406311439, guid: ab65e042f0cb4664d8117327fd3cab74, type: 3}
       propertyPath: buyPortal
@@ -38005,12 +38037,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7747018116032472976, guid: ecb6c6fc770b90e42a1121f151536013, type: 3}
-      propertyPath: Mode
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7747018116032472976, guid: ecb6c6fc770b90e42a1121f151536013, type: 3}
       propertyPath: isBuyed
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7747018116032472976, guid: ecb6c6fc770b90e42a1121f151536013, type: 3}
       propertyPath: buyPortal
@@ -39395,12 +39423,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 1668302634}
     m_Modifications:
     - target: {fileID: 5542898461234947296, guid: 78b915fcbb469bf4bb0be40a65b8514f, type: 3}
-      propertyPath: Mode
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5542898461234947296, guid: 78b915fcbb469bf4bb0be40a65b8514f, type: 3}
       propertyPath: isBuyed
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5542898461234947296, guid: 78b915fcbb469bf4bb0be40a65b8514f, type: 3}
       propertyPath: buyPortal
@@ -61429,12 +61453,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6036667264985312224, guid: eabf6c107393b4940ba4f977a9f4fa2c, type: 3}
-      propertyPath: Mode
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6036667264985312224, guid: eabf6c107393b4940ba4f977a9f4fa2c, type: 3}
       propertyPath: isBuyed
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6036667264985312224, guid: eabf6c107393b4940ba4f977a9f4fa2c, type: 3}
       propertyPath: buyPortal
@@ -78822,12 +78842,8 @@ PrefabInstance:
     m_TransformParent: {fileID: 1668302634}
     m_Modifications:
     - target: {fileID: 7834369457427632386, guid: 446bf9a0254ea8f428a59484cc211bf5, type: 3}
-      propertyPath: Mode
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7834369457427632386, guid: 446bf9a0254ea8f428a59484cc211bf5, type: 3}
       propertyPath: isBuyed
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7834369457427632386, guid: 446bf9a0254ea8f428a59484cc211bf5, type: 3}
       propertyPath: buyPortal
@@ -79057,12 +79073,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3336084402019839651, guid: 5f7177209e4042f4d904d2abd06f97bb, type: 3}
-      propertyPath: Mode
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3336084402019839651, guid: 5f7177209e4042f4d904d2abd06f97bb, type: 3}
       propertyPath: isBuyed
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3336084402019839651, guid: 5f7177209e4042f4d904d2abd06f97bb, type: 3}
       propertyPath: buyPortal

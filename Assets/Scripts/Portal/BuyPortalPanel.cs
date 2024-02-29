@@ -1,4 +1,5 @@
 using CMF;
+using System.Net.WebSockets;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -12,6 +13,9 @@ public class BuyPortalPanel : MonoBehaviour
     public CameraController cameraInput;
     public void InitializePanel(int cost, UnityAction action)
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         gameObject.SetActive(true);
         walkeController.enabled = false;
         cameraInput.enabled = false;
