@@ -4733,6 +4733,7 @@ GameObject:
   - component: {fileID: 991012148546232493}
   - component: {fileID: 8088410689670042063}
   - component: {fileID: 596862480158414447}
+  - component: {fileID: 2028100342052108192}
   m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
@@ -4836,7 +4837,7 @@ Rigidbody:
   serializedVersion: 4
   m_Mass: 1000000
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 50
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -4853,6 +4854,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!208 &2028100342052108192
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4304981864632216609}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.01
 --- !u!1 &4332477694601906395
 GameObject:
   m_ObjectHideFlags: 0
