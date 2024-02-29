@@ -64,6 +64,7 @@ public class Geekplay : MonoBehaviour
     public bool BuffIncreaseHP { get; internal set; }
     public bool BuffAcceleration { get; internal set; }
     public bool BuffDoubleSlap { get; internal set; }
+    public bool BuffIncreasePower { get; internal set; }
 
     private void Start()
     {

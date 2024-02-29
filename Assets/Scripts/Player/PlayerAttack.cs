@@ -65,7 +65,12 @@ public class PlayerAttack : MonoBehaviour
         {
             slapCount++;
             slapAudio.Play();
-            hit.collider.gameObject.GetComponent<Enemy>().GetDamage(slap.AttackPower, slapRaycaster.forward, out bool isDeath, out int GettedSlap);
+            float attackPower = slap.AttackPower;
+
+            if (Geekplay.Instance.BuffIncreasePower)
+                attackPower *= 2; 
+
+            hit.collider.gameObject.GetComponent<Enemy>().GetDamage(attackPower, slapRaycaster.forward, out bool isDeath, out int GettedSlap);
 
             if(slap.GetSlapPowerType() == SlapPowerType.DoubleSlap || Geekplay.Instance.BuffDoubleSlap)
             {
