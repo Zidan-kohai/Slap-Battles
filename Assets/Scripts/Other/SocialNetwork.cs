@@ -9,6 +9,7 @@ public class SocialNetwork : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer != 7) return;
+
         switch(channel)
         {
             case Channel.Telegram:
