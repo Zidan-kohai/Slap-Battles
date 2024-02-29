@@ -4,6 +4,7 @@ using UnityEngine.Events;
 using CrazyGames;
 using GamePix;
 using UnityEditor;
+using Unity.VisualScripting;
 
 [System.Serializable]
 public class Rewards
@@ -66,6 +67,10 @@ public class Geekplay : MonoBehaviour
     public bool BuffDoubleSlap { get; internal set; }
     public bool BuffIncreasePower { get; internal set; }
 
+    public float TimeToShowReward;
+    public float TimePasedFromLastReward;
+
+
     private void Start()
     {
         if (!Instance.mobile)
@@ -74,7 +79,6 @@ public class Geekplay : MonoBehaviour
             Cursor.visible = false;
         }
     }
-
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.P))
@@ -82,6 +86,10 @@ public class Geekplay : MonoBehaviour
             PlayerData = new PlayerData();
             Save();
         }
+
+
+        TimePasedFromLastReward += Time.deltaTime;
+
     }
 
     public void SubscribeOnPurshace(string tag, UnityAction action)

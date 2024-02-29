@@ -226,7 +226,6 @@ MonoBehaviour:
   - {fileID: 5405357179669524540}
   playerSpawnPoints:
   - {fileID: 2389468750245290014}
-  - {fileID: 0}
   LivedEnemyCount: 0
   placeRewards:
   - SlapCount: 100
@@ -618,6 +617,10 @@ MonoBehaviour:
   eventManager: {fileID: 3237182903930966125}
   LosePanel: {fileID: 4607360560054220199}
   mobilePanel: {fileID: 2986130438688522363}
+  accelerationIcon: {fileID: 1950826955266396541}
+  doubleSlapIcon: {fileID: 4436014730698484619}
+  IncreaseHPIcon: {fileID: 6067832814395501453}
+  IncreasePowerIcon: {fileID: 6529271034299631582}
 --- !u!1001 &631836019153616078
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3897,6 +3900,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1950826955266396541 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8463228348801055775, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
+  m_PrefabInstance: {fileID: 7953875432294870370}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3624081482458772508 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6641267352138865022, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
@@ -3919,6 +3927,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &4436014730698484619 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6047829028600710889, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
+  m_PrefabInstance: {fileID: 7953875432294870370}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4616035706576672538 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3345791432465185400, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
@@ -3930,6 +3943,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &6067832814395501453 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4203145274788726511, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
+  m_PrefabInstance: {fileID: 7953875432294870370}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6529271034299631582 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3818338874926115516, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
+  m_PrefabInstance: {fileID: 7953875432294870370}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &8792741225691730966 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1470355044865784180, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}

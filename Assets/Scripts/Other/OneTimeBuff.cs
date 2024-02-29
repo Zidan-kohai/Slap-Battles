@@ -3,38 +3,64 @@ using UnityEngine;
 
 public class OneTimeBuff : MonoBehaviour
 {
-    public BuffType buffType;
+    [SerializeField] private BuffType buffType;
+    public GameObject BuffImage;
+
+    public OneTimeBuffController oneTimeBuffController;
 
     private void Start()
     {
-        Geekplay.Instance.SubscribeOnReward("DoubleSlaps", ActivateDoubleSlapBuff);
-        Geekplay.Instance.SubscribeOnReward("Acceleration", ActivateAccelerationBuff);
-        Geekplay.Instance.SubscribeOnReward("IncreaseHP", ActivateIncreaseHPBuff);
-        Geekplay.Instance.SubscribeOnReward("IncreasePower", ActivateIncreasePowerBuff);
+        switch (buffType)
+        {
+            case BuffType.DoubleSlaps:
+                Geekplay.Instance.SubscribeOnReward("DoubleSlaps", ActivateDoubleSlapBuff);
+                break;
+            case BuffType.Acceleration:
+                Geekplay.Instance.SubscribeOnReward("Acceleration", ActivateAccelerationBuff);
+                break;
+            case BuffType.IncreaseHP:
+                Geekplay.Instance.SubscribeOnReward("IncreaseHP", ActivateIncreaseHPBuff);
+                break;
+            case BuffType.IncreasePower:
+                Geekplay.Instance.SubscribeOnReward("IncreasePower", ActivateIncreasePowerBuff);
+                break;
+        }
     }
 
     private void ActivateIncreaseHPBuff()
     {
         Geekplay.Instance.BuffIncreaseHP = true;
         Debug.Log("BuffIncreaseHP - " + Geekplay.Instance.BuffIncreaseHP);
+        BuffImage.SetActive(true);
+        oneTimeBuffController.DiactivateBuffs();
+        Geekplay.Instance.TimePasedFromLastReward = 0;
     }
 
     private void ActivateAccelerationBuff()
     {
         Geekplay.Instance.BuffAcceleration = true;
         Debug.Log("BuffAcceleration - " + Geekplay.Instance.BuffAcceleration);
+        BuffImage.SetActive(true);
+        oneTimeBuffController.DiactivateBuffs();
+        Geekplay.Instance.TimePasedFromLastReward = 0;
     }
 
     private void ActivateDoubleSlapBuff()
     {
         Geekplay.Instance.BuffDoubleSlap = true;
         Debug.Log("BuffDoubleSlap - " + Geekplay.Instance.BuffDoubleSlap);
+        BuffImage.SetActive(true);
+        oneTimeBuffController.DiactivateBuffs();
+        Geekplay.Instance.TimePasedFromLastReward = 0;
     }
 
     private void ActivateIncreasePowerBuff()
     {
         Geekplay.Instance.BuffIncreasePower = true;
         Debug.Log("BuffIncreasePower - " + Geekplay.Instance.BuffIncreasePower);
+        BuffImage.SetActive(true);
+        oneTimeBuffController.DiactivateBuffs();
+        Geekplay.Instance.TimePasedFromLastReward = 0;
     }
 
     private void OnTriggerEnter(Collider other)

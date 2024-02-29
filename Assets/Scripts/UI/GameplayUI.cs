@@ -10,6 +10,11 @@ public class GameplayUI : MonoBehaviour
     [SerializeField] private LosePanel LosePanel;
 
     [SerializeField] private GameObject mobilePanel;
+
+    public GameObject accelerationIcon;
+    public GameObject doubleSlapIcon;
+    public GameObject IncreaseHPIcon;
+    public GameObject IncreasePowerIcon;
     private void Start()
     {
         eventManager.SubscribeOnChangeMoney(OnChangeMoney);
@@ -28,6 +33,11 @@ public class GameplayUI : MonoBehaviour
         {
             mobilePanel.SetActive(false);
         }
+
+        accelerationIcon.SetActive(Geekplay.Instance.BuffAcceleration);
+        doubleSlapIcon.SetActive(Geekplay.Instance.BuffDoubleSlap);
+        IncreaseHPIcon.SetActive(Geekplay.Instance.BuffIncreaseHP);
+        IncreasePowerIcon.SetActive(Geekplay.Instance.BuffIncreasePower);
     }
 
     private void OnRevive()
