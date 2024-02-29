@@ -7,6 +7,7 @@ public class ShopEnterAndExit : MonoBehaviour
     [SerializeField] private AdvancedWalkerController playerMover;
     [SerializeField] private GameObject cinemashine;
     [SerializeField] private GameObject shopObject;
+    [SerializeField] private GameObject MobileInput;
 
     [SerializeField] List<GameObject> GOToDisableWhenOpenShop;
     private void OnTriggerEnter(Collider other)
@@ -22,8 +23,9 @@ public class ShopEnterAndExit : MonoBehaviour
         playerMover.enabled = false;
         cinemashine.SetActive(true);
         shopObject.SetActive(true);
+        MobileInput.SetActive(false);
 
-        foreach(GameObject go in GOToDisableWhenOpenShop)
+        foreach (GameObject go in GOToDisableWhenOpenShop)
         {
             go.SetActive(false);
         }
@@ -42,5 +44,8 @@ public class ShopEnterAndExit : MonoBehaviour
         {
             go.SetActive(true);
         }
+
+        if (Geekplay.Instance.mobile)
+            MobileInput.SetActive(true);
     }
 }
