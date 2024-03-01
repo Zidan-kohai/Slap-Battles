@@ -9,6 +9,18 @@ public class LegoItem : MonoBehaviour
     [SerializeField] private List<EnemyIntoLego> enemies = new List<EnemyIntoLego>();
     public float attackDelta;
 
+    public List<GameObject> lego;
+    public float radius = 5f;
+
+    private void OnEnable()
+    {
+        for (int i = 0; i < lego.Count; i++)
+        {
+            float angle = i * Mathf.PI * 2f / lego.Count;
+            Vector3 newPosition = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * radius;
+            lego[i].transform.position = transform.position + newPosition;
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.layer == 6)
