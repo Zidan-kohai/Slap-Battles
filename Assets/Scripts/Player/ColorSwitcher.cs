@@ -44,14 +44,17 @@ public class ColorSwitcher : MonoBehaviour
 
     private void OnDestroy()
     {
-        bodyMaterial.color = startBodyColor;
-        hairMaterial.color = startHairColor;
-        legMaterial.color = startLegColor;
-        footMaterial.color = startFootColor;
-
-        foreach (Material mat in LeatherMaterial)
+        if(slap.GetSlapPowerType() == SlapPowerType.Gold)
         {
-            mat.color = startLeatherColor;
+            bodyMaterial.color = startBodyColor;
+            hairMaterial.color = startHairColor;
+            legMaterial.color = startLegColor;
+            footMaterial.color = startFootColor;
+
+            foreach (Material mat in LeatherMaterial)
+            {
+                mat.color = startLeatherColor;
+            }
         }
     }
 
