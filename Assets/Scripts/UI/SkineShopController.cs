@@ -549,7 +549,7 @@ public class SkineShopController : MonoBehaviour
 
     #endregion
 
-    #region HairSwitching
+    #region FaceSwitching
     private void AddEventForBuyableHair(HairBuyable buyable)
     {
         buyable.SubscribeOnClick(() =>
@@ -565,9 +565,9 @@ public class SkineShopController : MonoBehaviour
 
             buyButton.gameObject.SetActive(true);
 
-            capSwitcher.SaveAndSwitchCap(buyableCaps[0].GetIndexOfCap);
-            ChangeHealthBuff(HealtBuffSystem.HealtBuffType.cap, buyableCaps[0].HealthBuff);
-            ReplaceSelectedIcon(buyableCaps[0], ref capSelectedIcon);
+            //capSwitcher.SaveAndSwitchCap(buyableCaps[0].GetIndexOfCap);
+            //ChangeHealthBuff(HealtBuffSystem.HealtBuffType.cap, buyableCaps[0].HealthBuff);
+            //ReplaceSelectedIcon(buyableCaps[0], ref capSelectedIcon);
 
             hairSwitcher.SwitchHair(buyable.GetIndexOfhair, Geekplay.Instance.PlayerData.isGenderMan);
             ChangeHealthBuffText(HealtBuffSystem.HealtBuffType.hair, buyable.HealthBuff);
@@ -805,19 +805,19 @@ public class SkineShopController : MonoBehaviour
             buyButton.gameObject.SetActive(true);
             buyButton.onClick.RemoveAllListeners();
 
-            hairSwitcher.ChangeHair(manHairs[0].GetIndexOfhair, true);
-            hairSwitcher.ChangeHair(womanHairs[0].GetIndexOfhair, false);
-            ReplaceSelectedIcon(manHairs[0], ref hairManSelectedIcon);
-            ReplaceSelectedIcon(womanHairs[0], ref hairWomanSelectedIcon);
+            //hairSwitcher.ChangeHair(manHairs[0].GetIndexOfhair, true);
+            //hairSwitcher.ChangeHair(womanHairs[0].GetIndexOfhair, false);
+            //ReplaceSelectedIcon(manHairs[0], ref hairManSelectedIcon);
+            //ReplaceSelectedIcon(womanHairs[0], ref hairWomanSelectedIcon);
 
-            if (Geekplay.Instance.PlayerData.isGenderMan)
-            {
-                ChangeHealthBuff(HealtBuffSystem.HealtBuffType.hair, manHairs[0].HealthBuff);
-            }
-            else
-            {
-                ChangeHealthBuff(HealtBuffSystem.HealtBuffType.hair, womanHairs[0].HealthBuff);
-            }
+            //if (Geekplay.Instance.PlayerData.isGenderMan)
+            //{
+            //    ChangeHealthBuff(HealtBuffSystem.HealtBuffType.hair, manHairs[0].HealthBuff);
+            //}
+            //else
+            //{
+            //    ChangeHealthBuff(HealtBuffSystem.HealtBuffType.hair, womanHairs[0].HealthBuff);
+            //}
 
             capSwitcher.SwitchCap(buyable.GetIndexOfCap);
             ChangeHealthBuffText(HealtBuffSystem.HealtBuffType.cap, buyable.HealthBuff);
