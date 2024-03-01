@@ -9984,6 +9984,7 @@ GameObject:
   - component: {fileID: 2688340593362432066}
   - component: {fileID: 6021279216874758595}
   - component: {fileID: 4543991973930755511}
+  - component: {fileID: 3177514917071165852}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -10484,6 +10485,7 @@ MonoBehaviour:
   - {fileID: 1916920734036031539}
   playerAttack: {fileID: 6024721847429933305}
   power: {fileID: 4543991973930755511}
+  colorSwitcher: {fileID: 3177514917071165852}
   powerDescription: {fileID: 0}
 --- !u!114 &6021279216874758595
 MonoBehaviour:
@@ -10534,6 +10536,31 @@ MonoBehaviour:
   radiusSphereOfShookerPower: 5
   wallPusherStartPosition: {fileID: 6659345028749289310}
   wallPusher: {fileID: 7695263975820363550}
+--- !u!114 &3177514917071165852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7849365028612606464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d56403570e66d6048a3171eb9ea8086c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bodyMaterial: {fileID: 2100000, guid: 95b524ed4aeb1f245943e93a9483d1a5, type: 2}
+  LeatherMaterial:
+  - {fileID: 2100000, guid: 79d67bb1fbd374c40a74c049b2f98ba1, type: 2}
+  hairMaterial: {fileID: 2100000, guid: e25645c79e8a6d34eaf614df30ccbf51, type: 2}
+  legMaterial: {fileID: 2100000, guid: 989b5f5f5930c1e40801a1bdbd6c41fd, type: 2}
+  footMaterial: {fileID: 2100000, guid: edc2e3676471ca046984085b80427bb7, type: 2}
+  startBodyColor: {r: 0, g: 0, b: 0, a: 0}
+  startLeatherColor: {r: 0, g: 0, b: 0, a: 0}
+  startHairColor: {r: 0, g: 0, b: 0, a: 0}
+  startLegColor: {r: 0, g: 0, b: 0, a: 0}
+  startFootColor: {r: 0, g: 0, b: 0, a: 0}
+  GoldColor: {r: 1, g: 0.7791246, b: 0, a: 0}
+  slap: {fileID: 0}
 --- !u!1 &7881424663917460041
 GameObject:
   m_ObjectHideFlags: 0

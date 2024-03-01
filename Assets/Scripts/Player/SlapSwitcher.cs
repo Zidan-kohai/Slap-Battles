@@ -1,8 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class SlapSwitcher : MonoBehaviour
 {
@@ -15,6 +13,7 @@ public class SlapSwitcher : MonoBehaviour
     [Header("Links")]
     [SerializeField] private PlayerAttack playerAttack;
     [SerializeField] private SlapPower power;
+    [SerializeField] private ColorSwitcher colorSwitcher;
     [SerializeField] private TextMeshProUGUI powerDescription;
     //[SerializeField] private Image powerRollbackTime;
 
@@ -23,6 +22,7 @@ public class SlapSwitcher : MonoBehaviour
         Slap slap = SwitchSlap(Geekplay.Instance.PlayerData.currentSlap);
         playerAttack.ChangeSlap(slap);
         power.ChangeSlap(slap);
+        colorSwitcher?.ChangeSlap(slap);
     }
 
     public Slap SwitchSlap(int index)
