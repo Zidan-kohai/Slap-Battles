@@ -69,7 +69,7 @@ public class Geekplay : MonoBehaviour
 
     public float TimeToShowReward;
     public float TimePasedFromLastReward;
-
+    public bool canShowReward;
 
     private void Start()
     {
@@ -90,6 +90,7 @@ public class Geekplay : MonoBehaviour
 
         TimePasedFromLastReward += Time.deltaTime;
 
+        canShowReward = TimePasedFromLastReward > TimeToShowReward && !BuffAcceleration && !BuffDoubleSlap && !BuffIncreasePower && !BuffIncreaseHP;
     }
 
     public void SubscribeOnPurshace(string tag, UnityAction action)
