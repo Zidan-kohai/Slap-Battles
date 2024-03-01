@@ -2185,6 +2185,10 @@ PrefabInstance:
       propertyPath: eventManager
       value: 
       objectReference: {fileID: 3237182903930966125}
+    - target: {fileID: 4543991973930755511, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
+      propertyPath: ColliderThatWillUseToGetPointAndTeleport
+      value: 
+      objectReference: {fileID: 7682015897948130251}
     - target: {fileID: 4569112160009479151, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.00000046379887
@@ -4180,6 +4184,11 @@ Transform:
 --- !u!4 &5285239734850335211 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3489873716599630027, guid: e5cf8b43aaeabff4980bf40bb30fb074, type: 3}
+  m_PrefabInstance: {fileID: 8734296272014154016}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &7682015897948130251 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 1417073593823924971, guid: e5cf8b43aaeabff4980bf40bb30fb074, type: 3}
   m_PrefabInstance: {fileID: 8734296272014154016}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &7702988377180985019 stripped

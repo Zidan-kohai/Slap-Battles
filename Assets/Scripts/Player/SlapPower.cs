@@ -11,6 +11,7 @@ public class SlapPower : MonoBehaviour
 
     [SerializeField] private AdvancedWalkerController playerWalkController;
     [SerializeField] private SmoothPosition cameraSmoothPosition;
+    [SerializeField] private SmoothPosition playerSmoothPosition;
     [SerializeField] private EventManager eventManager;
     [SerializeField] private Player player;
     [SerializeField] private Slap slap;
@@ -74,7 +75,7 @@ public class SlapPower : MonoBehaviour
                 SnowyPowerActivate();
                 break;
             case SlapPowerType.Teleport:
-                TeleportPowerActivate();
+                StartCoroutine(TeleportPowerActivate());
                 break;
             case SlapPowerType.Time:
                 ActivateTimePower();
@@ -211,28 +212,26 @@ public class SlapPower : MonoBehaviour
     #endregion
 
     #region Teleport 
-    private void TeleportPowerActivate()
+    private IEnumerator TeleportPowerActivate()
     {
         isPowerActivated = true;
+        playerSmoothPosition.enabled = false;
+        yield return new WaitForSeconds(0.1f);
 
         NavMeshTriangulation navMeshData = NavMesh.CalculateTriangulation();
 
-        if (navMeshData.vertices.Length == 0)
-        {
-            Debug.LogError("NavMesh not baked");
-            return;
-        }
-
-        SpawnRandomPoint(navMeshData);
+        player.transform.position = SpawnRandomPoint(navMeshData);
         StartCoroutine(DiactivatePower(slap.rollBackTime, TeleportDiactivate));
-    }
 
-    private void SpawnRandomPoint(NavMeshTriangulation navMeshData)
+        yield return new WaitForSeconds(0.1f);
+        //playerSmoothPosition.enabled = true;
+    }
+    private Vector3 SpawnRandomPoint(NavMeshTriangulation navMeshData)
     {
         // Передаем случайные индексы из массива треугольников навмеша
         int randomTriangleIndex = UnityEngine.Random.Range(0, navMeshData.indices.Length / 3);
         Vector3 randomPoint = GetRandomPointInTriangle(randomTriangleIndex, navMeshData);
-        player.transform.position = randomPoint;
+        return randomPoint;
     }
 
     private Vector3 GetRandomPointInTriangle(int triangleIndex, NavMeshTriangulation navMeshData)
