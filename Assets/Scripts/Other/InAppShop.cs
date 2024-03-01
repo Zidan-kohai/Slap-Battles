@@ -25,7 +25,7 @@ public class InAppShop : MonoBehaviour
 
     public void ItemSlap1()
     {
-        Geekplay.Instance.PlayerData.money += 500;
+        Geekplay.Instance.PlayerData.money += 100;
         eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
     }
     public void ItemSlap2()
@@ -45,38 +45,38 @@ public class InAppShop : MonoBehaviour
     }
     public void ItemSlap5()
     {
-        Geekplay.Instance.PlayerData.money += 30000;
+        Geekplay.Instance.PlayerData.money += 25000;
         eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
     }
     public void ItemDiamond1()
     {
-        Geekplay.Instance.PlayerData.DiamondMoney += 500;
+        Geekplay.Instance.PlayerData.DiamondMoney += 10;
         eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
     }
     public void ItemDiamond2()
     {
-        Geekplay.Instance.PlayerData.DiamondMoney += 1000;
+        Geekplay.Instance.PlayerData.DiamondMoney += 50;
         eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
     }
     public void ItemDiamond3()
     {
-        Geekplay.Instance.PlayerData.DiamondMoney += 5000;
+        Geekplay.Instance.PlayerData.DiamondMoney += 100;
         eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
     }
     public void ItemDiamond4()
     {
-        Geekplay.Instance.PlayerData.DiamondMoney += 10000;
+        Geekplay.Instance.PlayerData.DiamondMoney += 150;
         eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
     }
     public void ItemDiamond5()
     {
-        Geekplay.Instance.PlayerData.DiamondMoney += 30000;
+        Geekplay.Instance.PlayerData.DiamondMoney += 250;
         eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
     }
     public void ItemSlapAndDiamond()
     {
-        Geekplay.Instance.PlayerData.DiamondMoney += 30000;
-        Geekplay.Instance.PlayerData.money += 30000;
+        Geekplay.Instance.PlayerData.DiamondMoney += 200;
+        Geekplay.Instance.PlayerData.money += 10000;
         eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
     }
 }

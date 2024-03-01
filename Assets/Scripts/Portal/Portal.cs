@@ -6,26 +6,41 @@ public partial class Portal : MonoBehaviour
 {
     public int SceneIndex;
     public Modes Mode;
-    public int cost;
-    public bool isBuyed;
-    public GameObject lockPanel;
-    public BoxCollider collider;
-    public HubEventManager eventManager;
-    public BuyPortalPanel buyPortal;
+    public int Cost;
+    public bool IsBuyed;
+    public GameObject LockPanel;
+    public BoxCollider Collider;
+    public HubEventManager EventManager;
+    public BuyPortalPanel BuyPortal;
+
+    public CostType costType;
+    public GameObject SlapIcon;
+    public GameObject DiamondIcon;
     private void Start()
     {
-        if(Geekplay.Instance.PlayerData.BuyedModes.Contains(Mode) || isBuyed)
+        if(Geekplay.Instance.PlayerData.BuyedModes.Contains(Mode) || IsBuyed)
         {
             OpenPortal();
+        }
+
+        if(costType == CostType.Money)
+        {
+            SlapIcon.SetActive(true);
+            DiamondIcon.SetActive(false);
+        }
+        else
+        {
+            SlapIcon.SetActive(false);
+            DiamondIcon.SetActive(true);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer != 7) return;
-        else if (!isBuyed)
+        else if (!IsBuyed)
         {
-            buyPortal.InitializePanel(cost, TryBuy);
+            BuyPortal.InitializePanel(Cost, TryBuy);
             return;
         }
 
@@ -38,17 +53,31 @@ public partial class Portal : MonoBehaviour
 
     public void TryBuy()
     {
-        if(isBuyed)
+        if(IsBuyed)
         {
             Debug.Log("Already Buyed");
         }
-        else if(Geekplay.Instance.PlayerData.money >= cost)
+        else if (costType == CostType.Money)
         {
-            Geekplay.Instance.PlayerData.money -= cost;
-            eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
-            Geekplay.Instance.PlayerData.BuyedModes.Add(Mode);
+            if (Geekplay.Instance.PlayerData.money >= Cost)
+            {
+                Geekplay.Instance.PlayerData.money -= Cost;
+                EventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
+                Geekplay.Instance.PlayerData.BuyedModes.Add(Mode);
 
-            OpenPortal();
+                OpenPortal();
+            }
+        }
+        else if (costType == CostType.Diamond)
+        {
+            if (Geekplay.Instance.PlayerData.DiamondMoney >= Cost)
+            {
+                Geekplay.Instance.PlayerData.DiamondMoney -= Cost;
+                EventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
+                Geekplay.Instance.PlayerData.BuyedModes.Add(Mode);
+
+                OpenPortal();
+            }
         }
         else
         {
@@ -58,8 +87,14 @@ public partial class Portal : MonoBehaviour
 
     private void OpenPortal()
     {
-        isBuyed = true;
-        lockPanel.SetActive(false);
-        collider.isTrigger = true;
+        IsBuyed = true;
+        LockPanel.SetActive(false);
+        Collider.isTrigger = true;
+    }
+
+    public enum CostType
+    {
+        Money,
+        Diamond
     }
 }
