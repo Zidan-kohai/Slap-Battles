@@ -61,7 +61,7 @@ public class PlayerAttack : MonoBehaviour
     {
         RaycastHit hit;
 
-        if (Physics.SphereCast(slapRaycaster.position, 0.7f, slapRaycaster.forward, out hit, attackDistanese, enemyLayer))
+        if (Physics.SphereCast(slapRaycaster.position - slapRaycaster.forward, 0.7f , slapRaycaster.forward, out hit, attackDistanese, enemyLayer))
         {
             slapCount++;
             slapAudio.Play();
