@@ -215,7 +215,6 @@ public class SlapPower : MonoBehaviour
     private IEnumerator TeleportPowerActivate()
     {
         isPowerActivated = true;
-        playerSmoothPosition.enabled = false;
         yield return new WaitForSeconds(0.1f);
 
         NavMeshTriangulation navMeshData = NavMesh.CalculateTriangulation();
@@ -224,7 +223,6 @@ public class SlapPower : MonoBehaviour
         StartCoroutine(DiactivatePower(slap.rollBackTime, TeleportDiactivate));
 
         yield return new WaitForSeconds(0.1f);
-        //playerSmoothPosition.enabled = true;
     }
     private Vector3 SpawnRandomPoint(NavMeshTriangulation navMeshData)
     {
