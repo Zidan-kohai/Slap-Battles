@@ -19,7 +19,7 @@ public class PlayerAttack : MonoBehaviour
     
     [Header("Attack")]
     [SerializeField] private LayerMask enemyLayer;
-    [SerializeField] private int attackDistanese;
+    [SerializeField] private float attackDistanese;
 
     [Header("Components")]
     [SerializeField] protected Player player;
@@ -61,7 +61,7 @@ public class PlayerAttack : MonoBehaviour
     {
         RaycastHit hit;
 
-        if (Physics.SphereCast(slapRaycaster.position - slapRaycaster.forward, 0.7f , slapRaycaster.forward, out hit, attackDistanese, enemyLayer))
+        if (Physics.SphereCast(slapRaycaster.position - slapRaycaster.forward * 0.2f, 0.5f, slapRaycaster.forward, out hit, attackDistanese, enemyLayer, QueryTriggerInteraction.Ignore))
         {
             slapCount++;
             slapAudio.Play();
@@ -108,12 +108,15 @@ public class PlayerAttack : MonoBehaviour
         slap = newSlap;
     }
 
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.green;
-    //    Gizmos.DrawRay(slapRaycaster.position, slapRaycaster.forward * attackDistanese);
-    //    Gizmos.DrawSphere(slapRaycaster.position, 0.7f);
-    //}
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+
+        Gizmos.DrawRay(slapRaycaster.position - slapRaycaster.forward * 0.2f, slapRaycaster.forward * attackDistanese);
+
+        Gizmos.DrawWireSphere(slapRaycaster.position - slapRaycaster.forward * 0.2f, 0.5f);
+        Gizmos.DrawWireSphere(slapRaycaster.position + slapRaycaster.forward * attackDistanese - slapRaycaster.forward * 0.2f, 0.5f);
+    }
 
     private void OnDisable()
     {
