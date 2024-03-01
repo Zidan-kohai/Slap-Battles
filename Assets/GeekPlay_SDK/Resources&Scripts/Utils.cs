@@ -12,6 +12,9 @@ public class Utils : MonoBehaviour
 
     //МЕТОДЫ YANDEX//
     [DllImport("__Internal")]
+    public static extern void IsMobile();
+
+    [DllImport("__Internal")]
     public static extern void RateGame();
 
     [DllImport("__Internal")]

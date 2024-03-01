@@ -80,6 +80,8 @@ public class Geekplay : MonoBehaviour
 
     private void Start()
     {
+        //Utils.IsMobile();
+
         if (!Instance.mobile)
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -95,13 +97,18 @@ public class Geekplay : MonoBehaviour
         }
         else if(Input.GetKeyDown(KeyCode.Tab) && canPause)
         {
-            Time.timeScale = Time.timeScale > 0 ? 0 : 1;
-            AudioListener.volume = AudioListener.volume > 0 ? 0 : 1;
+            StopOrResume();
         }
 
         TimePasedFromLastReward += Time.deltaTime;
 
         canShowReward = TimePasedFromLastReward > TimeToShowReward && !BuffAcceleration && !BuffDoubleSlap && !BuffIncreasePower && !BuffIncreaseHP;
+    }
+
+    public void StopOrResume()
+    {
+        Time.timeScale = Time.timeScale > 0 ? 0 : 1;
+        AudioListener.volume = AudioListener.volume > 0 ? 0 : 1;
     }
 
     public void SubscribeOnPurshace(string tag, UnityAction action)
@@ -769,6 +776,8 @@ public class Geekplay : MonoBehaviour
     public void ItIsMobile()
     {
         mobile = true;
+
+        //вставить включение мобильного управления
     }
 
     public void GameReady()
