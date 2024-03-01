@@ -3,8 +3,6 @@ using UnityEngine;
 using UnityEngine.Events;
 using CrazyGames;
 using GamePix;
-using UnityEditor;
-using Unity.VisualScripting;
 
 [System.Serializable]
 public class Rewards
@@ -71,6 +69,15 @@ public class Geekplay : MonoBehaviour
     public float TimePasedFromLastReward;
     public bool canShowReward;
 
+
+    #region Pause
+    public bool canPause = true;
+    public void ChangeCanPause(bool canPause)
+    {
+        this.canPause = canPause;
+    }
+    #endregion
+
     private void Start()
     {
         if (!Instance.mobile)
@@ -86,7 +93,11 @@ public class Geekplay : MonoBehaviour
             PlayerData = new PlayerData();
             Save();
         }
-
+        else if(Input.GetKeyDown(KeyCode.Tab) && canPause)
+        {
+            Time.timeScale = Time.timeScale > 0 ? 0 : 1;
+            AudioListener.volume = AudioListener.volume > 0 ? 0 : 1;
+        }
 
         TimePasedFromLastReward += Time.deltaTime;
 
@@ -177,6 +188,7 @@ public class Geekplay : MonoBehaviour
 
     public void ShowInterstitialAd() //МЕЖСТРАНИЧНАЯ РЕКЛАМА - ПОКАЗАТЬ
     {
+        canPause = false;
         switch (Platform)
         {
             case Platform.Editor:
@@ -215,6 +227,7 @@ public class Geekplay : MonoBehaviour
 
     public void ShowRewardedAd(string idOrTag) //РЕКЛАМА С ВОЗНАГРАЖДЕНИЕМ - ПОКАЗАТЬ
     {
+        canPause = false;
         switch (Platform)
         {
             case Platform.Editor:
