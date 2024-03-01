@@ -57,4 +57,6 @@ public class PlayerData
     public float ManHairBuff;
     public float WomanHairBuff;
 
+
+    public bool IsVolumeOn = true;
 }

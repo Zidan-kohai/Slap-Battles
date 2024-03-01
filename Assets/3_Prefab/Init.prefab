@@ -788,6 +788,7 @@ MonoBehaviour:
     AccessoryBuff: 0
     ManHairBuff: 0
     WomanHairBuff: 0
+    IsVolumeOn: 1
   currentMode: 0
   rewardsList:
   - rewardName: DoubleAward
@@ -938,6 +939,8 @@ MonoBehaviour:
   TimeToShowReward: 90
   TimePasedFromLastReward: 90
   canShowReward: 0
+  pauseCanvas: {fileID: 284822438132503541}
+  volumeToggle: {fileID: 2616259990368262276}
   canPause: 1
 --- !u!1 &2415642917836225290
 GameObject:
