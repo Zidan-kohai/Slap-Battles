@@ -81,7 +81,7 @@ public class PlayerAttack : MonoBehaviour
             eventManager.InvokeChangeMoneyEvents(GettedSlap);
             OnSuccesAttack();
 
-            if(slapCount % 20 == 0)
+            if(slapCount % 20 == 0 && Geekplay.Instance.currentMode != Modes.Boss)
             {
                 UIDiamond.Run();
                 eventManager.InvokeChangeDiamondEvents(1);

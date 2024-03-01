@@ -1,7 +1,12 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.FilePathAttribute;
 
 public class Boss : Enemy
 {
+    [SerializeField] private Quaternion currentRotation;
+    [SerializeField] private float rotationSpeed;
+
     public override void Death(bool playDeathAnimation = true)
     {
         gameObject.SetActive(false);
@@ -33,5 +38,29 @@ public class Boss : Enemy
         }
         gettedSlap = slapToGive;
         isDeath = health <= 0;
+    }
+    protected override void Update()
+    {
+        base.Update();
+
+        if(target != null)
+        {
+
+        }
+
+        Rotate();
+    }
+
+    private void Rotate()
+    {
+        Vector3 forward = (enemy.transform.position - transform.position).normalized;
+
+        Quaternion targetRotation = Quaternion.LookRotation(forward, Vector3.up);
+
+        currentRotation = Quaternion.Slerp(currentRotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+        Vector3 euler = currentRotation.eulerAngles;
+
+        transform.rotation = Quaternion.Euler(0, euler.y, 0);
     }
 }

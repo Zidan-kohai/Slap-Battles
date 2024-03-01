@@ -2764,6 +2764,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 4301880896653099215, guid: a1d196e619fcd40459795430af3542b5, type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'mixamorig:RightArm'\n\tTransform 'mixamorig:RightArm'\n\tFrom
+        animation clip 'IdleWithHand'\n\tFrom animation clip 'IdleWithHand'"
+      objectReference: {fileID: 0}
     - target: {fileID: 6732168731682628386, guid: a1d196e619fcd40459795430af3542b5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 10

@@ -27,8 +27,8 @@ public class Enemy : IHealthObject
     [SerializeField] private float timeNextToAttack;
     [SerializeField] protected bool canAttack;
 
-    [SerializeField] private IHealthObject enemy;
-    [SerializeField] private Vector3 target;
+    [SerializeField] protected IHealthObject enemy;
+    [SerializeField] protected Vector3 target;
     [SerializeField] private LayerMask enemyLayer;
 
     [SerializeField] protected EventManager eventManager;

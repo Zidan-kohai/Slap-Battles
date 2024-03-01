@@ -90,6 +90,7 @@ public class EventManager : MonoBehaviour
     }
     public void InvokeActionsOnBossDeath()
     {
+        Geekplay.Instance.PlayerData.DiamondMoney += 3;
         bossDeath?.Invoke();
     }
 
