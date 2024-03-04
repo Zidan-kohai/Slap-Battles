@@ -81,6 +81,19 @@ public class Geekplay : MonoBehaviour
     }
     #endregion
 
+    #region Leaderboard
+
+    public string[] l;
+    public string[] lN;
+    public int leaderNumber;
+    public int leaderNumberN;
+    public LeaderboardInGame leaderboardInGame;
+    public float remainingTimeUntilUpdateLeaderboard;
+    public float timeToUpdateLeaderboard = 60;
+    public string lastLeaderText;
+
+    #endregion
+
     private void Start()
     {
         //Utils.IsMobile();
@@ -106,6 +119,8 @@ public class Geekplay : MonoBehaviour
         }
 
         TimePasedFromLastReward += Time.deltaTime;
+
+        remainingTimeUntilUpdateLeaderboard += Time.deltaTime;
     }
 
     public void StopOrResume()
