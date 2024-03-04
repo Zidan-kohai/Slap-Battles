@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShopEnterAndExit : MonoBehaviour
 {
     [SerializeField] private AdvancedWalkerController playerMover;
+    [SerializeField] private CameraController cameraController;
     [SerializeField] private GameObject cinemashine;
     [SerializeField] private GameObject shopObject;
     [SerializeField] private GameObject MobileInput;
@@ -21,6 +22,7 @@ public class ShopEnterAndExit : MonoBehaviour
     public void OpenShop()
     {
         playerMover.enabled = false;
+        cameraController.enabled = false;
         cinemashine.SetActive(true);
         shopObject.SetActive(true);
         MobileInput.SetActive(false);
@@ -37,6 +39,8 @@ public class ShopEnterAndExit : MonoBehaviour
     public void CloseShop()
     {
         playerMover.enabled = true;
+        cameraController.enabled = true;
+
         cinemashine.SetActive(false);
         shopObject.SetActive(false);
 

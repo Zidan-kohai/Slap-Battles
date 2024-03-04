@@ -660,6 +660,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1524546447}
+  - {fileID: 1062394313}
   m_Father: {fileID: 726217591}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2258,6 +2259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMover: {fileID: 1689149131}
+  cameraController: {fileID: 1623463295}
   cinemashine: {fileID: 1528646763}
   shopObject: {fileID: 1482741909}
   MobileInput: {fileID: 2125835701}
@@ -2489,6 +2491,8 @@ MonoBehaviour:
   buyButton: {fileID: 1896857649}
   walkeController: {fileID: 1689149131}
   cameraInput: {fileID: 1623463295}
+  SlapIcon: {fileID: 1524546446}
+  DiamondIcon: {fileID: 1062394312}
 --- !u!1 &728862265
 GameObject:
   m_ObjectHideFlags: 0
@@ -8180,6 +8184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMover: {fileID: 1689149131}
+  cameraController: {fileID: 1623463295}
   cinemashine: {fileID: 1915002088}
   shopObject: {fileID: 7078374428928542324}
   MobileInput: {fileID: 2125835701}
@@ -13812,6 +13817,81 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b1927b37379c3493cbe89f46c347903e, type: 3}
   m_PrefabInstance: {fileID: 4582093360555392625}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1062394312
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1062394313}
+  - component: {fileID: 1062394315}
+  - component: {fileID: 1062394314}
+  m_Layer: 5
+  m_Name: DiamondIcon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1062394313
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062394312}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 317375343}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -9, y: -34}
+  m_SizeDelta: {x: 80.7442, y: 75.7862}
+  m_Pivot: {x: 0, y: 0.5}
+--- !u!114 &1062394314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062394312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -1902038936, guid: db4a1c6aa7f27444a933b76df2326d7c, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1062394315
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062394312}
+  m_CullTransparentMesh: 1
 --- !u!1 &1088059362
 GameObject:
   m_ObjectHideFlags: 0
@@ -27455,7 +27535,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1896857644}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6478653761c6afb4096b29f199247165, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -27501,30 +27581,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1689149131}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 1623463295}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
 --- !u!4 &1909363969 stripped
 Transform:
@@ -38731,6 +38787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMover: {fileID: 1689149131}
+  cameraController: {fileID: 1623463295}
   cinemashine: {fileID: 2142718904}
   shopObject: {fileID: 3351216303906217517}
   MobileInput: {fileID: 2125835701}
@@ -39159,29 +39216,25 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5999123834406311439, guid: ab65e042f0cb4664d8117327fd3cab74, type: 3}
-      propertyPath: isBuyed
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5999123834406311439, guid: ab65e042f0cb4664d8117327fd3cab74, type: 3}
-      propertyPath: costType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5999123834406311439, guid: ab65e042f0cb4664d8117327fd3cab74, type: 3}
       propertyPath: BuyPortal
       value: 
       objectReference: {fileID: 726217594}
     - target: {fileID: 5999123834406311439, guid: ab65e042f0cb4664d8117327fd3cab74, type: 3}
-      propertyPath: buyPortal
+      propertyPath: inAppShop
       value: 
-      objectReference: {fileID: 726217594}
+      objectReference: {fileID: 3351216303906217517}
+    - target: {fileID: 5999123834406311439, guid: ab65e042f0cb4664d8117327fd3cab74, type: 3}
+      propertyPath: playerMover
+      value: 
+      objectReference: {fileID: 1689149131}
     - target: {fileID: 5999123834406311439, guid: ab65e042f0cb4664d8117327fd3cab74, type: 3}
       propertyPath: EventManager
       value: 
       objectReference: {fileID: 962965951}
     - target: {fileID: 5999123834406311439, guid: ab65e042f0cb4664d8117327fd3cab74, type: 3}
-      propertyPath: eventManager
+      propertyPath: cameraController
       value: 
-      objectReference: {fileID: 962965951}
+      objectReference: {fileID: 1623463295}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -40304,10 +40357,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 1668302634}
     m_Modifications:
     - target: {fileID: 998759740188899782, guid: 055d42562e9b3294888cd0d81206f18d, type: 3}
-      propertyPath: Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 998759740188899782, guid: 055d42562e9b3294888cd0d81206f18d, type: 3}
       propertyPath: IsBuyed
       value: 1
       objectReference: {fileID: 0}
@@ -40324,6 +40373,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 726217594}
     - target: {fileID: 998759740188899782, guid: 055d42562e9b3294888cd0d81206f18d, type: 3}
+      propertyPath: inAppShop
+      value: 
+      objectReference: {fileID: 3351216303906217517}
+    - target: {fileID: 998759740188899782, guid: 055d42562e9b3294888cd0d81206f18d, type: 3}
+      propertyPath: playerMover
+      value: 
+      objectReference: {fileID: 1689149131}
+    - target: {fileID: 998759740188899782, guid: 055d42562e9b3294888cd0d81206f18d, type: 3}
       propertyPath: EventManager
       value: 
       objectReference: {fileID: 962965951}
@@ -40331,6 +40388,10 @@ PrefabInstance:
       propertyPath: eventManager
       value: 
       objectReference: {fileID: 962965951}
+    - target: {fileID: 998759740188899782, guid: 055d42562e9b3294888cd0d81206f18d, type: 3}
+      propertyPath: cameraController
+      value: 
+      objectReference: {fileID: 1623463295}
     - target: {fileID: 1047433681222145153, guid: 055d42562e9b3294888cd0d81206f18d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 58.13
@@ -40740,6 +40801,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 726217594}
     - target: {fileID: 7747018116032472976, guid: ecb6c6fc770b90e42a1121f151536013, type: 3}
+      propertyPath: inAppShop
+      value: 
+      objectReference: {fileID: 3351216303906217517}
+    - target: {fileID: 7747018116032472976, guid: ecb6c6fc770b90e42a1121f151536013, type: 3}
+      propertyPath: playerMover
+      value: 
+      objectReference: {fileID: 1689149131}
+    - target: {fileID: 7747018116032472976, guid: ecb6c6fc770b90e42a1121f151536013, type: 3}
       propertyPath: EventManager
       value: 
       objectReference: {fileID: 962965951}
@@ -40747,6 +40816,10 @@ PrefabInstance:
       propertyPath: eventManager
       value: 
       objectReference: {fileID: 962965951}
+    - target: {fileID: 7747018116032472976, guid: ecb6c6fc770b90e42a1121f151536013, type: 3}
+      propertyPath: cameraController
+      value: 
+      objectReference: {fileID: 1623463295}
     - target: {fileID: 8672031450938258303, guid: ecb6c6fc770b90e42a1121f151536013, type: 3}
       propertyPath: m_Name
       value: Boss Portall
@@ -42046,6 +42119,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 726217594}
     - target: {fileID: 5542898461234947296, guid: 78b915fcbb469bf4bb0be40a65b8514f, type: 3}
+      propertyPath: inAppShop
+      value: 
+      objectReference: {fileID: 3351216303906217517}
+    - target: {fileID: 5542898461234947296, guid: 78b915fcbb469bf4bb0be40a65b8514f, type: 3}
+      propertyPath: playerMover
+      value: 
+      objectReference: {fileID: 1689149131}
+    - target: {fileID: 5542898461234947296, guid: 78b915fcbb469bf4bb0be40a65b8514f, type: 3}
       propertyPath: EventManager
       value: 
       objectReference: {fileID: 962965951}
@@ -42053,6 +42134,10 @@ PrefabInstance:
       propertyPath: eventManager
       value: 
       objectReference: {fileID: 962965951}
+    - target: {fileID: 5542898461234947296, guid: 78b915fcbb469bf4bb0be40a65b8514f, type: 3}
+      propertyPath: cameraController
+      value: 
+      objectReference: {fileID: 1623463295}
     - target: {fileID: 5744659201298975143, guid: 78b915fcbb469bf4bb0be40a65b8514f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 58.13
@@ -64220,6 +64305,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 726217594}
     - target: {fileID: 6036667264985312224, guid: eabf6c107393b4940ba4f977a9f4fa2c, type: 3}
+      propertyPath: inAppShop
+      value: 
+      objectReference: {fileID: 3351216303906217517}
+    - target: {fileID: 6036667264985312224, guid: eabf6c107393b4940ba4f977a9f4fa2c, type: 3}
+      propertyPath: playerMover
+      value: 
+      objectReference: {fileID: 1689149131}
+    - target: {fileID: 6036667264985312224, guid: eabf6c107393b4940ba4f977a9f4fa2c, type: 3}
       propertyPath: EventManager
       value: 
       objectReference: {fileID: 962965951}
@@ -64227,6 +64320,10 @@ PrefabInstance:
       propertyPath: eventManager
       value: 
       objectReference: {fileID: 962965951}
+    - target: {fileID: 6036667264985312224, guid: eabf6c107393b4940ba4f977a9f4fa2c, type: 3}
+      propertyPath: cameraController
+      value: 
+      objectReference: {fileID: 1623463295}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -81702,29 +81799,25 @@ PrefabInstance:
     m_TransformParent: {fileID: 1668302634}
     m_Modifications:
     - target: {fileID: 7834369457427632386, guid: 446bf9a0254ea8f428a59484cc211bf5, type: 3}
-      propertyPath: isBuyed
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7834369457427632386, guid: 446bf9a0254ea8f428a59484cc211bf5, type: 3}
-      propertyPath: costType
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7834369457427632386, guid: 446bf9a0254ea8f428a59484cc211bf5, type: 3}
       propertyPath: BuyPortal
       value: 
       objectReference: {fileID: 726217594}
     - target: {fileID: 7834369457427632386, guid: 446bf9a0254ea8f428a59484cc211bf5, type: 3}
-      propertyPath: buyPortal
+      propertyPath: inAppShop
       value: 
-      objectReference: {fileID: 726217594}
+      objectReference: {fileID: 3351216303906217517}
+    - target: {fileID: 7834369457427632386, guid: 446bf9a0254ea8f428a59484cc211bf5, type: 3}
+      propertyPath: playerMover
+      value: 
+      objectReference: {fileID: 1689149131}
     - target: {fileID: 7834369457427632386, guid: 446bf9a0254ea8f428a59484cc211bf5, type: 3}
       propertyPath: EventManager
       value: 
       objectReference: {fileID: 962965951}
     - target: {fileID: 7834369457427632386, guid: 446bf9a0254ea8f428a59484cc211bf5, type: 3}
-      propertyPath: eventManager
+      propertyPath: cameraController
       value: 
-      objectReference: {fileID: 962965951}
+      objectReference: {fileID: 1623463295}
     - target: {fileID: 8064874154543414341, guid: 446bf9a0254ea8f428a59484cc211bf5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 58.13
@@ -81957,6 +82050,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 726217594}
     - target: {fileID: 3336084402019839651, guid: 5f7177209e4042f4d904d2abd06f97bb, type: 3}
+      propertyPath: inAppShop
+      value: 
+      objectReference: {fileID: 3351216303906217517}
+    - target: {fileID: 3336084402019839651, guid: 5f7177209e4042f4d904d2abd06f97bb, type: 3}
+      propertyPath: playerMover
+      value: 
+      objectReference: {fileID: 1689149131}
+    - target: {fileID: 3336084402019839651, guid: 5f7177209e4042f4d904d2abd06f97bb, type: 3}
       propertyPath: EventManager
       value: 
       objectReference: {fileID: 962965951}
@@ -81964,6 +82065,10 @@ PrefabInstance:
       propertyPath: eventManager
       value: 
       objectReference: {fileID: 962965951}
+    - target: {fileID: 3336084402019839651, guid: 5f7177209e4042f4d904d2abd06f97bb, type: 3}
+      propertyPath: cameraController
+      value: 
+      objectReference: {fileID: 1623463295}
     - target: {fileID: 4438286782387993164, guid: 5f7177209e4042f4d904d2abd06f97bb, type: 3}
       propertyPath: m_Name
       value: Clash Royall Portal

@@ -11,7 +11,10 @@ public class BuyPortalPanel : MonoBehaviour
     public Button buyButton;
     public AdvancedWalkerController walkeController;
     public CameraController cameraInput;
-    public void InitializePanel(int cost, UnityAction action)
+
+    public GameObject SlapIcon;
+    public GameObject DiamondIcon;
+    public void InitializePanel(int cost, UnityAction action, Portal.CostType costType)
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -24,5 +27,17 @@ public class BuyPortalPanel : MonoBehaviour
 
         buyButton.onClick?.RemoveAllListeners();
         buyButton.onClick.AddListener(action);
+
+        switch(costType)
+        {
+            case Portal.CostType.Money:
+                SlapIcon.SetActive(true);
+                DiamondIcon.SetActive(false);
+                break;
+            case Portal.CostType.Diamond:
+                DiamondIcon.SetActive(true);
+                SlapIcon.SetActive(false);
+                break;
+        }
     }
 }

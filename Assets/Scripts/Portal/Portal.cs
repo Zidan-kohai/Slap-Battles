@@ -1,3 +1,4 @@
+using CMF;
 using System;
 using System.Runtime.CompilerServices;
 using UnityEngine;
@@ -16,6 +17,11 @@ public partial class Portal : MonoBehaviour
     public CostType costType;
     public GameObject SlapIcon;
     public GameObject DiamondIcon;
+
+    public GameObject inAppShop;
+
+    [SerializeField] private AdvancedWalkerController playerMover;
+    [SerializeField] private CameraController cameraController;
     private void Start()
     {
         if(Geekplay.Instance.PlayerData.BuyedModes.Contains(Mode) || IsBuyed)
@@ -40,7 +46,7 @@ public partial class Portal : MonoBehaviour
         if (other.gameObject.layer != 7) return;
         else if (!IsBuyed)
         {
-            BuyPortal.InitializePanel(Cost, TryBuy);
+            BuyPortal.InitializePanel(Cost, TryBuy, costType);
             return;
         }
 
@@ -65,7 +71,16 @@ public partial class Portal : MonoBehaviour
                 EventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
                 Geekplay.Instance.PlayerData.BuyedModes.Add(Mode);
 
+                playerMover.enabled = true;
+                cameraController.enabled = true;
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+
                 OpenPortal();
+            }
+            else
+            {
+                inAppShop.SetActive(true);
             }
         }
         else if (costType == CostType.Diamond)
@@ -76,12 +91,17 @@ public partial class Portal : MonoBehaviour
                 EventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
                 Geekplay.Instance.PlayerData.BuyedModes.Add(Mode);
 
+                playerMover.enabled = true;
+                cameraController.enabled = true;
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+
                 OpenPortal();
             }
-        }
-        else
-        {
-            Debug.Log("We Don`t have money");
+            else
+            {
+                inAppShop.SetActive(true);
+            }
         }
     }
 

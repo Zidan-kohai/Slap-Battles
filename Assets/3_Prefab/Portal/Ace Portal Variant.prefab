@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 235006390613831203, guid: 055d42562e9b3294888cd0d81206f18d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 998759740188899782, guid: 055d42562e9b3294888cd0d81206f18d, type: 3}
       propertyPath: Cost
       value: 25
@@ -26,11 +30,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1047433681222145153, guid: 055d42562e9b3294888cd0d81206f18d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.07
+      value: 6.9
       objectReference: {fileID: 0}
     - target: {fileID: 1047433681222145153, guid: 055d42562e9b3294888cd0d81206f18d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -19.44
+      value: -9.47
       objectReference: {fileID: 0}
     - target: {fileID: 1047433681222145153, guid: 055d42562e9b3294888cd0d81206f18d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -60,9 +64,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2065582180443655384, guid: 055d42562e9b3294888cd0d81206f18d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.464
+      objectReference: {fileID: 0}
     - target: {fileID: 2163874033231899945, guid: 055d42562e9b3294888cd0d81206f18d, type: 3}
       propertyPath: m_Name
       value: Ace Portal Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6202989088245506803, guid: 055d42562e9b3294888cd0d81206f18d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6554430637090269359, guid: 055d42562e9b3294888cd0d81206f18d, type: 3}
       propertyPath: m_text
@@ -72,6 +84,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0c42eafff8c324e32a9fd773f4bf04c2, type: 2}
+    - target: {fileID: 8765541458102515747, guid: 055d42562e9b3294888cd0d81206f18d, type: 3}
+      propertyPath: m_text
+      value: "\u043A\u0443\u043F\u0438\u0442\u044C \u0437\u0430 25\n"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
