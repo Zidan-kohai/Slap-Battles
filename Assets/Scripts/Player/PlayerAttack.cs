@@ -24,6 +24,7 @@ public class PlayerAttack : MonoBehaviour
     [Header("Components")]
     [SerializeField] protected Player player;
     [SerializeField] protected EventManager eventManager;
+    [SerializeField] protected Animator animator;
 
     [Header("Audio")]
     [SerializeField] protected AudioSource slapAudio;
@@ -99,6 +100,7 @@ public class PlayerAttack : MonoBehaviour
     {
         canAttack = false;
         //slap.Attack();
+        animator.SetTrigger("Attack");
         yield return new WaitForSeconds(timeToNextAttack);
         canAttack = true;
     }
