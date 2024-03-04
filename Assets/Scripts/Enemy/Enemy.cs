@@ -18,6 +18,7 @@ public class Enemy : IHealthObject
     [SerializeField] private Rigidbody rb;
     [SerializeField] protected Image healthbar;
     [SerializeField] protected Animator animator;
+    [SerializeField] protected GameObject Canvas;
     
     [SerializeField] private float speed;
     [SerializeField] private int damagePower;
@@ -41,6 +42,7 @@ public class Enemy : IHealthObject
 
     [Header("Audio")]
     [SerializeField] private AudioSource slapAudio;
+    [SerializeField] private AudioSource deathAudio;
     public void ChangeEnemy(IHealthObject target) =>  enemy = target;
     protected void OnEnable()
     {
@@ -256,6 +258,7 @@ public class Enemy : IHealthObject
         canGetDamage = true;
         isSleeping = false;
         navMeshAgent.speed = speed;
+        Canvas.SetActive(true);
     }
 
     public override void Death(bool playDeathAnimation = true)
@@ -265,7 +268,11 @@ public class Enemy : IHealthObject
         isDead = true;
 
         if (playDeathAnimation)
+        {
             animator.SetTrigger("Death");
+            Canvas.SetActive(false);
+            deathAudio.Play();
+        }
 
         eventManager.InvokeActionsOnEnemyDeath(this);
         StartCoroutine(DisableGameObject(7));
