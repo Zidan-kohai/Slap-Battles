@@ -298,9 +298,9 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2523343298349408565}
   - {fileID: 7888440920244340653}
   - {fileID: 7421008426328834263}
+  - {fileID: 2523343298349408565}
   m_Father: {fileID: 1626376185768969731}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1458,6 +1458,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7668674582359686316, guid: 40823b84a4f484f46b10d460682122e1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 4507252312063646717, guid: 40823b84a4f484f46b10d460682122e1, type: 3}
@@ -1845,10 +1849,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 34a6350b3d1799944ab7f57e7ba6f10b, type: 2}
     - target: {fileID: 1946795582873769700, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'mixamorig:RightArm'\n\tTransform 'mixamorig:RightArm'\n\tFrom
-        animation clip 'IdleWithHand'"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1979627145331737048, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
       propertyPath: m_LocalPosition.x
