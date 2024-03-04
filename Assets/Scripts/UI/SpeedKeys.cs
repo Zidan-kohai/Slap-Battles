@@ -21,7 +21,7 @@ public class SpeedKeys : MonoBehaviour
         {
             Application.OpenURL("https://t.me/+uQFcFVwGmwM3ZDNi");
         }
-        else if(Input.GetKeyDown(KeyCode.S) && Geekplay.Instance.canShowReward)
+        else if(Input.GetKeyDown(KeyCode.X) && Geekplay.Instance.canShowReward)
         {
             Geekplay.Instance.ShowRewardedAd("Acceleration");
         }
