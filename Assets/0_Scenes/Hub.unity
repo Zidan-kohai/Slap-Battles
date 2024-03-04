@@ -33462,17 +33462,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 77506326970855152, guid: 2c7b7f15dd87a0140b5d843075551ea7, type: 3}
   m_PrefabInstance: {fileID: 6043025641280524541}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2110986866 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6201522572689198182, guid: 2c7b7f15dd87a0140b5d843075551ea7, type: 3}
-  m_PrefabInstance: {fileID: 6043025641280524541}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af0a1f85a6d6ea24890b955d00b17e8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2125835701 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5480569840886484247, guid: e4d2edd17f07ee948b143b6d82366084, type: 3}
@@ -64940,25 +64929,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 749920289824234819, guid: 2c7b7f15dd87a0140b5d843075551ea7, type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2110986866}
-    - target: {fileID: 749920289824234819, guid: 2c7b7f15dd87a0140b5d843075551ea7, type: 3}
-      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeVolume
-      objectReference: {fileID: 0}
     - target: {fileID: 1159408353624642684, guid: 2c7b7f15dd87a0140b5d843075551ea7, type: 3}
       propertyPath: m_Name
       value: PauseHandler
-      objectReference: {fileID: 0}
-    - target: {fileID: 1663560485929292008, guid: 2c7b7f15dd87a0140b5d843075551ea7, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2110986866}
-    - target: {fileID: 1663560485929292008, guid: 2c7b7f15dd87a0140b5d843075551ea7, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ClosePausePanel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
