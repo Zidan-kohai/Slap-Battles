@@ -1,10 +1,9 @@
+using CrazyGames;
+using GamePix;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
-using CrazyGames;
-using GamePix;
-using UnityEngine.UI;
-using System;
 
 [System.Serializable]
 public class Rewards
@@ -20,16 +19,16 @@ public class Purchases
     public UnityEvent purchaseEvent;
 }
 
-public enum Platform 
+public enum Platform
 {
     Editor,
-    Yandex, 
+    Yandex,
     VK,
     GameArter,
     CrazyGames,
-    VKPlay, 
+    VKPlay,
     Kongregate,
-    GameDistribution, 
+    GameDistribution,
     GamePix,
     OK
 }
@@ -96,12 +95,12 @@ public class Geekplay : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             PlayerData = new PlayerData();
             Save();
         }
-        else if(Input.GetKeyDown(KeyCode.Tab) && canPause)
+        else if (Input.GetKeyDown(KeyCode.Tab) && canPause)
         {
             StopOrResume();
         }
@@ -116,7 +115,7 @@ public class Geekplay : MonoBehaviour
 
         Save();
 
-        if(Time.timeScale == 0)
+        if (Time.timeScale == 0)
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -264,10 +263,10 @@ public class Geekplay : MonoBehaviour
                 Utils.AdReward();
                 break;
             case Platform.VK:
-                    canShowAd = false;
-                    StartCoroutine(CanAdShow());
-                    rewardTag = idOrTag;
-                    Utils.VK_Rewarded();
+                canShowAd = false;
+                StartCoroutine(CanAdShow());
+                rewardTag = idOrTag;
+                Utils.VK_Rewarded();
                 break;
             case Platform.CrazyGames:
                 rewardTag = idOrTag;
@@ -290,7 +289,7 @@ public class Geekplay : MonoBehaviour
         }
     }
 
-    public void ShowBannerAd() 
+    public void ShowBannerAd()
     {
         switch (Platform)
         {
@@ -390,7 +389,7 @@ public class Geekplay : MonoBehaviour
                 break;
         }
     }
-    
+
     public void InvitePlayers() //ПРИГЛАСИТЬ ИГРОКОВ (ВК)
     {
         switch (Platform)
@@ -517,7 +516,7 @@ public class Geekplay : MonoBehaviour
                 if (PlayerPrefs.HasKey("PlayerData"))
                 {
                     string jsonString = PlayerPrefs.GetString("PlayerData");
-                    PlayerData =  JsonUtility.FromJson<PlayerData>(jsonString);     
+                    PlayerData = JsonUtility.FromJson<PlayerData>(jsonString);
                 }
                 else
                 {
@@ -546,7 +545,7 @@ public class Geekplay : MonoBehaviour
                 if (PlayerPrefs.HasKey("PlayerData"))
                 {
                     string jsonString = PlayerPrefs.GetString("PlayerData");
-                    PlayerData =  JsonUtility.FromJson<PlayerData>(jsonString);     
+                    PlayerData = JsonUtility.FromJson<PlayerData>(jsonString);
                 }
                 else
                 {
@@ -560,7 +559,7 @@ public class Geekplay : MonoBehaviour
                 if (PlayerPrefs.HasKey("PlayerData"))
                 {
                     string jsonString = PlayerPrefs.GetString("PlayerData");
-                    PlayerData =  JsonUtility.FromJson<PlayerData>(jsonString);     
+                    PlayerData = JsonUtility.FromJson<PlayerData>(jsonString);
                 }
                 else
                 {
@@ -574,7 +573,7 @@ public class Geekplay : MonoBehaviour
                 if (PlayerPrefs.HasKey("PlayerData"))
                 {
                     string jsonString = PlayerPrefs.GetString("PlayerData");
-                    PlayerData =  JsonUtility.FromJson<PlayerData>(jsonString);     
+                    PlayerData = JsonUtility.FromJson<PlayerData>(jsonString);
                 }
                 else
                 {
@@ -594,7 +593,7 @@ public class Geekplay : MonoBehaviour
                 if (PlayerPrefs.HasKey("PlayerData"))
                 {
                     string jsonString = PlayerPrefs.GetString("PlayerData");
-                    PlayerData =  JsonUtility.FromJson<PlayerData>(jsonString);     
+                    PlayerData = JsonUtility.FromJson<PlayerData>(jsonString);
                 }
                 else
                 {
@@ -605,7 +604,7 @@ public class Geekplay : MonoBehaviour
     }
 
     protected void Awake()
-    { 
+    {
         if (Instance == null)
         {
             Instance = this;
@@ -626,7 +625,7 @@ public class Geekplay : MonoBehaviour
     void LoadBanner()
     {
         if (Platform == Platform.OK)
-        {   
+        {
             Utils.OK_RequestBannerAds();
         }
     }
@@ -650,7 +649,7 @@ public class Geekplay : MonoBehaviour
     IEnumerator InterLoad()
     {
         while (true)
-        {   
+        {
             yield return new WaitForSeconds(15);
             switch (Platform)
             {
@@ -756,6 +755,11 @@ public class Geekplay : MonoBehaviour
 
     public void ResumeMusAndGame()
     {
+        if (pausePopup.activeSelf)
+        {
+            AudioListener.volume = PlayerData.IsVolumeOn ? 1 : 0;
+            return;
+        }
         adOpen = false;
         AudioListener.volume = 1;
         Time.timeScale = 1;
@@ -776,8 +780,8 @@ public class Geekplay : MonoBehaviour
 
     private void Silence(bool silence)
     {
-        AudioListener.volume = silence ? 0 : 1;
-        Time.timeScale = silence ? 0 : 1;
+        AudioListener.volume = PlayerData.IsVolumeOn ? 1 : 0;
+        Time.timeScale = pausePopup.activeSelf ? 0 : 1;
 
         if (adOpen)
         {
