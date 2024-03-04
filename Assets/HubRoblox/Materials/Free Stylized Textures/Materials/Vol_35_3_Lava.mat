@@ -12,13 +12,10 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
-  - _EMISSION
-  - _NORMALMAP
-  - _PARALLAXMAP
   - _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   m_InvalidKeywords:
   - _SPECGLOSSMAP
-  m_LightmapFlags: 1
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -74,10 +71,10 @@ Material:
     - _Cutoff: 0.41
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _GlossMapScale: 0.225
+    - _GlossMapScale: 0.569
     - _Glossiness: 0.75
     - _GlossyReflections: 1
-    - _Metallic: 0
+    - _Metallic: 0.285
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.08
