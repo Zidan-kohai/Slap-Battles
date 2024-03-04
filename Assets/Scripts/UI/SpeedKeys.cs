@@ -21,19 +21,19 @@ public class SpeedKeys : MonoBehaviour
         {
             Application.OpenURL("https://t.me/+uQFcFVwGmwM3ZDNi");
         }
-        else if(Input.GetKeyDown(KeyCode.X) && Geekplay.Instance.canShowReward)
+        else if(Input.GetKeyDown(KeyCode.X) && Geekplay.Instance.CanShowReward)
         {
             Geekplay.Instance.ShowRewardedAd("Acceleration");
         }
-        else if(Input.GetKeyDown(KeyCode.P) && Geekplay.Instance.canShowReward)
+        else if(Input.GetKeyDown(KeyCode.P) && Geekplay.Instance.CanShowReward)
         {
             Geekplay.Instance.ShowRewardedAd("IncreasePower");
         }
-        else if (Input.GetKeyDown(KeyCode.F) && Geekplay.Instance.canShowReward)
+        else if (Input.GetKeyDown(KeyCode.F) && Geekplay.Instance.CanShowReward)
         {
             Geekplay.Instance.ShowRewardedAd("DoubleSlaps");
         }
-        else if (Input.GetKeyDown(KeyCode.H) && Geekplay.Instance.canShowReward)
+        else if (Input.GetKeyDown(KeyCode.H) && Geekplay.Instance.CanShowReward)
         {
             Geekplay.Instance.ShowRewardedAd("IncreaseHP");
         }

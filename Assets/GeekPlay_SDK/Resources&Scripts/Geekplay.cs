@@ -4,6 +4,7 @@ using UnityEngine.Events;
 using CrazyGames;
 using GamePix;
 using UnityEngine.UI;
+using System;
 
 [System.Serializable]
 public class Rewards
@@ -68,10 +69,12 @@ public class Geekplay : MonoBehaviour
 
     public float TimeToShowReward;
     public float TimePasedFromLastReward;
-    public bool canShowReward;
+    public bool CanShowReward => TimePasedFromLastReward > TimeToShowReward && !BuffAcceleration && !BuffDoubleSlap && !BuffIncreasePower && !BuffIncreaseHP;
+    public Action OnShowBuffs;
 
-    public GameObject pausePopup;
+
     #region Pause
+    public GameObject pausePopup;
     public bool canPause = true;
     public void ChangeCanPause(bool canPause)
     {
@@ -104,8 +107,6 @@ public class Geekplay : MonoBehaviour
         }
 
         TimePasedFromLastReward += Time.deltaTime;
-
-        canShowReward = TimePasedFromLastReward > TimeToShowReward && !BuffAcceleration && !BuffDoubleSlap && !BuffIncreasePower && !BuffIncreaseHP;
     }
 
     public void StopOrResume()

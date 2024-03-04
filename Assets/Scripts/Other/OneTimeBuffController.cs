@@ -7,9 +7,9 @@ public class OneTimeBuffController : MonoBehaviour
     public bool isBuffsTurnOn;
     private void LateUpdate()
     {
-        if (Geekplay.Instance.canShowReward)
+        if (Geekplay.Instance.CanShowReward && !isBuffsTurnOn)
         {
-            isBuffsTurnOn = false;
+            isBuffsTurnOn = true;
 
             foreach (var buff in Buffs)
             {
