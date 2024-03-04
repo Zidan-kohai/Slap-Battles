@@ -70,8 +70,7 @@ public class Geekplay : MonoBehaviour
     public float TimePasedFromLastReward;
     public bool canShowReward;
 
-    public GameObject pauseCanvas;
-    public Toggle volumeToggle;
+    public GameObject pausePopup;
     #region Pause
     public bool canPause = true;
     public void ChangeCanPause(bool canPause)
@@ -90,7 +89,7 @@ public class Geekplay : MonoBehaviour
             Cursor.visible = false;
         }
 
-        volumeToggle.isOn = PlayerData.IsVolumeOn;
+        AudioListener.volume = PlayerData.IsVolumeOn ? 1 : 0;
     }
     private void Update()
     {
@@ -112,9 +111,7 @@ public class Geekplay : MonoBehaviour
     public void StopOrResume()
     {
         Time.timeScale = Time.timeScale > 0 ? 0 : 1;
-        pauseCanvas.SetActive(Time.timeScale == 0);
-        AudioListener.volume = volumeToggle.isOn ? 1 : 0;
-        PlayerData.IsVolumeOn = volumeToggle.isOn;
+        pausePopup.SetActive(Time.timeScale == 0);
 
         Save();
 
