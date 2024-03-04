@@ -110,7 +110,6 @@ public class Player : IHealthObject
         walkController.jumpSpeed = jumpSpeed;
         animator.SetTrigger("Revive");
         health = maxHealth;
-
         healthbar.fillAmount = (health / maxHealth);
     }
     public IEnumerator GetDamageAnimation(Vector3 direction, float damagePower)

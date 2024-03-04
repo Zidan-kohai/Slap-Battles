@@ -89,7 +89,6 @@ public partial class Portal : MonoBehaviour
     {
         IsBuyed = true;
         LockPanel.SetActive(false);
-        Collider.isTrigger = true;
     }
 
     public enum CostType

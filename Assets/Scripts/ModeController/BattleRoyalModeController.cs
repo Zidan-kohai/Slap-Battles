@@ -28,8 +28,14 @@ public class BattleRoyalModeController : MonoBehaviour
         TurnOnGameObjects();
 
         eventManager.SubscribeOnEnemyDeath(OnEnemyDeath);
+        eventManager.SubscribeOnPlayerRevive(OnPlayerRevive);
     }
-   
+
+    private void OnPlayerRevive()
+    {
+        player.transform.position = GetRandomPositionForPlayer();
+    }
+
     private void OnEnemyDeath(Enemy enemyObj)
     {
         enemies.Remove(enemyObj);

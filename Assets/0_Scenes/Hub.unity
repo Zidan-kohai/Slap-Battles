@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.661538, g: 0.882227, b: 0.8823573, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -39163,9 +39163,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5999123834406311439, guid: ab65e042f0cb4664d8117327fd3cab74, type: 3}
+      propertyPath: costType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5999123834406311439, guid: ab65e042f0cb4664d8117327fd3cab74, type: 3}
+      propertyPath: BuyPortal
+      value: 
+      objectReference: {fileID: 726217594}
+    - target: {fileID: 5999123834406311439, guid: ab65e042f0cb4664d8117327fd3cab74, type: 3}
       propertyPath: buyPortal
       value: 
       objectReference: {fileID: 726217594}
+    - target: {fileID: 5999123834406311439, guid: ab65e042f0cb4664d8117327fd3cab74, type: 3}
+      propertyPath: EventManager
+      value: 
+      objectReference: {fileID: 962965951}
     - target: {fileID: 5999123834406311439, guid: ab65e042f0cb4664d8117327fd3cab74, type: 3}
       propertyPath: eventManager
       value: 
@@ -40296,13 +40308,25 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 998759740188899782, guid: 055d42562e9b3294888cd0d81206f18d, type: 3}
+      propertyPath: IsBuyed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 998759740188899782, guid: 055d42562e9b3294888cd0d81206f18d, type: 3}
       propertyPath: isBuyed
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 998759740188899782, guid: 055d42562e9b3294888cd0d81206f18d, type: 3}
+      propertyPath: BuyPortal
+      value: 
+      objectReference: {fileID: 726217594}
+    - target: {fileID: 998759740188899782, guid: 055d42562e9b3294888cd0d81206f18d, type: 3}
       propertyPath: buyPortal
       value: 
       objectReference: {fileID: 726217594}
+    - target: {fileID: 998759740188899782, guid: 055d42562e9b3294888cd0d81206f18d, type: 3}
+      propertyPath: EventManager
+      value: 
+      objectReference: {fileID: 962965951}
     - target: {fileID: 998759740188899782, guid: 055d42562e9b3294888cd0d81206f18d, type: 3}
       propertyPath: eventManager
       value: 
@@ -40708,9 +40732,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7747018116032472976, guid: ecb6c6fc770b90e42a1121f151536013, type: 3}
+      propertyPath: BuyPortal
+      value: 
+      objectReference: {fileID: 726217594}
+    - target: {fileID: 7747018116032472976, guid: ecb6c6fc770b90e42a1121f151536013, type: 3}
       propertyPath: buyPortal
       value: 
       objectReference: {fileID: 726217594}
+    - target: {fileID: 7747018116032472976, guid: ecb6c6fc770b90e42a1121f151536013, type: 3}
+      propertyPath: EventManager
+      value: 
+      objectReference: {fileID: 962965951}
     - target: {fileID: 7747018116032472976, guid: ecb6c6fc770b90e42a1121f151536013, type: 3}
       propertyPath: eventManager
       value: 
@@ -42006,9 +42038,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5542898461234947296, guid: 78b915fcbb469bf4bb0be40a65b8514f, type: 3}
+      propertyPath: BuyPortal
+      value: 
+      objectReference: {fileID: 726217594}
+    - target: {fileID: 5542898461234947296, guid: 78b915fcbb469bf4bb0be40a65b8514f, type: 3}
       propertyPath: buyPortal
       value: 
       objectReference: {fileID: 726217594}
+    - target: {fileID: 5542898461234947296, guid: 78b915fcbb469bf4bb0be40a65b8514f, type: 3}
+      propertyPath: EventManager
+      value: 
+      objectReference: {fileID: 962965951}
     - target: {fileID: 5542898461234947296, guid: 78b915fcbb469bf4bb0be40a65b8514f, type: 3}
       propertyPath: eventManager
       value: 
@@ -64172,9 +64212,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6036667264985312224, guid: eabf6c107393b4940ba4f977a9f4fa2c, type: 3}
+      propertyPath: BuyPortal
+      value: 
+      objectReference: {fileID: 726217594}
+    - target: {fileID: 6036667264985312224, guid: eabf6c107393b4940ba4f977a9f4fa2c, type: 3}
       propertyPath: buyPortal
       value: 
       objectReference: {fileID: 726217594}
+    - target: {fileID: 6036667264985312224, guid: eabf6c107393b4940ba4f977a9f4fa2c, type: 3}
+      propertyPath: EventManager
+      value: 
+      objectReference: {fileID: 962965951}
     - target: {fileID: 6036667264985312224, guid: eabf6c107393b4940ba4f977a9f4fa2c, type: 3}
       propertyPath: eventManager
       value: 
@@ -81658,9 +81706,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7834369457427632386, guid: 446bf9a0254ea8f428a59484cc211bf5, type: 3}
+      propertyPath: costType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7834369457427632386, guid: 446bf9a0254ea8f428a59484cc211bf5, type: 3}
+      propertyPath: BuyPortal
+      value: 
+      objectReference: {fileID: 726217594}
+    - target: {fileID: 7834369457427632386, guid: 446bf9a0254ea8f428a59484cc211bf5, type: 3}
       propertyPath: buyPortal
       value: 
       objectReference: {fileID: 726217594}
+    - target: {fileID: 7834369457427632386, guid: 446bf9a0254ea8f428a59484cc211bf5, type: 3}
+      propertyPath: EventManager
+      value: 
+      objectReference: {fileID: 962965951}
     - target: {fileID: 7834369457427632386, guid: 446bf9a0254ea8f428a59484cc211bf5, type: 3}
       propertyPath: eventManager
       value: 
@@ -81889,9 +81949,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3336084402019839651, guid: 5f7177209e4042f4d904d2abd06f97bb, type: 3}
+      propertyPath: BuyPortal
+      value: 
+      objectReference: {fileID: 726217594}
+    - target: {fileID: 3336084402019839651, guid: 5f7177209e4042f4d904d2abd06f97bb, type: 3}
       propertyPath: buyPortal
       value: 
       objectReference: {fileID: 726217594}
+    - target: {fileID: 3336084402019839651, guid: 5f7177209e4042f4d904d2abd06f97bb, type: 3}
+      propertyPath: EventManager
+      value: 
+      objectReference: {fileID: 962965951}
     - target: {fileID: 3336084402019839651, guid: 5f7177209e4042f4d904d2abd06f97bb, type: 3}
       propertyPath: eventManager
       value: 

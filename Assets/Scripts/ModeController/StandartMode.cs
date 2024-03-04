@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class StandartMode : MonoBehaviour
 {
@@ -23,6 +22,12 @@ public class StandartMode : MonoBehaviour
             ArrangeTargetForEnemy();
 
         eventManager.SubscribeOnBossDeath(OnBossDead);
+        eventManager.SubscribeOnPlayerRevive(OnPlayerRevive);
+    }
+
+    private void OnPlayerRevive()
+    {
+        player.transform.position = GetRandomPositionForPlayer();
     }
 
     private void ArrangeTargetForEnemy()
