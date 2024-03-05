@@ -43,7 +43,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0) && canAttack)
         {
-            Attack();
+            StartCoroutine(WaitBeforeAttack());
         }
 
         else if (Input.GetKeyDown(KeyCode.E))
@@ -57,6 +57,20 @@ public class PlayerAttack : MonoBehaviour
         this.eventManager = eventManager;
         Debug.Log(eventManager);
     }
+    private IEnumerator WaitBeforeAttack()
+    {
+        canAttack = false;
+        animator.SetTrigger("Attack");
+        yield return new WaitForSeconds(0.6f);
+        slapAudio.Play();
+        yield return new WaitForSeconds(0.05f);
+        Attack();
+
+
+        yield return new WaitForSeconds(timeToNextAttack);
+        canAttack = true;
+
+    }
 
     public virtual void Attack()
     {
@@ -65,7 +79,6 @@ public class PlayerAttack : MonoBehaviour
         if (Physics.SphereCast(slapRaycaster.position - slapRaycaster.forward * 0.2f, 0.5f, slapRaycaster.forward, out hit, attackDistanese, enemyLayer, QueryTriggerInteraction.Ignore))
         {
             slapCount++;
-            slapAudio.Play();
             float attackPower = slap.AttackPower;
 
             if (Geekplay.Instance.BuffIncreasePower)
@@ -88,21 +101,11 @@ public class PlayerAttack : MonoBehaviour
                 eventManager.InvokeChangeDiamondEvents(1);
             }
         }
-        StartCoroutine(AttackAnimation());
     }
 
     protected virtual void OnSuccesAttack()
     {
 
-    }
-
-    public IEnumerator AttackAnimation()
-    {
-        canAttack = false;
-        //slap.Attack();
-        animator.SetTrigger("Attack");
-        yield return new WaitForSeconds(timeToNextAttack);
-        canAttack = true;
     }
 
     public void ChangeSlap(Slap newSlap)
