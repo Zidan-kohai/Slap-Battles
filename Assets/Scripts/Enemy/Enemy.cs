@@ -118,6 +118,8 @@ public class Enemy : IHealthObject
 
     protected virtual void Attack()
     {
+        if ((target - transform.position).magnitude > distanseToAttack || !IsInSight()) return;
+
         enemy.GetDamage(damagePower, (target - transform.position).normalized, out bool isDeath, out int gettedSlap);
         OnSuccesAttack();
 
