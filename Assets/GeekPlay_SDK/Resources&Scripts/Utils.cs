@@ -12,9 +12,6 @@ public class Utils : MonoBehaviour
 
     //МЕТОДЫ YANDEX//
     [DllImport("__Internal")]
-    public static extern void IsMobile();
-
-    [DllImport("__Internal")]
     public static extern void RateGame();
 
     [DllImport("__Internal")]
@@ -46,9 +43,10 @@ public class Utils : MonoBehaviour
 
     [DllImport("__Internal")]
     public static extern void GameReady();
-    //МЕТОДЫ YANDEX//
+
     [DllImport("__Internal")]
     public static extern void GetLeaderboard(string type, int number);
+    //МЕТОДЫ YANDEX//
 
     //МЕТОДЫ ВК//
     [DllImport("__Internal")]

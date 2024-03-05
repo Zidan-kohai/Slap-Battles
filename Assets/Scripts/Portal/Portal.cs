@@ -50,12 +50,16 @@ public partial class Portal : MonoBehaviour
             return;
         }
 
+        LoadMode();
+    }
+
+    private void LoadMode()
+    {
         SceneLoader sceneLoader = new SceneLoader(this);
 
         Geekplay.Instance.currentMode = Mode;
         sceneLoader.LoadScene(SceneIndex);
     }
-
 
     public void TryBuy()
     {
@@ -77,6 +81,7 @@ public partial class Portal : MonoBehaviour
                 Cursor.lockState = CursorLockMode.Locked;
 
                 OpenPortal();
+                LoadMode();
             }
             else
             {
@@ -97,6 +102,7 @@ public partial class Portal : MonoBehaviour
                 Cursor.lockState = CursorLockMode.Locked;
 
                 OpenPortal();
+                LoadMode();
             }
             else
             {
