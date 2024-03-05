@@ -361,10 +361,12 @@ MonoBehaviour:
   rb: {fileID: 6725428360930978184}
   healthbar: {fileID: 7977814690660848408}
   animator: {fileID: 2804789430529753959}
+  Canvas: {fileID: 4811822458795783912}
   speed: 2
   damagePower: 10
   distanseToAttack: 2
   CanWalk: 0
+  isSleeping: 0
   timeNextToAttack: 2
   canAttack: 1
   enemy: {fileID: 0}
@@ -378,9 +380,15 @@ MonoBehaviour:
   MaxPosition: {fileID: 0}
   MinPosition: {fileID: 0}
   slapAudio: {fileID: 5382746756449599206}
+  deathAudio: {fileID: 8331944012885620118}
   slapCounterText: {fileID: 2273277159604617833}
   minStoleChance: 25
   maxStoleChance: 50
+--- !u!1 &4811822458795783912 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6026610877244280773, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
+  m_PrefabInstance: {fileID: 1253642961500141869}
+  m_PrefabAsset: {fileID: 0}
 --- !u!82 &5382746756449599206 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 6617632860187789259, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
@@ -402,6 +410,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &8331944012885620118 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7117050044567456955, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
+  m_PrefabInstance: {fileID: 1253642961500141869}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &9014278970671952658 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7817390610113792575, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
