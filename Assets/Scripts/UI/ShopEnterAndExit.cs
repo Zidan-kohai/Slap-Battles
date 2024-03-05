@@ -1,4 +1,5 @@
 using CMF;
+using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,14 +12,15 @@ public class ShopEnterAndExit : MonoBehaviour
     [SerializeField] private CameraController cameraController;
     [SerializeField] private GameObject cinemashine;
     [SerializeField] private GameObject shopObject;
+    [SerializeField] private RectTransform shopItemHandler;
     [SerializeField] private GraphicRaycaster raycaster;
 
     [SerializeField] private GameObject MobileInput;
     [SerializeField] List<GameObject> GOToDisableWhenOpenShop;
 
-    [SerializeField] private Animator animator;
-
-    public float WaitForEndAnimation;
+    public float animateDuration;
+    public float YOpenPosition;
+    public float YClosePosition;
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.layer == 7)
@@ -29,12 +31,12 @@ public class ShopEnterAndExit : MonoBehaviour
 
     public void OpenShop()
     {
-
         playerMover.enabled = false;
         cameraController.enabled = false;
         cinemashine.SetActive(true);
         shopObject.SetActive(true);
         MobileInput.SetActive(false);
+        raycaster.enabled = false;
 
         foreach (GameObject go in GOToDisableWhenOpenShop)
         {
@@ -44,9 +46,8 @@ public class ShopEnterAndExit : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        animator.SetTrigger("Open");
-        raycaster.enabled = false;
-        StartCoroutine(Waiter(WaitForEndAnimation, OnOpenEnd));
+
+        shopItemHandler.DOMoveY(YOpenPosition, animateDuration).OnComplete(OnOpenEnd);
     }
 
     private void OnOpenEnd()
@@ -57,17 +58,17 @@ public class ShopEnterAndExit : MonoBehaviour
 
     public void CloseShop()
     {
-        animator.SetTrigger("Close");
         raycaster.enabled = false;
-        StartCoroutine(Waiter(WaitForEndAnimation, OnCloseEnd));
+
+        shopItemHandler.DOLocalMoveY(YClosePosition, animateDuration).OnComplete(OnCloseEnd);
     }
 
-    public void OnCloseEnd()
+    private void OnCloseEnd()
     {
         playerMover.enabled = true;
         cameraController.enabled = true;
-        raycaster.enabled = true;
 
+        raycaster.enabled = true;
         cinemashine.SetActive(false);
         shopObject.SetActive(false);
 
@@ -78,10 +79,5 @@ public class ShopEnterAndExit : MonoBehaviour
 
         if (Geekplay.Instance.mobile)
             MobileInput.SetActive(true);
-    }
-    private IEnumerator Waiter(float waitTime, Action action)
-    {
-        yield return new WaitForSeconds(waitTime);
-        action?.Invoke();
     }
 }
