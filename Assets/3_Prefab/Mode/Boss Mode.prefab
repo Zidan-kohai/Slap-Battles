@@ -1802,10 +1802,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 34a6350b3d1799944ab7f57e7ba6f10b, type: 2}
     - target: {fileID: 1946795582873769700, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'mixamorig:RightArm'\n\tTransform 'mixamorig:RightArm'\n\tFrom
-        animation clip 'IdleWithHand'"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1979627145331737048, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2766,10 +2763,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4301880896653099215, guid: a1d196e619fcd40459795430af3542b5, type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'mixamorig:RightArm'\n\tTransform 'mixamorig:RightArm'\n\tFrom
-        animation clip 'IdleWithHand'\n\tFrom animation clip 'IdleWithHand'"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6732168731682628386, guid: a1d196e619fcd40459795430af3542b5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3058,7 +3052,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4507252312063646717, guid: 40823b84a4f484f46b10d460682122e1, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40823b84a4f484f46b10d460682122e1, type: 3}
