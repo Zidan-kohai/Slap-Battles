@@ -98,6 +98,7 @@ public class PlayerAttack : MonoBehaviour
 
                 OnFindEnemyWhenAttack(hit.collider.GetComponent<Enemy>()); 
                 slapAudio.Play();
+                Geekplay.Instance.PlayerData.LeaderboardSlap += 1;
             }
             else
             {

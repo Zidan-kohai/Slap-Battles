@@ -120,7 +120,7 @@ public class Geekplay : MonoBehaviour
 
         TimePasedFromLastReward += Time.deltaTime;
 
-        remainingTimeUntilUpdateLeaderboard += Time.deltaTime;
+        remainingTimeUntilUpdateLeaderboard -= Time.deltaTime;
     }
 
     public void StopOrResume()
