@@ -1,11 +1,8 @@
 using System.Collections;
-using System.Diagnostics.Tracing;
-using TMPro;
-using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
-
+//как нибудь надо сесть и отрефакторить это говно
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(Rigidbody))]
 public class Enemy : IHealthObject
@@ -67,7 +64,17 @@ public class Enemy : IHealthObject
         yield return new WaitForSeconds(timeNextToAttack);
         canAttack = true;
     }
-
+    private IEnumerator WaitBeforeAttack()
+    {
+        canAttack = false;
+        animator.SetTrigger("Attack");
+        yield return new WaitForSeconds(0.6f);
+        slapAudio.Play();
+        yield return new WaitForSeconds(0.05f);
+        Attack();
+        yield return new WaitForSeconds(timeNextToAttack);
+        canAttack = true;
+    }
     protected virtual void Update()
     {
         if (!CanWalk || isDead || isSleeping) return;
@@ -87,7 +94,7 @@ public class Enemy : IHealthObject
 
             if ((target - transform.position).magnitude < distanseToAttack && canAttack && IsInSight())
             {
-                Attack();
+                StartCoroutine(WaitBeforeAttack());
             }
         }
 
@@ -114,9 +121,6 @@ public class Enemy : IHealthObject
         enemy.GetDamage(damagePower, (target - transform.position).normalized, out bool isDeath, out int gettedSlap);
         OnSuccesAttack();
 
-        animator.SetTrigger("Attack");
-
-        StartCoroutine(WaitTimeBeforeAttackIntoStart());
 
         if(isDeath)
         {
@@ -125,8 +129,6 @@ public class Enemy : IHealthObject
         }
         stolenSlaps += gettedSlap;
 
-
-        slapAudio.Play();
     }
 
     protected virtual void OnSuccesAttack()
