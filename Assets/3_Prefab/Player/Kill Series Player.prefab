@@ -1010,6 +1010,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2844787292529424526}
   m_SourcePrefab: {fileID: 100100000, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
+--- !u!95 &1403476131508623372 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1946795582873769700, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
+  m_PrefabInstance: {fileID: 612012771750579944}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2440136822054201525 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3000336186378430045, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
@@ -1073,6 +1078,7 @@ MonoBehaviour:
   attackDistanese: 2
   player: {fileID: 2440136822054201525}
   eventManager: {fileID: 0}
+  animator: {fileID: 1403476131508623372}
   slapAudio: {fileID: 7748454704992993553}
   timeToNextSlap: 15
   timeRamainingToNextSlap: 15
