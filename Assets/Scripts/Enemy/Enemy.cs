@@ -114,6 +114,8 @@ public class Enemy : IHealthObject
         enemy.GetDamage(damagePower, (target - transform.position).normalized, out bool isDeath, out int gettedSlap);
         OnSuccesAttack();
 
+        animator.SetTrigger("Attack");
+
         StartCoroutine(WaitTimeBeforeAttackIntoStart());
 
         if(isDeath)
