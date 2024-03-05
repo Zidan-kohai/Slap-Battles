@@ -85,7 +85,7 @@ public class Enemy : IHealthObject
             Move(target);
 
 
-            if ((target - transform.position).magnitude < distanseToAttack && canAttack)
+            if ((target - transform.position).magnitude < distanseToAttack && canAttack && IsInSight())
             {
                 Attack();
             }
@@ -98,6 +98,15 @@ public class Enemy : IHealthObject
         }
 
         animator.SetFloat("HorizontalSpeed", navMeshAgent.speed);
+    }
+
+    private bool IsInSight()
+    {
+        Vector3 to = (enemy.transform.position - transform.position).normalized;
+        Vector3 from = transform.forward;
+        float angle = Vector3.Angle(from, to);
+
+        return  angle < 65;
     }
 
     protected virtual void Attack()
