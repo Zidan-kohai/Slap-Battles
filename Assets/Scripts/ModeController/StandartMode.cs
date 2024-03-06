@@ -13,6 +13,9 @@ public class StandartMode : MonoBehaviour
     [SerializeField] private EventManager eventManager;
 
     public bool flag;
+
+    [SerializeField] protected GameObject LeftColumn;
+    [SerializeField] protected GameObject RightColumn;
     protected void Start()
     {
         ArrangeTransforms();
@@ -23,6 +26,13 @@ public class StandartMode : MonoBehaviour
 
         eventManager.SubscribeOnBossDeath(OnBossDead);
         eventManager.SubscribeOnPlayerRevive(OnPlayerRevive);
+
+
+        if(Geekplay.Instance.mobile)
+        {
+            LeftColumn.SetActive(false);
+            RightColumn.SetActive(false);
+        }
     }
 
     private void OnPlayerRevive()

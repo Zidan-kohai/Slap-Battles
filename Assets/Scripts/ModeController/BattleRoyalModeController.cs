@@ -21,7 +21,10 @@ public class BattleRoyalModeController : MonoBehaviour
 
 
     public Action Win;
-    
+
+
+    [SerializeField] protected GameObject LeftColumn;
+    [SerializeField] protected GameObject RightColumn;
     private void Start()
     {
         ArrangeTransforms();
@@ -29,6 +32,12 @@ public class BattleRoyalModeController : MonoBehaviour
 
         eventManager.SubscribeOnEnemyDeath(OnEnemyDeath);
         eventManager.SubscribeOnPlayerRevive(OnPlayerRevive);
+
+        if (Geekplay.Instance.mobile)
+        {
+            LeftColumn.SetActive(false);
+            RightColumn.SetActive(false);
+        }
     }
 
     private void OnPlayerRevive()
