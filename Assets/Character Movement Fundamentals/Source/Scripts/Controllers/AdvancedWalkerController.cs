@@ -462,10 +462,13 @@ namespace CMF
 
 		public void Jump()
         {
-            OnGroundContactLost();
-            OnJumpStart();
+			if (currentControllerState == ControllerState.Grounded)
+			{
+				OnGroundContactLost();
+				OnJumpStart();
 
-            currentControllerState = ControllerState.Jumping;
+				currentControllerState = ControllerState.Jumping;
+			}
         }
 		void OnJumpStart()
 		{

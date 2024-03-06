@@ -179,6 +179,7 @@ MonoBehaviour:
   PlayerData:
     money: 0
     DiamondMoney: 0
+    LeaderboardSlap: 0
     BuyedLeatherColors: 
     BuyedHairColors: 
     BuyedBodyColors: 
@@ -362,6 +363,27 @@ MonoBehaviour:
   MultipleSpeedBuff: 0
   TimeToShowReward: 90
   TimePasedFromLastReward: 90
-  canShowReward: 0
   pausePopup: {fileID: 0}
   canPause: 1
+  l:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  lN:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  leaderNumber: 0
+  leaderNumberN: 0
+  leaderboardInGame: {fileID: 0}
+  remainingTimeUntilUpdateLeaderboard: 0
+  timeToUpdateLeaderboard: 60
+  lastLeaderText: 
