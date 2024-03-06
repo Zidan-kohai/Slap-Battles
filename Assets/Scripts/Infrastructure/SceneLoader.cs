@@ -19,6 +19,9 @@ public class SceneLoader
             Cursor.visible = false;
         }
 
+        Geekplay.Instance.Leaderboard("Points", Geekplay.Instance.PlayerData.LeaderboardSlap);
+        Debug.Log($"Leaderbord: " + Geekplay.Instance.PlayerData.LeaderboardSlap);
+
         AsyncOperation operation = SceneManager.LoadSceneAsync(index);
         mono.StartCoroutine(Loading(operation, onLoad));
     }

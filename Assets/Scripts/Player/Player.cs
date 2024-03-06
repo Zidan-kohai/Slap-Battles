@@ -83,8 +83,6 @@ public class Player : IHealthObject
     {
         if (isDead) return;
 
-        Geekplay.Instance.Leaderboard("Points", Geekplay.Instance.PlayerData.LeaderboardSlap);
-        Debug.Log($"Leaderbord: " + Geekplay.Instance.PlayerData.LeaderboardSlap);
         slapPower.enabled = false;
         deadCounter++;
         isDead = true;

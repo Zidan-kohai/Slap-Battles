@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
 
@@ -89,6 +90,8 @@ public class PlayerAttack : MonoBehaviour
 
         float angleStep = MaxAngle / (RaycastCount - 1);
 
+        List<Enemy> slappedenemies = new List<Enemy>(); 
+
         for (int i = 0; i < RaycastCount; i++)
         {
             float currentAngle = startAngle + angleStep * i;
@@ -100,9 +103,16 @@ public class PlayerAttack : MonoBehaviour
             {
                 Debug.Log("Raycast hit at angle " + currentAngle + " degrees. Hit object: " + hit.collider.gameObject.name);
 
-                OnFindEnemyWhenAttack(hit.collider.GetComponent<Enemy>()); 
+                Enemy enemy = hit.collider.GetComponent<Enemy>();
+
+                OnFindEnemyWhenAttack(enemy); 
                 slapAudio.Play();
-                Geekplay.Instance.PlayerData.LeaderboardSlap += 1;
+
+                if(!slappedenemies.Contains(enemy))
+                {
+                    slappedenemies.Add(enemy);
+                    Geekplay.Instance.PlayerData.LeaderboardSlap += 1;
+                }
             }
             else
             {
