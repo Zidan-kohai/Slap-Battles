@@ -9,20 +9,17 @@ public class Puls : MonoBehaviour
     public Ease ease;
     private void Start()
     {
-        StartCoroutine(RunAnimation());
+        Scale();
     }
 
-    private IEnumerator RunAnimation()
+    public void Scale()
     {
-        while (true)
+        Icon.DOScale(new Vector3(1.2f, 1.2f, 1.2f), duration).SetEase(ease).SetDelay(0.1f).OnComplete(() =>
         {
-            Icon.DOScale(new Vector3(1.2f, 1.2f, 1.2f), duration).SetEase(ease);
-
-            yield return new WaitForSeconds(duration + 0.1f);
-
-            Icon.DOScale(Vector3.one, duration).SetEase(ease);
-
-            yield return new WaitForSeconds(duration + 0.1f);
-        }
+            Icon.DOScale(Vector3.one, duration).SetEase(ease).SetDelay(0.1f).OnComplete(() =>
+            {
+                Scale();
+            });
+        });
     }
 }
