@@ -6,9 +6,9 @@ public class PausePopup : MonoBehaviour
     [SerializeField] private Toggle volumeToggle;
     [SerializeField] private GameObject pausePopup;
 
-    private void Awake()
+    private void Start()
     {
-        Geekplay.Instance.pausePopup = pausePopup;
+        Geekplay.Instance.pausePopup = pausePopup;  
 
         volumeToggle.isOn = Geekplay.Instance.PlayerData.IsVolumeOn;
     }

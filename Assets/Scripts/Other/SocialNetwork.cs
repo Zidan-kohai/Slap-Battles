@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SocialNetwork : MonoBehaviour
 {
-    public Channel channel;
+    public SocialNetworkType channel;
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -12,13 +11,14 @@ public class SocialNetwork : MonoBehaviour
 
         switch(channel)
         {
-            case Channel.Telegram:
+            case SocialNetworkType.Telegram:
                 Application.OpenURL("https://t.me/+uQFcFVwGmwM3ZDNi");
                 break;
         }
     }
 
-    public enum Channel
+
+    public enum SocialNetworkType
     {
         Telegram
     }
