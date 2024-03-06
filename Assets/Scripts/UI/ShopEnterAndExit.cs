@@ -18,6 +18,9 @@ public class ShopEnterAndExit : MonoBehaviour
     [SerializeField] private GameObject MobileInput;
     [SerializeField] List<GameObject> GOToDisableWhenOpenShop;
 
+    [SerializeField] private CameraMouseInput shopCameraMouseInput;
+    [SerializeField] private SwipeDetector swipeDetector;
+
     public float animateDuration;
     public float YOpenPosition;
     public float YClosePosition;
@@ -31,6 +34,9 @@ public class ShopEnterAndExit : MonoBehaviour
 
     public void OpenShop()
     {
+        if(swipeDetector != null)
+            shopCameraMouseInput.mobileSwipeDetector = swipeDetector;
+
         playerMover.enabled = false;
         cameraController.enabled = false;
         cinemashine.SetActive(true);
