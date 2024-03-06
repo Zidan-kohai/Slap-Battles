@@ -27,7 +27,7 @@ public class OneTimeBuff : MonoBehaviour
         }
     }
 
-    private void ActivateIncreaseHPBuff()
+    public void ActivateIncreaseHPBuff()
     {
         Geekplay.Instance.BuffIncreaseHP = true;
         Debug.Log("BuffIncreaseHP - " + Geekplay.Instance.BuffIncreaseHP);
@@ -36,7 +36,7 @@ public class OneTimeBuff : MonoBehaviour
         Geekplay.Instance.TimePasedFromLastReward = 0;
     }
 
-    private void ActivateAccelerationBuff()
+    public void ActivateAccelerationBuff()
     {
         Geekplay.Instance.BuffAcceleration = true;
         Debug.Log("BuffAcceleration - " + Geekplay.Instance.BuffAcceleration);
@@ -45,7 +45,7 @@ public class OneTimeBuff : MonoBehaviour
         Geekplay.Instance.TimePasedFromLastReward = 0;
     }
 
-    private void ActivateDoubleSlapBuff()
+    public void ActivateDoubleSlapBuff()
     {
         Geekplay.Instance.BuffDoubleSlap = true;
         Debug.Log("BuffDoubleSlap - " + Geekplay.Instance.BuffDoubleSlap);
@@ -54,7 +54,7 @@ public class OneTimeBuff : MonoBehaviour
         Geekplay.Instance.TimePasedFromLastReward = 0;
     }
 
-    private void ActivateIncreasePowerBuff()
+    public void ActivateIncreasePowerBuff()
     {
         Geekplay.Instance.BuffIncreasePower = true;
         Debug.Log("BuffIncreasePower - " + Geekplay.Instance.BuffIncreasePower);

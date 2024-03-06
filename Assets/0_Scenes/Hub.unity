@@ -710,6 +710,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2173790219691438007, guid: bbf32e18dc54fd9428ee62e761164a7f, type: 3}
   m_PrefabInstance: {fileID: 8377849869704102557}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &245405656 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2299362875268376436, guid: bbf32e18dc54fd9428ee62e761164a7f, type: 3}
+  m_PrefabInstance: {fileID: 8377849869704102557}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245405654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ee9f55f4b4254429ba827bc066c42c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &247309295 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b1927b37379c3493cbe89f46c347903e, type: 3}
@@ -720,6 +731,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7876358774360092079, guid: d4f8bbd0fa840324f98d4f3d3e3320e5, type: 3}
   m_PrefabInstance: {fileID: 5320782824274392725}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &249748142 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7821717333280892268, guid: d4f8bbd0fa840324f98d4f3d3e3320e5, type: 3}
+  m_PrefabInstance: {fileID: 5320782824274392725}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249748140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ee9f55f4b4254429ba827bc066c42c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &251208631
 GameObject:
   m_ObjectHideFlags: 0
@@ -3458,6 +3480,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7029373168757167814, guid: 399445eee67d174488e5ee2942cb1666, type: 3}
   m_PrefabInstance: {fileID: 1530720057130290400}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &745819472 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6939898924158443013, guid: 399445eee67d174488e5ee2942cb1666, type: 3}
+  m_PrefabInstance: {fileID: 1530720057130290400}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745819470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ee9f55f4b4254429ba827bc066c42c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &749652195 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b1927b37379c3493cbe89f46c347903e, type: 3}
@@ -36832,7 +36865,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2050895958}
   - component: {fileID: 2050895960}
-  - component: {fileID: 2050895959}
+  - component: {fileID: 2050895961}
   m_Layer: 0
   m_Name: Zone
   m_TagString: Untagged
@@ -36858,19 +36891,6 @@ Transform:
   - {fileID: 844704911}
   m_Father: {fileID: 1732571624}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2050895959
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2050895957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fe38bb8a317d52408d0360032b67aa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  channel: 0
 --- !u!65 &2050895960
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36892,6 +36912,103 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2050895961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2050895957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d291c55c526fda41a08999aac5cd52f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputText: {fileID: 0}
+  codes:
+  - code: SLAP2024
+    codeNumber: 0
+    rewardEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - code: MORE_SLAPS
+    codeNumber: 1
+    rewardEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - code: GOLDBATTLE
+    codeNumber: 2
+    rewardEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - code: FREE_SPEED
+    codeNumber: 3
+    rewardEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 745819472}
+          m_TargetAssemblyTypeName: OneTimeBuff, Assembly-CSharp
+          m_MethodName: ActivateAccelerationBuff
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - code: FREE_POWER
+    codeNumber: 4
+    rewardEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 249748142}
+          m_TargetAssemblyTypeName: OneTimeBuff, Assembly-CSharp
+          m_MethodName: ActivateIncreasePowerBuff
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - code: FREE_SLAPS
+    codeNumber: 5
+    rewardEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1593857009283628650}
+          m_TargetAssemblyTypeName: OneTimeBuff, Assembly-CSharp
+          m_MethodName: ActivateDoubleSlapBuff
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - code: FREE_HP
+    codeNumber: 6
+    rewardEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 245405656}
+          m_TargetAssemblyTypeName: OneTimeBuff, Assembly-CSharp
+          m_MethodName: ActivateIncreaseHPBuff
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &2051358813
 GameObject:
   m_ObjectHideFlags: 0
@@ -47069,6 +47186,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2196149966811041479, guid: abaea4ff41014e041b75d172b819d7ae, type: 3}
   m_PrefabInstance: {fileID: 2671553529920144638}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1593857009283628650 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8888053048483688596, guid: abaea4ff41014e041b75d172b819d7ae, type: 3}
+  m_PrefabInstance: {fileID: 2671553529920144638}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2075232329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31ee9f55f4b4254429ba827bc066c42c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1633160708707706194
 PrefabInstance:
   m_ObjectHideFlags: 0
