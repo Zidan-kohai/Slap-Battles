@@ -29,7 +29,7 @@ namespace CMF
             
             if(Geekplay.Instance.mobile)
             {
-                _input = mobileSwipeDetector.swipeDelta.x;
+                _input = mobileSwipeDetector.swipeDelta.x * 3f;
             }
 
             //Since raw mouse input is already time-based, we need to correct for this before passing the input to the camera controller;
@@ -58,7 +58,7 @@ namespace CMF
             
             if(Geekplay.Instance.mobile)
             {
-                _input = -mobileSwipeDetector.swipeDelta.y;
+                _input = -mobileSwipeDetector.swipeDelta.y * 1.5f;
             }
 
             //Since raw mouse input is already time-based, we need to correct for this before passing the input to the camera controller;
