@@ -35,6 +35,7 @@ public class Enemy : IHealthObject
 
     [SerializeField] private Transform MaxPosition, MinPosition;
     protected bool canGetDamage = false;
+    [SerializeField] protected float sightAngle = 65;
 
 
     [Header("Audio")]
@@ -64,7 +65,7 @@ public class Enemy : IHealthObject
         yield return new WaitForSeconds(timeNextToAttack);
         canAttack = true;
     }
-    private IEnumerator WaitBeforeAttack()
+    protected IEnumerator WaitBeforeAttack()
     {
         canAttack = false;
         animator.SetTrigger("Attack");
@@ -107,13 +108,13 @@ public class Enemy : IHealthObject
         animator.SetFloat("HorizontalSpeed", navMeshAgent.speed);
     }
 
-    private bool IsInSight()
+    protected bool IsInSight()
     {
         Vector3 to = (enemy.transform.position - transform.position).normalized;
         Vector3 from = transform.forward;
         float angle = Vector3.Angle(from, to);
 
-        return  angle < 65;
+        return  angle < sightAngle;
     }
 
     protected virtual void Attack()

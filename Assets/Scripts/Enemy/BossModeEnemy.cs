@@ -14,9 +14,12 @@ public class BossModeEnemy : Enemy
         if (!CanWalk || isDead) return;
         if (!navMeshAgent.isOnNavMesh) Death();
 
-        if ((bossTransform.position - transform.position).magnitude < distanseToAttack && canAttack)
+        target = bossTransform.position;
+
+        if ((bossTransform.position - transform.position).magnitude < distanseToAttack && canAttack && IsInSight())
         {
-            Attack();
+            StartCoroutine(WaitBeforeAttack());
+            //Attack();
         }
         else
         {
