@@ -557,6 +557,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moneyText: {fileID: 8387016197010489055}
   DiamondText: {fileID: 4103790603428637016}
+  moneyTextRect: {fileID: 0}
+  DiamondTextRect: {fileID: 0}
   eventManager: {fileID: 3237182903930966125}
   LosePanel: {fileID: 41963303498113284}
   mobilePanel: {fileID: 5843079837706631017}
@@ -564,6 +566,8 @@ MonoBehaviour:
   doubleSlapIcon: {fileID: 5815846737397961416}
   IncreaseHPIcon: {fileID: 5520618084734035146}
   IncreasePowerIcon: {fileID: 831095817891434939}
+  moneyChangeAnimationDuration: 0.05
+  increaseSize: {x: 1.6, y: 1.6, z: 1.6}
 --- !u!1001 &511489373473464334
 PrefabInstance:
   m_ObjectHideFlags: 0

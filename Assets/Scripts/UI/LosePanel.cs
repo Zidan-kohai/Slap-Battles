@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using TMPro;
@@ -20,6 +21,7 @@ public class LosePanel : MonoBehaviour
     protected float lastedTime;
 
     protected int earnedSlapCount;
+
 
     private void Start()
     {
@@ -52,6 +54,7 @@ public class LosePanel : MonoBehaviour
             flagThatUseToLoadSceneOneTime = false;
             SceneLoader sceneLoader = new SceneLoader(this);
             sceneLoader.LoadScene(0);
+            AddEarnedMoney();
         }
         else if(lastedTime > 0)
         {
@@ -72,15 +75,40 @@ public class LosePanel : MonoBehaviour
     }
     private void OnDoubleAward()
     {
-        slapCountText.text = (earnedSlapCount * 2).ToString();
+        int slapCountDoubled = earnedSlapCount * 2;
+        float currentTime = 0;
+        //slapCountText.text = slapCountDoubled.ToString();
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        lastedTime = 3;
 
-        flagThatUseToLoadSceneOneTime = false;
-        SceneLoader sceneLoader = new SceneLoader(this);
-        sceneLoader.LoadScene(0);
-        AddEarnedMoney();
+        slapCountText.rectTransform.DOScale(new Vector3(1.8f, 1.8f, 1.8f), 3).OnUpdate(() =>
+        {
+            currentTime += Time.deltaTime;
+            float currentSlap = CalculateMoney(Convert.ToInt32(slapCountText.text), slapCountDoubled, currentTime, 3);
+
+            slapCountText.text = string.Format("{0:f0}", currentSlap);
+
+        }).SetEase(Ease.Linear);
+        //AddEarnedMoney();
+    }
+
+    public float CalculateMoney(float startMoney, float endMoney, float currentTime, float maxTime)
+    {
+        if (currentTime == 1)
+        {
+            return startMoney;
+        }
+        else if (currentTime >= maxTime)
+        {
+            return endMoney;
+        }
+        else
+        {
+            // »спользуем линейную интерпол€цию дл€ вычислени€ промежуточной суммы денег в зависимости от текущего времени
+            float t = currentTime / maxTime;
+            float interpolatedMoney = startMoney + (endMoney - startMoney) * t;
+            return interpolatedMoney;
+        }
     }
     public virtual void AddEarnedMoney() 
     {
