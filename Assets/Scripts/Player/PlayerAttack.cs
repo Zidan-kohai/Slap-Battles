@@ -46,7 +46,7 @@ public class PlayerAttack : MonoBehaviour
 
     protected virtual void Update()
     {
-        if(Input.GetMouseButtonDown(0) && canAttack)
+        if(Input.GetMouseButtonDown(0) && canAttack && !Geekplay.Instance.mobile)
         {
             StartCoroutine(WaitBeforeAttack());
         }
@@ -56,7 +56,10 @@ public class PlayerAttack : MonoBehaviour
             slap.SuperAttack();
         }
     }
-
+    public void MobileAttack()
+    {
+        StartCoroutine(WaitBeforeAttack());
+    }
     public void ChangeEventManager(EventManager eventManager)
     {
         this.eventManager = eventManager;
