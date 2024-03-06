@@ -47,7 +47,7 @@ public class ShopEnterAndExit : MonoBehaviour
         Cursor.visible = true;
 
 
-        shopItemHandler.DOMoveY(YOpenPosition, animateDuration).OnComplete(OnOpenEnd);
+        shopItemHandler.DOAnchorPosY(YOpenPosition, animateDuration).OnComplete(OnOpenEnd);
     }
 
     private void OnOpenEnd()
@@ -59,17 +59,18 @@ public class ShopEnterAndExit : MonoBehaviour
     public void CloseShop()
     {
         raycaster.enabled = false;
+        playerMover.enabled = true;
+        cameraController.enabled = true;
+        cinemashine.SetActive(false);
 
-        shopItemHandler.DOLocalMoveY(YClosePosition, animateDuration).OnComplete(OnCloseEnd);
+        if (Geekplay.Instance.mobile)
+            MobileInput.SetActive(true);
+
+        shopItemHandler.DOAnchorPosY(YClosePosition, animateDuration).OnComplete(OnCloseEnd);
     }
 
     private void OnCloseEnd()
     {
-        playerMover.enabled = true;
-        cameraController.enabled = true;
-
-        raycaster.enabled = true;
-        cinemashine.SetActive(false);
         shopObject.SetActive(false);
 
         foreach (GameObject go in GOToDisableWhenOpenShop)
@@ -77,7 +78,5 @@ public class ShopEnterAndExit : MonoBehaviour
             go.SetActive(true);
         }
 
-        if (Geekplay.Instance.mobile)
-            MobileInput.SetActive(true);
     }
 }

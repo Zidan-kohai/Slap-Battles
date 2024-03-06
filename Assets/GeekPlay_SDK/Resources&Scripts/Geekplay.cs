@@ -436,6 +436,31 @@ public class Geekplay : MonoBehaviour
         }
     }
 
+    public void GetLeaders(string value)
+    {
+        l[leaderNumber] = value;
+
+        if (leaderNumber < 9)
+        {
+            leaderNumber += 1;
+            Utils.GetLeaderboard("score", leaderNumber);
+        }
+
+        leaderboardInGame.SetText();
+    }
+    public void GetLeadersName(string value)
+    {
+        lN[leaderNumberN] = value;
+
+        if (leaderNumberN < 9)
+        {
+            leaderNumberN += 1;
+            Utils.GetLeaderboard("name", leaderNumberN);
+        }
+
+        leaderboardInGame.SetText();
+    }
+
     //СОХАРЕНИЕ И ЗАГРУЗКА
     public void Save() //СОХРАНЕНИЕ
     {

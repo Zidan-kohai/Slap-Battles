@@ -2345,7 +2345,7 @@ MonoBehaviour:
   GOToDisableWhenOpenShop:
   - {fileID: 3146954323682130169}
   animateDuration: 1
-  YOpenPosition: 550
+  YOpenPosition: 0
   YClosePosition: 1800
 --- !u!65 &705205325
 BoxCollider:
@@ -8272,8 +8272,8 @@ MonoBehaviour:
   GOToDisableWhenOpenShop:
   - {fileID: 3450747237814203949}
   animateDuration: 1
-  YOpenPosition: 550
-  YClosePosition: 1800
+  YOpenPosition: 0
+  YClosePosition: 1200
 --- !u!65 &963895551
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21016,6 +21016,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Init
       objectReference: {fileID: 0}
+    - target: {fileID: 6986684302030619625, guid: e57fbc8fff9b44c488489f57d2cbd720, type: 3}
+      propertyPath: l.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6986684302030619625, guid: e57fbc8fff9b44c488489f57d2cbd720, type: 3}
+      propertyPath: lN.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6986684302030619625, guid: e57fbc8fff9b44c488489f57d2cbd720, type: 3}
+      propertyPath: leaderboardInGame
+      value: 
+      objectReference: {fileID: 1895156818}
     - target: {fileID: 7633089781514388730, guid: e57fbc8fff9b44c488489f57d2cbd720, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -40631,8 +40643,8 @@ MonoBehaviour:
   GOToDisableWhenOpenShop:
   - {fileID: 1004482837848043061}
   animateDuration: 1
-  YOpenPosition: 550
-  YClosePosition: 1800
+  YOpenPosition: 0
+  YClosePosition: 930
 --- !u!65 &2145842197
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -43750,10 +43762,6 @@ PrefabInstance:
     - target: {fileID: 4176848694432192879, guid: 8bf1277ff16a8484a8279ede53bf4a67, type: 3}
       propertyPath: m_Enabled
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4219667951796197306, guid: 8bf1277ff16a8484a8279ede53bf4a67, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4434198302056779218, guid: 8bf1277ff16a8484a8279ede53bf4a67, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
