@@ -58,7 +58,8 @@ public class PlayerAttack : MonoBehaviour
     }
     public void MobileAttack()
     {
-        StartCoroutine(WaitBeforeAttack());
+        if(canAttack)
+            StartCoroutine(WaitBeforeAttack());
     }
     public void ChangeEventManager(EventManager eventManager)
     {
