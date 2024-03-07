@@ -75,6 +75,7 @@ public class Geekplay : MonoBehaviour
     #region Pause
     public GameObject pausePopup;
     public bool canPause = true;
+    public bool isOnPause = false;
     public void ChangeCanPause(bool canPause)
     {
         this.canPause = canPause;
@@ -105,6 +106,7 @@ public class Geekplay : MonoBehaviour
         }
 
         AudioListener.volume = PlayerData.IsVolumeOn ? 1 : 0;
+        isOnPause = false;
     }
     private void Update()
     {
@@ -127,7 +129,25 @@ public class Geekplay : MonoBehaviour
     {
         Time.timeScale = Time.timeScale > 0 ? 0 : 1;
         pausePopup.SetActive(Time.timeScale == 0);
+        isOnPause = Time.timeScale == 0;
+        Save();
 
+        if (Time.timeScale == 0)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+    }
+
+    public void StopOrResumeWithoutPausePanel()
+    {
+        Time.timeScale = Time.timeScale > 0 ? 0 : 1;
+        isOnPause = Time.timeScale == 0;
         Save();
 
         if (Time.timeScale == 0)
@@ -795,7 +815,7 @@ public class Geekplay : MonoBehaviour
 
     public void ResumeMusAndGame()
     {
-        if (pausePopup.activeSelf)
+        if (isOnPause)
         {
             AudioListener.volume = PlayerData.IsVolumeOn ? 1 : 0;
             return;
@@ -821,7 +841,7 @@ public class Geekplay : MonoBehaviour
     private void Silence(bool silence)
     {
         AudioListener.volume = PlayerData.IsVolumeOn ? 1 : 0;
-        Time.timeScale = pausePopup.activeSelf ? 0 : 1;
+        Time.timeScale = isOnPause ? 0 : 1;
 
         if (adOpen)
         {

@@ -14,7 +14,7 @@ public class Promocode : MonoBehaviour
 {
 	[SerializeField] private TMP_InputField inputText; //куда вводим промокод
 	[SerializeField] private Codes[] codes; //список кодов и наград (как реварды и иннапы)
-    
+    [SerializeField] private HubEventManager eventManager;    
     //функция для кнопки "взять"
     public void ClaimBtn()
     {
@@ -34,14 +34,31 @@ public class Promocode : MonoBehaviour
     {
     	Geekplay.Instance.PlayerData.money += 1000;
     	Geekplay.Instance.PlayerData.DiamondMoney += 10;
+        eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
     }
 
     public void MORE_SLAPS()
     {
         Geekplay.Instance.PlayerData.money += 2000;
+        eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
     }
     public void GOLDBATTLE()
     {
         Geekplay.Instance.PlayerData.DiamondMoney += 10;
+        eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.layer == 7)
+        {
+            inputText.gameObject.SetActive(true);
+                
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            Geekplay.Instance.canPause = false;
+
+            Geekplay.Instance.StopOrResumeWithoutPausePanel();
+        }
     }
 }

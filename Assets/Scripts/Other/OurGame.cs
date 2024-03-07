@@ -15,7 +15,7 @@ public class OurGame : MonoBehaviour
             Cursor.visible = true;
             Geekplay.Instance.canPause = false;
 
-            Geekplay.Instance.StopOrResume();
+            Geekplay.Instance.StopOrResumeWithoutPausePanel();
         }
     }
 
@@ -27,7 +27,7 @@ public class OurGame : MonoBehaviour
         Cursor.visible = false;
         Geekplay.Instance.canPause = true;
 
-        Geekplay.Instance.StopOrResume();
+        Geekplay.Instance.StopOrResumeWithoutPausePanel();
     }
 
     public void OpenGame(int appID)
