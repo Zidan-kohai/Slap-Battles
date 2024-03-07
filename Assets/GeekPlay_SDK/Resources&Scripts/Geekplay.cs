@@ -94,11 +94,8 @@ public class Geekplay : MonoBehaviour
     public string lastLeaderText;
 
     #endregion
-
     private void Start()
     {
-        //Utils.IsMobile();
-
         if (!Instance.mobile)
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -106,7 +103,6 @@ public class Geekplay : MonoBehaviour
         }
 
         AudioListener.volume = PlayerData.IsVolumeOn ? 1 : 0;
-        isOnPause = false;
     }
     private void Update()
     {
@@ -665,6 +661,8 @@ public class Geekplay : MonoBehaviour
 
     protected void Awake()
     {
+        isOnPause = false;
+
         if (Instance == null)
         {
             Instance = this;
