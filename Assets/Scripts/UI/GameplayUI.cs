@@ -82,9 +82,9 @@ public class GameplayUI : MonoBehaviour
     {
         Geekplay.Instance.PlayerData.money += money;
         moneyText.text = Geekplay.Instance.PlayerData.money.ToString();
-        moneyTextRect.DOScale(new Vector3(1.2f, 1.2f, 1.2f), 0.6f).SetDelay(0.1f).OnComplete(() =>
+        moneyTextRect.DOScale(increaseSize, moneyChangeAnimationDuration).SetDelay(0.1f).OnComplete(() =>
         {
-            moneyTextRect.DOScale(Vector3.one, 0.4f);
+            moneyTextRect.DOScale(Vector3.one, moneyChangeAnimationDuration);
         });
     }
 
@@ -95,7 +95,7 @@ public class GameplayUI : MonoBehaviour
 
         DiamondTextRect.DOScale(increaseSize, moneyChangeAnimationDuration).SetDelay(0.1f).OnComplete(() =>
         {
-            moneyTextRect.DOScale(Vector3.one, moneyChangeAnimationDuration);
+            DiamondTextRect.DOScale(Vector3.one, moneyChangeAnimationDuration);
         });
     }
 }
