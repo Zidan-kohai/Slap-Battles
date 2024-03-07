@@ -57,6 +57,8 @@ public class Enemy : IHealthObject
 
         eventManager.SubscribeOnEnemyDeath(OnEnemyDeath);
         StartCoroutine(WaitTimeBeforeAttackIntoStart());
+
+        navMeshAgent.updateRotation = false;
     }
 
     private IEnumerator WaitTimeBeforeAttackIntoStart()
@@ -91,7 +93,7 @@ public class Enemy : IHealthObject
         {
             target = enemy.transform.position;
             Move(target);
-
+            InstantlyTurn(target);
 
             if ((target - transform.position).magnitude < distanseToAttack && canAttack && IsInSight())
             {
@@ -107,7 +109,17 @@ public class Enemy : IHealthObject
 
         animator.SetFloat("HorizontalSpeed", navMeshAgent.speed);
     }
+    private void InstantlyTurn(Vector3 destination)
+    {
+        //When on target -> dont rotate!
+        if ((destination - transform.position).magnitude < 0.1f) return;
 
+        Vector3 direction = (destination - transform.position).normalized;
+        direction.y = 0;
+
+        Quaternion qDir = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, qDir, Time.deltaTime * navMeshAgent.angularSpeed);
+    }
     protected bool IsInSight()
     {
         Vector3 to = (enemy.transform.position - transform.position).normalized;
