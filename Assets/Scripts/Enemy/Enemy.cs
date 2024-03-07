@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Xml.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -42,6 +43,7 @@ public class Enemy : IHealthObject
     [SerializeField] private AudioSource slapAudio;
     [SerializeField] private AudioSource deathAudio;
     public void ChangeEnemy(IHealthObject target) =>  enemy = target;
+
     protected void OnEnable()
     {
         stolenSlaps = 1;
@@ -59,6 +61,7 @@ public class Enemy : IHealthObject
         StartCoroutine(WaitTimeBeforeAttackIntoStart());
 
         navMeshAgent.updateRotation = false;
+
     }
 
     private IEnumerator WaitTimeBeforeAttackIntoStart()
@@ -99,26 +102,16 @@ public class Enemy : IHealthObject
             {
                 StartCoroutine(WaitBeforeAttack());
             }
+
         }
 
         else
         {
             GetNearnestEnemyAsTarget();
             Move(target);
+            InstantlyTurn(target);
         }
-
         animator.SetFloat("HorizontalSpeed", navMeshAgent.speed);
-    }
-    private void InstantlyTurn(Vector3 destination)
-    {
-        //When on target -> dont rotate!
-        if ((destination - transform.position).magnitude < 0.1f) return;
-
-        Vector3 direction = (destination - transform.position).normalized;
-        direction.y = 0;
-
-        Quaternion qDir = Quaternion.LookRotation(direction);
-        transform.rotation = Quaternion.Slerp(transform.rotation, qDir, Time.deltaTime * navMeshAgent.angularSpeed);
     }
     protected bool IsInSight()
     {
@@ -145,10 +138,18 @@ public class Enemy : IHealthObject
         stolenSlaps += gettedSlap;
 
     }
+    private void InstantlyTurn(Vector3 destination)
+    {
+        if ((destination - transform.position).magnitude < 0.1f) return;
 
+        Vector3 direction = (destination - transform.position).normalized;
+        direction.y = 0;
+        Quaternion qDir = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, qDir, Time.deltaTime * 3);
+    }
     protected virtual void OnSuccesAttack()
     {
-
+        GetNearnestEnemyAsTarget();
     }
 
     protected void Move(Vector3 targetPosition)
@@ -168,8 +169,7 @@ public class Enemy : IHealthObject
             float distanse = Vector3.Distance(transform.position, coll.transform.position);
             if(distanse < minDistanse)
             {
-                IHealthObject healthObject = coll.GetComponent<IHealthObject>();
-                if (healthObject != this)
+                if(coll.TryGetComponent(out IHealthObject healthObject) && healthObject != this)
                 {
                     minDistanse = distanse;
                     enemy = healthObject;
@@ -177,10 +177,6 @@ public class Enemy : IHealthObject
                 }
             }
         }
-
-        target = new Vector3(Random.Range(MinPosition.position.x, MaxPosition.position.x),
-            transform.position.y,
-            Random.Range(MinPosition.position.z, MaxPosition.position.z));
     }
 
     public override void GetDamage(float damagePower, Vector3 direction, out bool isDeath, out int gettedSlap)
@@ -353,11 +349,18 @@ public class Enemy : IHealthObject
     }
 
 
-    protected virtual void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.TryGetComponent(out IHealthObject healthObject))
-        {
-            enemy = healthObject;
-        }
-    }
+    //protected virtual void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.gameObject.TryGetComponent(out IHealthObject healthObject))
+    //    {
+    //        enemy = healthObject;
+    //    }
+    //}
+}
+
+
+public enum BotState
+{
+    FindEnemy,
+    HealtSmall,
 }

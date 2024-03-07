@@ -29,11 +29,6 @@ public class BossModeEnemy : Enemy
         animator.SetFloat("HorizontalSpeed", navMeshAgent.speed);
     }
 
-    protected override void OnTriggerEnter(Collider other)
-    {
-        
-    }
-
     protected override void OnSuccesAttack()
     {
         base.OnSuccesAttack();

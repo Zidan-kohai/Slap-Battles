@@ -2469,12 +2469,13 @@ MonoBehaviour:
   target: {x: 0, y: 0, z: 0}
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
   eventManager: {fileID: 0}
   slapToGive: 1
   stolenSlaps: 0
   MaxPosition: {fileID: 0}
   MinPosition: {fileID: 0}
+  sightAngle: 65
   slapAudio: {fileID: 6617632860187789259}
   deathAudio: {fileID: 7117050044567456955}
 --- !u!195 &1637332624956355817
@@ -2488,7 +2489,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 7
-  m_Acceleration: 8
+  m_Acceleration: 45
   avoidancePriority: 50
   m_AngularSpeed: 360
   m_StoppingDistance: 0.5
