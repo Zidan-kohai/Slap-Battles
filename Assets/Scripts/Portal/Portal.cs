@@ -1,4 +1,5 @@
 using CMF;
+using DG.Tweening;
 using System;
 using System.Runtime.CompilerServices;
 using UnityEngine;
@@ -18,7 +19,7 @@ public partial class Portal : MonoBehaviour
     public GameObject SlapIcon;
     public GameObject DiamondIcon;
 
-    public GameObject inAppShop;
+    public ShopEnterAndExit inAppShop;
 
     [SerializeField] private AdvancedWalkerController playerMover;
     [SerializeField] private CameraController cameraController;
@@ -85,7 +86,7 @@ public partial class Portal : MonoBehaviour
             }
             else
             {
-                inAppShop.SetActive(true);
+                inAppShop.OpenShop();
             }
         }
         else if (costType == CostType.Diamond)
@@ -106,7 +107,7 @@ public partial class Portal : MonoBehaviour
             }
             else
             {
-                inAppShop.SetActive(true);
+                inAppShop.OpenShop();
             }
         }
     }
