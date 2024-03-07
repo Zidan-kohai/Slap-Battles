@@ -105,13 +105,12 @@ public class PlayerAttack : MonoBehaviour
 
                 Enemy enemy = hit.collider.GetComponent<Enemy>();
 
-                OnFindEnemyWhenAttack(enemy); 
-                slapAudio.Play();
 
                 if(!slappedenemies.Contains(enemy))
                 {
                     slappedenemies.Add(enemy);
-                    Geekplay.Instance.PlayerData.LeaderboardSlap += 1;
+                    OnFindEnemyWhenAttack(enemy);
+                    slapAudio.Play();
                 }
             }
             else
@@ -135,6 +134,8 @@ public class PlayerAttack : MonoBehaviour
         {
             GettedSlap *= 2;
         }
+
+        Geekplay.Instance.PlayerData.LeaderboardSlap += GettedSlap;
 
         player.SetStolenSlaps(GettedSlap);
         eventManager.InvokeChangeMoneyEvents(GettedSlap);

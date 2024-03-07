@@ -20,6 +20,7 @@ public class LosePanel : MonoBehaviour
     protected bool flagThatUseToLoadSceneOneTime = true;
     protected float lastedTime;
 
+    protected int earnedSlapCountBeforeDouble;
     protected int earnedSlapCount;
 
 
@@ -52,9 +53,9 @@ public class LosePanel : MonoBehaviour
         if (lastedTime <= 0f && flagThatUseToLoadSceneOneTime)
         {
             flagThatUseToLoadSceneOneTime = false;
+            AddEarnedMoney();
             SceneLoader sceneLoader = new SceneLoader(this);
             sceneLoader.LoadScene(0);
-            AddEarnedMoney();
         }
         else if(lastedTime > 0)
         {
@@ -75,21 +76,19 @@ public class LosePanel : MonoBehaviour
     }
     private void OnDoubleAward()
     {
-        int slapCountDoubled = earnedSlapCount * 2;
+        earnedSlapCount = earnedSlapCountBeforeDouble * 2;
         float currentTime = 0;
-        //slapCountText.text = slapCountDoubled.ToString();
 
         lastedTime = 3;
 
-        slapCountText.rectTransform.DOScale(new Vector3(1.8f, 1.8f, 1.8f), 3).OnUpdate(() =>
+        slapCountText.rectTransform.DOScale(new Vector3(1.5f, 1.5f, 1.5f), 3).OnUpdate(() =>
         {
             currentTime += Time.deltaTime;
-            float currentSlap = CalculateMoney(Convert.ToInt32(slapCountText.text), slapCountDoubled, currentTime, 3);
+            float currentSlap = CalculateMoney(Convert.ToInt32(slapCountText.text), earnedSlapCount, currentTime, 3);
 
             slapCountText.text = string.Format("{0:f0}", currentSlap);
 
         }).SetEase(Ease.Linear);
-        //AddEarnedMoney();
     }
 
     public float CalculateMoney(float startMoney, float endMoney, float currentTime, float maxTime)
@@ -104,7 +103,6 @@ public class LosePanel : MonoBehaviour
         }
         else
         {
-            // »спользуем линейную интерпол€цию дл€ вычислени€ промежуточной суммы денег в зависимости от текущего времени
             float t = currentTime / maxTime;
             float interpolatedMoney = startMoney + (endMoney - startMoney) * t;
             return interpolatedMoney;
@@ -112,10 +110,12 @@ public class LosePanel : MonoBehaviour
     }
     public virtual void AddEarnedMoney() 
     {
-        Geekplay.Instance.PlayerData.money += earnedSlapCount;
+        Geekplay.Instance.PlayerData.money += earnedSlapCount - earnedSlapCountBeforeDouble;
+        Geekplay.Instance.PlayerData.LeaderboardSlap += earnedSlapCount - earnedSlapCountBeforeDouble;
     }
     public virtual void SetSlapCount(int slapCount) 
     {
+        earnedSlapCountBeforeDouble = slapCount;
         earnedSlapCount = slapCount;
 
         if (slapCountText != null)
