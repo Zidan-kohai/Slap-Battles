@@ -237,8 +237,18 @@ public class SkineShopController : MonoBehaviour
                 {
                     foreach (Material m in material)
                         ChangeLastColor(m, buyable);
-
-                    buyText.text = "Надето";
+                    if(Geekplay.Instance.language == "ru")
+                    {
+                        buyText.text = "Надето";
+                    }
+                    if (Geekplay.Instance.language == "en")
+                    {
+                        buyText.text = "Wearing";
+                    }
+                    if (Geekplay.Instance.language == "tr")
+                    {
+                        buyText.text = "giyme";
+                    }
                 });
 
                 bool isEquiped = false;
@@ -276,11 +286,33 @@ public class SkineShopController : MonoBehaviour
 
                 if (isEquiped)
                 {
-                    buyText.text = "Надето";
+                    if (Geekplay.Instance.language == "ru")
+                    {
+                        buyText.text = "Надето";
+                    }
+                    if (Geekplay.Instance.language == "en")
+                    {
+                        buyText.text = "Wearing";
+                    }
+                    if (Geekplay.Instance.language == "tr")
+                    {
+                        buyText.text = "giyme";
+                    }
                 }
                 else
                 {
-                    buyText.text = "Надеть";
+                    if (Geekplay.Instance.language == "ru")
+                    {
+                        buyText.text = "Надеть";
+                    }
+                    if (Geekplay.Instance.language == "en")
+                    {
+                        buyText.text = "Put on";
+                    }
+                    if (Geekplay.Instance.language == "tr")
+                    {
+                        buyText.text = "Hayir";
+                    }
                 }
             }
             else
@@ -311,7 +343,19 @@ public class SkineShopController : MonoBehaviour
                         foreach(var m in material)
                             BuyAndChangeLastColor(m, buyable);
 
-                        buyText.text = "Надето";
+                        if (Geekplay.Instance.language == "ru")
+                        {
+                            buyText.text = "Надето";
+                        }
+                        if (Geekplay.Instance.language == "en")
+                        {
+                            buyText.text = "Wearing";
+                        }
+                        if (Geekplay.Instance.language == "tr")
+                        {
+                            buyText.text = "giyme";
+                        }
+
                         eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
                     });
 
@@ -329,8 +373,20 @@ public class SkineShopController : MonoBehaviour
                     });
                 }
 
-                buyText.text = $"купить {buyable.GetCost}";
-                if(buyable.costType == Buyable.TypeOfCost.money)
+                if (Geekplay.Instance.language == "ru")
+                {
+                    buyText.text = $"купить {buyable.GetCost}";
+                }
+                if (Geekplay.Instance.language == "en")
+                {
+                    buyText.text = $"buy {buyable.GetCost}";
+                }
+                if (Geekplay.Instance.language == "tr")
+                {
+                    buyText.text = $"satin almak {buyable.GetCost}";
+                }
+
+                if (buyable.costType == Buyable.TypeOfCost.money)
                 {
                     buySlapIcon.SetActive(true);
                     buyDiamondIcon.SetActive(false);
@@ -584,16 +640,50 @@ public class SkineShopController : MonoBehaviour
                 {
                     if (Geekplay.Instance.PlayerData.currentManHair == buyable.GetIndexOfhair)
                     {
-                        buyText.text = "Надето";
+                        if (Geekplay.Instance.language == "ru")
+                        {
+                            buyText.text = "Надето";
+                        }
+                        if (Geekplay.Instance.language == "en")
+                        {
+                            buyText.text = "Wearing";
+                        }
+                        if (Geekplay.Instance.language == "tr")
+                        {
+                            buyText.text = "giyme";
+                        }
                     }
                     else
                     {
-                        buyText.text = "Надеть";
+                        if (Geekplay.Instance.language == "ru")
+                        {
+                            buyText.text = "Надеть";
+                        }
+                        if (Geekplay.Instance.language == "en")
+                        {
+                            buyText.text = "Put on";
+                        }
+                        if (Geekplay.Instance.language == "tr")
+                        {
+                            buyText.text = "Hayir";
+                        }
 
                         buyButton.onClick.AddListener(() =>
                         {
                             hairSwitcher.ChangeHair(buyable.GetIndexOfhair, true);
-                            buyText.text = "Надето";
+
+                            if (Geekplay.Instance.language == "ru")
+                            {
+                                buyText.text = "Надето";
+                            }
+                            if (Geekplay.Instance.language == "en")
+                            {
+                                buyText.text = "Wearing";
+                            }
+                            if (Geekplay.Instance.language == "tr")
+                            {
+                                buyText.text = "giyme";
+                            }
 
                             ChangeHealthBuff(HealtBuffSystem.HealtBuffType.hair, buyable.HealthBuff);
                         });
@@ -603,16 +693,50 @@ public class SkineShopController : MonoBehaviour
                 {
                     if (Geekplay.Instance.PlayerData.currentWomanHair == buyable.GetIndexOfhair)
                     {
-                        buyText.text = "Надето";
+                        if (Geekplay.Instance.language == "ru")
+                        {
+                            buyText.text = "Надето";
+                        }
+                        if (Geekplay.Instance.language == "en")
+                        {
+                            buyText.text = "Wearing";
+                        }
+                        if (Geekplay.Instance.language == "tr")
+                        {
+                            buyText.text = "giyme";
+                        }
                     }
                     else
                     {
-                        buyText.text = "Надеть";
+                        if (Geekplay.Instance.language == "ru")
+                        {
+                            buyText.text = "Надеть";
+                        }
+                        if (Geekplay.Instance.language == "en")
+                        {
+                            buyText.text = "Put on";
+                        }
+                        if (Geekplay.Instance.language == "tr")
+                        {
+                            buyText.text = "Hayir";
+                        }
 
                         buyButton.onClick.AddListener(() =>
                         {
                             hairSwitcher.ChangeHair(buyable.GetIndexOfhair, false);
-                            buyText.text = "Надето";
+
+                            if (Geekplay.Instance.language == "ru")
+                            {
+                                buyText.text = "Надето";
+                            }
+                            if (Geekplay.Instance.language == "en")
+                            {
+                                buyText.text = "Wearing";
+                            }
+                            if (Geekplay.Instance.language == "tr")
+                            {
+                                buyText.text = "giyme";
+                            }
 
                             ChangeHealthBuff(HealtBuffSystem.HealtBuffType.hair, buyable.HealthBuff);
                         });
@@ -622,7 +746,18 @@ public class SkineShopController : MonoBehaviour
             }
             else
             {
-                buyText.text = $"купить {buyable.GetCost}";
+                if (Geekplay.Instance.language == "ru")
+                {
+                    buyText.text = $"купить {buyable.GetCost}";
+                }
+                if (Geekplay.Instance.language == "en")
+                {
+                    buyText.text = $"buy {buyable.GetCost}";
+                }
+                if (Geekplay.Instance.language == "tr")
+                {
+                    buyText.text = $"satin almak {buyable.GetCost}";
+                }
 
                 if (buyable.costType == Buyable.TypeOfCost.money)
                 {
@@ -643,7 +778,20 @@ public class SkineShopController : MonoBehaviour
                         ChangeHealthBuff(HealtBuffSystem.HealtBuffType.hair, buyable.HealthBuff);
 
                         buyable.Buy();
-                        buyText.text = "Надето";
+
+                        if (Geekplay.Instance.language == "ru")
+                        {
+                            buyText.text = "Надето";
+                        }
+                        if (Geekplay.Instance.language == "en")
+                        {
+                            buyText.text = "Wearing";
+                        }
+                        if (Geekplay.Instance.language == "tr")
+                        {
+                            buyText.text = "giyme";
+                        }
+
                         eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
                     });
                 }
@@ -717,16 +865,50 @@ public class SkineShopController : MonoBehaviour
 
                 if (Geekplay.Instance.PlayerData.currentAccessory == buyable.GetIndexOfAccessory)
                 {
-                    buyText.text = "Надето";
+                    if (Geekplay.Instance.language == "ru")
+                    {
+                        buyText.text = "Надето";
+                    }
+                    if (Geekplay.Instance.language == "en")
+                    {
+                        buyText.text = "Wearing";
+                    }
+                    if (Geekplay.Instance.language == "tr")
+                    {
+                        buyText.text = "giyme";
+                    }
                 }
                 else
                 {
-                    buyText.text = "Надеть";
+                    if (Geekplay.Instance.language == "ru")
+                    {
+                        buyText.text = "Надеть";
+                    }
+                    if (Geekplay.Instance.language == "en")
+                    {
+                        buyText.text = "Put on";
+                    }
+                    if (Geekplay.Instance.language == "tr")
+                    {
+                        buyText.text = "Hayir";
+                    }
 
                     buyButton.onClick.AddListener(() =>
                     {
                         accessorySwitcher.SaveAndSwitchAccessory(buyable.GetIndexOfAccessory);
-                        buyText.text = "Надето";
+
+                        if (Geekplay.Instance.language == "ru")
+                        {
+                            buyText.text = "Надето";
+                        }
+                        if (Geekplay.Instance.language == "en")
+                        {
+                            buyText.text = "Wearing";
+                        }
+                        if (Geekplay.Instance.language == "tr")
+                        {
+                            buyText.text = "giyme";
+                        }
 
                         ChangeHealthBuff(HealtBuffSystem.HealtBuffType.accessory, buyable.HealthBuff);
                     });
@@ -734,7 +916,18 @@ public class SkineShopController : MonoBehaviour
             }
             else
             {
-                buyText.text = $"купить {buyable.GetCost}";
+                if (Geekplay.Instance.language == "ru")
+                {
+                    buyText.text = $"купить {buyable.GetCost}";
+                }
+                if (Geekplay.Instance.language == "en")
+                {
+                    buyText.text = $"buy {buyable.GetCost}";
+                }
+                if (Geekplay.Instance.language == "tr")
+                {
+                    buyText.text = $"satin almak {buyable.GetCost}";
+                }
 
                 if (buyable.costType == Buyable.TypeOfCost.money)
                 {
@@ -755,7 +948,20 @@ public class SkineShopController : MonoBehaviour
                         ChangeHealthBuff(HealtBuffSystem.HealtBuffType.accessory, buyable.HealthBuff);
 
                         buyable.Buy();
-                        buyText.text = "Надето";
+
+                        if (Geekplay.Instance.language == "ru")
+                        {
+                            buyText.text = "Надето";
+                        }
+                        if (Geekplay.Instance.language == "en")
+                        {
+                            buyText.text = "Wearing";
+                        }
+                        if (Geekplay.Instance.language == "tr")
+                        {
+                            buyText.text = "giyme";
+                        }
+
                         eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
                     });
                 }
@@ -831,16 +1037,52 @@ public class SkineShopController : MonoBehaviour
 
                 if (Geekplay.Instance.PlayerData.currentCap == buyable.GetIndexOfCap)
                 {
-                    buyText.text = "Надето";
+                    if (Geekplay.Instance.language == "ru")
+                    {
+                        buyText.text = "Надето";
+                    }
+                    if (Geekplay.Instance.language == "en")
+                    {
+                        buyText.text = "Wearing";
+                    }
+                    if (Geekplay.Instance.language == "tr")
+                    {
+                        buyText.text = "giyme";
+                    }
+
                 }
                 else
                 {
-                    buyText.text = "Надеть";
+                    if (Geekplay.Instance.language == "ru")
+                    {
+                        buyText.text = "Надеть";
+                    }
+                    if (Geekplay.Instance.language == "en")
+                    {
+                        buyText.text = "Put on";
+                    }
+                    if (Geekplay.Instance.language == "tr")
+                    {
+                        buyText.text = "Hayir";
+                    }
 
                     buyButton.onClick.AddListener(() =>
                     {
                         capSwitcher.SaveAndSwitchCap(buyable.GetIndexOfCap);
-                        buyText.text = "Надето";
+
+                        if (Geekplay.Instance.language == "ru")
+                        {
+                            buyText.text = "Надето";
+                        }
+                        if (Geekplay.Instance.language == "en")
+                        {
+                            buyText.text = "Wearing";
+                        }
+                        if (Geekplay.Instance.language == "tr")
+                        {
+                            buyText.text = "giyme";
+                        }
+
 
                         ChangeHealthBuff(HealtBuffSystem.HealtBuffType.cap, buyable.HealthBuff);
                     });
@@ -848,7 +1090,18 @@ public class SkineShopController : MonoBehaviour
             }
             else
             {
-                buyText.text = $"купить {buyable.GetCost}";
+                if (Geekplay.Instance.language == "ru")
+                {
+                    buyText.text = $"купить {buyable.GetCost}";
+                }
+                if (Geekplay.Instance.language == "en")
+                {
+                    buyText.text = $"buy {buyable.GetCost}";
+                }
+                if (Geekplay.Instance.language == "tr")
+                {
+                    buyText.text = $"satin almak {buyable.GetCost}";
+                }
 
                 if (buyable.costType == Buyable.TypeOfCost.money)
                 {
@@ -868,8 +1121,21 @@ public class SkineShopController : MonoBehaviour
                         capSwitcher.SwitchAndBuyCap(buyable.GetIndexOfCap);
                         ChangeHealthBuff(HealtBuffSystem.HealtBuffType.cap, buyable.HealthBuff);
 
-                        buyable.Buy();
-                        buyText.text = "Надето";
+                        buyable.Buy(); 
+                        
+                        if (Geekplay.Instance.language == "ru")
+                        {
+                            buyText.text = "Надето";
+                        }
+                        if (Geekplay.Instance.language == "en")
+                        {
+                            buyText.text = "Wearing";
+                        }
+                        if (Geekplay.Instance.language == "tr")
+                        {
+                            buyText.text = "giyme";
+                        }
+
                         eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
                     });
                 }

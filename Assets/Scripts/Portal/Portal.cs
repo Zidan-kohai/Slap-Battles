@@ -2,6 +2,7 @@ using CMF;
 using DG.Tweening;
 using System;
 using System.Runtime.CompilerServices;
+using TMPro;
 using UnityEngine;
 
 public partial class Portal : MonoBehaviour
@@ -23,6 +24,8 @@ public partial class Portal : MonoBehaviour
 
     [SerializeField] private AdvancedWalkerController playerMover;
     [SerializeField] private CameraController cameraController;
+
+    [SerializeField] private TextMeshProUGUI costText;
     private void Start()
     {
         if(Geekplay.Instance.PlayerData.BuyedModes.Contains(Mode) || IsBuyed)
@@ -39,6 +42,19 @@ public partial class Portal : MonoBehaviour
         {
             SlapIcon.SetActive(false);
             DiamondIcon.SetActive(true);
+        }
+
+        if(Geekplay.Instance.language == "ru")
+        {
+            costText.text = $"купить за {Cost}";
+        }
+        if (Geekplay.Instance.language == "en")
+        {
+            costText.text = $"buy for {Cost}";
+        }
+        if (Geekplay.Instance.language == "tr")
+        {
+            costText.text = $"satin al {Cost}";
         }
     }
 

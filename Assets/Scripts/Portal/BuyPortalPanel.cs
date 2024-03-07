@@ -23,7 +23,18 @@ public class BuyPortalPanel : MonoBehaviour
         walkeController.enabled = false;
         cameraInput.enabled = false;
 
-        text.text = $"купить портал за {cost}";
+        if (Geekplay.Instance.language == "ru")
+        {
+            text.text = $"купить портал за {cost}";
+        }
+        if (Geekplay.Instance.language == "en")
+        {
+
+        }
+        if (Geekplay.Instance.language == "tr")
+        {
+
+        }
 
         buyButton.onClick?.RemoveAllListeners();
         buyButton.onClick.AddListener(action);

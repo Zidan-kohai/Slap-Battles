@@ -45,4 +45,9 @@ public class OurGame : MonoBehaviour
                 break;
         }
     }
+
+    public void OpenOtherGame()
+    {
+        Geekplay.Instance.OpenOtherGames();
+    }
 }
