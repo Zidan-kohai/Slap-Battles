@@ -9,6 +9,7 @@ public class LeaderboardInGame : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI[] linesTexts;
     [SerializeField] private TextMeshProUGUI[] linesPointsTexts;
+    [SerializeField] private LeaderName leaderName;
 
 
     private float timeFlag = 0;
@@ -105,6 +106,7 @@ public class LeaderboardInGame : MonoBehaviour
         Utils.GetLeaderboard("score", 0);
         Utils.GetLeaderboard("name", 0);
 
+        leaderName.UpdateLeaderboardName();
     }
 
     void ToLines()

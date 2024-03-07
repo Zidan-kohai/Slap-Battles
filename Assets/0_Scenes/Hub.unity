@@ -29810,6 +29810,7 @@ MonoBehaviour:
   - {fileID: 76726346}
   - {fileID: 76726345}
   - {fileID: 76726344}
+  leaderName: {fileID: 0}
 --- !u!1 &1896857644
 GameObject:
   m_ObjectHideFlags: 0
@@ -50264,7 +50265,7 @@ PrefabInstance:
       objectReference: {fileID: -1900816273, guid: db4a1c6aa7f27444a933b76df2326d7c, type: 3}
     - target: {fileID: 5020128898513418114, guid: d95c26ba79f58ce41a2e0b005e37e30b, type: 3}
       propertyPath: m_text
-      value: "\u041F\u0435\u0440\u0432\u044B\u0439 \u0438\u0433\u0440\u043E\u043A"
+      value: "\u041F\u0435\u0440\u0432\u044B\u0439 \u0438\u0433\u043E\u043A"
       objectReference: {fileID: 0}
     - target: {fileID: 5020128898513418114, guid: d95c26ba79f58ce41a2e0b005e37e30b, type: 3}
       propertyPath: m_fontSize
@@ -89189,6 +89190,7 @@ GameObject:
   - component: {fileID: 6910259358021909979}
   - component: {fileID: 2602951548357830547}
   - component: {fileID: 8360209251038085682}
+  - component: {fileID: 8360209251038085683}
   m_Layer: 0
   m_Name: Center
   m_TagString: Untagged
@@ -89217,6 +89219,21 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.56, y: 20, z: 0.36}
   m_Center: {x: 0, y: 10, z: -0.01}
+--- !u!114 &8360209251038085683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8360209251038085681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e5f66b5d8e603b45b5992d1cb75b992, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  place1Name: {fileID: 3316094601228256806}
+  place2Name: {fileID: 1109513149443196424}
+  place3Name: {fileID: 6532738213275309217}
 --- !u!65 &8372507144311708489
 BoxCollider:
   m_ObjectHideFlags: 0
