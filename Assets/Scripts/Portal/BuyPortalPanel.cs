@@ -25,15 +25,15 @@ public class BuyPortalPanel : MonoBehaviour
 
         if (Geekplay.Instance.language == "ru")
         {
-            text.text = $"купить портал за {cost}";
+            text.text = $"купить портал за {cost}?";
         }
         if (Geekplay.Instance.language == "en")
         {
-
+            text.text = $"Buy portal for {cost}?";
         }
         if (Geekplay.Instance.language == "tr")
         {
-
+            text.text = $"karsiliginda portal satin alinsin mi {cost} ?";
         }
 
         buyButton.onClick?.RemoveAllListeners();
