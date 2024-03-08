@@ -27,6 +27,11 @@ public class BattleRoyalModeController : MonoBehaviour
     [SerializeField] protected GameObject RightColumn;
     private void Start()
     {
+        if(Geekplay.Instance.mobile)
+        {
+            enemies.RemoveRange(10, 5);
+        }
+
         ArrangeTransforms();
         TurnOnGameObjects();
 
