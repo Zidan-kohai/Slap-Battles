@@ -94,7 +94,7 @@ public class StaticHubTextTranslator : MonoBehaviour
             item11SpecialText.text = "лучшее";
 
 
-            leaderboardDescription.text = "описание игры";
+            leaderboardDescription.text = "Заходи в понравившийся портал, шлепай других игроков и набирай очки!\r\n\r\nТрать шлепки на новые порталы, перчатки и скины!";
             leaderboardName.text = "Лидеры";
             otherGamesIconText.text = "другие игры";
             otherGamesHeaderText.text = "наши игры";
@@ -146,7 +146,7 @@ public class StaticHubTextTranslator : MonoBehaviour
             item11SpecialText.text = "Top";
 
 
-            leaderboardDescription.text = "game description";
+            leaderboardDescription.text = "Enter the portal you like, spank other players and score points!\r\n\r\nSpend your spanks on new portals, gloves and skins!";
             leaderboardName.text = "Leaders";
             otherGamesIconText.text = "other games";
             otherGamesHeaderText.text = "our games";
@@ -197,7 +197,7 @@ public class StaticHubTextTranslator : MonoBehaviour
             item11SpecialText.text = "sey";
 
 
-            leaderboardDescription.text = "oyun aciklamasi";
+            leaderboardDescription.text = "Begendiginiz portala girin, diger oyunculara saplak atin ve puan kazanin!\r\n\r\nTokatlarinizi yeni portallara, eldivenlere ve gorunumlere harcayin!";
             leaderboardName.text = "Liderler";
             otherGamesIconText.text = "diger oyunlar";
             otherGamesHeaderText.text = "oyunlarimiz";
