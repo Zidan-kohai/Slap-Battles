@@ -14,6 +14,21 @@ public class Slap : MonoBehaviour
 
     private void Start()
     {
+        
+    }
+
+    public void Attack()
+    {
+
+    }
+
+    public virtual void SuperAttack()
+    {
+
+    }
+
+    public void ChangeLanguageOfDescription()
+    {
         if (Geekplay.Instance.language == "ru")
         {
             descriptionOfSuperPower = ru;
@@ -26,15 +41,5 @@ public class Slap : MonoBehaviour
         {
             descriptionOfSuperPower = tr;
         }
-    }
-
-    public void Attack()
-    {
-
-    }
-
-    public virtual void SuperAttack()
-    {
-
     }
 }

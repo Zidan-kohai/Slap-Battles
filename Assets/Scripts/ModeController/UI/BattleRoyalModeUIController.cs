@@ -46,15 +46,15 @@ public class BattleRoyalModeUIController : MonoBehaviour
 
     private void OnPlayerWin()
     {
-        int place = modeController.EnemyCount - 1;
+        int place = 1;
         winPanel.DisableRewardButton();
         
         winPanel.gameObject.SetActive(true);
         
         winPanelHeaderText.text = "Победа";
 
-        placeText.text = enemyCountText.text;
-        placeSlapRewardText.text = modeController.placeRewards[place].SlapCount.ToString();
-        placeDiamondRewardText.text = modeController.placeRewards[place].DiamondCount.ToString();
+        placeText.text = place.ToString();
+        placeSlapRewardText.text = modeController.placeRewards[place - 1].SlapCount.ToString();
+        placeDiamondRewardText.text = modeController.placeRewards[place - 1].DiamondCount.ToString();
     }
 }

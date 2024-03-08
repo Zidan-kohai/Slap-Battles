@@ -550,6 +550,7 @@ GameObject:
   - component: {fileID: 3783879438782973790}
   - component: {fileID: 6769832705843036664}
   - component: {fileID: 7081942212399357033}
+  - component: {fileID: 6590319944477926239}
   m_Layer: 5
   m_Name: DescriptionName
   m_TagString: Untagged
@@ -675,6 +676,23 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6590319944477926239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3346623688475000243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ed620ad22418e0459709b09dd6eabfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 7081942212399357033}
+  ru: "\u041E\u043F\u0438\u0441\u0430\u043D\u0438\u0435 \u0441\u0443\u043F\u0435\u0440
+    \u0421\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u0438 \u041F\u0435\u0440\u0447\u0430\u0442\u043A\u0438"
+  en: Description of Super Abilities Gloves
+  tr: Super Yetenek Eldiveni aciklamasi
 --- !u!1 &3994248850791567423
 GameObject:
   m_ObjectHideFlags: 0
@@ -1039,6 +1057,7 @@ GameObject:
   - component: {fileID: 9027666115593908512}
   - component: {fileID: 6357737873434411258}
   - component: {fileID: 5562140141047700973}
+  - component: {fileID: 6836008752273068099}
   m_Layer: 5
   m_Name: ModeNameText (TMP)
   m_TagString: Untagged
@@ -1162,6 +1181,22 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6836008752273068099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6182153531177709109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ed620ad22418e0459709b09dd6eabfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 5562140141047700973}
+  ru: "\u041E\u0431\u044B\u0447\u043D\u044B\u0439 \u0440\u0435\u0436\u0438\u043C"
+  en: Standart Mode
+  tr: Standart Mod
 --- !u!1 &6256187911249857115
 GameObject:
   m_ObjectHideFlags: 0

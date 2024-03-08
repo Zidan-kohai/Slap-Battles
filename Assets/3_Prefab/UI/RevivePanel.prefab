@@ -583,6 +583,7 @@ GameObject:
   - component: {fileID: 4326320859542618784}
   - component: {fileID: 833880980748821384}
   - component: {fileID: 7875942223887696203}
+  - component: {fileID: 719481630007752359}
   m_Layer: 5
   m_Name: HeaderText
   m_TagString: Untagged
@@ -706,6 +707,22 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &719481630007752359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2902292225978503780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ed620ad22418e0459709b09dd6eabfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 7875942223887696203}
+  ru: "\u041F\u043E\u0440\u0430\u0436\u0435\u043D\u0438\u0435"
+  en: Lose
+  tr: Kaybetmek
 --- !u!1 &3402378771542935220
 GameObject:
   m_ObjectHideFlags: 0
@@ -1078,6 +1095,7 @@ GameObject:
   - component: {fileID: 332885088475278256}
   - component: {fileID: 4748706247290696919}
   - component: {fileID: 7329164249696747872}
+  - component: {fileID: 3831295824270862634}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1202,6 +1220,23 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3831295824270862634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6160824072895736947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ed620ad22418e0459709b09dd6eabfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 7329164249696747872}
+  ru: "\u0412\u044B \u043F\u0440\u043E\u0438\u0433\u0440\u0430\u043B\u0438 \u0425\u043E\u0442\u0438\u0442\u0435
+    \u0432\u043E\u0441\u043A\u0440\u0435\u0441\u043D\u0443\u0442\u044C?"
+  en: You lost. Do you want to be resurrected?
+  tr: Sen kaybettin, dirilmek ister misin?
 --- !u!1 &7673732425329874674
 GameObject:
   m_ObjectHideFlags: 0
@@ -1213,6 +1248,7 @@ GameObject:
   - component: {fileID: 429084713511996086}
   - component: {fileID: 7143001956584882694}
   - component: {fileID: 8075262110682238381}
+  - component: {fileID: 7072235735456223513}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1337,6 +1373,22 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7072235735456223513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7673732425329874674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ed620ad22418e0459709b09dd6eabfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 8075262110682238381}
+  ru: "\u0412\u043E\u0441\u043A\u0440\u0435\u0441\u043D\u0443\u0442\u044C"
+  en: Resurrect
+  tr: Dirilis
 --- !u!1 &8422391657854443702
 GameObject:
   m_ObjectHideFlags: 0

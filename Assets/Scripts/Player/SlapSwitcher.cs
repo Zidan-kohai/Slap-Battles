@@ -23,31 +23,38 @@ public class SlapSwitcher : MonoBehaviour
         playerAttack.ChangeSlap(slap);
         power.ChangeSlap(slap);
         colorSwitcher?.ChangeSlap(slap);
+        powerDescription.text = slap.descriptionOfSuperPower;
     }
 
     public Slap SwitchSlap(int index)
     {
         Slap chosedSlap = null;
-        for (int i = 0; i < manSlaps.Count; i++)
-        {
-            manSlaps[i].SetActive(false);
-            if (index == i)
-            {
-                manSlaps[i].SetActive(true);
-                chosedSlap = manSlaps[i].GetComponent<Slap>();
-            }
-        }
-        for (int i = 0; i < womanSlaps.Count; i++)
-        {
-            womanSlaps[i].SetActive(false);
-            if (index == i)
-            {
-                womanSlaps[i].SetActive(true);
-                chosedSlap = womanSlaps[i].GetComponent<Slap>();
-            }
-        }
 
-        powerDescription.text = chosedSlap.descriptionOfSuperPower;
+        if (Geekplay.Instance.PlayerData.isGenderMan)
+        {
+            for (int i = 0; i < manSlaps.Count; i++)
+            {
+                manSlaps[i].SetActive(false);
+                if (index == i)
+                {
+                    manSlaps[i].SetActive(true);
+                    chosedSlap = manSlaps[i].GetComponent<Slap>();
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < womanSlaps.Count; i++)
+            {
+                womanSlaps[i].SetActive(false);
+                if (index == i)
+                {
+                    womanSlaps[i].SetActive(true);
+                    chosedSlap = womanSlaps[i].GetComponent<Slap>();
+                }
+            }
+        }
+        chosedSlap.ChangeLanguageOfDescription();
 
         return chosedSlap;
     }
