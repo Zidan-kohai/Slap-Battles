@@ -232,6 +232,7 @@ MonoBehaviour:
   flag: 0
   LeftColumn: {fileID: 5312914128300477865}
   RightColumn: {fileID: 6841513299570466392}
+  enemyToSpawn: 0
 --- !u!1 &3023253353806803280
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,6 +704,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 45674be35f4370742a8e6d43dc5ef7f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4933466790710022768 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4633554384911446298, guid: e4d2edd17f07ee948b143b6d82366084, type: 3}
+  m_PrefabInstance: {fileID: 304697493557125994}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a47f546fc70ec8428172694e78e4288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &5037794275283989438 stripped
@@ -2293,6 +2305,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1626376185768969731}
     m_Modifications:
+    - target: {fileID: 555158655974537279, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
+      propertyPath: joystick
+      value: 
+      objectReference: {fileID: 4933466790710022768}
     - target: {fileID: 1014437132833540488, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.656613e-10

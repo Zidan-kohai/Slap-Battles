@@ -261,6 +261,7 @@ MonoBehaviour:
   flag: 0
   LeftColumn: {fileID: 6382703803944032829}
   RightColumn: {fileID: 5753726841263049164}
+  enemyToSpawn: 0
 --- !u!1 &5120783101719203658
 GameObject:
   m_ObjectHideFlags: 0
@@ -1282,6 +1283,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4743231530495693012, guid: e4d2edd17f07ee948b143b6d82366084, type: 3}
   m_PrefabInstance: {fileID: 2096477424584899198}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6725455573113604964 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4633554384911446298, guid: e4d2edd17f07ee948b143b6d82366084, type: 3}
+  m_PrefabInstance: {fileID: 2096477424584899198}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a47f546fc70ec8428172694e78e4288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2240272156836617684
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2352,6 +2364,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1626376185768969731}
     m_Modifications:
+    - target: {fileID: 1137756510368724695, guid: 065dc4555a4230640b3ed5c9ea9b4d2d, type: 3}
+      propertyPath: joystick
+      value: 
+      objectReference: {fileID: 6725455573113604964}
     - target: {fileID: 1403476131508623372, guid: 065dc4555a4230640b3ed5c9ea9b4d2d, type: 3}
       propertyPath: m_WarningMessage
       value: 

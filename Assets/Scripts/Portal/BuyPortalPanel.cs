@@ -33,7 +33,7 @@ public class BuyPortalPanel : MonoBehaviour
         }
         if (Geekplay.Instance.language == "tr")
         {
-            text.text = $"karsiliginda portal satin alinsin mi {cost} ?";
+            text.text = $"karsiliginda portal satin alinsin mi {cost}?";
         }
 
         buyButton.onClick?.RemoveAllListeners();

@@ -16,6 +16,8 @@ public class StandartMode : MonoBehaviour
 
     [SerializeField] protected GameObject LeftColumn;
     [SerializeField] protected GameObject RightColumn;
+
+    public int enemyToSpawn;
     protected void Start()
     {
         ArrangeTransforms();
@@ -28,10 +30,15 @@ public class StandartMode : MonoBehaviour
         eventManager.SubscribeOnPlayerRevive(OnPlayerRevive);
 
 
-        if(Geekplay.Instance.mobile)
+        if (Geekplay.Instance.mobile)
         {
             LeftColumn.SetActive(false);
             RightColumn.SetActive(false);
+            enemyToSpawn = 10;
+        }
+        else
+        {
+            enemyToSpawn = enemies.Count;
         }
     }
 
@@ -42,7 +49,7 @@ public class StandartMode : MonoBehaviour
 
     private void ArrangeTargetForEnemy()
     {
-        for(int i = 0; i < enemies.Count; i++)
+        for(int i = 0; i < enemyToSpawn; i++)
         {
             float minDistance = Mathf.Infinity;
             IHealthObject target = null;
@@ -56,7 +63,7 @@ public class StandartMode : MonoBehaviour
                 target = player;
             }
 
-            for (int j = 0; j < enemies.Count; j++)
+            for (int j = 0; j < enemyToSpawn; j++)
             {
                 if (i == j) continue;
 
@@ -78,8 +85,10 @@ public class StandartMode : MonoBehaviour
     private void ArrangeTransforms()
     {
         player.transform.position = GetRandomPositionForPlayer();
+        
+        
 
-        for (int i = 0; i < enemies.Count; i++)
+        for (int i = 0; i < enemyToSpawn; i++)
         {
             enemies[i].transform.position = GetRandomPositionForEnemy();
             enemies[i].Revive();
@@ -100,7 +109,8 @@ public class StandartMode : MonoBehaviour
     private void SpawnEnemy()
     {
         flag = false;
-        for (int i = 0; i < enemies.Count; i++)
+
+        for (int i = 0; i < enemyToSpawn; i++)
         {
             if (!enemies[i].gameObject.activeSelf)
             {
@@ -119,7 +129,7 @@ public class StandartMode : MonoBehaviour
                     target = player;
                 }
 
-                for (int j = 0; j < enemies.Count; j++)
+                for (int j = 0; j < enemyToSpawn; j++)
                 {
                     if (i == j) continue;
 
@@ -154,7 +164,7 @@ public class StandartMode : MonoBehaviour
     {
         player.gameObject.SetActive(true);
 
-        for (int i = 0; i < enemies.Count; i++)
+        for (int i = 0; i < enemyToSpawn; i++)
         {
             enemies[i].gameObject.SetActive(true);
         }
