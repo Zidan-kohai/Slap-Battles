@@ -12,6 +12,7 @@ public class Codes
 
 public class Promocode : MonoBehaviour
 {
+	[SerializeField] private GameObject inputPopup; //куда вводим промокод
 	[SerializeField] private TMP_InputField inputText; //куда вводим промокод
 	[SerializeField] private Codes[] codes; //список кодов и наград (как реварды и иннапы)
     [SerializeField] private HubEventManager eventManager;    
@@ -52,7 +53,7 @@ public class Promocode : MonoBehaviour
     {
         if(other.gameObject.layer == 7)
         {
-            inputText.gameObject.SetActive(true);
+            inputPopup.gameObject.SetActive(true);
                 
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
