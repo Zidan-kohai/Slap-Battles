@@ -3,7 +3,6 @@ using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class LosePanel : MonoBehaviour
@@ -90,6 +89,7 @@ public class LosePanel : MonoBehaviour
 
         }).SetEase(Ease.Linear);
 
+        slider.gameObject.SetActive(false);
         DisableRewardButton();
     }
 
