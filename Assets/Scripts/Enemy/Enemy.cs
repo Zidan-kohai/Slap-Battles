@@ -247,6 +247,10 @@ public class Enemy : IHealthObject
     protected void OnEndAnimations()
     {
         GetNearnestEnemyAsTarget();
+
+        rb.isKinematic = true;
+        navMeshAgent.enabled = true;
+        CanWalk = true;
         canGetDamage = true;
     }
     
@@ -262,10 +266,6 @@ public class Enemy : IHealthObject
 
         if (!isDead)
         {
-            rb.isKinematic = true;
-            navMeshAgent.enabled = true;
-            CanWalk = true;
-
             OnEndAnimations();
         }
     }
@@ -277,7 +277,6 @@ public class Enemy : IHealthObject
         healthbar.fillAmount = health / maxHealth;
         gameObject.SetActive(true);
         navMeshAgent.enabled = true;
-        //collider.enabled = true;
         isDead = false;
         canGetDamage = true;
         isSleeping = false;
@@ -290,7 +289,6 @@ public class Enemy : IHealthObject
         if (isDead) return;
         navMeshAgent.enabled = false;
         isDead = true;
-
         if (playDeathAnimation)
         {
             animator.SetTrigger("Death");

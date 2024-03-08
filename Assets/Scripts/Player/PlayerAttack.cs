@@ -96,10 +96,10 @@ public class PlayerAttack : MonoBehaviour
         {
             float currentAngle = startAngle + angleStep * i;
 
-            Vector3 raycastDirection = Quaternion.Euler(0, currentAngle, 0) * transform.forward;
+            Vector3 raycastDirection = Quaternion.Euler(0, currentAngle, 0) * slapRaycaster.forward;
 
             RaycastHit hit;
-            if (Physics.Raycast(transform.position + Delta, raycastDirection, out hit, RaycastDistance, enemyLayer, QueryTriggerInteraction.Ignore))
+            if (Physics.Raycast(slapRaycaster.position + Delta, raycastDirection, out hit, RaycastDistance, enemyLayer, QueryTriggerInteraction.Ignore))
             {
                 Debug.Log("Raycast hit at angle " + currentAngle + " degrees. Hit object: " + hit.collider.gameObject.name);
 
@@ -172,8 +172,8 @@ public class PlayerAttack : MonoBehaviour
             float currentAngle = startAngle + angleStep * i;
 
             // Вычисляем направление для броска рейкаста на основе угла
-            Vector3 raycastDirection = Quaternion.Euler(0, currentAngle, 0) * transform.forward;
-            Debug.DrawRay(transform.position + Delta, raycastDirection * RaycastDistance);
+            Vector3 raycastDirection = Quaternion.Euler(0, currentAngle, 0) * slapRaycaster.forward;
+            Debug.DrawRay(slapRaycaster.position + Delta, raycastDirection * RaycastDistance);
         }
     }
 
