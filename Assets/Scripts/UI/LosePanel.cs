@@ -89,6 +89,8 @@ public class LosePanel : MonoBehaviour
             slapCountText.text = string.Format("{0:f0}", currentSlap);
 
         }).SetEase(Ease.Linear);
+
+        DisableRewardButton();
     }
 
     public float CalculateMoney(float startMoney, float endMoney, float currentTime, float maxTime)
