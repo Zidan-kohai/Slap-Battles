@@ -10,8 +10,7 @@ public class StaticEnviromentTextTranslator : MonoBehaviour
     [SerializeField] private TextMeshProUGUI DIconText;
     [SerializeField] private TextMeshProUGUI jumpText1;
     [SerializeField] private TextMeshProUGUI jumpIconText1;
-    [SerializeField] private TextMeshProUGUI jumpText2;
-    [SerializeField] private TextMeshProUGUI jumpIconText2;
+    [SerializeField] private TextMeshProUGUI attackText;
     [SerializeField] private TextMeshProUGUI superPowerText;
     [SerializeField] private TextMeshProUGUI EIconText;
     [SerializeField] private TextMeshProUGUI rotateText;
@@ -26,8 +25,7 @@ public class StaticEnviromentTextTranslator : MonoBehaviour
             DIconText.text = "В";
             jumpText1.text = "прыжок";
             jumpIconText1.text = "пробел";
-            jumpText2.text = "прыжок";
-            jumpIconText2.text = "пробел";
+            attackText.text = "Шлепок";
             superPowerText.text = "суперсила";
             EIconText.text = "У";
             rotateText.text = "Обзор камерой";
@@ -41,8 +39,7 @@ public class StaticEnviromentTextTranslator : MonoBehaviour
             DIconText.text = "D";
             jumpText1.text = "jump";
             jumpIconText1.text = "space";
-            jumpText2.text = "jump";
-            jumpIconText2.text = "space";
+            attackText.text = "Slap";
             superPowerText.text = "superpower";
             EIconText.text = "E";
             rotateText.text = "Camera view";
@@ -56,8 +53,7 @@ public class StaticEnviromentTextTranslator : MonoBehaviour
             DIconText.text = "D";
             jumpText1.text = "atlama";
             jumpIconText1.text = "bosluk";
-            jumpText2.text = "atlama";
-            jumpIconText2.text = "bosluk";
+            attackText.text = "Tokat";
             superPowerText.text = "super guc";
             EIconText.text = "E";
             rotateText.text = "Kamera gorunumu";
