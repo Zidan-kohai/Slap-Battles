@@ -46,6 +46,7 @@ public class StaticHubTextTranslator : MonoBehaviour
     [SerializeField] private TextMeshProUGUI otherGamesIconText;
     [SerializeField] private TextMeshProUGUI otherGamesHeaderText;
     [SerializeField] private TextMeshProUGUI otherGamesButtonIconText;
+    [SerializeField] private TextMeshProUGUI bonusText;
     [SerializeField] private TextMeshProUGUI speedKeyPauseText;
     [SerializeField] private TextMeshProUGUI speedKeyTelegramText;
     [SerializeField] private TextMeshProUGUI speedKeyInAppShoptext;
@@ -99,13 +100,14 @@ public class StaticHubTextTranslator : MonoBehaviour
             otherGamesIconText.text = "другие игры";
             otherGamesHeaderText.text = "наши игры";
             otherGamesButtonIconText.text = "другие игры";
-            speedKeyPauseText.text = "нажмите <<Tab>>";
-            speedKeyTelegramText.text = "нажмите <<Е>>";
-            speedKeyInAppShoptext.text = "нажмите <<Ш>>";
-            speedKeyIncreasePowerText.text = "нажмите <<З>>";
-            speedKeyIncreaseSpeedText.text = "нажмите <<Ч>>";
-            speedKeyIncreaseHPText.text = "нажмите <<Р>>";
-            speedKeyDoubleSlapText.text = "нажмите <<А>>";
+            bonusText.text = "Бонусы";
+            speedKeyPauseText.text = "нажмите Tab";
+            speedKeyTelegramText.text = "нажмите Е";
+            speedKeyInAppShoptext.text = "нажмите Ш";
+            speedKeyIncreasePowerText.text = "нажмите З";
+            speedKeyIncreaseSpeedText.text = "нажмите Ч";
+            speedKeyIncreaseHPText.text = "нажмите Р";
+            speedKeyDoubleSlapText.text = "нажмите А";
 
         }
         if (Geekplay.Instance.language == "en")
@@ -151,13 +153,14 @@ public class StaticHubTextTranslator : MonoBehaviour
             otherGamesIconText.text = "other games";
             otherGamesHeaderText.text = "our games";
             otherGamesButtonIconText.text = "other games";
-            speedKeyPauseText.text = "press <<Tab>>";
-            speedKeyTelegramText.text = "press <<T>>";
-            speedKeyInAppShoptext.text = "press <<I>>";
-            speedKeyIncreasePowerText.text = "press <<P>>";
-            speedKeyIncreaseSpeedText.text = "press <<X>>";
-            speedKeyIncreaseHPText.text = "press <<H>>";
-            speedKeyDoubleSlapText.text = "press <<F>>";
+            bonusText.text = "Bonuses";
+            speedKeyPauseText.text = "press Tab";
+            speedKeyTelegramText.text = "press T";
+            speedKeyInAppShoptext.text = "press I";
+            speedKeyIncreasePowerText.text = "press P";
+            speedKeyIncreaseSpeedText.text = "press X";
+            speedKeyIncreaseHPText.text = "press H";
+            speedKeyDoubleSlapText.text = "press F";
         }
         if (Geekplay.Instance.language == "tr")
         {
@@ -202,13 +205,14 @@ public class StaticHubTextTranslator : MonoBehaviour
             otherGamesIconText.text = "diger oyunlar";
             otherGamesHeaderText.text = "oyunlarimiz";
             otherGamesButtonIconText.text = "diger oyunlar";
-            speedKeyPauseText.text = "<<Tab>> tusuna basin";
-            speedKeyTelegramText.text = "<<T>> tusuna basin";
-            speedKeyInAppShoptext.text = "<<I>> tusuna basin";
-            speedKeyIncreasePowerText.text = "<<P>> tusuna basin";
-            speedKeyIncreaseSpeedText.text = "<<X>> tusuna basin";
-            speedKeyIncreaseHPText.text = "<<H>> tusuna basin";
-            speedKeyDoubleSlapText.text = "<<F>> tusuna basin";
+            bonusText.text = "Bonuslar";
+            speedKeyPauseText.text = "Tab tusuna basin";
+            speedKeyTelegramText.text = "T tusuna basin";
+            speedKeyInAppShoptext.text = "I tusuna basin";
+            speedKeyIncreasePowerText.text = "P tusuna basin";
+            speedKeyIncreaseSpeedText.text = "X tusuna basin";
+            speedKeyIncreaseHPText.text = "H tusuna basin";
+            speedKeyDoubleSlapText.text = "F tusuna basin";
         }
     }
 }
