@@ -56,6 +56,7 @@ public class SlapSwitcher : MonoBehaviour
         }
         chosedSlap.ChangeLanguageOfDescription();
 
+        powerDescription.text = chosedSlap.descriptionOfSuperPower;
         return chosedSlap;
     }
 
