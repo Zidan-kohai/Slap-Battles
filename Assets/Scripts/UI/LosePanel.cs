@@ -80,14 +80,14 @@ public class LosePanel : MonoBehaviour
 
         lastedTime = 3;
 
-        //slapCountText.rectTransform.DO(3).OnUpdate(() =>
-        //{
-        //    currentTime += Time.deltaTime;
-        //    float currentSlap = CalculateMoney(Convert.ToInt32(slapCountText.text), earnedSlapCount, currentTime, 3);
+        slapCountText.rectTransform.DOScale(new Vector3(1.01f, 1.01f, 1.01f),3).OnUpdate(() =>
+        {
+            currentTime += Time.deltaTime;
+            float currentSlap = CalculateMoney(Convert.ToInt32(slapCountText.text), earnedSlapCount, currentTime, 3);
 
-        //    slapCountText.text = string.Format("{0:f0}", currentSlap);
+            slapCountText.text = string.Format("{0:f0}", currentSlap);
 
-        //}).SetEase(Ease.Linear);
+        }).SetEase(Ease.Linear);
 
         slider.gameObject.SetActive(false);
         DisableRewardButton();
