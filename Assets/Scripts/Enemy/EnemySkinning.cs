@@ -43,6 +43,8 @@ public class EnemySkinning : MonoBehaviour
     [SerializeField] private TextMeshProUGUI nameText;
     [SerializeField] private Transform targetToRotate;
 
+    public bool isHubMob = false;
+
     private void Start()
     {
         ChangeGender();
@@ -72,7 +74,7 @@ public class EnemySkinning : MonoBehaviour
             manBackAccessories[Random.Range(0, manBackAccessories.Count - 1)].SetActive(true);
             manCaps[Random.Range(0, manCaps.Count - 1)].SetActive(true);
 
-            if(Geekplay.Instance.currentMode != Modes.Hub)
+            if(!isHubMob)
             {
                 Slap slap = manSlaps[Random.Range(0, manSlaps.Count)];
                 slap.gameObject.SetActive(true);
@@ -85,7 +87,7 @@ public class EnemySkinning : MonoBehaviour
             girlBackAccessories[Random.Range(0, girlBackAccessories.Count - 1)].SetActive(true);
             girlCaps[Random.Range(0, girlCaps.Count - 1)].SetActive(true);
 
-            if (Geekplay.Instance.currentMode != Modes.Hub)
+            if (!isHubMob)
             {
                 Slap slap = girlSlaps[Random.Range(0, girlSlaps.Count)];
                 slap.gameObject.SetActive(true);
