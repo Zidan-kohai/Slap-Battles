@@ -90,7 +90,11 @@ public class EventManager : MonoBehaviour
     }
     public void InvokeActionsOnBossDeath()
     {
-        Geekplay.Instance.PlayerData.DiamondMoney += 3;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        InvokeChangeDiamondEvents(3);
+
         bossDeath?.Invoke();
     }
 

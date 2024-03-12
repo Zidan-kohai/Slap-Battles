@@ -220,7 +220,18 @@ public class Geekplay : MonoBehaviour
         cor = AdOff();
         StartCoroutine(cor);
     }
-
+    public void SetPurchasedItem() //начислить уже купленные предметы на старте
+    {
+        for (int i = 0; i < purchasesList.Length; i++)
+        {
+            if (PlayerData.lastBuy == purchasesList[i].itemName)
+            {
+                purchasesList[i].purchaseEvent.Invoke();
+                PlayerData.lastBuy = "";
+                Save();
+            }
+        }
+    }
     IEnumerator AdOff() //ТАЙМЕР С ВЫКЛЮЧЕНИЕМ РЕКЛАМЫ
     {
         canAd = false;

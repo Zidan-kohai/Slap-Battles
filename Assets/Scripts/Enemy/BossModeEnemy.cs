@@ -16,7 +16,7 @@ public class BossModeEnemy : Enemy
 
         target = bossTransform.position;
 
-        if ((bossTransform.position - transform.position).magnitude < distanseToAttack && canAttack && IsInSight())
+        if (enemy != null && (bossTransform.position - transform.position).magnitude < distanseToAttack && canAttack && IsInSight())
         {
             StartCoroutine(WaitBeforeAttack());
         }

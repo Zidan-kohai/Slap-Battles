@@ -9,6 +9,7 @@ public class GameplayUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI DiamondText;
     [SerializeField] private EventManager eventManager;
     [SerializeField] private LosePanel LosePanel;
+    [SerializeField] private LosePanel winPanel;
     [SerializeField] private GameObject mobilePanel;
 
     private RectTransform moneyTextRect;
@@ -28,6 +29,7 @@ public class GameplayUI : MonoBehaviour
         eventManager.SubscribeOnChangeDiamond(OnChangeDiamond);
         eventManager.SubscribeOnPlayerDeath(OnPlayerDeath);
         eventManager.SubscribeOnPlayerRevive(OnRevive);
+        eventManager.SubscribeOnBossDeath(OnBossDeath);
 
         moneyText.text = Geekplay.Instance.PlayerData.money.ToString();
         DiamondText.text = Geekplay.Instance.PlayerData.DiamondMoney.ToString();
@@ -48,6 +50,11 @@ public class GameplayUI : MonoBehaviour
 
         moneyTextRect = moneyText.rectTransform;
         DiamondTextRect = DiamondText.rectTransform;
+    }
+
+    private void OnBossDeath()
+    {
+        winPanel.gameObject.SetActive(true);
     }
 
     private void OnRevive()
@@ -78,8 +85,11 @@ public class GameplayUI : MonoBehaviour
         }
     }
 
+
+
     private void OnChangeMoney(int money)
     {
+        winPanel.SetSlapCount(winPanel.GetSlapCount() + money);
         Geekplay.Instance.PlayerData.money += money;
         moneyText.text = Geekplay.Instance.PlayerData.money.ToString();
         moneyTextRect.DOScale(increaseSize, moneyChangeAnimationDuration).SetDelay(0.1f).OnComplete(() =>
@@ -90,6 +100,7 @@ public class GameplayUI : MonoBehaviour
 
     private void OnChangeDiamond(int diamond)
     {
+        winPanel.SetDiamondCount(winPanel.GetDiamondCount() + diamond);
         Geekplay.Instance.PlayerData.DiamondMoney += diamond;
         DiamondText.text = Geekplay.Instance.PlayerData.DiamondMoney.ToString();
 

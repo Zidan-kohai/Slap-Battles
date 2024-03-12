@@ -26,7 +26,6 @@ public class StandartMode : MonoBehaviour
         if(Geekplay.Instance.currentMode != Modes.Boss)
             ArrangeTargetForEnemy();
 
-        eventManager.SubscribeOnBossDeath(OnBossDead);
         eventManager.SubscribeOnPlayerRevive(OnPlayerRevive);
 
 
@@ -168,11 +167,5 @@ public class StandartMode : MonoBehaviour
         {
             enemies[i].gameObject.SetActive(true);
         }
-    }
-
-    private void OnBossDead()
-    {
-        SceneLoader sceneLoader = new SceneLoader(this);
-        sceneLoader.LoadScene(0);
     }
 }

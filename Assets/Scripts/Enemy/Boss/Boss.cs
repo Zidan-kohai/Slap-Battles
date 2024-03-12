@@ -7,8 +7,11 @@ public class Boss : Enemy
 
     public override void Death(bool playDeathAnimation = true)
     {
+        if (IsDead) return;
+        isDead = true;
         gameObject.SetActive(false);
         eventManager.InvokeActionsOnBossDeath();
+        eventManager.InvokeActionsOnEnemyDeath(this);
     }
 
     public override void GetDamage(float damagePower, Vector3 direction, out bool isDeath, out int gettedSlap)

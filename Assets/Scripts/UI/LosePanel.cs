@@ -2,6 +2,7 @@ using DG.Tweening;
 using System;
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,7 @@ public class LosePanel : MonoBehaviour
     [SerializeField] protected EventManager eventManager;
 
     [SerializeField] private TextMeshProUGUI slapCountText;
+    [SerializeField] private TextMeshProUGUI diamondCountText;
     [SerializeField] protected TextMeshProUGUI lastedTimeToLoadHubText;
     [SerializeField] protected Slider slider;
     [SerializeField] private GameObject rewardButton;
@@ -21,6 +23,8 @@ public class LosePanel : MonoBehaviour
 
     protected int earnedSlapCountBeforeDouble;
     protected int earnedSlapCount;
+    protected int earnedDiamondCountBeforeDouble;
+    protected int earnedDiamondCount;
 
 
     private void Start()
@@ -76,6 +80,7 @@ public class LosePanel : MonoBehaviour
     private void OnDoubleAward()
     {
         earnedSlapCount = earnedSlapCountBeforeDouble * 2;
+        earnedDiamondCount = earnedDiamondCountBeforeDouble * 2;
         float currentTime = 0;
 
         lastedTime = 3;
@@ -84,10 +89,14 @@ public class LosePanel : MonoBehaviour
         {
             currentTime += Time.deltaTime;
             float currentSlap = CalculateMoney(Convert.ToInt32(slapCountText.text), earnedSlapCount, currentTime, 3);
+            float currentDiamond = CalculateMoney(Convert.ToInt32(diamondCountText.text), earnedDiamondCount, currentTime, 3);
 
             slapCountText.text = string.Format("{0:f0}", currentSlap);
+            diamondCountText.text = string.Format("{0:f0}", currentDiamond);
 
         }).SetEase(Ease.Linear);
+
+
 
         slider.gameObject.SetActive(false);
         DisableRewardButton();
@@ -113,6 +122,7 @@ public class LosePanel : MonoBehaviour
     public virtual void AddEarnedMoney() 
     {
         Geekplay.Instance.PlayerData.money += earnedSlapCount - earnedSlapCountBeforeDouble;
+        Geekplay.Instance.PlayerData.DiamondMoney += earnedDiamondCount - earnedDiamondCountBeforeDouble;
         Geekplay.Instance.PlayerData.LeaderboardSlap += earnedSlapCount - earnedSlapCountBeforeDouble;
     }
     public virtual void SetSlapCount(int slapCount) 
@@ -123,6 +133,19 @@ public class LosePanel : MonoBehaviour
         if (slapCountText != null)
             slapCountText.text = slapCount.ToString();
     }
+
+    public virtual int GetSlapCount() => earnedSlapCountBeforeDouble;
+    public virtual void SetDiamondCount(int diamondCount)
+    {
+        earnedDiamondCountBeforeDouble = diamondCount;
+        earnedDiamondCount = diamondCount;
+
+        if (diamondCountText != null)
+            diamondCountText.text = diamondCount.ToString();
+    }
+
+    public virtual int GetDiamondCount() => earnedDiamondCountBeforeDouble;
+
 
     public void SetTimeBeforeLoadHub(float timeInSeconds)
     {
