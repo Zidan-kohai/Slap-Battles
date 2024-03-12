@@ -257,7 +257,7 @@ PrefabInstance:
     - target: {fileID: 156653357395576085, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
       propertyPath: enemy
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3756513785567617740}
     - target: {fileID: 2056666887477342918, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4294967295
@@ -386,7 +386,7 @@ MonoBehaviour:
   animator: {fileID: 2804789430529753959}
   Canvas: {fileID: 4811822458795783912}
   startSpeed: 0
-  damagePower: 10
+  damagePower: 25
   distanseToAttack: 2
   CanWalk: 0
   isSleeping: 0
@@ -396,7 +396,7 @@ MonoBehaviour:
   target: {x: 0, y: 0, z: 0}
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
   eventManager: {fileID: 0}
   slapToGive: 1
   stolenSlaps: 0

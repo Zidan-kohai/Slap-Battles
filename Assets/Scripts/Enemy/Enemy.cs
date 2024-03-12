@@ -66,7 +66,7 @@ public class Enemy : IHealthObject
     [SerializeField] private GameObject legoSphere;
     [SerializeField] private Transform legoSpherePosition;
     private bool Immortall;
-
+    public bool isBoss = false;
     protected void OnEnable()
     {
         stolenSlaps = 1;
@@ -150,7 +150,7 @@ public class Enemy : IHealthObject
     {
         if ((target - transform.position).magnitude > distanseToAttack || !IsInSight()) return;
 
-        if(lastedTimeFromLastUseSuperPower > timeToUseSuperPower && !isPowerActivated)
+        if(lastedTimeFromLastUseSuperPower > timeToUseSuperPower && !isPowerActivated && !isBoss)
         {
             lastedTimeFromLastUseSuperPower = 0;
             switch(slap.GetSlapPowerType())
@@ -199,9 +199,9 @@ public class Enemy : IHealthObject
         canGetDamage = false;
         startSpeed = navMeshAgent.speed;
         navMeshAgent.speed = 0;
+        navMeshAgent.velocity = Vector3.zero;
+
         Canvas.SetActive(false);
-        navMeshAgent.isStopped = true;
-        navMeshAgent.ResetPath();
 
         foreach (Collider c in playerCollider)
             c.enabled = false;

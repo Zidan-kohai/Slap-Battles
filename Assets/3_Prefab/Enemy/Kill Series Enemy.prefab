@@ -145,7 +145,7 @@ PrefabInstance:
     - target: {fileID: 156653357395576085, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
       propertyPath: enemy
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 6011631457039556958}
     - target: {fileID: 2803175823117038184, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
       propertyPath: m_Name
       value: Kill Series Enemy
@@ -268,7 +268,7 @@ MonoBehaviour:
   animator: {fileID: 3906860020616957855}
   Canvas: {fileID: 5916725322123278864}
   startSpeed: 0
-  damagePower: 10
+  damagePower: 25
   distanseToAttack: 2
   CanWalk: 0
   isSleeping: 0
@@ -278,7 +278,7 @@ MonoBehaviour:
   target: {x: 0, y: 0, z: 0}
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 192
   eventManager: {fileID: 0}
   slapToGive: 1
   stolenSlaps: 0

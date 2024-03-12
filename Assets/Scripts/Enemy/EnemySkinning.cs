@@ -71,18 +71,26 @@ public class EnemySkinning : MonoBehaviour
             manHairs[Random.Range(0, manHairs.Count - 1)].SetActive(true);
             manBackAccessories[Random.Range(0, manBackAccessories.Count - 1)].SetActive(true);
             manCaps[Random.Range(0, manCaps.Count - 1)].SetActive(true);
-            Slap slap = manSlaps[Random.Range(0, manSlaps.Count)];
-            slap.gameObject.SetActive(true);
-            enemy.slap = slap;
+
+            if(Geekplay.Instance.currentMode != Modes.Hub)
+            {
+                Slap slap = manSlaps[Random.Range(0, manSlaps.Count)];
+                slap.gameObject.SetActive(true);
+                enemy.slap = slap;
+            }
         }
         else
         {
             girlHairs[Random.Range(0, girlHairs.Count - 1)].SetActive(true);
             girlBackAccessories[Random.Range(0, girlBackAccessories.Count - 1)].SetActive(true);
             girlCaps[Random.Range(0, girlCaps.Count - 1)].SetActive(true);
-            Slap slap = girlSlaps[Random.Range(0, girlSlaps.Count)];
-            slap.gameObject.SetActive(true);
-            enemy.slap = slap;
+
+            if (Geekplay.Instance.currentMode != Modes.Hub)
+            {
+                Slap slap = girlSlaps[Random.Range(0, girlSlaps.Count)];
+                slap.gameObject.SetActive(true);
+                enemy.slap = slap;
+            }
         }
     }
 
