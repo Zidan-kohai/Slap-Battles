@@ -1,6 +1,8 @@
 using JetBrains.Annotations;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEditor.VersionControl;
 using UnityEngine;
 
 public class LegoItem : MonoBehaviour
@@ -25,19 +27,23 @@ public class LegoItem : MonoBehaviour
     {
         if(other.gameObject.layer == 6 || other.gameObject.layer == 7)
         {
-            IHealthObject enemy = other.GetComponent<IHealthObject>();
+            if(!other.TryGetComponent(out IHealthObject enemy)) return;
+
             if (enemy == parent) return;
 
             enemy.GetDamageWithoutRebound(15f, out bool isDeath, out int gettedSlap);
             //player?.SetStolenSlaps(gettedSlap);
 
-            foreach (EnemyIntoLego enemyIntoLego in enemies)
+            for (int i = 0; i < enemies.Count; i++)
             {
-                if (enemyIntoLego.Enemy == enemy)
+                if (enemies[i].Enemy == enemy)
                 {
                     return;
                 }
             }
+
+            if (isDeath) return;
+
             enemies.Add(new EnemyIntoLego(enemy, 0f));
         }
     }
@@ -45,13 +51,18 @@ public class LegoItem : MonoBehaviour
 
     private void Update()
     {
-        foreach (var item in enemies)
+        for (int i = 0; i < enemies.Count; i++)
         {
-            item.LastedTime += Time.deltaTime;
-            if(item.LastedTime >= attackDelta)
+            enemies[i].LastedTime += Time.deltaTime;
+            if(enemies[i].LastedTime >= attackDelta)
             {
-                item.LastedTime = 0;
-                item.Enemy.GetDamageWithoutRebound(15f, out bool isDeath, out int gettedSlap);
+                enemies[i].LastedTime = 0;
+                enemies[i].Enemy.GetDamageWithoutRebound(15f, out bool isDeath, out int gettedSlap);
+
+                if(isDeath)
+                {
+                    enemies.Remove(enemies[i]);
+                }
             }
         }
     }
@@ -61,11 +72,11 @@ public class LegoItem : MonoBehaviour
         {
             Enemy enemy = other.GetComponent<Enemy>();
 
-            foreach (EnemyIntoLego enemyIntoLego in enemies)
+            for(int i =0; i < enemies.Count; i++)
             {
-                if (enemyIntoLego.Enemy == enemy)
+                if (enemies[i].Enemy == enemy)
                 {
-                    enemies.Remove(enemyIntoLego);
+                    enemies.Remove(enemies[i]);
                     return;
                 }
             }
