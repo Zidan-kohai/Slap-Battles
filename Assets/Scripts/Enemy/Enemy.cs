@@ -196,8 +196,10 @@ public class Enemy : IHealthObject
         wallGameobject.SetActive(true);
         enemyModelHandler.SetActive(false);
         Immortall = true;
+        canGetDamage = false;
         startSpeed = navMeshAgent.speed;
         navMeshAgent.speed = 0;
+        Canvas.SetActive(false);
         navMeshAgent.isStopped = true;
         navMeshAgent.ResetPath();
 
@@ -215,14 +217,18 @@ public class Enemy : IHealthObject
         wallGameobject.SetActive(false);
         enemyModelHandler.SetActive(true);
         Immortall = false;
+        canGetDamage = true;
         navMeshAgent.speed = startSpeed;
         navMeshAgent.isStopped = false;
+        Canvas.SetActive(true);
+
         navMeshAgent.ResetPath();
 
         foreach (Collider c in playerCollider)
             c.enabled = true;
 
         gameObject.transform.position = wallGameobject.transform.position;
+        GetNearnestEnemyAsTarget();
     }
 
     #endregion
@@ -339,13 +345,13 @@ public class Enemy : IHealthObject
 
     public override void GetDamage(float damagePower, Vector3 direction, out bool isDeath, out int gettedSlap)
     {
-        if (isDead )
+        if (isDead || Immortall)
         {
             isDeath = true;
             gettedSlap = 0;
             return;
         }
-        if (!canGetDamage || Immortall)
+        if (!canGetDamage)
         {
             isDeath = false;
             gettedSlap = 0;

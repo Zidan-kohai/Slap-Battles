@@ -61,7 +61,7 @@ public class SkineShopController : MonoBehaviour
 
 
     [SerializeField] private HubEventManager eventManager;
-    [SerializeField] private GameObject inAppShop;
+    [SerializeField] private ShopEnterAndExit inAppShop;
 
     private GameObject leatherSelectedIcon;
     private GameObject hairColorSelectedIcon;
@@ -368,7 +368,7 @@ public class SkineShopController : MonoBehaviour
                     buyButton.onClick.AddListener(() =>
                     {
                         Debug.Log("Don`t have money");
-                        inAppShop.SetActive(true);
+                        inAppShop.OpenShop();
                         gameObject.SetActive(false);
                     });
                 }
@@ -799,8 +799,8 @@ public class SkineShopController : MonoBehaviour
                 {
                     buyButton.onClick.AddListener(() =>
                     {
-                        Debug.Log("You don`t Have money"); 
-                        inAppShop.SetActive(true);
+                        Debug.Log("You don`t Have money");
+                        inAppShop.OpenShop();
                         gameObject.SetActive(false);
                     });
                 }
@@ -970,7 +970,7 @@ public class SkineShopController : MonoBehaviour
                     buyButton.onClick.AddListener(() =>
                     {
                         Debug.Log("You don`t Have money");
-                        inAppShop.SetActive(true);
+                        inAppShop.OpenShop();
                         gameObject.SetActive(false);
                     });
                 }
@@ -1144,7 +1144,7 @@ public class SkineShopController : MonoBehaviour
                     buyButton.onClick.AddListener(() =>
                     {
                         Debug.Log("You don`t Have money");
-                        inAppShop.SetActive(true);
+                        inAppShop.OpenShop();
                         gameObject.SetActive(false);
                     });
                 }
