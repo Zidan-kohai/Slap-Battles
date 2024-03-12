@@ -1019,7 +1019,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3156959205079524191, guid: 07135620336d3e9489e63fc7b40872a6, type: 3}
 --- !u!1 &1802053157482233040
@@ -1580,7 +1580,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5340085334044306003, guid: 07135620336d3e9489e63fc7b40872a6, type: 3}
 --- !u!1 &2441173965314166018
@@ -1923,6 +1923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7a8931e9000df24e82ccc6e8a9d8dbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
 --- !u!1 &2700051775107042983
 GameObject:
   m_ObjectHideFlags: 0
