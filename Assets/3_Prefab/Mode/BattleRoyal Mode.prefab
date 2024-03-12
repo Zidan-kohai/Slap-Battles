@@ -613,6 +613,7 @@ MonoBehaviour:
   DiamondText: {fileID: 1404153230171772971}
   eventManager: {fileID: 3237182903930966125}
   LosePanel: {fileID: 4607360560054220199}
+  winPanel: {fileID: 0}
   mobilePanel: {fileID: 2986130438688522363}
   accelerationIcon: {fileID: 3158898516194088209}
   doubleSlapIcon: {fileID: 7193402965395751323}
@@ -1802,6 +1803,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventManager: {fileID: 3237182903930966125}
   slapCountText: {fileID: 0}
+  diamondCountText: {fileID: 0}
   lastedTimeToLoadHubText: {fileID: 2950845797023803918}
   slider: {fileID: 7660882963449281294}
   rewardButton: {fileID: 9166072948779641312}
@@ -1848,6 +1850,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1626376185768969731}
     m_Modifications:
+    - target: {fileID: 821390139937723480, guid: e5cf8b43aaeabff4980bf40bb30fb074, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 5241880417691870940}
     - target: {fileID: 1618366001696278624, guid: e5cf8b43aaeabff4980bf40bb30fb074, type: 3}
       propertyPath: m_Name
       value: Enviroment

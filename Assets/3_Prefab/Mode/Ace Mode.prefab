@@ -563,6 +563,7 @@ MonoBehaviour:
   DiamondText: {fileID: 8422872258371459460}
   eventManager: {fileID: 3237182903930966125}
   LosePanel: {fileID: 8421739018094150088}
+  winPanel: {fileID: 0}
   mobilePanel: {fileID: 5202895594735971965}
   accelerationIcon: {fileID: 3454794545295860432}
   doubleSlapIcon: {fileID: 2063092512258679316}
@@ -1240,6 +1241,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1626376185768969731}
     m_Modifications:
+    - target: {fileID: 821390139937723480, guid: e5cf8b43aaeabff4980bf40bb30fb074, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 5241880417691870940}
     - target: {fileID: 1255205566320180227, guid: e5cf8b43aaeabff4980bf40bb30fb074, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
