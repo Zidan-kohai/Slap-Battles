@@ -79,6 +79,31 @@ public class Player : IHealthObject
         stoledSlap = slapToGive;
         isDeath =  health <= 0;
     }
+
+    public override void GetDamageWithoutRebound(float damagePower, out bool isDeath, out int gettedSlap)
+    {
+        if (isImmortall)
+        {
+            isDeath = false;
+            gettedSlap = 0;
+
+            return;
+        }
+        health -= damagePower;
+        healthbar.fillAmount = (health / maxHealth);
+
+        if (health <= 0)
+        {
+            Death();
+        }
+        else
+        {
+            OnEndAnimations();
+        }
+        gettedSlap = slapToGive;
+        isDeath = health <= 0;
+    }
+
     public override void Death(bool playDeathAnimation = true)
     {
         if (isDead) return;

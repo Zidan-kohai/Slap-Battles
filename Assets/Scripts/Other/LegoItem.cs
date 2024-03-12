@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class LegoItem : MonoBehaviour
 {
-    [SerializeField] private Player player;
+    [SerializeField] private IHealthObject parent;
     [SerializeField] private List<EnemyIntoLego> enemies = new List<EnemyIntoLego>();
     public float attackDelta;
 
@@ -23,12 +23,13 @@ public class LegoItem : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer == 6)
+        if(other.gameObject.layer == 6 || other.gameObject.layer == 7)
         {
-            Enemy enemy = other.GetComponent<Enemy>();
+            IHealthObject enemy = other.GetComponent<IHealthObject>();
+            if (enemy == parent) return;
 
             enemy.GetDamageWithoutRebound(15f, out bool isDeath, out int gettedSlap);
-            player.SetStolenSlaps(gettedSlap);
+            //player?.SetStolenSlaps(gettedSlap);
 
             foreach (EnemyIntoLego enemyIntoLego in enemies)
             {
@@ -82,10 +83,10 @@ public class LegoItem : MonoBehaviour
 [Serializable]
 public class EnemyIntoLego
 {
-    public Enemy Enemy;
+    public IHealthObject Enemy;
     public float LastedTime;
 
-    public EnemyIntoLego(Enemy enemy, float v)
+    public EnemyIntoLego(IHealthObject enemy, float v)
     {
         Enemy = enemy;
         LastedTime = v;

@@ -89,7 +89,10 @@ public class GameplayUI : MonoBehaviour
 
     private void OnChangeMoney(int money)
     {
-        winPanel.SetSlapCount(winPanel.GetSlapCount() + money);
+        if(winPanel != null)
+        {
+            winPanel.SetSlapCount(winPanel.GetSlapCount() + money);
+        }
         Geekplay.Instance.PlayerData.money += money;
         moneyText.text = Geekplay.Instance.PlayerData.money.ToString();
         moneyTextRect.DOScale(increaseSize, moneyChangeAnimationDuration).SetDelay(0.1f).OnComplete(() =>
@@ -100,7 +103,10 @@ public class GameplayUI : MonoBehaviour
 
     private void OnChangeDiamond(int diamond)
     {
-        winPanel.SetDiamondCount(winPanel.GetDiamondCount() + diamond);
+        if (winPanel)
+        {
+            winPanel.SetDiamondCount(winPanel.GetDiamondCount() + diamond);
+        }
         Geekplay.Instance.PlayerData.DiamondMoney += diamond;
         DiamondText.text = Geekplay.Instance.PlayerData.DiamondMoney.ToString();
 

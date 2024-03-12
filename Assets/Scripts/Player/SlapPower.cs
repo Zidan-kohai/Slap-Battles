@@ -179,6 +179,7 @@ public class SlapPower : MonoBehaviour
         isPowerActivated = false;
         legoSphere.SetActive(false);
     }
+
     #endregion
 
     #region Snowy

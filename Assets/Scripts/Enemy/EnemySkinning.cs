@@ -5,16 +5,18 @@ using UnityEngine;
 public class EnemySkinning : MonoBehaviour
 {
 
+    public Enemy enemy;
+
     [SerializeField] private List<GameObject> manHairs;
     [SerializeField] private List<GameObject> manBackAccessories;
     [SerializeField] private List<GameObject> manCaps;
-    [SerializeField] private List<GameObject> manSlaps;
+    [SerializeField] private List<Slap> manSlaps;
 
 
     [SerializeField] private List<GameObject> girlHairs;
     [SerializeField] private List<GameObject> girlBackAccessories;
     [SerializeField] private List<GameObject> girlCaps;
-    [SerializeField] private List<GameObject> girlSlaps;
+    [SerializeField] private List<Slap> girlSlaps;
 
     [Header("Gender")]
     [SerializeField] private GameObject manObject;
@@ -69,14 +71,18 @@ public class EnemySkinning : MonoBehaviour
             manHairs[Random.Range(0, manHairs.Count - 1)].SetActive(true);
             manBackAccessories[Random.Range(0, manBackAccessories.Count - 1)].SetActive(true);
             manCaps[Random.Range(0, manCaps.Count - 1)].SetActive(true);
-            manSlaps[Random.Range(0, manSlaps.Count - 1)].SetActive(true);
+            Slap slap = manSlaps[Random.Range(0, manSlaps.Count)];
+            slap.gameObject.SetActive(true);
+            enemy.slap = slap;
         }
         else
         {
             girlHairs[Random.Range(0, girlHairs.Count - 1)].SetActive(true);
             girlBackAccessories[Random.Range(0, girlBackAccessories.Count - 1)].SetActive(true);
             girlCaps[Random.Range(0, girlCaps.Count - 1)].SetActive(true);
-            girlSlaps[Random.Range(0, girlSlaps.Count - 1)].SetActive(true);
+            Slap slap = girlSlaps[Random.Range(0, girlSlaps.Count)];
+            slap.gameObject.SetActive(true);
+            enemy.slap = slap;
         }
     }
 

@@ -819,6 +819,7 @@ public class Geekplay : MonoBehaviour
         canShowAd = false;
         StartCoroutine(CanAdShow());
         AudioListener.volume = 0;
+        AudioListener.pause = true;
         Time.timeScale = 0;
     }
 
@@ -831,6 +832,7 @@ public class Geekplay : MonoBehaviour
         }
         adOpen = false;
         AudioListener.volume = 1;
+        AudioListener.pause = false;
         Time.timeScale = 1;
         if (!SoundOn)
             AudioListener.volume = 0;

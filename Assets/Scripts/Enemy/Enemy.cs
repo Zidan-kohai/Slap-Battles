@@ -1,4 +1,7 @@
+using CrazyGames;
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Xml.Linq;
 using UnityEngine;
 using UnityEngine.AI;
@@ -18,7 +21,7 @@ public class Enemy : IHealthObject
     [SerializeField] protected Animator animator;
     [SerializeField] protected GameObject Canvas;
     
-    [SerializeField] private float speed;
+    [SerializeField] private float startSpeed;
     [SerializeField] private int damagePower;
     [SerializeField] protected float distanseToAttack;
     [SerializeField] protected bool CanWalk;
@@ -44,6 +47,26 @@ public class Enemy : IHealthObject
     [SerializeField] private AudioSource deathAudio;
     public void ChangeEnemy(IHealthObject target) =>  enemy = target;
 
+    [Header("SuperPower")]
+    public Slap slap;
+    public float timeToUseSuperPower;
+    public float lastedTimeFromLastUseSuperPower;
+    public bool isPowerActivated;
+    public GameObject enemyModelHandler;
+
+    [Header("Wall Power")]
+    [SerializeField] private GameObject wallGameobject;
+    [SerializeField] private List<Collider> playerCollider;
+
+    [Header("Pusher")]
+    [SerializeField] private Transform wallPusherStartPosition;
+    [SerializeField] private GameObject wallPusher;
+
+    [Header("Lego")]
+    [SerializeField] private GameObject legoSphere;
+    [SerializeField] private Transform legoSpherePosition;
+    private bool Immortall;
+
     protected void OnEnable()
     {
         stolenSlaps = 1;
@@ -52,7 +75,7 @@ public class Enemy : IHealthObject
         canAttack = true;
         isDead = false;
         canGetDamage = true;
-        speed = navMeshAgent.speed;
+        startSpeed = navMeshAgent.speed;
 
         GetNearnestEnemyAsTarget();
         Move(target);
@@ -83,13 +106,14 @@ public class Enemy : IHealthObject
     }
     protected virtual void Update()
     {
-        if (!CanWalk || isDead || isSleeping) return;
+        if (!CanWalk || isDead || isSleeping || slap.GetSlapPowerType() == SlapPowerType.Wall && isPowerActivated) return;
         if (!navMeshAgent.isOnNavMesh) 
         {
             rb.isKinematic = false;
             return;
         }
 
+        lastedTimeFromLastUseSuperPower += Time.deltaTime;
         rb.isKinematic = true;
 
         if(enemy != null && !enemy.IsDead)
@@ -126,6 +150,30 @@ public class Enemy : IHealthObject
     {
         if ((target - transform.position).magnitude > distanseToAttack || !IsInSight()) return;
 
+        if(lastedTimeFromLastUseSuperPower > timeToUseSuperPower && !isPowerActivated)
+        {
+            lastedTimeFromLastUseSuperPower = 0;
+            switch(slap.GetSlapPowerType())
+            {
+                case SlapPowerType.Wall:
+                    WallPowerActivate();
+                    break;
+
+                case SlapPowerType.Lego:
+                    LegoPowerActivate();
+                    break;
+
+                case SlapPowerType.Pusher:
+                    PusherPowerActivate();
+                    break;
+
+                case SlapPowerType.Accelerator:
+                    AcceleratorPowerActive();
+                    break;
+            }
+            return;
+        }
+
         enemy.GetDamage(damagePower, (target - transform.position).normalized, out bool isDeath, out int gettedSlap);
         OnSuccesAttack();
 
@@ -138,6 +186,116 @@ public class Enemy : IHealthObject
         stolenSlaps += gettedSlap;
 
     }
+
+    #region SuperPower
+
+    #region Wall
+    private void WallPowerActivate()
+    {
+        isPowerActivated = true;
+        wallGameobject.SetActive(true);
+        enemyModelHandler.SetActive(false);
+        Immortall = true;
+        startSpeed = navMeshAgent.speed;
+        navMeshAgent.speed = 0;
+        navMeshAgent.isStopped = true;
+        navMeshAgent.ResetPath();
+
+        foreach (Collider c in playerCollider)
+            c.enabled = false;
+
+        wallGameobject.transform.position = gameObject.transform.position;
+
+        StartCoroutine(DiactivatePower(slap.rollBackTime, WallPowerDisactivate));
+    }
+
+    private void WallPowerDisactivate()
+    {
+        isPowerActivated = false;
+        wallGameobject.SetActive(false);
+        enemyModelHandler.SetActive(true);
+        Immortall = false;
+        navMeshAgent.speed = startSpeed;
+        navMeshAgent.isStopped = false;
+        navMeshAgent.ResetPath();
+
+        foreach (Collider c in playerCollider)
+            c.enabled = true;
+
+        gameObject.transform.position = wallGameobject.transform.position;
+    }
+
+    #endregion
+
+    #region Pusher
+
+    private void PusherPowerActivate()
+    {
+        isPowerActivated = true;
+
+        wallPusher.transform.position = wallPusherStartPosition.position;
+        wallPusher.transform.parent = null;
+        wallPusher.transform.forward = enemyModelHandler.transform.forward;
+        wallPusher.SetActive(true);
+        StartCoroutine(DiactivatePower(slap.rollBackTime, PusherPowerDiactivate));
+    }
+
+    private void PusherPowerDiactivate()
+    {
+        isPowerActivated = false;
+        wallPusher.SetActive(false);
+    }
+    #endregion
+
+    #region Accelerator
+
+    private void AcceleratorPowerActive()
+    {
+        isPowerActivated = true;
+        startSpeed = navMeshAgent.speed;
+
+        navMeshAgent.speed = startSpeed * 2;
+
+        StartCoroutine(DiactivatePower(slap.rollBackTime, DiactivaetAcceleratorPower));
+    }
+
+    private void DiactivaetAcceleratorPower()
+    {
+        isPowerActivated = false;
+        navMeshAgent.speed = startSpeed;
+    }
+
+    #endregion
+
+    #region Lego
+
+    private void LegoPowerActivate()
+    {
+        isPowerActivated = true;
+
+        legoSphere.SetActive(true);
+
+        legoSphere.transform.position = legoSpherePosition.transform.position;
+        legoSphere.transform.parent = null;
+
+        StartCoroutine(DiactivatePower(slap.rollBackTime, LegoPowerDisactivate));
+    }
+
+    private void LegoPowerDisactivate()
+    {
+        isPowerActivated = false;
+        legoSphere.SetActive(false);
+    }
+
+    #endregion
+
+    private IEnumerator DiactivatePower(float waitTime, Action action)
+    {
+        yield return new WaitForSeconds(waitTime);
+
+        action?.Invoke();
+    }
+    #endregion
     private void InstantlyTurn(Vector3 destination)
     {
         if ((destination - transform.position).magnitude < 0.1f) return;
@@ -181,13 +339,13 @@ public class Enemy : IHealthObject
 
     public override void GetDamage(float damagePower, Vector3 direction, out bool isDeath, out int gettedSlap)
     {
-        if (isDead)
+        if (isDead )
         {
             isDeath = true;
             gettedSlap = 0;
             return;
         }
-        if (!canGetDamage)
+        if (!canGetDamage || Immortall)
         {
             isDeath = false;
             gettedSlap = 0;
@@ -280,7 +438,7 @@ public class Enemy : IHealthObject
         isDead = false;
         canGetDamage = true;
         isSleeping = false;
-        navMeshAgent.speed = speed;
+        navMeshAgent.speed = startSpeed;
         Canvas.SetActive(true);
     }
 
