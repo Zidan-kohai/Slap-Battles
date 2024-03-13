@@ -105,8 +105,12 @@ public class Geekplay : MonoBehaviour
             Cursor.visible = false;
         }
 
+        CheckBuysOnStart(PlayerData.lastBuy);
+
         AudioListener.volume = PlayerData.IsVolumeOn ? 1 : 0;
         sceneLoader = new SceneLoader(this, curtain);
+
+
     }
     private void Update()
     {
@@ -604,7 +608,6 @@ public class Geekplay : MonoBehaviour
             case Platform.Yandex:
                 language = Utils.GetLang();
                 Localization();
-                CheckBuysOnStart(PlayerData.lastBuy);
                 break;
             case Platform.VK:
                 language = "ru";

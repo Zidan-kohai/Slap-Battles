@@ -14,6 +14,7 @@ public class StaticEnviromentTextTranslator : MonoBehaviour
     [SerializeField] private TextMeshProUGUI superPowerText;
     [SerializeField] private TextMeshProUGUI EIconText;
     [SerializeField] private TextMeshProUGUI rotateText;
+    [SerializeField] private TextMeshPro hub;
     void Start()
     {
         if (Geekplay.Instance.language == "ru")
@@ -29,6 +30,7 @@ public class StaticEnviromentTextTranslator : MonoBehaviour
             superPowerText.text = "суперсила";
             EIconText.text = "У";
             rotateText.text = "Обзор камерой";
+            hub.text = "Хаб";
         }
         else if(Geekplay.Instance.language == "en")
         {
@@ -43,6 +45,7 @@ public class StaticEnviromentTextTranslator : MonoBehaviour
             superPowerText.text = "superpower";
             EIconText.text = "E";
             rotateText.text = "Camera view";
+            hub.text = "Hub";
         }
         else if (Geekplay.Instance.language == "tr")
         {
@@ -57,6 +60,7 @@ public class StaticEnviromentTextTranslator : MonoBehaviour
             superPowerText.text = "super guc";
             EIconText.text = "E";
             rotateText.text = "Kamera gorunumu";
+            hub.text = "Hub";
         }
     }
 }
