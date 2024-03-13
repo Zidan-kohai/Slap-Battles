@@ -524,9 +524,9 @@ public class Enemy : IHealthObject
         animator.SetBool("snowy", false);
     }
 
-    public void GetShooker()
+    public void ShookerDamageActivate()
     {
-
+        animator.SetTrigger("Shooker");
     }
     //protected virtual void OnTriggerEnter(Collider other)
     //{

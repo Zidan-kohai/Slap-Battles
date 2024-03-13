@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class SlapPower : MonoBehaviour
 {
@@ -293,7 +294,7 @@ public class SlapPower : MonoBehaviour
             player.SetStolenSlaps(gettedSlap);
             eventManager.InvokeChangeMoneyEvents(gettedSlap);
 
-            enemy.Sleep(slap.rollBackTime);
+            enemy.ShookerDamageActivate();
         }
         Debug.Log(colls.Length);
         StartCoroutine(DiactivatePower(slap.rollBackTime, DiactivateShookerPower));
