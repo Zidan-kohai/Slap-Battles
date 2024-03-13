@@ -60,4 +60,5 @@ public class PlayerData
 
 
     public bool IsVolumeOn = true;
+    public bool review;
 }

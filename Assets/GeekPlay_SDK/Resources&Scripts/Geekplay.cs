@@ -97,6 +97,11 @@ public class Geekplay : MonoBehaviour
 
     [SerializeField] private GameObject curtain;
     private SceneLoader sceneLoader;
+
+
+    public GameObject reviewPanel;
+    private bool openReview;
+
     private void Start()
     {
         if (!Instance.mobile)
@@ -380,7 +385,21 @@ public class Geekplay : MonoBehaviour
                 break;
         }
     }
-    public void RateGameFunc() //ПРОСЬБА ОЦЕНИТЬ ИГРУ
+    public void StartRatingSystem()
+    {
+        if (!openReview && !reviewPanel.activeSelf && Platform == Platform.Yandex)
+        {
+            if (PlayerData.review == false)
+            {
+                //Utils.OpenReviewInGame();
+                OpenReviewPanel();
+                PlayerData.review = true;
+                Save();
+            }
+        }
+    }
+
+    public void RateGameFunc() //ПРОСЬБА ОЦЕНИТЬ ИГРУ ПРИ 4 И 5 ЗВЕЗДАХ
     {
         switch (Platform)
         {
@@ -394,6 +413,12 @@ public class Geekplay : MonoBehaviour
                 Utils.OK_ShowRating();
                 break;
         }
+    }
+
+    public void OpenReviewPanel()
+    {
+        reviewPanel.SetActive(true);
+        openReview = true;
     }
 
     public void Leaderboard(string leaderboardName, int value) //ЗАНЕСТИ В ЛИДЕРБОРД

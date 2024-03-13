@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -7,11 +8,13 @@ public class SceneLoader
 {
     private readonly MonoBehaviour mono;
     private readonly GameObject curtain;
+    private readonly TextMeshProUGUI curtainText;
 
     public SceneLoader(MonoBehaviour monoBehaviour, GameObject curtain)
     {
         mono = monoBehaviour;
         this.curtain = curtain;
+        curtainText = curtain.GetComponentInChildren<TextMeshProUGUI>();
     }
 
     public void LoadScene(int index, UnityAction onLoad = null)
@@ -20,6 +23,37 @@ public class SceneLoader
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+        }
+        if (index == 0)
+        {
+            if(Geekplay.Instance.language == "ru")
+            {
+                curtainText.text = "טה¸ל ג ץאב";
+            }
+            else if (Geekplay.Instance.language == "en")
+            {
+                curtainText.text = "let's go to the hub";
+            }
+            else if(Geekplay.Instance.language == "tr")
+            {
+                curtainText.text = "hadi merkeze gidelim";
+            }
+
+        }
+        else
+        {
+            if (Geekplay.Instance.language == "ru")
+            {
+                curtainText.text = "ןמהבמנ כמבבט";
+            }
+            else if (Geekplay.Instance.language == "en")
+            {
+                curtainText.text = "lobby selection";
+            }
+            else if (Geekplay.Instance.language == "tr")
+            {
+                curtainText.text = "lobi seסimi";
+            }
         }
 
         Geekplay.Instance.Leaderboard("Points", Geekplay.Instance.PlayerData.LeaderboardSlap);
