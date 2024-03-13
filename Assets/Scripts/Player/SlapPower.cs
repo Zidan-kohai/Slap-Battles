@@ -192,8 +192,8 @@ public class SlapPower : MonoBehaviour
         {
             Enemy enemy = item.GetComponent<Enemy>();
             enemy.GetNavMeshAgent.speed /= freezingFactor; 
+            enemy.SnowyActivate();
 
-            enemy.Sleep(slap.rollBackTime);
         }
 
         StartCoroutine(DiactivatePower(slap.rollBackTime, SnowyPowerDisactivate));
@@ -205,8 +205,7 @@ public class SlapPower : MonoBehaviour
         {
             Enemy enemy = item.GetComponent<Enemy>();
             enemy.GetNavMeshAgent.speed *= freezingFactor;
-
-            enemy.Sleep(slap.rollBackTime);
+            enemy.SnowyDiactivate();
         }
     }
 

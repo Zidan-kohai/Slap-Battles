@@ -105,12 +105,10 @@ public class Geekplay : MonoBehaviour
             Cursor.visible = false;
         }
 
-        CheckBuysOnStart(PlayerData.lastBuy);
-
         AudioListener.volume = PlayerData.IsVolumeOn ? 1 : 0;
         sceneLoader = new SceneLoader(this, curtain);
 
-
+        CheckBuysOnStart(PlayerData.lastBuy);
     }
     private void Update()
     {

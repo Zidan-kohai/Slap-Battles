@@ -514,7 +514,15 @@ public class Enemy : IHealthObject
             isSleeping = false;
     }
 
+    public void SnowyActivate()
+    {
+        animator.SetBool("snowy", true);
+    }
 
+    public void SnowyDiactivate()
+    {
+        animator.SetBool("snowy", false);
+    }
     //protected virtual void OnTriggerEnter(Collider other)
     //{
     //    if (other.gameObject.TryGetComponent(out IHealthObject healthObject))
