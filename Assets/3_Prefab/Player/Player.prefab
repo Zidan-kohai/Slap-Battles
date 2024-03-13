@@ -16466,8 +16466,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eea74ea42415604b973b74bb868f5cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  maxHealth: 100
+  currenthealth: 200
+  maxHealth: 200
+  randomLeftHealth: 200
+  randomRightHealth: 200
   walkController: {fileID: 8361235376928088244}
   healthbar: {fileID: 8809760147162212228}
   rb: {fileID: 1162848911536679395}

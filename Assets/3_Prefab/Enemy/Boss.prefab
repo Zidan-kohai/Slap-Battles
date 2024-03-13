@@ -3048,6 +3048,7 @@ MonoBehaviour:
   uiHandler: {fileID: 6888470903516558656}
   nameText: {fileID: 1202653244081588291}
   targetToRotate: {fileID: 0}
+  isHubMob: 0
 --- !u!114 &7547580094706585170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3060,8 +3061,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5069ff3aa61657f4583c7931313af565, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1600
+  currenthealth: 0
   maxHealth: 1600
+  randomLeftHealth: 1500
+  randomRightHealth: 1900
   navMeshAgent: {fileID: 1910344532759613036}
   collider: {fileID: 2201858037991005365}
   rb: {fileID: 4614573011236022816}
@@ -3075,6 +3078,7 @@ MonoBehaviour:
   isSleeping: 0
   timeNextToAttack: 3
   canAttack: 1
+  sleepText: {fileID: 0}
   enemy: {fileID: 0}
   target: {x: 0, y: 0, z: 0}
   enemyLayer:

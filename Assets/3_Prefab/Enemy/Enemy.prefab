@@ -5940,8 +5940,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46bae0f03b9414f4caf6aae0dc41a228, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  currenthealth: 0
   maxHealth: 100
+  randomLeftHealth: 100
+  randomRightHealth: 300
   navMeshAgent: {fileID: 1637332624956355817}
   collider: {fileID: 1347846619119986224}
   rb: {fileID: 5489976833279692965}

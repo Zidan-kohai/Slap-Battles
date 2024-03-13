@@ -1,8 +1,6 @@
-using CrazyGames;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Xml.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -77,6 +75,9 @@ public class Enemy : IHealthObject
         isDead = false;
         canGetDamage = true;
         startSpeed = navMeshAgent.speed;
+        maxHealth = UnityEngine.Random.Range(randomLeftHealth, randomRightHealth);
+        currenthealth = maxHealth;
+        healthbar.fillAmount = currenthealth / maxHealth;
 
         GetNearnestEnemyAsTarget();
         Move(target);
@@ -174,7 +175,7 @@ public class Enemy : IHealthObject
             return;
         }
 
-        enemy.GetDamageWithoutRebound(damagePower, out bool isDeath, out int gettedSlap);
+        enemy.GetDamage(damagePower, (target - transform.position).normalized, out bool isDeath, out int gettedSlap);
         OnSuccesAttack();
 
 
@@ -358,13 +359,13 @@ public class Enemy : IHealthObject
             return;
         }
         canGetDamage = false;
-        health -= damagePower;
-        healthbar.fillAmount = (health / maxHealth) < 0 ? 0 : health / maxHealth;
+        currenthealth -= damagePower;
+        healthbar.fillAmount = (currenthealth / maxHealth) < 0 ? 0 : currenthealth / maxHealth;
 
         if(navMeshAgent.hasPath)
             navMeshAgent.ResetPath();
 
-        if (health <= 0)
+        if (currenthealth <= 0)
         {
             Death();
         }
@@ -373,7 +374,7 @@ public class Enemy : IHealthObject
             StartCoroutine(GetDamageAnimation(direction));
         }
         gettedSlap = slapToGive;
-        isDeath = health <= 0;
+        isDeath = currenthealth <= 0;
     }
 
     public override void GetDamageWithoutRebound(float damagePower, out bool isDeath, out int gettedSlap)
@@ -391,13 +392,13 @@ public class Enemy : IHealthObject
             return;
         }
         canGetDamage = false;
-        health -= damagePower;
-        healthbar.fillAmount = (health / maxHealth) < 0 ? 0 : health / maxHealth;
+        currenthealth -= damagePower;
+        healthbar.fillAmount = (currenthealth / maxHealth) < 0 ? 0 : currenthealth / maxHealth;
 
         if (navMeshAgent.hasPath)
             navMeshAgent.ResetPath();
 
-        if (health <= 0)
+        if (currenthealth <= 0)
         {
             Death();
         }
@@ -406,7 +407,7 @@ public class Enemy : IHealthObject
             OnEndAnimations();
         }
         gettedSlap = slapToGive;
-        isDeath = health <= 0;
+        isDeath = currenthealth <= 0;
     }
     protected void OnEndAnimations()
     {
@@ -437,8 +438,9 @@ public class Enemy : IHealthObject
     public virtual void Revive()
     {
         animator.SetTrigger("Revive");
-        health = maxHealth;
-        healthbar.fillAmount = health / maxHealth;
+        maxHealth = UnityEngine.Random.Range(randomLeftHealth, randomRightHealth);
+        currenthealth = maxHealth;
+        healthbar.fillAmount = currenthealth / maxHealth;
         gameObject.SetActive(true);
         navMeshAgent.enabled = true;
         isDead = false;

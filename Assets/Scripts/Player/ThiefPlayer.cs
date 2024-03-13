@@ -17,7 +17,7 @@ public class ThiefPlayer : Player
 
     public override void GetDamage(float damagePower, Vector3 direction, out bool isDeath, out int stoledSlap)
     {
-        base.GetDamageWithoutRebound(damagePower,  out isDeath, out stoledSlap);
+        base.GetDamage(damagePower, direction,  out isDeath, out stoledSlap);
 
         stoledSlap = StoleSlaps();
 

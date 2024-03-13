@@ -52,9 +52,9 @@ public class Player : IHealthObject
         if(Geekplay.Instance.BuffIncreaseHP)
         {
             maxHealth *= 2;
-            health = maxHealth;
+            currenthealth = maxHealth;
         }
-        healthbar.fillAmount = (health / maxHealth);
+        healthbar.fillAmount = (currenthealth / maxHealth);
     }
     public override void GetDamage(float damagePower, Vector3 direction, out bool isDeath, out int stoledSlap)
     {
@@ -65,19 +65,19 @@ public class Player : IHealthObject
 
             return;
         }
-        health -= damagePower;
-        healthbar.fillAmount = (health / maxHealth);
+        currenthealth -= damagePower;
+        healthbar.fillAmount = (currenthealth / maxHealth);
 
-        if (health <= 0)
+        if (currenthealth <= 0)
         {
             Death();
         }
         else
         {
-            StartCoroutine(GetDamageAnimation(direction, damagePower));
+            StartCoroutine(GetDamageAnimation(direction));
         }
         stoledSlap = slapToGive;
-        isDeath =  health <= 0;
+        isDeath =  currenthealth <= 0;
     }
 
     public override void GetDamageWithoutRebound(float damagePower, out bool isDeath, out int gettedSlap)
@@ -89,10 +89,10 @@ public class Player : IHealthObject
 
             return;
         }
-        health -= damagePower;
-        healthbar.fillAmount = (health / maxHealth);
+        currenthealth -= damagePower;
+        healthbar.fillAmount = (currenthealth / maxHealth);
 
-        if (health <= 0)
+        if (currenthealth <= 0)
         {
             Death();
         }
@@ -101,7 +101,7 @@ public class Player : IHealthObject
             OnEndAnimations();
         }
         gettedSlap = slapToGive;
-        isDeath = health <= 0;
+        isDeath = currenthealth <= 0;
     }
 
     public override void Death(bool playDeathAnimation = true)
@@ -134,14 +134,14 @@ public class Player : IHealthObject
         walkController.movementSpeed = movementSpeed;
         walkController.jumpSpeed = jumpSpeed;
         animator.SetTrigger("Revive");
-        health = maxHealth;
-        healthbar.fillAmount = (health / maxHealth);
+        currenthealth = maxHealth;
+        healthbar.fillAmount = (currenthealth / maxHealth);
     }
-    public IEnumerator GetDamageAnimation(Vector3 direction, float damagePower)
+    public IEnumerator GetDamageAnimation(Vector3 direction)
     {
         walkController.enabled = false;
         direction.y = 0.2f;
-        rb.AddForce(direction * damagePower * 70);
+        rb.AddForce(direction * 1000);
 
         yield return new WaitForSeconds(0.5f);
 

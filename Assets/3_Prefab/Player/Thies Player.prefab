@@ -315,6 +315,10 @@ PrefabInstance:
       value: -0.2882822
       objectReference: {fileID: 0}
     - target: {fileID: 1519302285511624346, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 4952109524273611644}
+    - target: {fileID: 1519302285511624346, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 4952109524273611644}
@@ -1193,8 +1197,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83a9b9210302baf44851f1f554b6c5be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  currenthealth: 0
   maxHealth: 100
+  randomLeftHealth: 200
+  randomRightHealth: 200
   walkController: {fileID: 2667813936828315188}
   healthbar: {fileID: 3120545734827028740}
   rb: {fileID: 4697163212176588643}

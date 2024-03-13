@@ -23,13 +23,13 @@ public class Boss : Enemy
             return;
         }
         canGetDamage = false;
-        health -= damagePower;
-        healthbar.fillAmount = (health / maxHealth) < 0 ? 0 : health / maxHealth;
+        currenthealth -= damagePower;
+        healthbar.fillAmount = (currenthealth / maxHealth) < 0 ? 0 : currenthealth / maxHealth;
 
         if (navMeshAgent.hasPath)
             navMeshAgent.ResetPath();
 
-        if (health <= 0)
+        if (currenthealth <= 0)
         {
             Death();
         }
@@ -38,7 +38,7 @@ public class Boss : Enemy
             StartCoroutine(GetDamageAnimation(direction));
         }
         gettedSlap = slapToGive;
-        isDeath = health <= 0;
+        isDeath = currenthealth <= 0;
     }
     protected override void Update()
     {

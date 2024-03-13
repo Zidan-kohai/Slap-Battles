@@ -2,13 +2,14 @@
 
 public class IHealthObject : MonoBehaviour
 {
-    [SerializeField] protected float health;
+    [SerializeField] protected float currenthealth;
     [SerializeField] protected float maxHealth;
+    [SerializeField] protected float randomLeftHealth, randomRightHealth;
     protected bool isDead = false;
 
 
     public bool IsDead => isDead;
-    public float CurrentHealth { get => health; set => health = value; }
+    public float CurrentHealth { get => currenthealth; set => currenthealth = value; }
     public float MaxHealth { get => maxHealth; set => maxHealth = value; }
 
     public virtual void GetDamage(float damagePower, Vector3 direction, out bool isDeath, out int gettedSlap)
