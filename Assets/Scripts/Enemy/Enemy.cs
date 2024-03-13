@@ -523,6 +523,11 @@ public class Enemy : IHealthObject
     {
         animator.SetBool("snowy", false);
     }
+
+    public void GetShooker()
+    {
+
+    }
     //protected virtual void OnTriggerEnter(Collider other)
     //{
     //    if (other.gameObject.TryGetComponent(out IHealthObject healthObject))

@@ -3320,14 +3320,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7767091231483899370}
     m_Modifications:
-    - target: {fileID: 827477134650890657, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1445846954374037363, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1470355044865784180, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3408,94 +3400,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3345791432465185400, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
-      propertyPath: m_text
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3345791432465185400, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
-      propertyPath: m_margin.z
-      value: -57.776855
-      objectReference: {fileID: 0}
-    - target: {fileID: 3382782366180632679, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3382782366180632679, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3382782366180632679, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3382782366180632679, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3485607460499773624, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 6547199107711239165, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 600
-      objectReference: {fileID: 0}
-    - target: {fileID: 6690871362965918650, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6690871362965918650, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6690871362965918650, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6690871362965918650, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6690871362965918650, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6690871362965918650, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6690871362965918650, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6999826403597791280, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
       propertyPath: m_Name
       value: BattleRoyalMainPanel
       objectReference: {fileID: 0}
-    - target: {fileID: 8484942518119360377, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9015461518480733513, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
-      propertyPath: m_margin.z
-      value: -55.42993
-      objectReference: {fileID: 0}
-    - target: {fileID: 9044799171058432224, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
-      propertyPath: m_hasFontAssetChanged
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 2940180509410628228, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
-    - {fileID: 566249812362325783, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1623868725056868220, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4484398409422000851}
-    - targetCorrespondingSourceObject: {fileID: 4441464711074961539, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5013688400892042234}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
 --- !u!1 &1002294885392625276 stripped
 GameObject:
@@ -3556,75 +3468,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &6035552541371676129 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4441464711074961539, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
-  m_PrefabInstance: {fileID: 7953875432294870370}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &5013688400892042234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6035552541371676129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ed620ad22418e0459709b09dd6eabfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 7285167790053110979}
-  ru: "\u041F\u0430\u0443\u0437\u0430"
-  en: Pause
-  tr: Duraklat
---- !u!114 &6791017110856152538 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3485607460499773624, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
-  m_PrefabInstance: {fileID: 7953875432294870370}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8712481279071085086}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7193402965395751323 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 987922682551184633, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
   m_PrefabInstance: {fileID: 7953875432294870370}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7285167790053110979 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 827477134650890657, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
-  m_PrefabInstance: {fileID: 7953875432294870370}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6035552541371676129}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &8712481279071085086 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1623868725056868220, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}
-  m_PrefabInstance: {fileID: 7953875432294870370}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4484398409422000851
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8712481279071085086}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ed620ad22418e0459709b09dd6eabfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 6791017110856152538}
-  ru: "\u041A\u043E\u0440\u043E\u043B\u0435\u0432\u0441\u043A\u0430\u044F \u0431\u0438\u0442\u0432\u0430"
-  en: Battle Royale
-  tr: Savas Royale
 --- !u!224 &8792741225691730966 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1470355044865784180, guid: 349feeff3d348e34f9e3e912807f43d1, type: 3}

@@ -36,13 +36,22 @@ public class SlapShopController : MonoBehaviour
         }
 
         Geekplay.Instance.SubscribeOnPurshace("3Slaps", Give3Slap);
+        Geekplay.Instance.SubscribeOnPurshace("AllSlaps", GiveAllSlaps);
     }
 
     public void Give3Slap()
     {
-        buyableSlaps[5].Buyed();
-        buyableSlaps[7].Buyed();
-        buyableSlaps[8].Buyed();
+        buyableSlaps[9].Buyed();
+        buyableSlaps[11].Buyed();
+        buyableSlaps[12].Buyed();
+    }
+
+    public void GiveAllSlaps()
+    {
+        foreach (var item in buyableSlaps)
+        {
+            item.Buyed(); 
+        }
     }
     public void InApp(string id)
     {
