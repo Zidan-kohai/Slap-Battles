@@ -33219,7 +33219,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cost: 50
   isBuyed: 0
-  costType: 1
+  costType: 0
   indexOfCap: 1
   buttonSelf: {fileID: 4526375844189445133}
   SelectedIcon: {fileID: 0}
@@ -39469,9 +39469,6 @@ MonoBehaviour:
   - {fileID: 9184129439816848515}
   - {fileID: 75682684060465725}
   - {fileID: 5806743395850251591}
-  healthBuffSystem: {fileID: 0}
-  currentHealthText: {fileID: 5963810064255390590}
-  healthBuffText: {fileID: 4576548227080980754}
   eventManager: {fileID: 0}
   inAppShop: {fileID: 0}
 --- !u!1 &7084746951481138971
@@ -53801,6 +53798,7 @@ MonoBehaviour:
   manHair: {fileID: 5947449242584394256}
   womanHair: {fileID: 7604341260837148755}
   buyButton: {fileID: 6561348217439831916}
+  shopController: {fileID: 4502955264020820365}
 --- !u!114 &1356878652254756266
 MonoBehaviour:
   m_ObjectHideFlags: 0

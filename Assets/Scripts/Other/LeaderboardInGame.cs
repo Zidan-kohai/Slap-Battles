@@ -93,6 +93,7 @@ public class LeaderboardInGame : MonoBehaviour
                 Geekplay.Instance.lastLeaderText += $"{i + 1}. {Geekplay.Instance.lN[i]} : {Geekplay.Instance.l[i]}\n";
                 leadersText = Geekplay.Instance.lastLeaderText;
                 ToLines();
+                leaderName.UpdateLeaderboardName();
             }
         }
     }
@@ -105,8 +106,6 @@ public class LeaderboardInGame : MonoBehaviour
         Geekplay.Instance.leaderNumberN = 0;
         Utils.GetLeaderboard("score", 0);
         Utils.GetLeaderboard("name", 0);
-
-        leaderName.UpdateLeaderboardName();
     }
 
     void ToLines()

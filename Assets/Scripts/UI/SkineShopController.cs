@@ -1205,13 +1205,18 @@ public class SkineShopController : MonoBehaviour
         selectedIcon = Instantiate(Resources.Load<GameObject>("SelectedIcon"), rect);
     }
 
-    private void OnDisable()
+    public void ResetToWeared()
     {
         ChangePlayerMaterial();
         ChangePlayerHair();
         ChangePlayerAccessory();
         ChangePlayerCap();
     }
+    private void OnDisable()
+    {
+        ResetToWeared();
+    }
+
 }
 public enum BodyPart
 {

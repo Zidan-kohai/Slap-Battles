@@ -76,6 +76,7 @@ public class Geekplay : MonoBehaviour
     public GameObject pausePopup;
     public bool canPause = true;
     public bool isOnPause = false;
+    public bool isOnPromocodeZone = false;
     public void ChangeCanPause(bool canPause)
     {
         this.canPause = canPause;
@@ -117,7 +118,7 @@ public class Geekplay : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.P) && !isOnPromocodeZone)
         {
             PlayerData = new PlayerData();
             Save();
@@ -159,7 +160,10 @@ public class Geekplay : MonoBehaviour
     public void StopOrResumeWithoutPausePanel()
     {
         Time.timeScale = Time.timeScale > 0 ? 0 : 1;
+        isOnPromocodeZone = Time.timeScale == 0;
         isOnPause = Time.timeScale == 0;
+        canPause = Time.timeScale == 1;
+
         Save();
 
         if (Time.timeScale == 0)

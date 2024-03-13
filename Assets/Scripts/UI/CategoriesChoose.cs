@@ -7,7 +7,7 @@ public class CategoriesChoose : MonoBehaviour
     [SerializeField] private GameObject manHair;
     [SerializeField] private GameObject womanHair;
     [SerializeField] private GameObject buyButton;
-
+    [SerializeField] private SkineShopController shopController;
     private void OnEnable()
     {
         TurnOn(0);   
@@ -15,8 +15,9 @@ public class CategoriesChoose : MonoBehaviour
     public void TurnOn(int index)
     {
         buyButton.SetActive(false);
+        shopController.ResetToWeared();
 
-        for(int i = 0; i < categoriesGameObject.Count; i++)
+        for (int i = 0; i < categoriesGameObject.Count; i++)
         {
             categoriesGameObject[i].SetActive(false);
 

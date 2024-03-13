@@ -17,6 +17,8 @@ public class SpeedKeys : MonoBehaviour
 
     private void Update()
     {
+        if (Geekplay.Instance.isOnPromocodeZone) return;
+
         if(Input.GetKeyDown(KeyCode.T))
         {
             Application.OpenURL("https://t.me/+uQFcFVwGmwM3ZDNi");
