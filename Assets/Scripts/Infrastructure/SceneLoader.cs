@@ -24,7 +24,7 @@ public class SceneLoader
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
-        if (index == 0)
+        if (index == 1)
         {
             if(Geekplay.Instance.language == "ru")
             {
