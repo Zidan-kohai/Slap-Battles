@@ -94,6 +94,9 @@ public class Geekplay : MonoBehaviour
     public string lastLeaderText;
 
     #endregion
+
+    [SerializeField] private GameObject curtain;
+    private SceneLoader sceneLoader;
     private void Start()
     {
         if (!Instance.mobile)
@@ -103,6 +106,7 @@ public class Geekplay : MonoBehaviour
         }
 
         AudioListener.volume = PlayerData.IsVolumeOn ? 1 : 0;
+        sceneLoader = new SceneLoader(this, curtain);
     }
     private void Update()
     {
@@ -119,6 +123,11 @@ public class Geekplay : MonoBehaviour
         TimePasedFromLastReward += Time.deltaTime;
 
         remainingTimeUntilUpdateLeaderboard -= Time.deltaTime;
+    }
+
+    public void LoadScene(int index, UnityAction onLoad = null)
+    {
+        sceneLoader.LoadScene(index, onLoad);
     }
 
     public void StopOrResume()

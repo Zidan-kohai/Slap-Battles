@@ -5,10 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader
 {
-    private MonoBehaviour mono;
-    public SceneLoader(MonoBehaviour monoBehaviour)
+    private readonly MonoBehaviour mono;
+    private readonly GameObject curtain;
+
+    public SceneLoader(MonoBehaviour monoBehaviour, GameObject curtain)
     {
         mono = monoBehaviour;
+        this.curtain = curtain;
     }
 
     public void LoadScene(int index, UnityAction onLoad = null)
@@ -22,6 +25,7 @@ public class SceneLoader
         Geekplay.Instance.Leaderboard("Points", Geekplay.Instance.PlayerData.LeaderboardSlap);
         Debug.Log($"Leaderbord: " + Geekplay.Instance.PlayerData.LeaderboardSlap);
 
+        curtain.SetActive(true);
         AsyncOperation operation = SceneManager.LoadSceneAsync(index);
         mono.StartCoroutine(Loading(operation, onLoad));
     }
@@ -35,5 +39,6 @@ public class SceneLoader
         }
         Debug.Log("Operation is done");
         onLoad?.Invoke();
+        curtain.SetActive(false);
     }
 }

@@ -72,10 +72,8 @@ public partial class Portal : MonoBehaviour
 
     private void LoadMode()
     {
-        SceneLoader sceneLoader = new SceneLoader(this);
-
         Geekplay.Instance.currentMode = Mode;
-        sceneLoader.LoadScene(SceneIndex);
+        Geekplay.Instance.LoadScene(SceneIndex);
     }
 
     public void TryBuy()
