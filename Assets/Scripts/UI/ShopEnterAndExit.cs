@@ -24,6 +24,9 @@ public class ShopEnterAndExit : MonoBehaviour
     public float animateDuration;
     public float YOpenPosition;
     public float YClosePosition;
+
+    private Sequence sequence;
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.layer == 7)
@@ -52,8 +55,9 @@ public class ShopEnterAndExit : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-
-        shopItemHandler.DOAnchorPosY(YOpenPosition, animateDuration).OnComplete(OnOpenEnd);
+        sequence?.Kill(false);
+        sequence = DOTween.Sequence();
+        sequence.Append(shopItemHandler.DOAnchorPosY(YOpenPosition, animateDuration).OnComplete(OnOpenEnd));
     }
 
     private void OnOpenEnd()
@@ -72,7 +76,9 @@ public class ShopEnterAndExit : MonoBehaviour
         if (Geekplay.Instance.mobile)
             MobileInput.SetActive(true);
 
-        shopItemHandler.DOAnchorPosY(YClosePosition, animateDuration).OnComplete(OnCloseEnd);
+        sequence?.Kill(false);
+        sequence = DOTween.Sequence();
+        sequence.Append(shopItemHandler.DOAnchorPosY(YClosePosition, animateDuration).OnComplete(OnCloseEnd));
     }
 
     private void OnCloseEnd()
