@@ -114,7 +114,6 @@ public class Enemy : IHealthObject
         }
 
         lastedTimeFromLastUseSuperPower += Time.deltaTime;
-        rb.isKinematic = true;
 
         if(enemy != null && !enemy.IsDead)
         {
@@ -174,7 +173,7 @@ public class Enemy : IHealthObject
             return;
         }
 
-        enemy.GetDamage(damagePower, (target - transform.position).normalized, out bool isDeath, out int gettedSlap);
+        enemy.GetDamageWithoutRebound(damagePower, out bool isDeath, out int gettedSlap);
         OnSuccesAttack();
 
 
