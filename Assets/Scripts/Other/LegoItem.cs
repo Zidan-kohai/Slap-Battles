@@ -1,8 +1,5 @@
-using JetBrains.Annotations;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using UnityEditor.VersionControl;
 using UnityEngine;
 
 public class LegoItem : MonoBehaviour
