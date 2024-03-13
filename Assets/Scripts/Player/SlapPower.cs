@@ -51,6 +51,9 @@ public class SlapPower : MonoBehaviour
     [SerializeField] private Transform wallPusherStartPosition;
     [SerializeField] private GameObject wallPusher;
 
+    [Header("Gold")]
+    [SerializeField] private ColorSwitcher colorSwitcher;
+
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.E) && !isPowerActivated)
@@ -390,7 +393,7 @@ public class SlapPower : MonoBehaviour
         isPowerActivated = true;
         startPower = slap.AttackPower;
         startSpeed = playerWalkController.movementSpeed;
-
+        colorSwitcher.GoldPowerActivated();
         slap.AttackPower *= 1.5f;
         playerWalkController.movementSpeed = startSpeed * 2;
 
@@ -402,6 +405,7 @@ public class SlapPower : MonoBehaviour
         isPowerActivated = false;
         playerWalkController.movementSpeed = startSpeed;
         slap.AttackPower = startPower;
+        colorSwitcher.GoldPowerDiactivated();
     }
 
     #endregion
@@ -424,4 +428,12 @@ public class SlapPower : MonoBehaviour
         );
     }*/
 
+
+    private void OnDestroy()
+    {
+        if(slap.GetSlapPowerType() == SlapPowerType.Gold)
+        {
+            colorSwitcher?.GoldPowerDiactivated();
+        }
+    }
 }

@@ -13,7 +13,6 @@ public class SlapSwitcher : MonoBehaviour
     [Header("Links")]
     [SerializeField] private PlayerAttack playerAttack;
     [SerializeField] private SlapPower power;
-    [SerializeField] private ColorSwitcher colorSwitcher;
     [SerializeField] private TextMeshProUGUI powerDescription;
     //[SerializeField] private Image powerRollbackTime;
 
@@ -22,7 +21,6 @@ public class SlapSwitcher : MonoBehaviour
         Slap slap = SwitchSlap(Geekplay.Instance.PlayerData.currentSlap);
         playerAttack.ChangeSlap(slap);
         power.ChangeSlap(slap);
-        colorSwitcher?.ChangeSlap(slap);
         powerDescription.text = slap.descriptionOfSuperPower;
     }
 
