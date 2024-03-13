@@ -357,6 +357,8 @@ public class SkineShopController : MonoBehaviour
                         }
 
                         eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
+
+                        Geekplay.Instance.StartRatingSystem();
                     });
 
                     ChangeColorInShop(buyable);
@@ -963,6 +965,8 @@ public class SkineShopController : MonoBehaviour
                         }
 
                         eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
+
+                        Geekplay.Instance.StartRatingSystem();
                     });
                 }
                 else
@@ -1137,6 +1141,8 @@ public class SkineShopController : MonoBehaviour
                         }
 
                         eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
+
+                        Geekplay.Instance.StartRatingSystem();
                     });
                 }
                 else

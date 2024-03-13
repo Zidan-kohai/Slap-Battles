@@ -115,6 +115,7 @@ public class SlapShopController : MonoBehaviour
 
                         buySlapIcon.SetActive(false);
                         buyDiamondIcon.SetActive(false);
+                        Geekplay.Instance.StartRatingSystem();
                     });
                 }
                 else

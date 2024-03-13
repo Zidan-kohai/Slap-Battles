@@ -41,7 +41,8 @@ public class StaticHubTextTranslator : MonoBehaviour
     [SerializeField] private TextMeshProUGUI item11SpecialText;
 
     [Header("Other")]
-    [SerializeField] private TextMeshPro leaderboardDescription;
+    [SerializeField] private TextMeshProUGUI GameDescription;
+    [SerializeField] private TextMeshProUGUI Rules;
     [SerializeField] private TextMeshProUGUI leaderboardName;
     [SerializeField] private TextMeshProUGUI otherGamesIconText;
     [SerializeField] private TextMeshProUGUI otherGamesHeaderText;
@@ -95,7 +96,8 @@ public class StaticHubTextTranslator : MonoBehaviour
             item11SpecialText.text = "лучшее";
 
 
-            leaderboardDescription.text = "Заходи в понравившийся портал, шлепай других игроков и набирай очки!\r\n\r\nТрать шлепки на новые порталы, перчатки и скины!";
+            GameDescription.text = "Заходи в понравившийся портал, шлепай других игроков и набирай очки!\r\n\r\nТрать шлепки на новые порталы, перчатки и скины!";
+            Rules.text = "Правила";
             leaderboardName.text = "Лидеры";
             otherGamesIconText.text = "другие игры";
             otherGamesHeaderText.text = "наши игры";
@@ -148,7 +150,8 @@ public class StaticHubTextTranslator : MonoBehaviour
             item11SpecialText.text = "Top";
 
 
-            leaderboardDescription.text = "Enter the portal you like, spank other players and score points!\r\n\r\nSpend your spanks on new portals, gloves and skins!";
+            GameDescription.text = "Enter the portal you like, spank other players and score points!\r\n\r\nSpend your spanks on new portals, gloves and skins!";
+            Rules.text = "Rules";
             leaderboardName.text = "Leaders";
             otherGamesIconText.text = "other games";
             otherGamesHeaderText.text = "our games";
@@ -200,7 +203,8 @@ public class StaticHubTextTranslator : MonoBehaviour
             item11SpecialText.text = "sey";
 
 
-            leaderboardDescription.text = "Begendiginiz portala girin, diger oyunculara saplak atin ve puan kazanin!\r\n\r\nTokatlarinizi yeni portallara, eldivenlere ve gorunumlere harcayin!";
+            GameDescription.text = "Begendiginiz portala girin, diger oyunculara saplak atin ve puan kazanin!\r\n\r\nTokatlarinizi yeni portallara, eldivenlere ve gorunumlere harcayin!";
+            Rules.text = "Kurallar";
             leaderboardName.text = "Liderler";
             otherGamesIconText.text = "diger oyunlar";
             otherGamesHeaderText.text = "oyunlarimiz";
