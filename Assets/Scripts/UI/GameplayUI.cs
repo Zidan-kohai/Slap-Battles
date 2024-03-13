@@ -80,7 +80,7 @@ public class GameplayUI : MonoBehaviour
             if (Geekplay.Instance.currentMode == Modes.ClashRoyal)
                 LosePanel.AddEarnedMoney();
 
-            Geekplay.Instance.LoadScene(0);
+            Geekplay.Instance.LoadScene(1);
         }
     }
 

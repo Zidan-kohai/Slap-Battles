@@ -19,7 +19,7 @@ public class BattleModeLosePanel : LosePanel
         {
             AddEarnedMoney();
             flagThatUseToLoadSceneOneTime = false;
-            Geekplay.Instance.LoadScene(0);
+            Geekplay.Instance.LoadScene(1);
         }
         else if (lastedTime > 0)
         {
