@@ -38,7 +38,6 @@ public class SceneLoader
             {
                 curtainText.text = "hadi merkeze gidelim";
             }
-
         }
         else
         {
@@ -64,14 +63,12 @@ public class SceneLoader
         mono.StartCoroutine(Loading(operation, onLoad));
     }
 
-    IEnumerator Loading(AsyncOperation operation, UnityAction onLoad)
+    private IEnumerator Loading(AsyncOperation operation, UnityAction onLoad)
     {
-        Debug.Log("Operation none done");
         while (!operation.isDone)
         {
             yield return new WaitForEndOfFrame(); 
         }
-        Debug.Log("Operation is done");
         onLoad?.Invoke();
         curtain.SetActive(false);
     }

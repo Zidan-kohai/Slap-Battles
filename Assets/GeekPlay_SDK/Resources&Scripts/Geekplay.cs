@@ -114,7 +114,7 @@ public class Geekplay : MonoBehaviour
         AudioListener.volume = PlayerData.IsVolumeOn ? 1 : 0;
         sceneLoader = new SceneLoader(this, curtain);
 
-        CheckBuysOnStart(PlayerData.lastBuy);
+        //CheckBuysOnStart(PlayerData.lastBuy);
     }
     private void Update()
     {
