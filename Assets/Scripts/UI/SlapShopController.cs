@@ -34,7 +34,21 @@ public class SlapShopController : MonoBehaviour
         {
             AddEventForBuyableSlap(buyableSlaps[i]);
         }
+
+        Geekplay.Instance.SubscribeOnPurshace("3Slaps", Give3Slap);
     }
+
+    public void Give3Slap()
+    {
+        buyableSlaps[5].Buyed();
+        buyableSlaps[7].Buyed();
+        buyableSlaps[8].Buyed();
+    }
+    public void InApp(string id)
+    {
+        Geekplay.Instance.RealBuyItem(id);
+    }
+
     private void AddEventForBuyableSlap(BuyableSlap buyable)
     {
         buyable.SubscribeOnClick(() =>

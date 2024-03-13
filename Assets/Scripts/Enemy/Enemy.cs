@@ -28,6 +28,7 @@ public class Enemy : IHealthObject
     [SerializeField] protected bool isSleeping;
     [SerializeField] private float timeNextToAttack;
     [SerializeField] protected bool canAttack;
+    [SerializeField] protected GameObject sleepText;
 
     [SerializeField] protected IHealthObject enemy;
     [SerializeField] protected Vector3 target;
@@ -487,6 +488,8 @@ public class Enemy : IHealthObject
         if (isSleeping) return;
         animator.SetTrigger("Sleep");
         navMeshAgent.enabled = false;
+        sleepText.SetActive(true);
+
         //speed = navMeshAgent.speed;
         //navMeshAgent.speed = 0;
         isSleeping = true;
@@ -504,6 +507,8 @@ public class Enemy : IHealthObject
         {
             animator.SetTrigger("Revive");
             navMeshAgent.enabled = true;
+            sleepText.SetActive(false);
+
         }
             //navMeshAgent.speed = speed;
             isSleeping = false;

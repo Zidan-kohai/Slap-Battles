@@ -48,6 +48,8 @@ public class PlayerOnShop : MonoBehaviour
 
     }
 
+
+
     private void OnDisable()
     {
         Object.transform.rotation = originRotation;
