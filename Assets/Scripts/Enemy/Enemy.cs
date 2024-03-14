@@ -44,6 +44,7 @@ public class Enemy : IHealthObject
     [Header("Audio")]
     [SerializeField] private AudioSource slapAudio;
     [SerializeField] private AudioSource deathAudio;
+    [SerializeField] private AudioSource aaAudio;
     public void ChangeEnemy(IHealthObject target) =>  enemy = target;
 
     [Header("SuperPower")]
@@ -219,10 +220,13 @@ public class Enemy : IHealthObject
         Immortall = false;
         canGetDamage = true;
         navMeshAgent.speed = startSpeed;
-        navMeshAgent.isStopped = false;
         Canvas.SetActive(true);
-
-        navMeshAgent.ResetPath();
+        
+        //if (navMeshAgent.isOnNavMesh)
+        //{
+        //    navMeshAgent.isStopped = false;
+        //    navMeshAgent.ResetPath();
+        //}
 
         foreach (Collider c in playerCollider)
             c.enabled = true;
@@ -323,7 +327,7 @@ public class Enemy : IHealthObject
 
     protected void GetNearnestEnemyAsTarget()
     {
-        Collider[] colls = Physics.OverlapSphere(transform.position, 1000f, enemyLayer);
+        Collider[] colls = Physics.OverlapSphere(transform.position, 1000f, enemyLayer, QueryTriggerInteraction.Ignore);
 
         float minDistanse = Mathf.Infinity;
         enemy = null;
@@ -376,7 +380,7 @@ public class Enemy : IHealthObject
         isDeath = currenthealth <= 0;
     }
 
-    public override void GetDamageWithoutRebound(float damagePower, out bool isDeath, out int gettedSlap)
+    public override void GetDamageWithoutRebound(float damagePower, out bool isDeath, out int gettedSlap, bool playAuchAudio = false)
     {
         if (isDead)
         {
@@ -396,6 +400,11 @@ public class Enemy : IHealthObject
 
         if (navMeshAgent.hasPath)
             navMeshAgent.ResetPath();
+
+        if(playAuchAudio)
+        {
+            aaAudio.Play();
+        }
 
         if (currenthealth <= 0)
         {
@@ -447,6 +456,7 @@ public class Enemy : IHealthObject
         isSleeping = false;
         navMeshAgent.speed = startSpeed;
         Canvas.SetActive(true);
+        collider.enabled = true;
     }
 
     public override void Death(bool playDeathAnimation = true)
@@ -454,6 +464,7 @@ public class Enemy : IHealthObject
         if (isDead) return;
         navMeshAgent.enabled = false;
         isDead = true;
+        collider.enabled = false;
         if (playDeathAnimation)
         {
             animator.SetTrigger("Death");

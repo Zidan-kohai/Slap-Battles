@@ -632,7 +632,7 @@ GameObject:
   - component: {fileID: 6841083009014896609}
   - component: {fileID: 4359614494682831295}
   - component: {fileID: 4349662712976308036}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Lego_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1061,7 +1061,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2232120110777521918}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: WallPower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1124,7 +1124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2056874285285818387}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SlapPowerNeedThing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2154,7 +2154,7 @@ GameObject:
   - component: {fileID: 2247179253218246148}
   - component: {fileID: 8879107977124960900}
   - component: {fileID: 125599609640203584}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4142,7 +4142,7 @@ GameObject:
   - component: {fileID: 2084965704213453481}
   - component: {fileID: 5711479087442163179}
   - component: {fileID: 4849265541219406083}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Lego_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4807,7 +4807,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2268012329276170788}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: PusherStartPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4905,7 +4905,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0.110137045, g: 0.62689984, b: 0.9339623, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5005,7 +5005,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3210554774315749292}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Lego
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5926,6 +5926,7 @@ Transform:
   - {fileID: 7817390610113792575}
   - {fileID: 372875964007242883}
   - {fileID: 2969707568737383657}
+  - {fileID: 2783529636961744518}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2790690277111267412
@@ -5971,6 +5972,7 @@ MonoBehaviour:
   sightAngle: 65
   slapAudio: {fileID: 6617632860187789259}
   deathAudio: {fileID: 7117050044567456955}
+  aaAudio: {fileID: 5559502410899740458}
   slap: {fileID: 0}
   timeToUseSuperPower: 10
   lastedTimeFromLastUseSuperPower: 0
@@ -6707,7 +6709,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0.110137045, g: 0.62689984, b: 0.9339623, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -9784,7 +9786,7 @@ GameObject:
   - component: {fileID: 5119361825985127629}
   - component: {fileID: 5996084295308228171}
   - component: {fileID: 8878611450384160309}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: CubePusher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11151,7 +11153,7 @@ GameObject:
   - component: {fileID: 2550979111527561540}
   - component: {fileID: 699681654488427089}
   - component: {fileID: 7205399162506444286}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Lego_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12840,6 +12842,134 @@ Transform:
   - {fileID: 6107341368749581610}
   m_Father: {fileID: 1039160383772369987}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5665657299892830117
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2783529636961744518}
+  - component: {fileID: 5559502410899740458}
+  m_Layer: 6
+  m_Name: aychAudio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2783529636961744518
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5665657299892830117}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5861266316685351335}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &5559502410899740458
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5665657299892830117}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 558a6fe0ea9515d488809abe629df49f, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.14
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5746278409377881972
 GameObject:
   m_ObjectHideFlags: 0
@@ -13766,7 +13896,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0.110137045, g: 0.62689984, b: 0.9339623, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -15264,7 +15394,7 @@ GameObject:
   - component: {fileID: 1195331915123132527}
   - component: {fileID: 7250936000607875051}
   - component: {fileID: 4035769242071945377}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Lego_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15583,7 +15713,7 @@ GameObject:
   - component: {fileID: 3617327293676721863}
   - component: {fileID: 5687115219220408377}
   - component: {fileID: 3378403082924068737}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: LegoSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16385,7 +16515,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0.110137045, g: 0.62689984, b: 0.9339623, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -16878,7 +17008,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0.110137045, g: 0.62689984, b: 0.9339623, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -16950,7 +17080,7 @@ GameObject:
   - component: {fileID: 6042016517975945083}
   - component: {fileID: 6186769886039233202}
   - component: {fileID: 3154194984952141268}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Lego_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17079,7 +17209,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 653544767380813796}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SlapPowerNeedThing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18860,7 +18990,7 @@ GameObject:
   - component: {fileID: 8675147267165821066}
   - component: {fileID: 3076985104303081511}
   - component: {fileID: 223531785365333720}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Lego_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}

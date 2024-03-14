@@ -28,7 +28,7 @@ public class LegoItem : MonoBehaviour
 
             if (enemy == parent) return;
 
-            enemy.GetDamageWithoutRebound(15f, out bool isDeath, out int gettedSlap);
+            enemy.GetDamageWithoutRebound(15f, out bool isDeath, out int gettedSlap, true);
             //player?.SetStolenSlaps(gettedSlap);
 
             for (int i = 0; i < enemies.Count; i++)
@@ -54,7 +54,7 @@ public class LegoItem : MonoBehaviour
             if(enemies[i].LastedTime >= attackDelta)
             {
                 enemies[i].LastedTime = 0;
-                enemies[i].Enemy.GetDamageWithoutRebound(15f, out bool isDeath, out int gettedSlap);
+                enemies[i].Enemy.GetDamageWithoutRebound(15f, out bool isDeath, out int gettedSlap, true);
 
                 if(isDeath)
                 {

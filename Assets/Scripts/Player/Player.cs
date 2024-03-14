@@ -18,6 +18,7 @@ public class Player : IHealthObject
     [Header("Audio")]
     [SerializeField] protected AudioSource deathAudio;
     [SerializeField] protected AudioSource fallingAudio;
+    [SerializeField] private AudioSource aaAudio;
 
 
     [Space(10), Header("Slap")]
@@ -80,7 +81,7 @@ public class Player : IHealthObject
         isDeath =  currenthealth <= 0;
     }
 
-    public override void GetDamageWithoutRebound(float damagePower, out bool isDeath, out int gettedSlap)
+    public override void GetDamageWithoutRebound(float damagePower, out bool isDeath, out int gettedSlap, bool playAuchAudio = false)
     {
         if (isImmortall)
         {
@@ -91,6 +92,11 @@ public class Player : IHealthObject
         }
         currenthealth -= damagePower;
         healthbar.fillAmount = (currenthealth / maxHealth);
+
+        if (playAuchAudio)
+        {
+            aaAudio.Play();
+        }
 
         if (currenthealth <= 0)
         {

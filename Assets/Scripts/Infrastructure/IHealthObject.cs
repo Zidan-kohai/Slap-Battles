@@ -21,7 +21,7 @@ public class IHealthObject : MonoBehaviour
     public virtual void Death(bool PlayDeathAnimation)
     {
     }
-    public virtual void GetDamageWithoutRebound(float damagePower, out bool isDeath, out int gettedSlap) 
+    public virtual void GetDamageWithoutRebound(float damagePower, out bool isDeath, out int gettedSlap, bool playAuchAudio = false) 
     {
         isDeath = false;
         gettedSlap = 1;
