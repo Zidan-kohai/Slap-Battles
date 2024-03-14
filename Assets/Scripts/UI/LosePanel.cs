@@ -47,6 +47,11 @@ public class LosePanel : MonoBehaviour
     {
         slider.maxValue = timeBeforeToLoadHub;
         lastedTime = timeBeforeToLoadHub;
+
+        if(earnedSlapCountBeforeDouble == 0 && earnedDiamondCountBeforeDouble == 0)
+        {
+            DisableRewardButton();
+        }
     }
 
     protected void Update()
