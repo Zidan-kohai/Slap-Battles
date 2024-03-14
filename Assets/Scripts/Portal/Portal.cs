@@ -72,6 +72,16 @@ public partial class Portal : MonoBehaviour
 
     private void LoadMode()
     {
+        if (Mode != Modes.Hub)
+        {
+            Geekplay.Instance.PlayerData.GamemodeCounter++;
+            Analytics.Instance.SendEvent($"Start_Game_{Geekplay.Instance.PlayerData.GamemodeCounter}");
+            Analytics.Instance.SendEvent($"Start_Game_{Mode}");
+        }
+        else
+        {
+            Analytics.Instance.SendEvent("Go_To_Hub");
+        }
         Geekplay.Instance.currentMode = Mode;
         Geekplay.Instance.LoadScene(SceneIndex);
     }

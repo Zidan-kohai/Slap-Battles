@@ -16,6 +16,7 @@ public class OurGame : MonoBehaviour
             Geekplay.Instance.canPause = false;
 
             Geekplay.Instance.StopOrResumeWithoutPausePanel();
+            Analytics.Instance.SendEvent($"Open_Other_Start");
         }
     }
 
@@ -44,6 +45,8 @@ public class OurGame : MonoBehaviour
                 Application.OpenURL($"https://yandex.{domain}/games/#app={appID}");
                 break;
         }
+
+        Analytics.Instance.SendEvent($"Open_Other_Game_{appID}");
     }
 
     public void OpenOtherGame()

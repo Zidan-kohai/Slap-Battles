@@ -241,6 +241,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7633089781514388730}
   - component: {fileID: 6986684302030619625}
+  - component: {fileID: 1264725508187027110}
   m_Layer: 0
   m_Name: Init
   m_TagString: Untagged
@@ -505,6 +506,18 @@ MonoBehaviour:
   curtain: {fileID: 8035209959694565713}
   curtainLoadVisual: {fileID: 2227513860696254084}
   reviewPanel: {fileID: 3571201643201188207}
+--- !u!114 &1264725508187027110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1621987283824859919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a6afe08c151f44e83974a78626f6a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6093354473943498779
 GameObject:
   m_ObjectHideFlags: 0

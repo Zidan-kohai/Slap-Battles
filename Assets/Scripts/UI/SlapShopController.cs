@@ -137,6 +137,8 @@ public class SlapShopController : MonoBehaviour
                         buySlapIcon.SetActive(false);
                         buyDiamondIcon.SetActive(false);
                         Geekplay.Instance.StartRatingSystem();
+
+                        Analytics.Instance.SendEvent($"Buy_Glove_{buyable.GetIndexOfSlap}");
                     });
                 }
                 else

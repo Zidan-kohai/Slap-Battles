@@ -41,6 +41,8 @@ public class SceneLoader
             {
                 curtainText.text = "hadi merkeze gidelim";
             }
+
+            Analytics.Instance.SendEvent("Go_To_Hub");
         }
         else
         {

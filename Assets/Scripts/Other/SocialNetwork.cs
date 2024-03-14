@@ -20,6 +20,7 @@ public class SocialNetwork : MonoBehaviour
     public void OpenTelegram()
     {
         Application.OpenURL("https://t.me/+uQFcFVwGmwM3ZDNi");
+        Analytics.Instance.SendEvent("Open_TG");
     }
 
     public enum SocialNetworkType

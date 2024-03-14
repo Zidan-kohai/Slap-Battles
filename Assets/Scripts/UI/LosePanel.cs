@@ -35,6 +35,8 @@ public class LosePanel : MonoBehaviour
 
     private void OnPlayerRevive()
     {
+        Analytics.Instance.SendEvent("Reward_PlayerRevive");
+
         eventManager.InvokePlayerReviveEvents();
 
         Cursor.lockState = CursorLockMode.Locked;
@@ -83,6 +85,7 @@ public class LosePanel : MonoBehaviour
     }
     private void OnDoubleAward()
     {
+        Analytics.Instance.SendEvent("Reward_DoubleAward");
         earnedSlapCount = earnedSlapCountBeforeDouble * 2;
         earnedDiamondCount = earnedDiamondCountBeforeDouble * 2;
         float currentTime = 0;

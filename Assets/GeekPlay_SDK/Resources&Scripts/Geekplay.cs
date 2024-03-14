@@ -107,6 +107,7 @@ public class Geekplay : MonoBehaviour
 
     private void Start()
     {
+        Analytics.Instance.SendEvent("Start");
         if (!Instance.mobile)
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -115,7 +116,6 @@ public class Geekplay : MonoBehaviour
 
         AudioListener.volume = PlayerData.IsVolumeOn ? 1 : 0;
         sceneLoader = new SceneLoader(this, curtain, curtainLoadVisual);
-            
         //CheckBuysOnStart(PlayerData.lastBuy);
     }
     private void Update()

@@ -34,6 +34,7 @@ public class OneTimeBuff : MonoBehaviour
         BuffImage.SetActive(true);
         oneTimeBuffController.DiactivateBuffs();
         Geekplay.Instance.TimePasedFromLastReward = 0;
+        Analytics.Instance.SendEvent("Reward_IncreaseHP");
     }
 
     public void ActivateAccelerationBuff()
@@ -43,6 +44,7 @@ public class OneTimeBuff : MonoBehaviour
         BuffImage.SetActive(true);
         oneTimeBuffController.DiactivateBuffs();
         Geekplay.Instance.TimePasedFromLastReward = 0;
+        Analytics.Instance.SendEvent("Reward_Acceleration");
     }
 
     public void ActivateDoubleSlapBuff()
@@ -52,6 +54,7 @@ public class OneTimeBuff : MonoBehaviour
         BuffImage.SetActive(true);
         oneTimeBuffController.DiactivateBuffs();
         Geekplay.Instance.TimePasedFromLastReward = 0;
+        Analytics.Instance.SendEvent("Reward_DoubleSlap");
     }
 
     public void ActivateIncreasePowerBuff()
@@ -61,6 +64,7 @@ public class OneTimeBuff : MonoBehaviour
         BuffImage.SetActive(true);
         oneTimeBuffController.DiactivateBuffs();
         Geekplay.Instance.TimePasedFromLastReward = 0;
+        Analytics.Instance.SendEvent("Reward_IncreasePower");
     }
 
     private void OnTriggerEnter(Collider other)
