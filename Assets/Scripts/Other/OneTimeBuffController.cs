@@ -5,6 +5,15 @@ public class OneTimeBuffController : MonoBehaviour
 {
     public List<GameObject> Buffs;
     public bool isBuffsTurnOn;
+
+    public void Start()
+    {
+        if (!Geekplay.Instance.CanShowReward)
+        {
+            DiactivateBuffs();
+        }
+    }
+
     private void LateUpdate()
     {
         if (Geekplay.Instance.CanShowReward && !isBuffsTurnOn)

@@ -3,15 +3,21 @@ using UnityEngine;
 
 public class SpeedKeys : MonoBehaviour
 {
-    [SerializeField] private GameObject speedKeysPanel; 
+    [SerializeField] private GameObject speedKeysPanelOnDesc; 
+    [SerializeField] private GameObject speedKeysPanelOnMobile; 
     [SerializeField] private ShopEnterAndExit inAppShop; 
 
     private void Start()
     {
-        if(Geekplay.Instance.mobile)
+        if (Geekplay.Instance.mobile)
         {
-            speedKeysPanel.SetActive(false);
-            Destroy(gameObject);
+            speedKeysPanelOnDesc.SetActive(false);
+            speedKeysPanelOnMobile.SetActive(true);
+        }
+        else
+        {
+            speedKeysPanelOnDesc.SetActive(true);
+            speedKeysPanelOnMobile.SetActive(false);
         }
     }
 

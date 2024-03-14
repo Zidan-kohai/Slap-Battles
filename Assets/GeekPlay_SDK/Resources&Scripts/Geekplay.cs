@@ -4,6 +4,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class Rewards
@@ -97,6 +98,7 @@ public class Geekplay : MonoBehaviour
     #endregion
 
     [SerializeField] private GameObject curtain;
+    [SerializeField] private Image curtainLoadVisual;
     private SceneLoader sceneLoader;
 
 
@@ -112,8 +114,8 @@ public class Geekplay : MonoBehaviour
         }
 
         AudioListener.volume = PlayerData.IsVolumeOn ? 1 : 0;
-        sceneLoader = new SceneLoader(this, curtain);
-
+        sceneLoader = new SceneLoader(this, curtain, curtainLoadVisual);
+            
         //CheckBuysOnStart(PlayerData.lastBuy);
     }
     private void Update()

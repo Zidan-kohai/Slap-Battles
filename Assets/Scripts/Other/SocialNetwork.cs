@@ -12,11 +12,15 @@ public class SocialNetwork : MonoBehaviour
         switch(channel)
         {
             case SocialNetworkType.Telegram:
-                Application.OpenURL("https://t.me/+uQFcFVwGmwM3ZDNi");
+                    OpenTelegram();
                 break;
         }
     }
-
+    
+    public void OpenTelegram()
+    {
+        Application.OpenURL("https://t.me/+uQFcFVwGmwM3ZDNi");
+    }
 
     public enum SocialNetworkType
     {

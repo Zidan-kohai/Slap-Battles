@@ -17,6 +17,8 @@ public class LeaderboardInGame : MonoBehaviour
     private void Awake()
     {
         Geekplay.Instance.leaderboardInGame = this;
+
+        Geekplay.Instance.CheckBuysOnStart(Geekplay.Instance.PlayerData.lastBuy);
     }
 
     void Start()

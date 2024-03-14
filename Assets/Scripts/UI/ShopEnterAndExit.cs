@@ -20,6 +20,8 @@ public class ShopEnterAndExit : MonoBehaviour
 
     [SerializeField] private CameraMouseInput shopCameraMouseInput;
     [SerializeField] private SwipeDetector swipeDetector;
+    [SerializeField] private GameObject speedKeysPanelOnDesc;
+    [SerializeField] private GameObject speedKeysPanelOnMobile;
 
     public float animateDuration;
     public float YOpenPosition;
@@ -46,6 +48,8 @@ public class ShopEnterAndExit : MonoBehaviour
         shopObject.SetActive(true);
         MobileInput.SetActive(false);
         raycaster.enabled = false;
+        speedKeysPanelOnDesc.SetActive(false);
+        speedKeysPanelOnMobile.SetActive(false);
 
         foreach (GameObject go in GOToDisableWhenOpenShop)
         {
@@ -74,7 +78,14 @@ public class ShopEnterAndExit : MonoBehaviour
         cinemashine.SetActive(false);
 
         if (Geekplay.Instance.mobile)
+        {
             MobileInput.SetActive(true);
+            speedKeysPanelOnMobile.SetActive(true);
+        }
+        else
+        {
+            speedKeysPanelOnDesc.SetActive(true);
+        }
 
         sequence?.Kill(false);
         sequence = DOTween.Sequence();

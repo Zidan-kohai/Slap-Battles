@@ -32,4 +32,9 @@ public class HubUI : MonoBehaviour
         slapCountText.text = slapCount.ToString();
         diamondCountText.text = diamondCount.ToString();
     }
+
+    public void Pause()
+    {
+        Geekplay.Instance.StopOrResume();
+    }
 }

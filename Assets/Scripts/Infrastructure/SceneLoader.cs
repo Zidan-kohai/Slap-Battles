@@ -3,17 +3,20 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneLoader
 {
     private readonly MonoBehaviour mono;
     private readonly GameObject curtain;
+    private readonly Image curtainLoadVisual;
     private readonly TextMeshProUGUI curtainText;
 
-    public SceneLoader(MonoBehaviour monoBehaviour, GameObject curtain)
+    public SceneLoader(MonoBehaviour monoBehaviour, GameObject curtain, Image curtainLoadVisual)
     {
         mono = monoBehaviour;
         this.curtain = curtain;
+        this.curtainLoadVisual = curtainLoadVisual;
         curtainText = curtain.GetComponentInChildren<TextMeshProUGUI>();
     }
 
@@ -55,8 +58,12 @@ public class SceneLoader
             }
         }
 
-        Geekplay.Instance.Leaderboard("Points", Geekplay.Instance.PlayerData.LeaderboardSlap);
-        Debug.Log($"Leaderbord: " + Geekplay.Instance.PlayerData.LeaderboardSlap);
+        if (SceneManager.GetActiveScene().buildIndex != 0)
+        {
+            Geekplay.Instance.Leaderboard("Points", Geekplay.Instance.PlayerData.LeaderboardSlap);
+            Debug.Log($"Leaderbord: " + Geekplay.Instance.PlayerData.LeaderboardSlap);
+        }
+
 
         curtain.SetActive(true);
         AsyncOperation operation = SceneManager.LoadSceneAsync(index);
@@ -67,9 +74,12 @@ public class SceneLoader
     {
         while (!operation.isDone)
         {
-            yield return new WaitForEndOfFrame(); 
+            curtainLoadVisual.fillAmount = operation.progress;
+            yield return new WaitForEndOfFrame();
         }
-        onLoad?.Invoke();
         curtain.SetActive(false);
+
+        onLoad?.Invoke();
+
     }
 }
