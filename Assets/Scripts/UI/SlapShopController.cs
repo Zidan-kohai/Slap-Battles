@@ -34,23 +34,44 @@ public class SlapShopController : MonoBehaviour
         {
             AddEventForBuyableSlap(buyableSlaps[i]);
         }
-
-        Geekplay.Instance.SubscribeOnPurshace("3Slaps", Give3Slap);
-        Geekplay.Instance.SubscribeOnPurshace("AllSlaps", GiveAllSlaps);
     }
 
-    public void Give3Slap()
+    public void Give3Slap(int cost)
     {
-        buyableSlaps[9].Buyed();
-        buyableSlaps[11].Buyed();
-        buyableSlaps[12].Buyed();
-    }
 
-    public void GiveAllSlaps()
-    {
-        foreach (var item in buyableSlaps)
+        if (Geekplay.Instance.PlayerData.DiamondMoney >= cost)
         {
-            item.Buyed(); 
+            eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
+            Geekplay.Instance.StartRatingSystem();
+
+            buyableSlaps[9].Buyed();
+            buyableSlaps[11].Buyed();
+            buyableSlaps[12].Buyed();
+        }
+        else
+        {
+            inAppShop.OpenShop();
+            gameObject.SetActive(false);
+        }
+
+    }
+
+    public void GiveAllSlaps(int cost)
+    {
+        if (Geekplay.Instance.PlayerData.DiamondMoney >= cost)
+        {
+            eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
+            Geekplay.Instance.StartRatingSystem();
+
+            foreach (var item in buyableSlaps)
+            {
+                item.Buyed();
+            }
+        }
+        else
+        {
+            inAppShop.OpenShop();
+            gameObject.SetActive(false);
         }
     }
     public void InApp(string id)
