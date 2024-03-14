@@ -80,7 +80,6 @@ public class Enemy : IHealthObject
         healthbar.fillAmount = currenthealth / maxHealth;
 
         GetNearnestEnemyAsTarget();
-        Move(target);
 
         eventManager.SubscribeOnEnemyDeath(OnEnemyDeath);
         StartCoroutine(WaitTimeBeforeAttackIntoStart());
@@ -476,7 +475,7 @@ public class Enemy : IHealthObject
     {
         if(this.enemy != null && this.enemy.TryGetComponent(out Enemy myEnemy))
         {
-            if (enemy == myEnemy)
+            if (enemy == myEnemy && navMeshAgent.isOnNavMesh)
             {
                 this.enemy = null;
                 GetNearnestEnemyAsTarget(); 
