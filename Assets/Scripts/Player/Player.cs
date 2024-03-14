@@ -32,7 +32,6 @@ public class Player : IHealthObject
     [SerializeField] private bool isImmortall;
 
     public bool SetImmortall { get => isImmortall;  set => isImmortall = value;  }
-
     protected void Start()
     {
         isImmortall = false;

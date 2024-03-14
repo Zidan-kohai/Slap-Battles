@@ -366,6 +366,7 @@ GameObject:
   - component: {fileID: 4743231530495693012}
   - component: {fileID: 377401895270138371}
   - component: {fileID: 7680166866182677732}
+  - component: {fileID: 1005442204059439690}
   m_Layer: 5
   m_Name: MobileInput Panel
   m_TagString: Untagged
@@ -435,6 +436,24 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1005442204059439690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5480569840886484247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f86415a17cb1fcb4c97c96873745ba58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  joystick: {fileID: 4633554384911446298}
+  swipePanel: {fileID: 4925480625195712138}
+  attackButton: {fileID: 5482686512998810384}
+  superPowerButton: {fileID: 3154954722977349053}
+  jumpButton: {fileID: 1516342098913789915}
+  slapPower: {fileID: 0}
 --- !u!1 &6445806782329317675
 GameObject:
   m_ObjectHideFlags: 0
@@ -910,6 +929,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
+--- !u!114 &4633554384911446298 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8170153791668043265, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
+  m_PrefabInstance: {fileID: 3544199590028152603}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a47f546fc70ec8428172694e78e4288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &4633554384911446303 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8170153791668043268, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}

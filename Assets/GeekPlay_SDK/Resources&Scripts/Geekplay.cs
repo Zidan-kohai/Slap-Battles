@@ -120,12 +120,7 @@ public class Geekplay : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P) && !isOnPromocodeZone)
-        {
-            PlayerData = new PlayerData();
-            Save();
-        }
-        else if (Input.GetKeyDown(KeyCode.Tab) && canPause)
+        if (Input.GetKeyDown(KeyCode.Tab) && canPause)
         {
             StopOrResume();
         }

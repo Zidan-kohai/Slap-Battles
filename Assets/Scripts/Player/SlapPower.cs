@@ -4,7 +4,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using static UnityEngine.EventSystems.EventTrigger;
 
 public class SlapPower : MonoBehaviour
 {
@@ -24,6 +23,8 @@ public class SlapPower : MonoBehaviour
 
     private bool isPowerActivated;
 
+    public bool HasSuperPower {  get => slap.GetSlapPowerType() != SlapPowerType.Standart; }
+
     [Header("Wall Power")]
     [SerializeField] private GameObject wallGameobject;
     [SerializeField] private List<Collider> playerCollider;
@@ -40,6 +41,8 @@ public class SlapPower : MonoBehaviour
     [SerializeField] private float snowyPowerSphereRadius;
     [SerializeField] private float freezingFactor;
     private Collider[] freezedEnemies;
+
+    [Header("Teleport")]
 
     [Header("Time")]
     [SerializeField] private Vector3 activatePosition;

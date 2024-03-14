@@ -21,8 +21,7 @@ public class FloatingJoystick : Joystick
 
     public override void OnPointerUp(PointerEventData eventData)
     {
-        background.anchoredPosition = ScreenPointToAnchoredPosition(new Vector2(250, 250));
         //background.gameObject.SetActive(false);
         base.OnPointerUp(eventData);
     }
-}
+} 

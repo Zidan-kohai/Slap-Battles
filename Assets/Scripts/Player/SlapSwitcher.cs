@@ -16,7 +16,7 @@ public class SlapSwitcher : MonoBehaviour
     [SerializeField] private TextMeshProUGUI powerDescription;
     //[SerializeField] private Image powerRollbackTime;
 
-    private void Start()
+    private void Awake()
     {
         Slap slap = SwitchSlap(Geekplay.Instance.PlayerData.currentSlap);
         playerAttack.ChangeSlap(slap);
