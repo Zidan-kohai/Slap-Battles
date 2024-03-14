@@ -176,7 +176,7 @@ public class StaticHubTextTranslator : MonoBehaviour
             portalTheifText.text = "Tokat Hirsizi";
             portalAceText.text = "Kar modu";
             portalBossText.text = "Patron";
-            portalTimeText.text = "Zamanlayici modu";
+            portalTimeText.text = "Zamanlayici";
 
 
             skineShopMainHeaderText.text = "Dis Gorunum Magazasi";

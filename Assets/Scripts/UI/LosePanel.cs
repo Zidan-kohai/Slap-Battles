@@ -65,7 +65,40 @@ public class LosePanel : MonoBehaviour
         }
         else if(lastedTime > 0)
         {
-            lastedTimeToLoadHubText.text = string.Format("{0:f0}", lastedTime);
+            if (Geekplay.Instance.language == "ru")
+            {
+                if (lastedTime >= 5f)
+                {
+                    lastedTimeToLoadHubText.text = string.Format("{0:f0}", lastedTime) + " секунд";
+                }
+                else if (lastedTime >= 2)
+                {
+                    lastedTimeToLoadHubText.text = string.Format("{0:f0}", lastedTime) + " секунды";
+                }
+                else
+                {
+                    lastedTimeToLoadHubText.text = string.Format("{0:f0}", lastedTime) + " секунда";
+                }
+            }
+            if (Geekplay.Instance.language == "en")
+            {
+                if (lastedTime >= 5f)
+                {
+                    lastedTimeToLoadHubText.text = string.Format("{0:f0}", lastedTime) + " socond";
+                }
+                else if (lastedTime >= 2f)
+                {
+                    lastedTimeToLoadHubText.text = string.Format("{0:f0}", lastedTime) + " soconds";
+                }
+                else
+                {
+                    lastedTimeToLoadHubText.text = string.Format("{0:f0}", lastedTime) + " socond";
+                }
+            }
+            if (Geekplay.Instance.language == "tr")
+            {
+                lastedTimeToLoadHubText.text = string.Format("{0:f0}", lastedTime) + " saniye";
+            }
             slider.value = lastedTime;
         }
     }

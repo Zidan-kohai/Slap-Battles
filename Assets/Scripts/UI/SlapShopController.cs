@@ -96,22 +96,67 @@ public class SlapShopController : MonoBehaviour
 
                 if (Geekplay.Instance.PlayerData.currentSlap == buyable.GetIndexOfSlap)
                 {
-                    buyText.text = "Надето";
+                    if (Geekplay.Instance.language == "ru")
+                    {
+                        buyText.text = "Надето";
+                    }
+                    else if (Geekplay.Instance.language == "en") 
+                    {
+                        buyText.text = "Wearing";
+                    }
+                    else if (Geekplay.Instance.language == "tr")
+                    {
+                        buyText.text = "giyme";
+                    }
                 }
                 else
                 {
-                    buyText.text = "Надеть";
+                    if (Geekplay.Instance.language == "ru")
+                    {
+                        buyText.text = "Надеть";
+                    }
+                    else if (Geekplay.Instance.language == "en")
+                    {
+                        buyText.text = "Put on";
+                    }
+                    else if (Geekplay.Instance.language == "tr")
+                    {
+                        buyText.text = "Giymek";
+                    }
 
                     buyButton.onClick.AddListener(() =>
                     {
                         slapSwitcher.SaveAndSwitchSlap(buyable.GetIndexOfSlap);
-                        buyText.text = "Надето";
+
+                        if (Geekplay.Instance.language == "ru")
+                        {
+                            buyText.text = "Надето";
+                        }
+                        else if (Geekplay.Instance.language == "en")
+                        {
+                            buyText.text = "Wearing";
+                        }
+                        else if (Geekplay.Instance.language == "tr")
+                        {
+                            buyText.text = "giyme";
+                        }
                     });
                 }
             }
             else
             {
-                buyText.text = $"купить {buyable.GetCost}";
+                if (Geekplay.Instance.language == "ru")
+                {
+                    buyText.text = $"купить {buyable.GetCost}";
+                }
+                else if (Geekplay.Instance.language == "en")
+                {
+                    buyText.text = $"Buy {buyable.GetCost}";
+                }
+                else if (Geekplay.Instance.language == "tr")
+                {
+                    buyText.text = $"satin almak {buyable.GetCost}";
+                }
 
                 if (buyable.costType == Buyable.TypeOfCost.money)
                 {
@@ -131,7 +176,18 @@ public class SlapShopController : MonoBehaviour
                         slapSwitcher.SwitchAndBuySlap(buyable.GetIndexOfSlap);
 
                         buyable.Buy();
-                        buyText.text = "Надето";
+                        if (Geekplay.Instance.language == "ru")
+                        {
+                            buyText.text = "Надето";
+                        }
+                        else if (Geekplay.Instance.language == "en")
+                        {
+                            buyText.text = "Wearing";
+                        }
+                        else if (Geekplay.Instance.language == "tr")
+                        {
+                            buyText.text = "giyme";
+                        }
                         eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
 
                         buySlapIcon.SetActive(false);
@@ -141,6 +197,7 @@ public class SlapShopController : MonoBehaviour
                         Analytics.Instance.SendEvent($"Buy_Glove_{buyable.GetIndexOfSlap}");
                     });
                 }
+
                 else
                 {
                     buyButton.onClick.AddListener(() =>

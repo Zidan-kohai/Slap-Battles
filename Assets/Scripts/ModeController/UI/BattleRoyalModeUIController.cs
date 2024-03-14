@@ -51,7 +51,18 @@ public class BattleRoyalModeUIController : MonoBehaviour
         
         winPanel.gameObject.SetActive(true);
         
-        winPanelHeaderText.text = "Победа";
+        if(Geekplay.Instance.language == "ru")
+        {
+            winPanelHeaderText.text = "Победа";
+        }
+        else if(Geekplay.Instance.language == "en")
+        {
+            winPanelHeaderText.text = "Win";
+        }
+        else if(Geekplay.Instance.language == "tr")
+        {
+
+        }
 
         placeText.text = place.ToString();
         placeSlapRewardText.text = modeController.placeRewards[place - 1].SlapCount.ToString();
