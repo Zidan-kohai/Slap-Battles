@@ -327,7 +327,7 @@ public class Enemy : IHealthObject
 
     protected void GetNearnestEnemyAsTarget()
     {
-        Collider[] colls = Physics.OverlapSphere(transform.position, 1000f, enemyLayer, QueryTriggerInteraction.Ignore);
+        Collider[] colls = Physics.OverlapSphere(transform.position, 100f, enemyLayer, QueryTriggerInteraction.Ignore);
 
         float minDistanse = Mathf.Infinity;
         enemy = null;
