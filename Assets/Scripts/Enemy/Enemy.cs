@@ -149,7 +149,7 @@ public class Enemy : IHealthObject
 
     protected virtual void Attack()
     {
-        if ((target - transform.position).magnitude > distanseToAttack || !IsInSight()) return;
+        if ((target - transform.position).magnitude > distanseToAttack || !IsInSight() || IsDead) return;
 
         if(lastedTimeFromLastUseSuperPower > timeToUseSuperPower && !isPowerActivated && !isBoss)
         {
