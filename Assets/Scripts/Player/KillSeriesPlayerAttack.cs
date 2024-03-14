@@ -36,7 +36,7 @@ public class KillSeriesPlayerAttack : PlayerAttack
                 {
                     timeText.transform.localScale = new Vector3(1, 1, 1);
                     timeText.color = Color.white;
-                    isSequanseActive = false
+                    isSequanseActive = false;
                 });
         }
         if(timeRamainingToNextSlap < 0)
