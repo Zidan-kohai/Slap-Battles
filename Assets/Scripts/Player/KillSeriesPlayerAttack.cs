@@ -10,7 +10,7 @@ public class KillSeriesPlayerAttack : PlayerAttack
     [SerializeField] private TextMeshProUGUI timeText;
     [SerializeField] private Color textColor;
     [SerializeField] private Sequence sequence;
-
+    private bool isSequanseActive;
     private void Start()
     {
         eventManager.SubscribeOnPlayerRevive(OnRevive);
@@ -24,8 +24,9 @@ public class KillSeriesPlayerAttack : PlayerAttack
         timeRamainingToNextSlap -= Time.deltaTime;
         timeText.text = Convert.ToInt32(timeRamainingToNextSlap).ToString();
 
-        if(timeRamainingToNextSlap < 5 && !sequence.active)
+        if(timeRamainingToNextSlap < 5 && !isSequanseActive)
         {
+            isSequanseActive = true;
             timeText.color = Color.red;
             sequence = DOTween.Sequence().Append(timeText.transform.DOScale(new Vector3(1.3f, 1.3f, 1.3f), 0.5f).SetEase(Ease.Linear).OnComplete(
                 () => 
@@ -35,6 +36,7 @@ public class KillSeriesPlayerAttack : PlayerAttack
                 {
                     timeText.transform.localScale = new Vector3(1, 1, 1);
                     timeText.color = Color.white;
+                    isSequanseActive = false
                 });
         }
         if(timeRamainingToNextSlap < 0)
