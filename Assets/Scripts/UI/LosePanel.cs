@@ -15,7 +15,7 @@ public class LosePanel : MonoBehaviour
     [SerializeField] protected TextMeshProUGUI lastedTimeToLoadHubText;
     [SerializeField] protected Slider slider;
     [SerializeField] private GameObject rewardButton;
-
+    [SerializeField] private bool isRevivePanel = false;
     [SerializeField] protected float timeBeforeToLoadHub;
 
     protected bool flagThatUseToLoadSceneOneTime = true;
@@ -50,10 +50,7 @@ public class LosePanel : MonoBehaviour
         slider.maxValue = timeBeforeToLoadHub;
         lastedTime = timeBeforeToLoadHub;
 
-        if(earnedSlapCountBeforeDouble == 0 && earnedDiamondCountBeforeDouble == 0)
-        {
-            DisableRewardButton();
-        }
+        
     }
 
     protected void Update()
@@ -139,6 +136,11 @@ public class LosePanel : MonoBehaviour
 
         if (slapCountText != null)
             slapCountText.text = slapCount.ToString();
+
+        if (earnedSlapCountBeforeDouble == 0 && earnedDiamondCountBeforeDouble == 0 && !isRevivePanel)
+        {
+            DisableRewardButton();
+        }
     }
 
     public virtual int GetSlapCount() => earnedSlapCountBeforeDouble;
@@ -149,6 +151,11 @@ public class LosePanel : MonoBehaviour
 
         if (diamondCountText != null)
             diamondCountText.text = diamondCount.ToString();
+
+        if (earnedSlapCountBeforeDouble == 0 && earnedDiamondCountBeforeDouble == 0 && !isRevivePanel)
+        {
+            DisableRewardButton();
+        }
     }
 
     public virtual int GetDiamondCount() => earnedDiamondCountBeforeDouble;

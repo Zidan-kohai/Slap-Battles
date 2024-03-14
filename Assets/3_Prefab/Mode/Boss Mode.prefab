@@ -608,11 +608,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2095351787524651051, guid: bfde11028648a1844b832854c84afb0a, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2095351787524651051, guid: bfde11028648a1844b832854c84afb0a, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3329874240703287508, guid: bfde11028648a1844b832854c84afb0a, type: 3}
       propertyPath: m_Pivot.x
@@ -694,6 +694,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3831295824270862634, guid: bfde11028648a1844b832854c84afb0a, type: 3}
+      propertyPath: en
+      value: "You lost. \nDo you want to be resurrected?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3831295824270862634, guid: bfde11028648a1844b832854c84afb0a, type: 3}
+      propertyPath: ru
+      value: "\u0412\u044B \u043F\u0440\u043E\u0438\u0433\u0440\u0430\u043B\u0438
+        \n\u0425\u043E\u0442\u0438\u0442\u0435 \u0432\u043E\u0441\u043A\u0440\u0435\u0441\u043D\u0443\u0442\u044C?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3831295824270862634, guid: bfde11028648a1844b832854c84afb0a, type: 3}
+      propertyPath: tr
+      value: "Sen kaybettin, \ndirilmek ister misin?"
+      objectReference: {fileID: 0}
     - target: {fileID: 5053825937254188354, guid: bfde11028648a1844b832854c84afb0a, type: 3}
       propertyPath: eventManager
       value: 
@@ -704,7 +717,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5972107220359461880, guid: bfde11028648a1844b832854c84afb0a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329164249696747872, guid: bfde11028648a1844b832854c84afb0a, type: 3}
+      propertyPath: m_margin.x
+      value: -43.526367
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329164249696747872, guid: bfde11028648a1844b832854c84afb0a, type: 3}
+      propertyPath: m_margin.y
+      value: -24.184021
+      objectReference: {fileID: 0}
+    - target: {fileID: 7329164249696747872, guid: bfde11028648a1844b832854c84afb0a, type: 3}
+      propertyPath: m_margin.z
+      value: -41.0979
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -906,23 +931,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6359071089800084981, guid: e5cf8b43aaeabff4980bf40bb30fb074, type: 3}
       propertyPath: m_text
-      value: "\u0420\u0435\u0436\u0438\u043C \u0431\u043E\u0441, \u043E\u0434\u043E\u043B\u0435\u0439\u0442\u0435
-        \u0435\u0433\u043E \u0447\u0442\u043E\u0431\u044B \u043F\u043E\u043B\u0443\u0447\u0438\u0442\u044C
-        \u043D\u0430\u0433\u0440\u0430\u0434\u0443"
+      value: "<color=\"orange\"> \u0431\u043E\u0441\u0441 </color> \n\u0432\u043C\u0435\u0441\u0442\u0435
+        \u043E\u0434\u043E\u043B\u0435\u0439\u0442\u0435 \u0431\u043E\u043B\u044C\u0448\u043E\u0433\u043E
+        \u0432\u0440\u0430\u0433\u0430"
       objectReference: {fileID: 0}
     - target: {fileID: 6605799510950059334, guid: e5cf8b43aaeabff4980bf40bb30fb074, type: 3}
       propertyPath: en
-      value: Boss mode, defeat him to get a reward
+      value: "<color=\"orange\"> boss </color> \ndefeat the big enemy together"
       objectReference: {fileID: 0}
     - target: {fileID: 6605799510950059334, guid: e5cf8b43aaeabff4980bf40bb30fb074, type: 3}
       propertyPath: ru
-      value: "\u0420\u0435\u0436\u0438\u043C \u0431\u043E\u0441, \u043E\u0434\u043E\u043B\u0435\u0439\u0442\u0435
-        \u0435\u0433\u043E \u0447\u0442\u043E\u0431\u044B \u043F\u043E\u043B\u0443\u0447\u0438\u0442\u044C
-        \u043D\u0430\u0433\u0440\u0430\u0434\u0443"
+      value: "<color=\"orange\"> \u0431\u043E\u0441\u0441 </color> \n\u0432\u043C\u0435\u0441\u0442\u0435
+        \u043E\u0434\u043E\u043B\u0435\u0439\u0442\u0435 \u0431\u043E\u043B\u044C\u0448\u043E\u0433\u043E
+        \u0432\u0440\u0430\u0433\u0430"
       objectReference: {fileID: 0}
     - target: {fileID: 6605799510950059334, guid: e5cf8b43aaeabff4980bf40bb30fb074, type: 3}
       propertyPath: tr
-      value: Patron modu, odul almak icin onu yen
+      value: '<color="orange"> patron </color>
+
+        buyuk dusmani birlikte yen'
       objectReference: {fileID: 0}
     - target: {fileID: 8563723903673106925, guid: e5cf8b43aaeabff4980bf40bb30fb074, type: 3}
       propertyPath: m_AnchoredPosition.y

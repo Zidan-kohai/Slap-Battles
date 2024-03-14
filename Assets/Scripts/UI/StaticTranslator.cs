@@ -6,9 +6,9 @@ using UnityEngine;
 public class StaticTranslator : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI text;
-    public string ru;
-    public string en;
-    public string tr;
+    [Multiline] public string ru;
+    [Multiline] public string en;
+    [Multiline] public string tr;
 
     private void Start()
     {

@@ -80,7 +80,7 @@ public class Enemy : IHealthObject
         currenthealth = maxHealth;
         healthbar.fillAmount = currenthealth / maxHealth;
 
-        GetNearnestEnemyAsTarget();
+        //GetNearnestEnemyAsTarget();
 
         eventManager.SubscribeOnEnemyDeath(OnEnemyDeath);
         StartCoroutine(WaitTimeBeforeAttackIntoStart());
@@ -457,6 +457,7 @@ public class Enemy : IHealthObject
         navMeshAgent.speed = startSpeed;
         Canvas.SetActive(true);
         collider.enabled = true;
+        GetNearnestEnemyAsTarget();
     }
 
     public override void Death(bool playDeathAnimation = true)

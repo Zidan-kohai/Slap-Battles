@@ -55,6 +55,7 @@ public class StaticHubTextTranslator : MonoBehaviour
     [SerializeField] private TextMeshProUGUI speedKeyIncreaseSpeedText;
     [SerializeField] private TextMeshProUGUI speedKeyIncreaseHPText;
     [SerializeField] private TextMeshProUGUI speedKeyDoubleSlapText;
+    [SerializeField] private TextMeshProUGUI promocodeGetText;
 
     private void Start()
     {
@@ -64,7 +65,7 @@ public class StaticHubTextTranslator : MonoBehaviour
             portalOnePunchText.text = "Один удар";
             portalBattleRoyalText.text = "Королевская битва";
             portalTheifText.text = "Вор шлепков";
-            portalAceText.text = "Леденой режим";
+            portalAceText.text = "Снежный режим";
             portalBossText.text = "Босс";
             portalTimeText.text = "Режим таймер";
 
@@ -76,8 +77,8 @@ public class StaticHubTextTranslator : MonoBehaviour
             buffText.text = "Здоровья";
 
 
-            slapShopMainHeaderText.text = "Магазин шлепков";
-            slapShopHeaderText.text = "Магазин шлепков";
+            slapShopMainHeaderText.text = "Магазин перчаток";
+            slapShopHeaderText.text = "Магазин перчаток";
 
 
             inAppShopMainHeaderText.text = "Ресурсы";
@@ -110,6 +111,7 @@ public class StaticHubTextTranslator : MonoBehaviour
             speedKeyIncreaseSpeedText.text = "нажмите Ч";
             speedKeyIncreaseHPText.text = "нажмите Р";
             speedKeyDoubleSlapText.text = "нажмите А";
+            promocodeGetText.text = "Забрать";
 
         }
         if (Geekplay.Instance.language == "en")
@@ -118,7 +120,7 @@ public class StaticHubTextTranslator : MonoBehaviour
             portalOnePunchText.text = "One Punch";
             portalBattleRoyalText.text = "Battle Royal";
             portalTheifText.text = "Slap Thief";
-            portalAceText.text = "Ice mode";
+            portalAceText.text = "Snow mode";
             portalBossText.text = "Boss";
             portalTimeText.text = "Timer mode";
 
@@ -130,8 +132,8 @@ public class StaticHubTextTranslator : MonoBehaviour
             buffText.text = "Health";
 
 
-            slapShopMainHeaderText.text = "Slap Shop";
-            slapShopHeaderText.text = "Slap Shop";
+            slapShopMainHeaderText.text = "Glove shop";
+            slapShopHeaderText.text = "Glove shop";
 
 
             inAppShopMainHeaderText.text = "Resources";
@@ -164,6 +166,7 @@ public class StaticHubTextTranslator : MonoBehaviour
             speedKeyIncreaseSpeedText.text = "press X";
             speedKeyIncreaseHPText.text = "press H";
             speedKeyDoubleSlapText.text = "press F";
+            promocodeGetText.text = "Get";
         }
         if (Geekplay.Instance.language == "tr")
         {
@@ -171,7 +174,7 @@ public class StaticHubTextTranslator : MonoBehaviour
             portalOnePunchText.text = "Tek Yumruk";
             portalBattleRoyalText.text = "Battle Royal";
             portalTheifText.text = "Tokat Hirsizi";
-            portalAceText.text = "Buz modu";
+            portalAceText.text = "Kar modu";
             portalBossText.text = "Patron";
             portalTimeText.text = "Zamanlayici modu";
 
@@ -183,8 +186,8 @@ public class StaticHubTextTranslator : MonoBehaviour
             buffText.text = "Saglik";
 
 
-            slapShopMainHeaderText.text = "Tokat Magazasi";
-            slapShopHeaderText.text = "Tokat Magazasi";
+            slapShopMainHeaderText.text = "Eldiven magazasi";
+            slapShopHeaderText.text = "Eldiven magazasi";
 
 
             inAppShopMainHeaderText.text = "Kaynaklar";
@@ -217,6 +220,7 @@ public class StaticHubTextTranslator : MonoBehaviour
             speedKeyIncreaseSpeedText.text = "X tusuna basin";
             speedKeyIncreaseHPText.text = "H tusuna basin";
             speedKeyDoubleSlapText.text = "F tusuna basin";
+            promocodeGetText.text = "almak";
         }
     }
 }

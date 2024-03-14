@@ -85,7 +85,6 @@ public class StandartMode : MonoBehaviour
     {
         player.transform.position = GetRandomPositionForPlayer();
         
-        
 
         for (int i = 0; i < enemyToSpawn; i++)
         {
@@ -115,35 +114,6 @@ public class StandartMode : MonoBehaviour
             {
                 enemies[i].transform.position = GetRandomPositionForEnemy();
                 enemies[i].Revive();
-
-                //float minDistance = Mathf.Infinity;
-                //IHealthObject target = null;
-                //float distance = 0;
-
-                //distance = (enemies[i].transform.position - player.transform.position).magnitude;
-
-                //if (minDistance > distance)
-                //{
-                //    minDistance = distance;
-                //    target = player;
-                //}
-
-                //for (int j = 0; j < enemyToSpawn; j++)
-                //{
-                //    if (i == j) continue;
-
-                //    distance = (enemies[i].transform.position - enemies[j].transform.position).magnitude;
-
-                //    if (minDistance > distance)
-                //    {
-                //        minDistance = distance;
-                //        target = enemies[j];
-                //    }
-
-                //}
-
-
-                //enemies[i].ChangeEnemy(target);
 
                 return;
             }
