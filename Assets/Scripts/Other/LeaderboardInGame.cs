@@ -14,15 +14,13 @@ public class LeaderboardInGame : MonoBehaviour
 
     private float timeFlag = 0;
 
-    private void Awake()
+    void Start()
     {
+
         Geekplay.Instance.leaderboardInGame = this;
 
         Geekplay.Instance.CheckBuysOnStart(Geekplay.Instance.PlayerData.lastBuy);
-    }
 
-    void Start()
-    {
         int time = Convert.ToInt32(Geekplay.Instance.remainingTimeUntilUpdateLeaderboard);
 
         if (Geekplay.Instance.language == "en")

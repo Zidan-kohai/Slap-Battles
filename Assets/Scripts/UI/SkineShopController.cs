@@ -200,7 +200,7 @@ public class SkineShopController : MonoBehaviour
         Debug.Log(buyable.gameObject.name + " " + buyable.GetBodyType);
         buyable.SubscribeOnClick(() =>
         {
-
+            Debug.Log(buyable.gameObject.name + " " + buyable.GetBodyType);
             buyButton.gameObject.SetActive(true);
             List<Material> material = new List<Material>();
             switch (buyable.GetBodyType)

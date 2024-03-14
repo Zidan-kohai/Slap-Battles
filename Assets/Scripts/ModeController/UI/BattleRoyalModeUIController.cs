@@ -61,7 +61,7 @@ public class BattleRoyalModeUIController : MonoBehaviour
         }
         else if(Geekplay.Instance.language == "tr")
         {
-
+            winPanelHeaderText.text = "Kazanñ";
         }
 
         placeText.text = place.ToString();
