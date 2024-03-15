@@ -1863,9 +1863,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7793397449025258893, guid: 839a55fd203e74641b4966959a491b9e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4607360560054220199}
-    - targetCorrespondingSourceObject: {fileID: 1621745803730594833, guid: 839a55fd203e74641b4966959a491b9e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7847085162862235777}
     - targetCorrespondingSourceObject: {fileID: 1579106369522656824, guid: 839a55fd203e74641b4966959a491b9e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5274436701789860472}
@@ -1892,7 +1889,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6019744699543699262, guid: 839a55fd203e74641b4966959a491b9e, type: 3}
   m_PrefabInstance: {fileID: 5825223256091477435}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5068450118718122410}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
@@ -2016,27 +2013,6 @@ MonoBehaviour:
   ru: "\u0412\u0430\u0448\u0435 \u043C\u0435\u0441\u0442\u043E:"
   en: 'Your place:'
   tr: 'Yerinizi:'
---- !u!1 &5068450118718122410 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1621745803730594833, guid: 839a55fd203e74641b4966959a491b9e, type: 3}
-  m_PrefabInstance: {fileID: 5825223256091477435}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7847085162862235777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5068450118718122410}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ed620ad22418e0459709b09dd6eabfb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 242407512383093381}
-  ru: "\u041F\u043E\u0440\u0430\u0436\u0435\u043D\u0438\u0435"
-  en: Lose
-  tr: Kaybetmek
 --- !u!114 &5218208595914254727 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1782744452087327804, guid: 839a55fd203e74641b4966959a491b9e, type: 3}

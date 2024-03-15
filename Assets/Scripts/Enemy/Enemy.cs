@@ -340,6 +340,7 @@ public class Enemy : IHealthObject
 
     protected void GetNearnestEnemyAsTarget()
     {
+        currentTimeChase = timeChase;
         Collider[] colls = Physics.OverlapSphere(transform.position, 100f, enemyLayer, QueryTriggerInteraction.Ignore);
 
         float minDistanse = Mathf.Infinity;

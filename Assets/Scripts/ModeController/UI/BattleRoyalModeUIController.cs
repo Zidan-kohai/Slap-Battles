@@ -37,6 +37,19 @@ public class BattleRoyalModeUIController : MonoBehaviour
             placeSlapRewardText.text = (Convert.ToInt32(placeSlapRewardText.text) + modeController.placeRewards[place].SlapCount).ToString();
             placeDiamondRewardText.text = (Convert.ToInt32(placeDiamondRewardText.text) + modeController.placeRewards[place].DiamondCount).ToString();
         }
+
+        if (Geekplay.Instance.language == "ru")
+        {
+            winPanelHeaderText.text = "Поражение";
+        }
+        else if (Geekplay.Instance.language == "en")
+        {
+            winPanelHeaderText.text = "Defeat";
+        }
+        else if (Geekplay.Instance.language == "tr")
+        {
+            winPanelHeaderText.text = "Yenmek";
+        }
     }
 
     private void OnEnemyDeath(Enemy  enemyObj)
