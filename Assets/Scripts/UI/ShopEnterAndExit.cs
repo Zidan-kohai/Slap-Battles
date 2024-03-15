@@ -50,6 +50,7 @@ public class ShopEnterAndExit : MonoBehaviour
         raycaster.enabled = false;
         speedKeysPanelOnDesc.SetActive(false);
         speedKeysPanelOnMobile.SetActive(false);
+        Geekplay.Instance.canPause = false;
 
         foreach (GameObject go in GOToDisableWhenOpenShop)
         {
@@ -100,6 +101,8 @@ public class ShopEnterAndExit : MonoBehaviour
         {
             go.SetActive(true);
         }
+
+        Geekplay.Instance.canPause = true;
 
     }
 }

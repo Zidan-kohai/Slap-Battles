@@ -40,6 +40,11 @@ public class StaticHubTextTranslator : MonoBehaviour
     [SerializeField] private TextMeshProUGUI item11Cost;
     [SerializeField] private TextMeshProUGUI item11SpecialText;
 
+    [Header("Tutor")]
+    [SerializeField] private TextMeshProUGUI tutorHeaderText;
+    [SerializeField] private TextMeshProUGUI tutorBodyText;
+    [SerializeField] private TextMeshProUGUI tutorCloseText;
+
     [Header("Other")]
     [SerializeField] private TextMeshProUGUI GameDescription;
     [SerializeField] private TextMeshProUGUI Rules;
@@ -56,6 +61,7 @@ public class StaticHubTextTranslator : MonoBehaviour
     [SerializeField] private TextMeshProUGUI speedKeyIncreaseHPText;
     [SerializeField] private TextMeshProUGUI speedKeyDoubleSlapText;
     [SerializeField] private TextMeshProUGUI promocodeGetText;
+    [SerializeField] private TextMeshProUGUI telegramText;
 
     private void Start()
     {
@@ -113,6 +119,11 @@ public class StaticHubTextTranslator : MonoBehaviour
             speedKeyDoubleSlapText.text = "нажмите А";
             promocodeGetText.text = "Забрать";
 
+            tutorHeaderText.text = "Привет!";
+            tutorBodyText.text = "Ты находишься в хабе. Используй порталы, чтобы играть и заходи в магазины, чтобы прокачиваться. Удачи!";
+            tutorCloseText.text = "Закрыть";
+            telegramText.text = "Телеграм";
+
         }
         if (Geekplay.Instance.language == "en")
         {
@@ -167,6 +178,11 @@ public class StaticHubTextTranslator : MonoBehaviour
             speedKeyIncreaseHPText.text = "press H";
             speedKeyDoubleSlapText.text = "press F";
             promocodeGetText.text = "Get";
+
+            tutorHeaderText.text = "Hello!";
+            tutorBodyText.text = "You are in the hub. Use portals to play and go to stores to upgrade. Good luck!";
+            tutorCloseText.text = "Close";
+            telegramText.text = "Telegram";
         }
         if (Geekplay.Instance.language == "tr")
         {
@@ -221,6 +237,11 @@ public class StaticHubTextTranslator : MonoBehaviour
             speedKeyIncreaseHPText.text = "H tusuna basin";
             speedKeyDoubleSlapText.text = "F tusuna basin";
             promocodeGetText.text = "almak";
+
+            tutorHeaderText.text = "Merhaba!";
+            tutorBodyText.text = "Merkezdesiniz. Oynamak icin portallari kullanin ve yukseltme yapmak icin magazalara gidin. Iyi sanslar!";
+            tutorCloseText.text = "Kapat";
+            telegramText.text = "Telegram";
         }
     }
 }

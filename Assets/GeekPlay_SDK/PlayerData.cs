@@ -63,4 +63,5 @@ public class PlayerData
     public bool review;
 
     public int GamemodeCounter;
+    public bool IsFirstPlay = true;
 }

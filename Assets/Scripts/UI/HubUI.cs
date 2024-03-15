@@ -9,7 +9,7 @@ public class HubUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI slapCountText;
     [SerializeField] private TextMeshProUGUI diamondCountText;
     [SerializeField] private GameObject mobilePanel;
-
+    [SerializeField] private GameObject TutorPanel;
     private void Start()
     {
         slapCountText.text = Geekplay.Instance.PlayerData.money.ToString();
@@ -25,6 +25,15 @@ public class HubUI : MonoBehaviour
         {
             mobilePanel.SetActive(false);
         }
+        
+        if(Geekplay.Instance.PlayerData.IsFirstPlay)
+        {
+            TutorPanel.gameObject.SetActive(true);
+            Geekplay.Instance.StopOrResumeWithoutPausePanel();
+            Geekplay.Instance.PlayerData.IsFirstPlay = false;
+            CanPause(canPause: false);
+        }
+
     }
 
     private void ChangeMoney(int slapCount, int diamondCount)
@@ -36,5 +45,10 @@ public class HubUI : MonoBehaviour
     public void Pause()
     {
         Geekplay.Instance.StopOrResume();
+    }
+
+    public void CanPause(bool canPause)
+    {
+        Geekplay.Instance.canPause = canPause;
     }
 }
