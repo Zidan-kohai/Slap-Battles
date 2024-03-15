@@ -99,7 +99,7 @@ public class PlayerAttack : MonoBehaviour
             Vector3 raycastDirection = Quaternion.Euler(0, currentAngle, 0) * slapRaycaster.forward;
 
             RaycastHit hit;
-            if (Physics.SphereCast(slapRaycaster.position + Delta, 0.5f,raycastDirection, out hit, RaycastDistance, enemyLayer, QueryTriggerInteraction.Ignore))
+            if (Physics.SphereCast(slapRaycaster.position + Delta, 0.25f,raycastDirection, out hit, RaycastDistance, enemyLayer, QueryTriggerInteraction.Ignore))
             {
                 Debug.Log("Raycast hit at angle " + currentAngle + " degrees. Hit object: " + hit.collider.gameObject.name);
 
