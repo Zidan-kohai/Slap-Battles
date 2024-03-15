@@ -1814,6 +1814,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlaceRewardText (TMP)
       objectReference: {fileID: 0}
+    - target: {fileID: 3512004107499522594, guid: 839a55fd203e74641b4966959a491b9e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 507.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 3512004107499522594, guid: 839a55fd203e74641b4966959a491b9e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.99989
+      objectReference: {fileID: 0}
     - target: {fileID: 3681562192666449473, guid: 839a55fd203e74641b4966959a491b9e, type: 3}
       propertyPath: m_SizeDelta.x
       value: 138.5502
@@ -1838,13 +1846,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ShowRewardedADV
       objectReference: {fileID: 0}
+    - target: {fileID: 8657285374766460853, guid: 839a55fd203e74641b4966959a491b9e, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8711177437376232247, guid: 839a55fd203e74641b4966959a491b9e, type: 3}
       propertyPath: eventManager
       value: 
       objectReference: {fileID: 3237182903930966125}
     m_RemovedComponents:
     - {fileID: 8711177437376232247, guid: 839a55fd203e74641b4966959a491b9e, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2788850260913561727, guid: 839a55fd203e74641b4966959a491b9e, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7793397449025258893, guid: 839a55fd203e74641b4966959a491b9e, type: 3}

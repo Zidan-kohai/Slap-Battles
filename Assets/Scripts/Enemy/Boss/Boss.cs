@@ -9,7 +9,7 @@ public class Boss : Enemy
     {
         if (IsDead) return;
         isDead = true;
-        gameObject.SetActive(false);
+        animator.SetTrigger("Death");
         eventManager.InvokeActionsOnBossDeath();
         eventManager.InvokeActionsOnEnemyDeath(this);
     }
