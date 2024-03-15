@@ -76,26 +76,27 @@ public class LosePanel : MonoBehaviour
         {
             if (Geekplay.Instance.language == "ru")
             {
-                if (lastedTime >= 5f)
+                if (lastedTime >= 4.5f)
                 {
                     lastedTimeToLoadHubText.text = string.Format("{0:f0}", lastedTime) + " секунд";
                 }
-                else if (lastedTime >= 2)
+                else if (lastedTime >= 1.5f)
                 {
+                    Debug.Log($"<color=\"green\"> число {lastedTime} ------------- {string.Format("{0:f0}", lastedTime)}<color>");
                     lastedTimeToLoadHubText.text = string.Format("{0:f0}", lastedTime) + " секунды";
+                }
+                else if(lastedTime >= 0.5f)
+                {
+                    lastedTimeToLoadHubText.text = string.Format("{0:f0}", lastedTime) + " секунда";
                 }
                 else
                 {
-                    lastedTimeToLoadHubText.text = string.Format("{0:f0}", lastedTime) + " секунда";
+                    lastedTimeToLoadHubText.text = string.Format("{0:f0}", lastedTime) + " секунд";
                 }
             }
             if (Geekplay.Instance.language == "en")
             {
-                if (lastedTime >= 5f)
-                {
-                    lastedTimeToLoadHubText.text = string.Format("{0:f0}", lastedTime) + " socond";
-                }
-                else if (lastedTime >= 2f)
+                if (lastedTime >= 1.5f)
                 {
                     lastedTimeToLoadHubText.text = string.Format("{0:f0}", lastedTime) + " soconds";
                 }

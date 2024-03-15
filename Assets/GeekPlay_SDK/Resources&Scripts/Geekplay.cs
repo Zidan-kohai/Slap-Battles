@@ -118,6 +118,7 @@ public class Geekplay : MonoBehaviour
     {
         pastedTimeFromLastInterstitial = interstitialTime;
         Analytics.Instance.SendEvent("Start");
+
         if (!Instance.mobile)
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -126,7 +127,6 @@ public class Geekplay : MonoBehaviour
 
         AudioListener.volume = PlayerData.IsVolumeOn ? 1 : 0;
         sceneLoader = new SceneLoader(this, curtain, curtainLoadVisual);
-        //CheckBuysOnStart(PlayerData.lastBuy);
     }
     private void Update()
     {
@@ -139,7 +139,7 @@ public class Geekplay : MonoBehaviour
 
         remainingTimeUntilUpdateLeaderboard -= Time.deltaTime;
 
-        if(pastedTimeFromLastInterstitial < 6 && currentMode == Modes.Hub)
+        if(pastedTimeFromLastInterstitial < 6 && currentMode == Modes.Hub && !adOpen)
         {
             interstitialPanel.SetActive(true);
 
@@ -158,8 +158,6 @@ public class Geekplay : MonoBehaviour
             if(pastedTimeFromLastInterstitial <= 0)
             {
                 ShowInterstitialAd();
-                pastedTimeFromLastInterstitial = interstitialTime;
-                interstitialPanel.SetActive(false);
             }
         }
         else if(currentMode != Modes.Hub)
@@ -664,7 +662,7 @@ public class Geekplay : MonoBehaviour
                 {
                     PlayerData = new PlayerData();
                 }
-                language = "tr"; //ВЫБРАТЬ ЯЗЫК ДЛЯ ТЕСТОВ. ru/en/tr/
+                language = "ru"; //ВЫБРАТЬ ЯЗЫК ДЛЯ ТЕСТОВ. ru/en/tr/
                 Localization();
                 break;
             case Platform.Yandex:
@@ -891,6 +889,7 @@ public class Geekplay : MonoBehaviour
     {
         adOpen = true;
         canShowAd = false;
+        canPause = false;
         StartCoroutine(CanAdShow());
         AudioListener.volume = 0;
         AudioListener.pause = true;
@@ -901,6 +900,7 @@ public class Geekplay : MonoBehaviour
     {
         pastedTimeFromLastInterstitial = interstitialTime;
         interstitialPanel.SetActive(false);
+        canPause = true;
 
         if (isOnPause)
         {
