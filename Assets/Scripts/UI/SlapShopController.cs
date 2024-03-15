@@ -96,6 +96,7 @@ public class SlapShopController : MonoBehaviour
             buyableSlaps[9].Buyed();
             buyableSlaps[11].Buyed();
             buyableSlaps[12].Buyed();
+            Geekplay.Instance.Save();
         }
         else
         {
@@ -139,6 +140,8 @@ public class SlapShopController : MonoBehaviour
             {
                 item.Buyed();
             }
+
+            Geekplay.Instance.Save();
         }
         else
         {

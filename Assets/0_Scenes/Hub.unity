@@ -50297,7 +50297,7 @@ MonoBehaviour:
   playerMover: {fileID: 1689149131}
   cameraController: {fileID: 1623463295}
   cinemashine: {fileID: 2142718904}
-  shopObject: {fileID: 3351216303906217517}
+  shopObject: {fileID: 810770650189994917}
   shopItemHandler: {fileID: 810770650189994916}
   raycaster: {fileID: 810770650189994915}
   MobileInput: {fileID: 2125835701}
@@ -53058,7 +53058,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8671558296246567956, guid: 02a79a888ca434c45ac3cb522a1e114a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8693832138742844875, guid: 02a79a888ca434c45ac3cb522a1e114a, type: 3}
       propertyPath: m_fontAsset
@@ -53085,7 +53085,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9042662997097356975, guid: 02a79a888ca434c45ac3cb522a1e114a, type: 3}
   m_PrefabInstance: {fileID: 810770650189994914}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3351216303906217517}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
@@ -53094,6 +53094,11 @@ MonoBehaviour:
 --- !u!224 &810770650189994916 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2969187434853878640, guid: 02a79a888ca434c45ac3cb522a1e114a, type: 3}
+  m_PrefabInstance: {fileID: 810770650189994914}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &810770650189994917 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8012181329326883226, guid: 02a79a888ca434c45ac3cb522a1e114a, type: 3}
   m_PrefabInstance: {fileID: 810770650189994914}
   m_PrefabAsset: {fileID: 0}
 --- !u!23 &814049404850562544
@@ -60149,11 +60154,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &3351216303906217517 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8671558296246567956, guid: 02a79a888ca434c45ac3cb522a1e114a, type: 3}
-  m_PrefabInstance: {fileID: 810770650189994914}
-  m_PrefabAsset: {fileID: 0}
 --- !u!65 &3386814945515913648
 BoxCollider:
   m_ObjectHideFlags: 0
