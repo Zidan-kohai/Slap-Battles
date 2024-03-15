@@ -64,4 +64,6 @@ public class PlayerData
 
     public int GamemodeCounter;
     public bool IsFirstPlay = true;
+    internal bool BuyAllSlaps = false;
+    internal bool BuyThreeSlaps = false;
 }

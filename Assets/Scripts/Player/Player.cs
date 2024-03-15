@@ -141,6 +141,7 @@ public class Player : IHealthObject
         animator.SetTrigger("Revive");
         currenthealth = maxHealth;
         healthbar.fillAmount = (currenthealth / maxHealth);
+        playerCanvas.SetActive(true);
     }
     public IEnumerator GetDamageAnimation(Vector3 direction)
     {

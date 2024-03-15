@@ -17,6 +17,8 @@ public class InAppShop : MonoBehaviour
         Geekplay.Instance.SubscribeOnPurshace("ItemDiamond4", ItemDiamond4);
         Geekplay.Instance.SubscribeOnPurshace("ItemDiamond5", ItemDiamond5);
         Geekplay.Instance.SubscribeOnPurshace("ItemSlapAndDiamond", ItemSlapAndDiamond);
+
+        Geekplay.Instance.CheckBuysOnStart(Geekplay.Instance.PlayerData.lastBuy);
     }
     public void RealBuy(string tag)
     {

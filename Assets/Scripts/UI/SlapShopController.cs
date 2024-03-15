@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,7 +21,12 @@ public class SlapShopController : MonoBehaviour
     [SerializeField] private HubEventManager eventManager;
     [SerializeField] private ShopEnterAndExit inAppShop;
 
+
+    [SerializeField] private Button buyThreeSlapButton;
+    [SerializeField] private Button buyAllSlapsButton;
+
     private GameObject selectedIcons;
+    [SerializeField] private int currentSlapIndexOnShop;
     private void OnEnable()
     {
         slapSwitcher.ShowSlaps();
@@ -34,15 +40,58 @@ public class SlapShopController : MonoBehaviour
         {
             AddEventForBuyableSlap(buyableSlaps[i]);
         }
+
+        if(Geekplay.Instance.PlayerData.BuyAllSlaps)
+        {
+            buyAllSlapsButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            buyAllSlapsButton.onClick.AddListener(GiveAllSlaps);
+        }
+
+        if(Geekplay.Instance.PlayerData.BuyThreeSlaps)
+        {
+            buyThreeSlapButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            buyThreeSlapButton.onClick.AddListener(Give3Slap);
+        }
     }
 
-    public void Give3Slap(int cost)
+    public void Give3Slap()
     {
-
-        if (Geekplay.Instance.PlayerData.DiamondMoney >= cost)
+        if (Geekplay.Instance.PlayerData.DiamondMoney >= 50)
         {
+            Geekplay.Instance.PlayerData.DiamondMoney -= 50;
             eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
             Geekplay.Instance.StartRatingSystem();
+
+            Geekplay.Instance.PlayerData.BuyThreeSlaps = true;
+            buyThreeSlapButton.gameObject.SetActive(false);
+
+
+            if(currentSlapIndexOnShop == 9 || currentSlapIndexOnShop == 11 || currentSlapIndexOnShop == 12)
+            {
+                if (!buyableSlaps[currentSlapIndexOnShop].GetIsBuyed)
+                {
+                    if (Geekplay.Instance.language == "ru")
+                    {
+                        buyText.text = "Надеть";
+                    }
+                    else if (Geekplay.Instance.language == "en")
+                    {
+                        buyText.text = "Put on";
+                    }
+                    else if (Geekplay.Instance.language == "tr")
+                    {
+                        buyText.text = "Giymek";
+                    }
+                    buySlapIcon.SetActive(false);
+                    buyDiamondIcon.SetActive(false);
+                }
+            }
 
             buyableSlaps[9].Buyed();
             buyableSlaps[11].Buyed();
@@ -54,14 +103,37 @@ public class SlapShopController : MonoBehaviour
             gameObject.SetActive(false);
         }
 
+
     }
 
-    public void GiveAllSlaps(int cost)
+    public void GiveAllSlaps()
     {
-        if (Geekplay.Instance.PlayerData.DiamondMoney >= cost)
+        if (Geekplay.Instance.PlayerData.DiamondMoney >= 100)
         {
+            Geekplay.Instance.PlayerData.DiamondMoney -= 100;
             eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
             Geekplay.Instance.StartRatingSystem();
+            Geekplay.Instance.PlayerData.BuyAllSlaps = true;
+            buyAllSlapsButton.gameObject.SetActive(false);
+
+
+            if (!buyableSlaps[currentSlapIndexOnShop].GetIsBuyed)
+            {
+                if (Geekplay.Instance.language == "ru")
+                {
+                    buyText.text = "Надеть";
+                }
+                else if (Geekplay.Instance.language == "en")
+                {
+                    buyText.text = "Put on";
+                }
+                else if (Geekplay.Instance.language == "tr")
+                {
+                    buyText.text = "Giymek";
+                }
+                buySlapIcon.SetActive(false);
+                buyDiamondIcon.SetActive(false);
+            }
 
             foreach (var item in buyableSlaps)
             {
@@ -89,6 +161,8 @@ public class SlapShopController : MonoBehaviour
 
             ReplaceSelectedIcon(buyable);
 
+            currentSlapIndexOnShop = buyable.GetIndexOfSlap;
+
             if (buyable.GetIsBuyed)
             {
                 buySlapIcon.SetActive(false);
@@ -108,6 +182,7 @@ public class SlapShopController : MonoBehaviour
                     {
                         buyText.text = "giyme";
                     }
+
                 }
                 else
                 {
@@ -222,6 +297,7 @@ public class SlapShopController : MonoBehaviour
             if(Geekplay.Instance.PlayerData.currentSlap == buyable.GetIndexOfSlap)
             {
                 //Put on
+                currentSlapIndexOnShop = buyable.GetIndexOfSlap;
                 ReplaceSelectedIcon(buyable);
             }
         }

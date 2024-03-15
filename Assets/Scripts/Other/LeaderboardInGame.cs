@@ -16,10 +16,7 @@ public class LeaderboardInGame : MonoBehaviour
 
     void Start()
     {
-
         Geekplay.Instance.leaderboardInGame = this;
-
-        Geekplay.Instance.CheckBuysOnStart(Geekplay.Instance.PlayerData.lastBuy);
 
         int time = Convert.ToInt32(Geekplay.Instance.remainingTimeUntilUpdateLeaderboard);
 
