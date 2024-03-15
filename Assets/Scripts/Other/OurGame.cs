@@ -24,8 +24,8 @@ public class OurGame : MonoBehaviour
     {
         OurGamePanel.SetActive(false);
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
         Geekplay.Instance.canPause = true;
 
         Geekplay.Instance.StopOrResumeWithoutPausePanel();

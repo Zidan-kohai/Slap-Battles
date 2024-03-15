@@ -142,12 +142,12 @@ public class Geekplay : MonoBehaviour
         isOnPause = Time.timeScale == 0;
         Save();
 
-        if (Time.timeScale == 0)
+        if (Time.timeScale == 0 && !mobile)
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
-        else
+        else if(!mobile)
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -163,12 +163,12 @@ public class Geekplay : MonoBehaviour
 
         Save();
 
-        if (Time.timeScale == 0)
+        if (Time.timeScale == 0 && !mobile)
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
-        else
+        else if(!mobile)
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -626,7 +626,7 @@ public class Geekplay : MonoBehaviour
                 {
                     PlayerData = new PlayerData();
                 }
-                language = "en"; //ВЫБРАТЬ ЯЗЫК ДЛЯ ТЕСТОВ. ru/en/tr/
+                language = "ru"; //ВЫБРАТЬ ЯЗЫК ДЛЯ ТЕСТОВ. ru/en/tr/
                 Localization();
                 break;
             case Platform.Yandex:

@@ -272,6 +272,8 @@ MonoBehaviour:
   startSpeed: 0
   damagePower: 25
   distanseToAttack: 2
+  timeChase: 0
+  currentTimeChase: 0
   CanWalk: 0
   isSleeping: 0
   timeNextToAttack: 1.3
@@ -290,6 +292,7 @@ MonoBehaviour:
   sightAngle: 65
   slapAudio: {fileID: 6514512913643074078}
   deathAudio: {fileID: 7168160170236639598}
+  aaAudio: {fileID: 5519703403422982911}
   slap: {fileID: 0}
   timeToUseSuperPower: 10
   lastedTimeFromLastUseSuperPower: 0
@@ -325,6 +328,11 @@ Animator:
 --- !u!1 &4042158770565332906 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4154039595460676223, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
+  m_PrefabInstance: {fileID: 125745632463943125}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &5519703403422982911 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5559502410899740458, guid: 9ac003a6203dcdd40b986df10e59e24f, type: 3}
   m_PrefabInstance: {fileID: 125745632463943125}
   m_PrefabAsset: {fileID: 0}
 --- !u!54 &5588663857977714032 stripped
