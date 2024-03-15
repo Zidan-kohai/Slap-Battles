@@ -56,7 +56,7 @@ public class Geekplay : MonoBehaviour
 
     private IEnumerator cor;
     private string rewardTag; //Тэг награды
-    private bool adOpen; //Реклама открыта?
+    public bool adOpen; //Реклама открыта?
     private string purchasedTag; //Тэг покупки
     private bool wasLoad; //Игра загружалась?
     private bool canAd;
@@ -130,7 +130,7 @@ public class Geekplay : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab) && canPause)
+        if (Input.GetKeyDown(KeyCode.Tab) && canPause && !adOpen)
         {
             StopOrResume();
         }
@@ -147,16 +147,18 @@ public class Geekplay : MonoBehaviour
             {
                 interstitialRemainingText.text = "реклама через " + string.Format("{0:f0}", pastedTimeFromLastInterstitial);
             }
-            if (Instance.language == "en")
+            else if (Instance.language == "en")
             {
                 interstitialRemainingText.text = "advertising through " + string.Format("{0:f0}", pastedTimeFromLastInterstitial);
             }
-            if (Instance.language == "tr")
+            else if (Instance.language == "tr")
             {
                 interstitialRemainingText.text = "araciligiyla reklam vermek " + string.Format("{0:f0}", pastedTimeFromLastInterstitial);
             }
+
             if(pastedTimeFromLastInterstitial <= 0)
             {
+                Debug.Log("SHOW INTERSTITIAL");
                 ShowInterstitialAd();
             }
         }
@@ -178,7 +180,7 @@ public class Geekplay : MonoBehaviour
         isOnPause = Time.timeScale == 0;
         Save();
 
-        if (Time.timeScale == 0 && !mobile)
+        if (Time.timeScale == 0)
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -199,7 +201,7 @@ public class Geekplay : MonoBehaviour
 
         Save();
 
-        if (Time.timeScale == 0 && !mobile)
+        if (Time.timeScale == 0)
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -902,17 +904,17 @@ public class Geekplay : MonoBehaviour
         interstitialPanel.SetActive(false);
         canPause = true;
 
-        if (isOnPause)
-        {
-            AudioListener.volume = PlayerData.IsVolumeOn ? 1 : 0;
-            return;
-        }
+        //if (isOnPause)
+        //{
+        //    AudioListener.volume = PlayerData.IsVolumeOn ? 1 : 0;
+        //    return;
+        //}
         adOpen = false;
-        AudioListener.volume = 1;
+        AudioListener.volume = PlayerData.IsVolumeOn ? 1 : 0;
         AudioListener.pause = false;
         Time.timeScale = 1;
-        if (!SoundOn)
-            AudioListener.volume = 0;
+        //if (!SoundOn)
+        //    AudioListener.volume = 0;
     }
 
     //ФОКУС И ЗВУК

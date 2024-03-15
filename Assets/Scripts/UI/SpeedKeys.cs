@@ -23,7 +23,7 @@ public class SpeedKeys : MonoBehaviour
 
     private void Update()
     {
-        if (Geekplay.Instance.isOnPromocodeZone) return;
+        if (Geekplay.Instance.isOnPromocodeZone || Geekplay.Instance.adOpen) return;
 
         if(Input.GetKeyDown(KeyCode.T))
         {

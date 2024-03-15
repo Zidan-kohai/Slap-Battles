@@ -15,16 +15,17 @@ public class PausePopup : MonoBehaviour
 
     public void ClosePausePanel()
     {
-        AudioListener.volume = volumeToggle.isOn ? 1: 0;
-        Time.timeScale = 1;
+        //AudioListener.volume = volumeToggle.isOn ? 1: 0;
+        //Time.timeScale = 1;
 
-        pausePopup.SetActive(false);
+        //pausePopup.SetActive(false);
 
-        Geekplay.Instance.PlayerData.IsVolumeOn = volumeToggle.isOn;
+        //Geekplay.Instance.PlayerData.IsVolumeOn = volumeToggle.isOn;
+        Geekplay.Instance.StopOrResume();
         Geekplay.Instance.Save();
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
     }
 
     public void ChangeVolume()

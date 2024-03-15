@@ -476,7 +476,7 @@ MonoBehaviour:
     purchaseEvent:
       m_PersistentCalls:
         m_Calls: []
-  Platform: 0
+  Platform: 1
   gameArterPrefab: {fileID: 0}
   leaderboardBtn: {fileID: 0}
   MultipleSpeedBuff: 0
@@ -544,7 +544,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3946319351782338407
 RectTransform:
   m_ObjectHideFlags: 0
@@ -662,7 +662,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
