@@ -29,6 +29,7 @@ public class ShopEnterAndExit : MonoBehaviour
 
     private Sequence sequence;
 
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.layer == 7)
@@ -103,6 +104,6 @@ public class ShopEnterAndExit : MonoBehaviour
         }
 
         Geekplay.Instance.canPause = true;
-
+        Geekplay.Instance.ShowInterstitialAd();
     }
 }

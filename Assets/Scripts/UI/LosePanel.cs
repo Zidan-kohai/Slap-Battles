@@ -26,6 +26,7 @@ public class LosePanel : MonoBehaviour
     protected int earnedDiamondCountBeforeDouble;
     protected int earnedDiamondCount;
 
+    private bool showIntestitial;
 
     private void Start()
     {
@@ -43,6 +44,8 @@ public class LosePanel : MonoBehaviour
         Cursor.visible = false;
 
         gameObject.SetActive(false);
+
+        showIntestitial = false;
     }
 
     private void OnEnable()
@@ -61,7 +64,13 @@ public class LosePanel : MonoBehaviour
         {
             flagThatUseToLoadSceneOneTime = false;
             AddEarnedMoney();
-            Geekplay.Instance.LoadScene(1);
+            Geekplay.Instance.LoadScene(1, () =>
+            {
+                if (showIntestitial)
+                {
+                    Geekplay.Instance.ShowInterstitialAd();
+                }
+            } );
         }
         else if(lastedTime > 0)
         {
@@ -137,6 +146,7 @@ public class LosePanel : MonoBehaviour
 
         slider.gameObject.SetActive(false);
         DisableRewardButton();
+        showIntestitial = false;
     }
 
     public float CalculateMoney(float startMoney, float endMoney, float currentTime, float maxTime)

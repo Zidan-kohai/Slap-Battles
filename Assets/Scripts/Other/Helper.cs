@@ -28,14 +28,14 @@ public class Helper
     };
     public static List<string> trPlayerName = new List<string>()
     {
-            "Anton",
-            "Maks",
-            "Misha",
-            "Tolya",
-            "Vlad",
-            "Andrey",
-            "Ayi",
-            "Alexei",
+            "Adak",
+            "Adzhena",
+            "Gelistan",
+            "Gizem",
+            "Karasa",
+            "Kivilcim",
+            "Tuna",
+            "Eke",
     };
 
     public static string GetRandomName()

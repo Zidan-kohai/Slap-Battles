@@ -15948,10 +15948,10 @@ NavMeshObstacle:
   m_Shape: 1
   m_Extents: {x: 0.5, y: 0.5, z: 0.5}
   m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
+  m_Carve: 1
+  m_CarveOnlyStationary: 0
   m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
+  m_TimeToStationary: 0.01
 --- !u!54 &7384428086383194712
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -16377,10 +16377,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.32
-  m_Height: 1.425
+  m_Radius: 0.34
+  m_Height: 1.52
   m_Direction: 1
-  m_Center: {x: 0, y: 0.7875, z: 0}
+  m_Center: {x: 0, y: 0.808, z: 0}
 --- !u!114 &4681459780742580052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16394,9 +16394,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepHeightRatio: 0.05
-  colliderHeight: 1.5
-  colliderThickness: 0.64
-  colliderOffset: {x: 0, y: 0.5, z: 0}
+  colliderHeight: 1.6
+  colliderThickness: 0.68
+  colliderOffset: {x: 0, y: 0.48, z: 0}
   sensorType: 1
   isInDebugMode: 1
   sensorArrayRows: 5

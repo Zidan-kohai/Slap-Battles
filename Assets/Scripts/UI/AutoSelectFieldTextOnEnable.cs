@@ -1,16 +1,15 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class AutoSelectFieldTextOnEnable : UIBehaviour
 {
     public GameObject inputPopup;
-    public TMP_InputField _field;
+    public InputField _field;
     public Promocode promocode;
     private void Awake()
     {
         base.Awake();
-        _field.onFocusSelectAll = true;
     }
 
     protected override void OnEnable()
@@ -25,5 +24,6 @@ public class AutoSelectFieldTextOnEnable : UIBehaviour
         promocode.ClaimBtn();
         Geekplay.Instance.StopOrResumeWithoutPausePanel();
         inputPopup.SetActive(false);
+        Geekplay.Instance.ShowInterstitialAd();
     }
 }

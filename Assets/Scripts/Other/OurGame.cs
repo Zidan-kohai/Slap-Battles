@@ -29,6 +29,7 @@ public class OurGame : MonoBehaviour
         Geekplay.Instance.canPause = true;
 
         Geekplay.Instance.StopOrResumeWithoutPausePanel();
+        Geekplay.Instance.ShowInterstitialAd();
     }
 
     public void OpenGame(int appID)

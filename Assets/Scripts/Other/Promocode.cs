@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
-using TMPro;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class Codes
@@ -13,7 +13,7 @@ public class Codes
 public class Promocode : MonoBehaviour
 {
 	[SerializeField] private GameObject inputPopup; //куда вводим промокод
-	[SerializeField] private TMP_InputField inputText; //куда вводим промокод
+	[SerializeField] private InputField inputText; //куда вводим промокод
 	[SerializeField] private Codes[] codes; //список кодов и наград (как реварды и иннапы)
     [SerializeField] private HubEventManager eventManager;    
     //функция для кнопки "взять"

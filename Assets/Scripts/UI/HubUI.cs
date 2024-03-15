@@ -10,6 +10,8 @@ public class HubUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI diamondCountText;
     [SerializeField] private GameObject mobilePanel;
     [SerializeField] private GameObject TutorPanel;
+    [SerializeField] private SkineShopController skinController;
+
     private void Start()
     {
         slapCountText.text = Geekplay.Instance.PlayerData.money.ToString();
@@ -33,6 +35,8 @@ public class HubUI : MonoBehaviour
             Geekplay.Instance.PlayerData.IsFirstPlay = false;
             CanPause(canPause: false);
         }
+
+        skinController.ResetToWeared();
 
     }
 

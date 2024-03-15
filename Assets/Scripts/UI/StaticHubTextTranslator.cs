@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StaticHubTextTranslator : MonoBehaviour
 {
@@ -67,6 +68,8 @@ public class StaticHubTextTranslator : MonoBehaviour
     [SerializeField] private TextMeshProUGUI speedKeyDoubleSlapText;
     [SerializeField] private TextMeshProUGUI promocodeGetText;
     [SerializeField] private TextMeshProUGUI telegramText;
+    [SerializeField] private Text inputFieldPlaceHolder;
+
 
     private void Start()
     {
@@ -131,7 +134,7 @@ public class StaticHubTextTranslator : MonoBehaviour
             tutorBodyText.text = "Ты находишься в хабе. Используй порталы, чтобы играть и заходи в магазины, чтобы прокачиваться. Удачи!";
             tutorCloseText.text = "Закрыть";
             telegramText.text = "Телеграм";
-
+            inputFieldPlaceHolder.text = "Введите промокод...";
         }
         if (Geekplay.Instance.language == "en")
         {
@@ -193,6 +196,7 @@ public class StaticHubTextTranslator : MonoBehaviour
             tutorBodyText.text = "You are in the hub. Use portals to play and go to stores to upgrade. Good luck!";
             tutorCloseText.text = "Close";
             telegramText.text = "Telegram";
+            inputFieldPlaceHolder.text = "Enter promocode...";
         }
         if (Geekplay.Instance.language == "tr")
         {
@@ -254,6 +258,7 @@ public class StaticHubTextTranslator : MonoBehaviour
             tutorBodyText.text = "Merkezdesiniz. Oynamak icin portallari kullanin ve yukseltme yapmak icin magazalara gidin. Iyi sanslar!";
             tutorCloseText.text = "Kapat";
             telegramText.text = "Telegram";
+            inputFieldPlaceHolder.text = "Promosyon kodunu giriniz...";
         }
     }
 }

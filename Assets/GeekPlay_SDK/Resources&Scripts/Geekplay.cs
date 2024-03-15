@@ -2,6 +2,8 @@ using CrazyGames;
 using GamePix;
 using System;
 using System.Collections;
+using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -105,8 +107,16 @@ public class Geekplay : MonoBehaviour
     public GameObject reviewPanel;
     private bool openReview;
 
+    [Header("Interstitial")]
+    [SerializeField] private GameObject interstitialPanel;
+    [SerializeField] private TextMeshProUGUI interstitialRemainingText;
+    [SerializeField] private float interstitialTime = 75;
+    [SerializeField] private float pastedTimeFromLastInterstitial;
+
+
     private void Start()
     {
+        pastedTimeFromLastInterstitial = interstitialTime;
         Analytics.Instance.SendEvent("Start");
         if (!Instance.mobile)
         {
@@ -124,10 +134,38 @@ public class Geekplay : MonoBehaviour
         {
             StopOrResume();
         }
-
+        pastedTimeFromLastInterstitial -= Time.deltaTime;
         TimePasedFromLastReward += Time.deltaTime;
 
         remainingTimeUntilUpdateLeaderboard -= Time.deltaTime;
+
+        if(pastedTimeFromLastInterstitial < 6 && currentMode == Modes.Hub)
+        {
+            interstitialPanel.SetActive(true);
+
+            if (Instance.language == "ru")
+            {
+                interstitialRemainingText.text = "реклама через " + string.Format("{0:f0}", pastedTimeFromLastInterstitial);
+            }
+            if (Instance.language == "en")
+            {
+                interstitialRemainingText.text = "advertising through " + string.Format("{0:f0}", pastedTimeFromLastInterstitial);
+            }
+            if (Instance.language == "tr")
+            {
+                interstitialRemainingText.text = "araciligiyla reklam vermek " + string.Format("{0:f0}", pastedTimeFromLastInterstitial);
+            }
+            if(pastedTimeFromLastInterstitial <= 0)
+            {
+                ShowInterstitialAd();
+                pastedTimeFromLastInterstitial = interstitialTime;
+                interstitialPanel.SetActive(false);
+            }
+        }
+        else if(currentMode != Modes.Hub)
+        {
+            interstitialPanel.SetActive(false);
+        }
     }
 
     public void LoadScene(int index, UnityAction onLoad = null)
@@ -626,7 +664,7 @@ public class Geekplay : MonoBehaviour
                 {
                     PlayerData = new PlayerData();
                 }
-                language = "ru"; //ВЫБРАТЬ ЯЗЫК ДЛЯ ТЕСТОВ. ru/en/tr/
+                language = "tr"; //ВЫБРАТЬ ЯЗЫК ДЛЯ ТЕСТОВ. ru/en/tr/
                 Localization();
                 break;
             case Platform.Yandex:
@@ -861,6 +899,9 @@ public class Geekplay : MonoBehaviour
 
     public void ResumeMusAndGame()
     {
+        pastedTimeFromLastInterstitial = interstitialTime;
+        interstitialPanel.SetActive(false);
+
         if (isOnPause)
         {
             AudioListener.volume = PlayerData.IsVolumeOn ? 1 : 0;
