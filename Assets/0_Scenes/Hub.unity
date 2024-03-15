@@ -7919,6 +7919,8 @@ MonoBehaviour:
   portalAceText: {fileID: 78748410413867663}
   portalBossText: {fileID: 752515652121280067}
   portalTimeText: {fileID: 5540933280950439127}
+  yesText: {fileID: 563595791}
+  noText: {fileID: 554837527}
   skineShopMainHeaderText: {fileID: 4636402274451073246}
   skineShopHeaderText: {fileID: 709813725}
   manGenderText: {fileID: 1909509197}
@@ -7926,6 +7928,7 @@ MonoBehaviour:
   buffText: {fileID: 1097108684}
   slapShopMainHeaderText: {fileID: 1765667697696849575}
   slapShopHeaderText: {fileID: 1884305129}
+  buyAllText: {fileID: 524295541}
   inAppShopMainHeaderText: {fileID: 7353495591250289300}
   inAppShopHeaderText: {fileID: 2045943438}
   item1Cost: {fileID: 1522777255}
@@ -21847,6 +21850,10 @@ PrefabInstance:
     - target: {fileID: 1621987283824859919, guid: e57fbc8fff9b44c488489f57d2cbd720, type: 3}
       propertyPath: m_Name
       value: Init
+      objectReference: {fileID: 0}
+    - target: {fileID: 6986684302030619625, guid: e57fbc8fff9b44c488489f57d2cbd720, type: 3}
+      propertyPath: mobile
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7633089781514388730, guid: e57fbc8fff9b44c488489f57d2cbd720, type: 3}
       propertyPath: m_LocalPosition.x

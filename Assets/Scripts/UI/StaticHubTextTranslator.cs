@@ -12,6 +12,9 @@ public class StaticHubTextTranslator : MonoBehaviour
     [SerializeField] private TextMeshPro portalAceText;
     [SerializeField] private TextMeshPro portalBossText;
     [SerializeField] private TextMeshPro portalTimeText;
+    [SerializeField] private TextMeshProUGUI yesText;
+    [SerializeField] private TextMeshProUGUI noText;
+
 
     [Header("Skine Shop")]
     [SerializeField] private TextMeshPro skineShopMainHeaderText;
@@ -23,6 +26,8 @@ public class StaticHubTextTranslator : MonoBehaviour
     [Header("Slap Shop")]
     [SerializeField] private TextMeshPro slapShopMainHeaderText;
     [SerializeField] private TextMeshProUGUI slapShopHeaderText;
+    [SerializeField] private TextMeshProUGUI buyAllText;
+
 
     [Header("In App Shop")]
     [SerializeField] private TextMeshPro inAppShopMainHeaderText;
@@ -74,6 +79,8 @@ public class StaticHubTextTranslator : MonoBehaviour
             portalAceText.text = "Снежный режим";
             portalBossText.text = "Босс";
             portalTimeText.text = "Режим таймер";
+            yesText.text = "Да";
+            noText.text = "Нет";
 
 
             skineShopMainHeaderText.text = "Магазин скинов";
@@ -85,6 +92,7 @@ public class StaticHubTextTranslator : MonoBehaviour
 
             slapShopMainHeaderText.text = "Магазин перчаток";
             slapShopHeaderText.text = "Магазин перчаток";
+            buyAllText.text = "купить все";
 
 
             inAppShopMainHeaderText.text = "Ресурсы";
@@ -134,6 +142,8 @@ public class StaticHubTextTranslator : MonoBehaviour
             portalAceText.text = "Snow mode";
             portalBossText.text = "Boss";
             portalTimeText.text = "Timer mode";
+            yesText.text = "Yes";
+            noText.text = "No";
 
 
             skineShopMainHeaderText.text = "Skin Store";
@@ -145,7 +155,7 @@ public class StaticHubTextTranslator : MonoBehaviour
 
             slapShopMainHeaderText.text = "Glove shop";
             slapShopHeaderText.text = "Glove shop";
-
+            buyAllText.text = "Buy all";
 
             inAppShopMainHeaderText.text = "Resources";
             inAppShopHeaderText.text = "Resources";
@@ -193,6 +203,8 @@ public class StaticHubTextTranslator : MonoBehaviour
             portalAceText.text = "Kar modu";
             portalBossText.text = "Patron";
             portalTimeText.text = "Zamanlayici";
+            yesText.text = "Evet";
+            noText.text = "HAYIR";
 
 
             skineShopMainHeaderText.text = "Dis Gorunum Magazasi";
@@ -204,7 +216,7 @@ public class StaticHubTextTranslator : MonoBehaviour
 
             slapShopMainHeaderText.text = "Eldiven magazasi";
             slapShopHeaderText.text = "Eldiven magazasi";
-
+            buyAllText.text = "Hepsini al";
 
             inAppShopMainHeaderText.text = "Kaynaklar";
             inAppShopHeaderText.text = "Kaynaklar";
