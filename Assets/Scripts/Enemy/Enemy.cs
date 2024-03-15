@@ -22,6 +22,8 @@ public class Enemy : IHealthObject
     [SerializeField] private float startSpeed;
     [SerializeField] private int damagePower;
     [SerializeField] protected float distanseToAttack;
+    [SerializeField] protected float timeChase;
+    [SerializeField] protected float currentTimeChase;
     [SerializeField] protected bool CanWalk;
     [SerializeField] protected bool isSleeping;
     [SerializeField] private float timeNextToAttack;
@@ -117,8 +119,14 @@ public class Enemy : IHealthObject
 
         lastedTimeFromLastUseSuperPower += Time.deltaTime;
 
+        if (currentTimeChase > timeChase)
+        {
+            GetNearnestEnemyAsTarget(enemy);
+        }
+
         if(enemy != null && !enemy.IsDead)
         {
+            currentTimeChase += Time.deltaTime;
             target = enemy.transform.position;
             Move(target);
             InstantlyTurn(target);
@@ -132,12 +140,16 @@ public class Enemy : IHealthObject
 
         else
         {
+            currentTimeChase = 0;
             GetNearnestEnemyAsTarget();
             Move(target);
             InstantlyTurn(target);
         }
         animator.SetFloat("HorizontalSpeed", navMeshAgent.speed);
     }
+
+    
+
     protected bool IsInSight()
     {
         Vector3 to = (enemy.transform.position - transform.position).normalized;
@@ -150,6 +162,7 @@ public class Enemy : IHealthObject
     protected virtual void Attack()
     {
         if ((target - transform.position).magnitude > distanseToAttack || !IsInSight() || IsDead) return;
+        currentTimeChase = 0;
 
         if(lastedTimeFromLastUseSuperPower > timeToUseSuperPower && !isPowerActivated && !isBoss)
         {
@@ -342,6 +355,29 @@ public class Enemy : IHealthObject
                     minDistanse = distanse;
                     enemy = healthObject;
                     target = enemy.transform.position;
+                }
+            }
+        }
+    }
+
+    private void GetNearnestEnemyAsTarget(IHealthObject target)
+    {
+        currentTimeChase = 0;
+        Collider[] colls = Physics.OverlapSphere(transform.position, 100f, enemyLayer, QueryTriggerInteraction.Ignore);
+
+        float minDistanse = Mathf.Infinity;
+        enemy = null;
+
+        foreach (Collider coll in colls)
+        {
+            float distanse = Vector3.Distance(transform.position, coll.transform.position);
+            if (distanse < minDistanse)
+            {
+                if (coll.TryGetComponent(out IHealthObject healthObject) && healthObject != this && healthObject != target)
+                {
+                    minDistanse = distanse;
+                    enemy = healthObject;
+                    this.target = enemy.transform.position;
                 }
             }
         }
