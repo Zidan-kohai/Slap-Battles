@@ -245,13 +245,13 @@ public class StaticHubTextTranslator : MonoBehaviour
             otherGamesHeaderText.text = "oyunlarimiz";
             otherGamesButtonIconText.text = "diger oyunlar";
             bonusText.text = "Bonuslar";
-            speedKeyPauseText.text = "Tab tusuna basin";
-            speedKeyTelegramText.text = "T tusuna basin";
-            speedKeyInAppShoptext.text = "I tusuna basin";
-            speedKeyIncreasePowerText.text = "P tusuna basin";
-            speedKeyIncreaseSpeedText.text = "X tusuna basin";
-            speedKeyIncreaseHPText.text = "H tusuna basin";
-            speedKeyDoubleSlapText.text = "F tusuna basin";
+            speedKeyPauseText.text = "Tiklamak Tab";
+            speedKeyTelegramText.text = "Tiklamak T";
+            speedKeyInAppShoptext.text = "Tiklamak I";
+            speedKeyIncreasePowerText.text = "Tiklamak P";
+            speedKeyIncreaseSpeedText.text = "Tiklamak X";
+            speedKeyIncreaseHPText.text = "Tiklamak H";
+            speedKeyDoubleSlapText.text = "Tiklamak F";
             promocodeGetText.text = "almak";
 
             tutorHeaderText.text = "Merhaba!";

@@ -14,6 +14,7 @@ public class StaticEnviromentTextTranslator : MonoBehaviour
     [SerializeField] private TextMeshProUGUI superPowerText;
     [SerializeField] private TextMeshProUGUI EIconText;
     [SerializeField] private TextMeshProUGUI rotateText;
+    [SerializeField] private TextMeshProUGUI getDiamondText;
     [SerializeField] private TextMeshPro hub;
     void Start()
     {
@@ -31,6 +32,7 @@ public class StaticEnviromentTextTranslator : MonoBehaviour
             EIconText.text = "У";
             rotateText.text = "Обзор камерой";
             hub.text = "Хаб";
+            getDiamondText.text = "шлепни 35 раз и получи 1";
         }
         else if(Geekplay.Instance.language == "en")
         {
@@ -46,6 +48,7 @@ public class StaticEnviromentTextTranslator : MonoBehaviour
             EIconText.text = "E";
             rotateText.text = "Camera view";
             hub.text = "Hub";
+            getDiamondText.text = "Slaps 35 times and get 1";
         }
         else if (Geekplay.Instance.language == "tr")
         {
@@ -61,6 +64,7 @@ public class StaticEnviromentTextTranslator : MonoBehaviour
             EIconText.text = "E";
             rotateText.text = "Kamera gorunumu";
             hub.text = "Hub";
+            getDiamondText.text = "35 kez tokat at ve 1 puan al";
         }
     }
 }
