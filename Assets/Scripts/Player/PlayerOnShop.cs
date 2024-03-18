@@ -43,7 +43,14 @@ public class PlayerOnShop : MonoBehaviour
         }
         else
         {
-            Object.transform.Rotate(deltaRotation * Swipe.GetHorizontalCameraInput());
+            if (Geekplay.Instance.mobile)
+            {
+                Object.transform.Rotate(deltaRotation * Swipe.GetHorizontalCameraInput() * 0.6f);
+            }
+            else
+            {
+                Object.transform.Rotate(deltaRotation * Swipe.GetHorizontalCameraInput());
+            }
         }
 
     }
