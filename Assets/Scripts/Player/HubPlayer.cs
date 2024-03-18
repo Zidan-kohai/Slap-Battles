@@ -4,7 +4,7 @@ public class HubPlayer : MonoBehaviour
 {
     public Transform raycastPoint;
 
-    private void Start()
+    private void Awake()
     {
         Geekplay.Instance.BuffAcceleration = false;
         Geekplay.Instance.BuffDoubleSlap = false;
