@@ -117,7 +117,7 @@ public class SlapPower : MonoBehaviour
         foreach(Collider c in playerCollider)
             c.enabled = false;
 
-        wallGameobject.transform.position = player.transform.position + new Vector3(0,3,0);
+        wallGameobject.transform.position = player.transform.position;
 
         StartCoroutine(DiactivatePower(slap.rollBackTime, WallPowerDisactivate));
     }
