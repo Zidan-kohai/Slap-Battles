@@ -28,11 +28,11 @@ public class ShopEnterAndExit : MonoBehaviour
     public float YClosePosition;
 
     private Sequence sequence;
-
+    private bool canOpenShop = true;
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer == 7)
+        if(other.gameObject.layer == 7 && canOpenShop)
         {
             OpenShop();
         }
@@ -43,6 +43,7 @@ public class ShopEnterAndExit : MonoBehaviour
         if(swipeDetector != null)
             shopCameraMouseInput.mobileSwipeDetector = swipeDetector;
 
+        canOpenShop = false;
         playerMover.enabled = false;
         cameraController.enabled = false;
         cinemashine.SetActive(true);
@@ -92,6 +93,7 @@ public class ShopEnterAndExit : MonoBehaviour
         sequence?.Kill(false);
         sequence = DOTween.Sequence();
         sequence.Append(shopItemHandler.DOAnchorPosY(YClosePosition, animateDuration).OnComplete(OnCloseEnd));
+        StartCoroutine(CanOpenShop());
     }
 
     private void OnCloseEnd()
@@ -105,5 +107,11 @@ public class ShopEnterAndExit : MonoBehaviour
 
         Geekplay.Instance.canPause = true;
         Geekplay.Instance.ShowInterstitialAd();
+    }
+
+    private IEnumerator CanOpenShop()
+    {
+        yield return new WaitForSeconds(1f);
+        canOpenShop = true;
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -12,11 +13,13 @@ public class Codes
 
 public class Promocode : MonoBehaviour
 {
-	[SerializeField] private GameObject inputPopup; //куда вводим промокод
+	[SerializeField] private AutoSelectFieldTextOnEnable inputPopup; //куда вводим промокод
 	[SerializeField] private InputField inputText; //куда вводим промокод
 	[SerializeField] private Codes[] codes; //список кодов и наград (как реварды и иннапы)
-    [SerializeField] private HubEventManager eventManager;    
+    [SerializeField] private HubEventManager eventManager;
     //функция для кнопки "взять"
+
+    private bool canOpenShop = true;
     public void ClaimBtn()
     {
     	for (int i = 0; i < codes.Length; i++)
@@ -51,15 +54,29 @@ public class Promocode : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer == 7)
+        if(other.gameObject.layer == 7 && canOpenShop)
         {
+            canOpenShop = false;
+
             inputPopup.gameObject.SetActive(true);
-                
+
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             Geekplay.Instance.canPause = false;
 
             Geekplay.Instance.StopOrResumeWithoutPausePanel();
         }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer == 7)
+        {
+            StartCoroutine(CanOpenShop());
+        }
+    }
+    private IEnumerator CanOpenShop()
+    {
+        yield return new WaitForSeconds(1.5f);
+        canOpenShop = true;
     }
 }

@@ -1,14 +1,18 @@
+using System.Collections;
 using UnityEngine;
 
 public class OurGame : MonoBehaviour
 {
     public GameObject OurGamePanel;
 
+    private bool canOpenShop = true;
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer == 7)
+        if(other.gameObject.layer == 7 && canOpenShop)
         {
+            canOpenShop = false;
+
             OurGamePanel.SetActive(true);
 
             Cursor.lockState = CursorLockMode.None;
@@ -28,6 +32,19 @@ public class OurGame : MonoBehaviour
 
         Geekplay.Instance.StopOrResumeWithoutPausePanel();
         Geekplay.Instance.ShowInterstitialAd();
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer == 7)
+        {
+            StartCoroutine(CanOpenShop());
+        }
+    }
+    private IEnumerator CanOpenShop()
+    {
+        yield return new WaitForSeconds(1.5f);
+        canOpenShop = true;
     }
 
     public void OpenGame(int appID)

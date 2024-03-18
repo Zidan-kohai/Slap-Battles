@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -25,5 +26,6 @@ public class AutoSelectFieldTextOnEnable : UIBehaviour
         Geekplay.Instance.StopOrResumeWithoutPausePanel();
         inputPopup.SetActive(false);
         Geekplay.Instance.ShowInterstitialAd();
+
     }
 }
