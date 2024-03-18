@@ -11,7 +11,7 @@ public class DeathCollider : MonoBehaviour
         }
         else if(other.gameObject.layer == 7)
         {
-            player.Death();
+            player.Death(false);
         }
     }
 }
