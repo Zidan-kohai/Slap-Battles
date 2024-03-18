@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -20,7 +21,7 @@ public class SceneLoader
         curtainText = curtain.GetComponentInChildren<TextMeshProUGUI>();
     }
 
-    public void LoadScene(int index, UnityAction onLoad = null)
+    public void LoadScene(float waitTime, int index, UnityAction onLoad = null)
     {
         if (!Geekplay.Instance.mobile)
         {
@@ -66,12 +67,14 @@ public class SceneLoader
 
 
         curtain.SetActive(true);
-        AsyncOperation operation = SceneManager.LoadSceneAsync(index);
-        mono.StartCoroutine(Loading(operation, onLoad));
+        mono.StartCoroutine(Loading(waitTime, index, onLoad));
     }
 
-    private IEnumerator Loading(AsyncOperation operation, UnityAction onLoad)
+    private IEnumerator Loading(float waitTime, int index, UnityAction onLoad)
     {
+        yield return new WaitForSeconds(waitTime);
+
+        AsyncOperation operation = SceneManager.LoadSceneAsync(index);
         while (!operation.isDone)
         {
             curtainLoadVisual.fillAmount = operation.progress;

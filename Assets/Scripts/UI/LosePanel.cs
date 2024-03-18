@@ -64,13 +64,13 @@ public class LosePanel : MonoBehaviour
         {
             flagThatUseToLoadSceneOneTime = false;
             AddEarnedMoney();
-            Geekplay.Instance.LoadScene(1, () =>
+            Geekplay.Instance.LoadScene(1, 0f,() =>
             {
                 if (showIntestitial)
                 {
                     Geekplay.Instance.ShowInterstitialAd();
                 }
-            } );
+            });
         }
         else if(lastedTime > 0)
         {

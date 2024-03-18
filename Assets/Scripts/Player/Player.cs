@@ -139,6 +139,8 @@ public class Player : IHealthObject
         walkController.movementSpeed = movementSpeed;
         walkController.jumpSpeed = jumpSpeed;
         animator.SetTrigger("Revive");
+        fallingAudio.Stop();
+        fallingAudio.time = 0;
         currenthealth = maxHealth;
         healthbar.fillAmount = (currenthealth / maxHealth);
         playerCanvas.SetActive(true);

@@ -168,9 +168,9 @@ public class Geekplay : MonoBehaviour
         }
     }
 
-    public void LoadScene(int index, UnityAction onLoad = null)
+    public void LoadScene(int index, float waitTime = 0, UnityAction onLoad = null)
     {
-        sceneLoader.LoadScene(index, onLoad);
+        sceneLoader.LoadScene(waitTime, index, onLoad);
     }
 
     public void StopOrResume()
