@@ -716,6 +716,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4810678506296469497, guid: e5cf8b43aaeabff4980bf40bb30fb074, type: 3}
   m_PrefabInstance: {fileID: 768445937857148154}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &5519556657370398171 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 5058516597881522465, guid: e5cf8b43aaeabff4980bf40bb30fb074, type: 3}
+  m_PrefabInstance: {fileID: 768445937857148154}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6217580729400391882 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6693291574180727856, guid: e5cf8b43aaeabff4980bf40bb30fb074, type: 3}
@@ -1267,6 +1272,10 @@ PrefabInstance:
       propertyPath: eventManager
       value: 
       objectReference: {fileID: 3237182903930966125}
+    - target: {fileID: 7927295503674962743, guid: 5636079f881abb44dbd4bdc5973de692, type: 3}
+      propertyPath: teleportArea
+      value: 
+      objectReference: {fileID: 5519556657370398171}
     - target: {fileID: 8377274080409675458, guid: 5636079f881abb44dbd4bdc5973de692, type: 3}
       propertyPath: powerDescription
       value: 

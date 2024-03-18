@@ -161,6 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4cb68977e0512d45bf5d153688a74e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  walkerController: {fileID: 0}
   player: {fileID: 5241880417691870940}
   enemies:
   - {fileID: 3368098481517785133}
@@ -1037,6 +1038,11 @@ Transform:
 --- !u!4 &6217370158178068562 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5390192221002747391, guid: e5cf8b43aaeabff4980bf40bb30fb074, type: 3}
+  m_PrefabInstance: {fileID: 2055126268870927789}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &6536465203604057228 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 5058516597881522465, guid: e5cf8b43aaeabff4980bf40bb30fb074, type: 3}
   m_PrefabInstance: {fileID: 2055126268870927789}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &6793593103200043604 stripped
@@ -2810,6 +2816,10 @@ PrefabInstance:
       propertyPath: eventManager
       value: 
       objectReference: {fileID: 3237182903930966125}
+    - target: {fileID: 4543991973930755511, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
+      propertyPath: teleportArea
+      value: 
+      objectReference: {fileID: 6536465203604057228}
     - target: {fileID: 4569112160009479151, guid: 62f84bb2cf0082f4f817a7b7d4c40e28, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.00000046379887

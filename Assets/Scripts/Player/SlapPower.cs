@@ -43,7 +43,7 @@ public class SlapPower : MonoBehaviour
     private Collider[] freezedEnemies;
 
     [Header("Teleport")]
-
+    [SerializeField] private Collider teleportArea;
     [Header("Time")]
     [SerializeField] private Vector3 activatePosition;
 
@@ -227,48 +227,25 @@ public class SlapPower : MonoBehaviour
 
         NavMeshTriangulation navMeshData = NavMesh.CalculateTriangulation();
 
-        player.transform.position = SpawnRandomPoint(navMeshData);
+        player.transform.position = RandomPointInBounds(teleportArea.bounds);
         StartCoroutine(DiactivatePower(slap.rollBackTime, TeleportDiactivate));
 
         yield return new WaitForSeconds(0.3f);
         playerWalkController.enabled = true;
-    }
-    private Vector3 SpawnRandomPoint(NavMeshTriangulation navMeshData)
-    {
-        // Передаем случайные индексы из массива треугольников навмеша
-        int randomTriangleIndex = UnityEngine.Random.Range(0, navMeshData.indices.Length / 3);
-        Vector3 randomPoint = GetRandomPointInTriangle(randomTriangleIndex, navMeshData);
-        return randomPoint;
-    }
-
-    private Vector3 GetRandomPointInTriangle(int triangleIndex, NavMeshTriangulation navMeshData)
-    {
-        // Выбираем три вершины для заданного треугольника
-        Vector3 v1 = navMeshData.vertices[navMeshData.indices[triangleIndex * 3 + 0]];
-        Vector3 v2 = navMeshData.vertices[navMeshData.indices[triangleIndex * 3 + 1]];
-        Vector3 v3 = navMeshData.vertices[navMeshData.indices[triangleIndex * 3 + 2]];
-
-        // Генерируем случайные веса для нахождения случайной точки внутри треугольника
-        float r1 = UnityEngine.Random.Range(0f, 1f);
-        float r2 = UnityEngine.Random.Range(0f, 1f);
-
-        // Учитываем, что сумма весов не должна превышать 1
-        if (r1 + r2 > 1)
-        {
-            r1 = 1 - r1;
-            r2 = 1 - r2;
-        }
-
-        // Рассчитываем случайную точку внутри треугольника
-        return v1 + r1 * (v2 - v1) + r2 * (v3 - v1);
     }
 
     private void TeleportDiactivate()
     {
         isPowerActivated = false;
     }
-
-
+    public Vector3 RandomPointInBounds(Bounds bounds)
+    {
+        return new Vector3(
+            UnityEngine.Random.Range(bounds.min.x, bounds.max.x),
+            UnityEngine.Random.Range(bounds.min.y, bounds.max.y),
+            UnityEngine.Random.Range(bounds.min.z, bounds.max.z)
+        );
+    }
     #endregion
 
     #region Time
@@ -445,4 +422,5 @@ public class SlapPower : MonoBehaviour
             colorSwitcher?.GoldPowerDiactivated();
         }
     }
+
 }

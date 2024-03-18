@@ -1892,6 +1892,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4810678506296469497, guid: e5cf8b43aaeabff4980bf40bb30fb074, type: 3}
   m_PrefabInstance: {fileID: 4248395579762249339}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &8990912525049841498 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 5058516597881522465, guid: e5cf8b43aaeabff4980bf40bb30fb074, type: 3}
+  m_PrefabInstance: {fileID: 4248395579762249339}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4612909177375811435
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2542,6 +2547,10 @@ PrefabInstance:
       propertyPath: eventManager
       value: 
       objectReference: {fileID: 3237182903930966125}
+    - target: {fileID: 3995201941724228447, guid: 065dc4555a4230640b3ed5c9ea9b4d2d, type: 3}
+      propertyPath: teleportArea
+      value: 
+      objectReference: {fileID: 8990912525049841498}
     - target: {fileID: 4115399178739403192, guid: 065dc4555a4230640b3ed5c9ea9b4d2d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.1041946
