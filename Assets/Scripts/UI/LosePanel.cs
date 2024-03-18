@@ -98,11 +98,11 @@ public class LosePanel : MonoBehaviour
             {
                 if (lastedTime >= 1.5f)
                 {
-                    lastedTimeToLoadHubText.text = string.Format("{0:f0}", lastedTime) + " soconds";
+                    lastedTimeToLoadHubText.text = string.Format("{0:f0}", lastedTime) + " seconds";
                 }
                 else
                 {
-                    lastedTimeToLoadHubText.text = string.Format("{0:f0}", lastedTime) + " socond";
+                    lastedTimeToLoadHubText.text = string.Format("{0:f0}", lastedTime) + " second";
                 }
             }
             if (Geekplay.Instance.language == "tr")
