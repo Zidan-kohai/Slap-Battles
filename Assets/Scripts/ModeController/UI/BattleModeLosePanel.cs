@@ -6,6 +6,7 @@ public class BattleModeLosePanel : LosePanel
 {
     [SerializeField] private TextMeshProUGUI placeSlapRewardText;
     [SerializeField] private TextMeshProUGUI placeDiamondRewardText;
+    public bool isWin;
     private void Start()
     {
         Geekplay.Instance.SubscribeOnReward("PlayerRevive", OnPlayerRevive);
@@ -65,7 +66,10 @@ public class BattleModeLosePanel : LosePanel
     {
         eventManager.InvokePlayerReviveEvents();
 
-        gameObject.SetActive(false);
+        if (!isWin)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     public override void AddEarnedMoney()

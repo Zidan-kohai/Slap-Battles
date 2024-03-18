@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.WSA;
 
 public class BattleRoyalModeUIController : MonoBehaviour
 {
@@ -61,7 +62,7 @@ public class BattleRoyalModeUIController : MonoBehaviour
     {
         int place = 1;
         winPanel.DisableRewardButton();
-        
+        winPanel.isWin = true;
         winPanel.gameObject.SetActive(true);
         
         if(Geekplay.Instance.language == "ru")
