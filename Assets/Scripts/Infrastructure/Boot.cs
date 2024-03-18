@@ -18,11 +18,11 @@ public class Boot : MonoBehaviour
             yield return null;
         }
 
-        SceneManager.LoadScene(1);
+        //SceneManager.LoadScene(0);
 
-        //Geekplay.Instance.LoadScene(1, () =>
-        //{
-        //    Geekplay.Instance.CheckBuysOnStart(Geekplay.Instance.PlayerData.lastBuy);
-        //});
+        Geekplay.Instance.LoadScene(1, 0f, () =>
+        {
+            Geekplay.Instance.GameReady();
+        });
     }
 }

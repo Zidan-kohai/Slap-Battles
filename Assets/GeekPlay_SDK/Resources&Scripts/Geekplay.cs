@@ -113,6 +113,26 @@ public class Geekplay : MonoBehaviour
     [SerializeField] private float interstitialTime = 75;
     [SerializeField] private float pastedTimeFromLastInterstitial;
 
+    protected void Awake()
+    {
+        sceneLoader = new SceneLoader(this, curtain, curtainLoadVisual);
+        isOnPause = false;
+
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        if (Platform == Platform.GameDistribution || Platform == Platform.CrazyGames || Platform == Platform.Editor)
+        {
+            AfterPlatformChange();
+        }
+    }
 
     private void Start()
     {
@@ -125,8 +145,9 @@ public class Geekplay : MonoBehaviour
             Cursor.visible = false;
         }
 
+        ShowInterstitialAd();
+
         AudioListener.volume = PlayerData.IsVolumeOn ? 1 : 0;
-        sceneLoader = new SceneLoader(this, curtain, curtainLoadVisual);
     }
     private void Update()
     {
@@ -746,25 +767,6 @@ public class Geekplay : MonoBehaviour
         }
     }
 
-    protected void Awake()
-    {
-        isOnPause = false;
-
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
-        if (Platform == Platform.GameDistribution || Platform == Platform.CrazyGames || Platform == Platform.Editor)
-        {
-            AfterPlatformChange();
-        }
-    }
 
     //ЗАГРУЗКА РЕКЛАМЫ
     void LoadBanner()

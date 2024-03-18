@@ -12,6 +12,11 @@ public class DeathCollider : MonoBehaviour
         else if(other.gameObject.layer == 7)
         {
             player.Death(false);
+
+            if(player.slapPower.SuperPowerType == SlapPowerType.Time)
+            {
+                player.slapPower.Diactivate();
+            }
         }
     }
 }

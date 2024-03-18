@@ -12,7 +12,7 @@ public class Player : IHealthObject
     [SerializeField] protected EventManager eventManager;
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject modelHandler;
-    [SerializeField] private SlapPower slapPower;
+    [SerializeField] public SlapPower slapPower;
     [SerializeField] private GameObject playerCanvas;
 
     [Header("Audio")]
@@ -32,6 +32,8 @@ public class Player : IHealthObject
     [SerializeField] private bool isImmortall;
 
     public bool SetImmortall { get => isImmortall;  set => isImmortall = value;  }
+
+
     protected void Start()
     {
         isImmortall = false;
