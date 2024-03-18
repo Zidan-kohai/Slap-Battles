@@ -1,5 +1,6 @@
-using JetBrains.Annotations;
+using CMF;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class BattleRoyalModeController : MonoBehaviour
 {
     [SerializeField] private EventManager eventManager;
 
+    [SerializeField] private AdvancedWalkerController walkerController;
     [SerializeField] private Player player;
     [SerializeField] private List<Enemy> enemies;
     [SerializeField] private List<Transform> enemySpawnPoints;
@@ -47,9 +49,19 @@ public class BattleRoyalModeController : MonoBehaviour
 
     private void OnPlayerRevive()
     {
-        player.transform.position = GetRandomPositionForPlayer();
+        StartCoroutine(ReviveCoroutine());
     }
 
+    private IEnumerator ReviveCoroutine()
+    {
+        walkerController.enabled = false;
+        yield return new WaitForSeconds(0.6f);
+
+        walkerController.transform.position = GetRandomPositionForPlayer();
+
+        yield return new WaitForSeconds(0.3f);
+        walkerController.enabled = true;
+    }
     private void OnEnemyDeath(Enemy enemyObj)
     {
         enemies.Remove(enemyObj);

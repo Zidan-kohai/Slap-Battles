@@ -222,14 +222,16 @@ public class SlapPower : MonoBehaviour
     private IEnumerator TeleportPowerActivate()
     {
         isPowerActivated = true;
-        yield return new WaitForSeconds(0.1f);
+        playerWalkController.enabled = false;
+        yield return new WaitForSeconds(0.6f);
 
         NavMeshTriangulation navMeshData = NavMesh.CalculateTriangulation();
 
         player.transform.position = SpawnRandomPoint(navMeshData);
         StartCoroutine(DiactivatePower(slap.rollBackTime, TeleportDiactivate));
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.3f);
+        playerWalkController.enabled = true;
     }
     private Vector3 SpawnRandomPoint(NavMeshTriangulation navMeshData)
     {
@@ -274,15 +276,23 @@ public class SlapPower : MonoBehaviour
     {
         activatePosition = player.transform.position;
         isPowerActivated = true;
-        StartCoroutine(DiactivatePower(slap.rollBackTime, DiactivateTimePower));
+
+        StartCoroutine(DiactivatePower(slap.rollBackTime, DiactivateTimePower()));
         Debug.Log($"time power {activatePosition}");
+
     }
 
-    private void DiactivateTimePower()
+    private IEnumerator DiactivateTimePower()
     {
+        playerWalkController.enabled = false;
+        yield return new WaitForSeconds(0.6f);
         isPowerActivated = false;
         player.transform.position = activatePosition;
         Debug.Log($"time power {activatePosition}");
+
+        yield return new WaitForSeconds(0.3f);
+        playerWalkController.enabled = true;
+
     }
     #endregion
 
@@ -420,17 +430,13 @@ public class SlapPower : MonoBehaviour
 
         action?.Invoke();
     }
-
-    //найти случайную точку в коллайдере
-    /*public Vector3 RandomPointInBounds(Bounds bounds)
+    private IEnumerator DiactivatePower(float waitTime, IEnumerator coroutine)
     {
-        return new Vector3(
-            Random.Range(bounds.min.x, bounds.max.x),
-            Random.Range(bounds.min.y, bounds.max.y),
-            Random.Range(bounds.min.z, bounds.max.z)
-        );
-    }*/
+        timer?.Run(slap.rollBackTime);
+        yield return new WaitForSeconds(waitTime);
 
+        StartCoroutine(coroutine);
+    }
 
     private void OnDestroy()
     {

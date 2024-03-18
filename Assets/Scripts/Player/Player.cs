@@ -143,6 +143,7 @@ public class Player : IHealthObject
         healthbar.fillAmount = (currenthealth / maxHealth);
         playerCanvas.SetActive(true);
     }
+
     public IEnumerator GetDamageAnimation(Vector3 direction)
     {
         walkController.enabled = false;

@@ -1,9 +1,12 @@
+using CMF;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class StandartMode : MonoBehaviour
 {
+    [SerializeField] private AdvancedWalkerController walkerController;
     [SerializeField] private Player player;
     [SerializeField] private List<Enemy> enemies;
 
@@ -43,9 +46,19 @@ public class StandartMode : MonoBehaviour
 
     private void OnPlayerRevive()
     {
-        player.transform.position = GetRandomPositionForPlayer();
+        StartCoroutine(ReviveCoroutine());
     }
 
+    private IEnumerator ReviveCoroutine()
+    {
+        walkerController.enabled = false;
+        yield return new WaitForSeconds(0.6f);
+
+        walkerController.transform.position = GetRandomPositionForPlayer();
+
+        yield return new WaitForSeconds(0.3f);
+        walkerController.enabled = true;
+    }
     private void ArrangeTargetForEnemy()
     {
         for(int i = 0; i < enemyToSpawn; i++)
