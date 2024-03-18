@@ -34,6 +34,9 @@ public class HubUI : MonoBehaviour
             Geekplay.Instance.StopOrResumeWithoutPausePanel();
             Geekplay.Instance.PlayerData.IsFirstPlay = false;
             CanPause(canPause: false);
+
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
 
         skinController.ResetToWeared();
