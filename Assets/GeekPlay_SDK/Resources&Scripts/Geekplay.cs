@@ -308,6 +308,8 @@ public class Geekplay : MonoBehaviour
 
     public void ShowInterstitialAd() //МЕЖСТРАНИЧНАЯ РЕКЛАМА - ПОКАЗАТЬ
     {
+        if (adOpen) return;
+
         canPause = false;
         switch (Platform)
         {

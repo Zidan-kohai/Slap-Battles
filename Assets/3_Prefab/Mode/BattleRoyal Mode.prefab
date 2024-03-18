@@ -262,6 +262,12 @@ MonoBehaviour:
     DiamondCount: 0
   - SlapCount: 5
     DiamondCount: 0
+  - SlapCount: 0
+    DiamondCount: 0
+  - SlapCount: 0
+    DiamondCount: 0
+  - SlapCount: 0
+    DiamondCount: 0
   LeftColumn: {fileID: 4230540913442106337}
   RightColumn: {fileID: 3314462214722304016}
 --- !u!1 &5120783101719203658
@@ -1987,6 +1993,7 @@ MonoBehaviour:
   timeBeforeToLoadHub: 7
   placeSlapRewardText: {fileID: 5218208595914254727}
   placeDiamondRewardText: {fileID: 3654815451002365864}
+  isWin: 0
 --- !u!224 &4622897853453216538 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1220630164670770849, guid: 839a55fd203e74641b4966959a491b9e, type: 3}
