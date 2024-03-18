@@ -9833,7 +9833,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4304981864632216609}
   serializedVersion: 4
-  m_Mass: 1000000
+  m_Mass: 1000
   m_Drag: 0
   m_AngularDrag: 50
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -15842,7 +15842,7 @@ GameObject:
   - component: {fileID: 4980968272307606719}
   - component: {fileID: 8370041658467581505}
   - component: {fileID: 7384428086383194712}
-  - component: {fileID: 8862231260447687543}
+  - component: {fileID: 8721317535616183589}
   m_Layer: 7
   m_Name: CubePusher
   m_TagString: Untagged
@@ -15960,7 +15960,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7695263975820363550}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 1000
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -15979,7 +15979,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &8862231260447687543
+--- !u!114 &8721317535616183589
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -15988,7 +15988,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7695263975820363550}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c373acbeaae31fe46809f279d36b23d8, type: 3}
+  m_Script: {fileID: 11500000, guid: d708d39f00efd1540b8b855accff9e75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
