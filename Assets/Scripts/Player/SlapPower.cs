@@ -24,7 +24,7 @@ public class SlapPower : MonoBehaviour
     public void ChangeSlap(Slap slap) => this.slap = slap;
 
     private bool isPowerActivated;
-    public Coroutine superPowerDiactivateCoroutine;
+    public IEnumerator superPowerDiactivateCoroutine;
     public bool HasSuperPower {  get => slap.GetSlapPowerType() != SlapPowerType.Standart; }
     public SlapPowerType SuperPowerType => slap.GetSlapPowerType();
 
@@ -67,6 +67,11 @@ public class SlapPower : MonoBehaviour
 
     [Header("Gold")]
     [SerializeField] private ColorSwitcher colorSwitcher;
+    //you need to create a method that will stop the coroutine and change the ispoweractivated value to false, now this solution will work. but don't forget to fix it!!!
+    private void OnEnable()
+    {
+        isPowerActivated = false;
+    }
 
     private void Update()
     {
@@ -168,7 +173,14 @@ public class SlapPower : MonoBehaviour
 
         isPowerActivated = true;
 
-        superPowerDiactivateCoroutine = StartCoroutine(DiactivatePower(slap.rollBackTime, SleeplyPowerDiactivate));
+        if(superPowerDiactivateCoroutine != null)
+        {
+            StopCoroutine(superPowerDiactivateCoroutine);
+        }
+        
+        superPowerDiactivateCoroutine = DiactivatePower(slap.rollBackTime, SleeplyPowerDiactivate);
+
+        StartCoroutine(superPowerDiactivateCoroutine);
     }
 
     private void SleeplyPowerDiactivate()
@@ -189,7 +201,14 @@ public class SlapPower : MonoBehaviour
         legoSphere.transform.position = legoSpherePosition.transform.position;
         legoSphere.transform.parent = null;
 
-        superPowerDiactivateCoroutine = StartCoroutine(DiactivatePower(slap.rollBackTime, LegoPowerDisactivate));
+        if(superPowerDiactivateCoroutine != null)
+        {
+            StopCoroutine(superPowerDiactivateCoroutine);
+        }
+
+        superPowerDiactivateCoroutine = DiactivatePower(slap.rollBackTime, LegoPowerDisactivate);
+
+        StartCoroutine(superPowerDiactivateCoroutine);
     }
 
     private void LegoPowerDisactivate()
@@ -213,8 +232,14 @@ public class SlapPower : MonoBehaviour
             enemy.SnowyActivate();
 
         }
+        if(superPowerDiactivateCoroutine != null)
+        {
+            StopCoroutine(superPowerDiactivateCoroutine);
+        }
 
-        superPowerDiactivateCoroutine = StartCoroutine(DiactivatePower(slap.rollBackTime, SnowyPowerDisactivate));
+        superPowerDiactivateCoroutine = DiactivatePower(slap.rollBackTime, SnowyPowerDisactivate);
+
+        StartCoroutine(superPowerDiactivateCoroutine);
     }
 
     private void SnowyPowerDisactivate()
@@ -243,7 +268,14 @@ public class SlapPower : MonoBehaviour
         NavMeshTriangulation navMeshData = NavMesh.CalculateTriangulation();
 
         player.transform.position = RandomPointInBounds(teleportArea.bounds);
-        superPowerDiactivateCoroutine = StartCoroutine(DiactivatePower(slap.rollBackTime, TeleportDiactivate));
+
+        if (superPowerDiactivateCoroutine != null)
+        {
+            StopCoroutine(superPowerDiactivateCoroutine);
+        }
+        superPowerDiactivateCoroutine = DiactivatePower(slap.rollBackTime, TeleportDiactivate);
+        StartCoroutine(superPowerDiactivateCoroutine);
+
 
         playerModelHandler.gameObject.transform.DOScale(new Vector3(1f, 1f, 1f), 0.5f);
         yield return new WaitForSeconds(0.6f);
@@ -272,7 +304,13 @@ public class SlapPower : MonoBehaviour
         activatePosition = player.transform.position;
         isPowerActivated = true;
 
-        superPowerDiactivateCoroutine = StartCoroutine(DiactivatePower(slap.rollBackTime, DiactivateTimePower()));
+        if (superPowerDiactivateCoroutine != null)
+        {
+            StopCoroutine(superPowerDiactivateCoroutine);
+        }
+        superPowerDiactivateCoroutine = DiactivatePower(slap.rollBackTime, DiactivateTimePower());
+        StartCoroutine(superPowerDiactivateCoroutine);
+
         Debug.Log($"time power {activatePosition}");
 
     }
@@ -314,7 +352,14 @@ public class SlapPower : MonoBehaviour
             enemy.ShookerDamageActivate();
         }
         Debug.Log(colls.Length);
-        superPowerDiactivateCoroutine = StartCoroutine(DiactivatePower(slap.rollBackTime, DiactivateShookerPower));
+
+        if (superPowerDiactivateCoroutine != null)
+        {
+            StopCoroutine(superPowerDiactivateCoroutine);
+        }
+        superPowerDiactivateCoroutine = DiactivatePower(slap.rollBackTime, DiactivateShookerPower);
+        StartCoroutine(superPowerDiactivateCoroutine);
+
     }
 
     private void DiactivateShookerPower()
@@ -335,7 +380,14 @@ public class SlapPower : MonoBehaviour
         wallPusher.transform.parent = null;
         wallPusher.transform.forward = playerModelHandler.transform.forward;
         wallPusher.SetActive(true);
-        superPowerDiactivateCoroutine = StartCoroutine(DiactivatePower(slap.rollBackTime, PusherPowerDiactivate));
+
+        if (superPowerDiactivateCoroutine != null)
+        {
+            StopCoroutine(superPowerDiactivateCoroutine);
+        }
+        superPowerDiactivateCoroutine = DiactivatePower(slap.rollBackTime, PusherPowerDiactivate);
+
+        StartCoroutine(superPowerDiactivateCoroutine);
     }
 
     private void PusherPowerDiactivate()
@@ -370,7 +422,13 @@ public class SlapPower : MonoBehaviour
 
         player.transform.position = TeleportPosition;
 
-        superPowerDiactivateCoroutine = StartCoroutine(DiactivatePower(slap.rollBackTime, DiactivateMagnetPower));
+        if (superPowerDiactivateCoroutine != null)
+        {
+            StopCoroutine(superPowerDiactivateCoroutine);
+        }
+        superPowerDiactivateCoroutine = DiactivatePower(slap.rollBackTime, DiactivateMagnetPower);
+
+        StartCoroutine(superPowerDiactivateCoroutine);
     }
 
     private void DiactivateMagnetPower()
@@ -389,7 +447,12 @@ public class SlapPower : MonoBehaviour
 
         playerWalkController.movementSpeed = startSpeed * 2;
 
-        superPowerDiactivateCoroutine = StartCoroutine(DiactivatePower(slap.rollBackTime, DiactivaetAcceleratorPower));
+        if (superPowerDiactivateCoroutine != null)
+        {
+            StopCoroutine(superPowerDiactivateCoroutine);
+        }
+        superPowerDiactivateCoroutine = DiactivatePower(slap.rollBackTime, DiactivaetAcceleratorPower);
+        StartCoroutine(superPowerDiactivateCoroutine);
     }
 
     private void DiactivaetAcceleratorPower()
@@ -411,7 +474,12 @@ public class SlapPower : MonoBehaviour
         slap.AttackPower *= 1.5f;
         playerWalkController.movementSpeed = startSpeed * 2;
 
-        superPowerDiactivateCoroutine = StartCoroutine(DiactivatePower(slap.rollBackTime, DiactivateGoldPower));
+        if (superPowerDiactivateCoroutine != null)
+        {
+            StopCoroutine(superPowerDiactivateCoroutine);
+        }
+        superPowerDiactivateCoroutine = DiactivatePower(slap.rollBackTime, DiactivateGoldPower);
+        StartCoroutine(superPowerDiactivateCoroutine);
     }
 
     private void DiactivateGoldPower()

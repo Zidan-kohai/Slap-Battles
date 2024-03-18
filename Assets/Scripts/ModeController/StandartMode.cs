@@ -51,13 +51,16 @@ public class StandartMode : MonoBehaviour
 
     private IEnumerator ReviveCoroutine()
     {
+        Rigidbody rb = player.GetComponent<Rigidbody>();
         walkerController.enabled = false;
+        rb.isKinematic = true;
         yield return new WaitForSeconds(0.6f);
 
         walkerController.transform.position = GetRandomPositionForPlayer();
 
         yield return new WaitForSeconds(0.3f);
         walkerController.enabled = true;
+        rb.isKinematic = false;
     }
     private void ArrangeTargetForEnemy()
     {
