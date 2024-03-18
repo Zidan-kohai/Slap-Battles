@@ -312,15 +312,18 @@ public class SlapShopController : MonoBehaviour
 
         selectedIcons = Instantiate(Resources.Load<GameObject>("SelectedIcon"), rect);
     }
-    private void ChangePlayerSlap()
+    public void ResetPlayerSlaps()
     {
         slapSwitcher.SwitchSlap(Geekplay.Instance.PlayerData.currentSlap);
+    }
+    public void DisableSlap()
+    {
+        slapSwitcher.DisableSlaps();
     }
 
     private void OnDisable()
     {
-        ChangePlayerSlap();
-
-        slapSwitcher.DisableSlaps();
+        ResetPlayerSlaps();
+        DisableSlap();
     }
 }

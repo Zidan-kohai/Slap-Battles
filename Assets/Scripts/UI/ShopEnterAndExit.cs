@@ -23,6 +23,9 @@ public class ShopEnterAndExit : MonoBehaviour
     [SerializeField] private GameObject speedKeysPanelOnDesc;
     [SerializeField] private GameObject speedKeysPanelOnMobile;
 
+    [SerializeField] private SlapShopController slapShopController;
+    [SerializeField] private SkineShopController skineShopController;
+
     public float animateDuration;
     public float YOpenPosition;
     public float YClosePosition;
@@ -75,6 +78,10 @@ public class ShopEnterAndExit : MonoBehaviour
 
     public void CloseShop()
     {
+        slapShopController.ResetPlayerSlaps();
+        slapShopController.DisableSlap();
+        skineShopController.ResetToWeared();
+
         raycaster.enabled = false;
         playerMover.enabled = true;
         cameraController.enabled = true;
@@ -83,11 +90,6 @@ public class ShopEnterAndExit : MonoBehaviour
         if (Geekplay.Instance.mobile)
         {
             MobileInput.SetActive(true);
-            speedKeysPanelOnMobile.SetActive(true);
-        }
-        else
-        {
-            speedKeysPanelOnDesc.SetActive(true);
         }
 
         sequence?.Kill(false);
@@ -104,7 +106,14 @@ public class ShopEnterAndExit : MonoBehaviour
         {
             go.SetActive(true);
         }
-
+        if (Geekplay.Instance.mobile)
+        {
+            speedKeysPanelOnMobile.SetActive(true);
+        }
+        else
+        {
+            speedKeysPanelOnDesc.SetActive(true);
+        }
         Geekplay.Instance.canPause = true;
         Geekplay.Instance.ShowInterstitialAd();
     }

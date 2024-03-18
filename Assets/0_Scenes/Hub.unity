@@ -7035,6 +7035,8 @@ MonoBehaviour:
   swipeDetector: {fileID: 703165315}
   speedKeysPanelOnDesc: {fileID: 2090483801}
   speedKeysPanelOnMobile: {fileID: 1384999762}
+  slapShopController: {fileID: 7078374428928542325}
+  skineShopController: {fileID: 1107014879298461769}
   animateDuration: 1
   YOpenPosition: 0
   YClosePosition: 1800
@@ -14632,6 +14634,8 @@ MonoBehaviour:
   swipeDetector: {fileID: 1485542913}
   speedKeysPanelOnDesc: {fileID: 2090483801}
   speedKeysPanelOnMobile: {fileID: 1384999762}
+  slapShopController: {fileID: 7078374428928542325}
+  skineShopController: {fileID: 1107014879298461769}
   animateDuration: 1
   YOpenPosition: 0
   YClosePosition: 1200
@@ -50140,6 +50144,8 @@ MonoBehaviour:
   swipeDetector: {fileID: 0}
   speedKeysPanelOnDesc: {fileID: 2090483801}
   speedKeysPanelOnMobile: {fileID: 1384999762}
+  slapShopController: {fileID: 7078374428928542325}
+  skineShopController: {fileID: 1107014879298461769}
   animateDuration: 1
   YOpenPosition: 0
   YClosePosition: 930
@@ -95416,6 +95422,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3351216304586143481, guid: b33ae31839678af4091e3e2f442c4d1c, type: 3}
   m_PrefabInstance: {fileID: 858830120390169215}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7078374428928542325 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2815023327352358111, guid: b33ae31839678af4091e3e2f442c4d1c, type: 3}
+  m_PrefabInstance: {fileID: 858830120390169215}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7078374428928542324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 748ee6b79c6515548915359221cafd17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7083858407168033566
 PrefabInstance:
   m_ObjectHideFlags: 0
