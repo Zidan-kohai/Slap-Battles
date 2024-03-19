@@ -357,6 +357,7 @@ namespace CMF
 		//Draw debug information in editor (hit positions and ground surface normals);
 		public void DrawDebug()
 		{
+			Gizmos.color = Color.red;
 			if(hasDetectedHit && isInDebugMode)
 			{
 				Debug.DrawRay(hitPosition, hitNormal, Color.red, Time.deltaTime);
