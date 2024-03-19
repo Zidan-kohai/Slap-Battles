@@ -31,7 +31,9 @@ public class HubUI : MonoBehaviour
         if(Geekplay.Instance.PlayerData.IsFirstPlay)
         {
             TutorPanel.gameObject.SetActive(true);
-            Geekplay.Instance.StopOrResumeWithoutPausePanel();
+            //Geekplay.Instance.StopOrResumeWithoutPausePanel();
+
+            Time.timeScale = 0f;
             Geekplay.Instance.PlayerData.IsFirstPlay = false;
             CanPause(canPause: false);
 
@@ -57,5 +59,15 @@ public class HubUI : MonoBehaviour
     public void CanPause(bool canPause)
     {
         Geekplay.Instance.canPause = canPause;
+    }
+
+    public void ReturnFromTutor()
+    {
+        Time.timeScale = 1f;
+        if(!Geekplay.Instance.mobile)
+        {
+            Cursor.lockState= CursorLockMode.Locked; 
+            Cursor.visible = false;
+        }
     }
 }

@@ -13,7 +13,7 @@ public class Codes
 
 public class Promocode : MonoBehaviour
 {
-	[SerializeField] private AutoSelectFieldTextOnEnable inputPopup; //куда вводим промокод
+	[SerializeField] private AutoSelectFieldTextOnEnable inputPopup;
 	[SerializeField] private InputField inputText; //куда вводим промокод
 	[SerializeField] private Codes[] codes; //список кодов и наград (как реварды и иннапы)
     [SerializeField] private HubEventManager eventManager;
