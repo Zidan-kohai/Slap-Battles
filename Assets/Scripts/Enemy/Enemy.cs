@@ -81,7 +81,7 @@ public class Enemy : IHealthObject
         maxHealth = UnityEngine.Random.Range(randomLeftHealth, randomRightHealth);
         currenthealth = maxHealth;
         healthbar.fillAmount = currenthealth / maxHealth;
-
+        sleepText.SetActive(false);
         //GetNearnestEnemyAsTarget();
 
         eventManager.SubscribeOnEnemyDeath(OnEnemyDeath);
