@@ -358,6 +358,9 @@ public class SkineShopController : MonoBehaviour
 
                         eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
 
+                        buySlapIcon.SetActive(false);
+                        buyDiamondIcon.SetActive(false);
+
                         Geekplay.Instance.StartRatingSystem();
                     });
 
@@ -794,6 +797,8 @@ public class SkineShopController : MonoBehaviour
                             buyText.text = "giyme";
                         }
 
+                        buySlapIcon.SetActive(false);
+                        buyDiamondIcon.SetActive(false);
                         eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
                     });
                 }
@@ -966,6 +971,8 @@ public class SkineShopController : MonoBehaviour
 
                         eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
 
+                        buySlapIcon.SetActive(false);
+                        buyDiamondIcon.SetActive(false);
                         Geekplay.Instance.StartRatingSystem();
                     });
                 }
@@ -1142,6 +1149,8 @@ public class SkineShopController : MonoBehaviour
 
                         eventManager.InvokeChangeMoneyEvents(Geekplay.Instance.PlayerData.money, Geekplay.Instance.PlayerData.DiamondMoney);
 
+                        buySlapIcon.SetActive(false);
+                        buyDiamondIcon.SetActive(false);
                         Geekplay.Instance.StartRatingSystem();
                     });
                 }

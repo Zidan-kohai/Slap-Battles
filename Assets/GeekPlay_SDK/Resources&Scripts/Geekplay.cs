@@ -179,6 +179,8 @@ public class Geekplay : MonoBehaviour
 
             if(pastedTimeFromLastInterstitial <= 0)
             {
+                pastedTimeFromLastInterstitial = interstitialTime;
+                interstitialPanel.SetActive(false);
                 Debug.Log("SHOW INTERSTITIAL");
                 ShowInterstitialAd();
             }
@@ -687,7 +689,7 @@ public class Geekplay : MonoBehaviour
                 {
                     PlayerData = new PlayerData();
                 }
-                language = "en"; //ВЫБРАТЬ ЯЗЫК ДЛЯ ТЕСТОВ. ru/en/tr/
+                language = "ru"; //ВЫБРАТЬ ЯЗЫК ДЛЯ ТЕСТОВ. ru/en/tr/
                 Localization();
                 break;
             case Platform.Yandex:
@@ -904,6 +906,7 @@ public class Geekplay : MonoBehaviour
 
     public void ResumeMusAndGame()
     {
+        pastedTimeFromLastInterstitial = interstitialTime;
         pastedTimeFromLastInterstitial = interstitialTime;
         interstitialPanel.SetActive(false);
         canPause = true;
